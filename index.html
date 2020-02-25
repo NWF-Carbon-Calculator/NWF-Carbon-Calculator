@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Carbon Calculator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="/Css/main.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="/images/mobile-search-icon.svg" width="30" height="30"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01"
+            aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample01">
+            <form class="form-inline my-2 my-md-0">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </form>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Framework <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Pathways<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-6">Cool School: Carbon Calculator</h1>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="container-fluid">
+        <ol class="breadcrumb" id="breadcrumb-override">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Eco-Schools USA</a></li>
+            <li class="breadcrumb-item"><a href="#">Tools & Resources</a></li>
+            <li class="breadcrumb-item"><a href="#">Activities</a></li>
+            <li class="breadcrumb-item"><a href="#">Project Ideas</a></li>
+            <li class="breadcrumb-item active">Cool School Challenge</li>
+        </ol>
+    </div>
+
+    <!-- Header Button Content -->
+    <div class="container btn-control">
+        <div class="row">
+            <div class="col text-center">
+                <button type="button" id="btn_welcome" class="btn btn-outline-success active"
+                    data-toggle="button">Welcome</button>
+                <button type="button" id="btn_electricity" class="btn btn-outline-success"
+                    data-toggle="button">Electricity Info</button>
+                <button type="button" id="btn_record-data" class="btn btn-outline-success" data-toggle="button">Record
+                    Data</button>
+                <button type="button" id="btn_transportation" class="btn btn-outline-success"
+                    data-toggle="button">Transportation
+                    Data</button>
+                <button type="button" id="btn_summary" class="btn btn-outline-success"
+                    data-toggle="button">Summary</button>
+                <button type="button" id="btn_methodology" class="btn btn-outline-success"
+                    data-toggle="button">Methodology</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Used to place div content when a button is pressed -->
+    <div id="startDiv"></div>
+
+    <!-- Welcome Content -->
+    <div class="container content-container" id="container_welcome">
+        <div class="row content-header">
+            <h4>Welcome</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
+                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
+                assumenda tempora repellat.</p>
+        </div>
+        <div class="row calculation-area">
+        </div>
+    </div>
+
+    <!-- Electricity Content -->
+    <div class="container content-container" id="container_electricity">
+        <div class="row content-header">
+            <h4>Electricity Information</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
+                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
+                assumenda tempora repellat.</p>
+        </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type of Power</th>
+                        <th>National Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coal</td>
+                        <td>37.4%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Nuclear</td>
+                        <td>19%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Record Content -->
+    <div class="container content-container" id="container_record-data">
+        <div class="row content-header">
+            <h4>Record Data</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
+                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
+                assumenda tempora repellat.</p>
+        </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type of Power</th>
+                        <th>National Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coal</td>
+                        <td>37.4%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Nuclear</td>
+                        <td>19%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Summary Content -->
+    <div class="container content-container" id="container_summary">
+        <div class="row content-header">
+            <h4>Summary</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
+                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
+                assumenda tempora repellat.</p>
+        </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type of Power</th>
+                        <th>National Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coal</td>
+                        <td>37.4%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Nuclear</td>
+                        <td>19%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Methodology Content -->
+    <div class="container content-container" id="container_methodology">
+        <div class="row content-header">
+            <h4>Methodology</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
+                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
+                assumenda tempora repellat.</p>
+        </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type of Power</th>
+                        <th>National Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coal</td>
+                        <td>37.4%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Nuclear</td>
+                        <td>19%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Transportation Content -->
+    <div class="container content-container" id="container_transportation">
+        <div class="row content-header">
+            <h4>Transportation</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Collect and record data. In the orage table below, input Information about the teacher's usual
+                method of transportation to and from school each day.
+            </p>
+        </div>
+        <div class="row calculation-area">
+
+            <!-- Each label and input has its own form-row -->
+            <form>
+                <div class="form-row">
+                    <div class="col-8">
+                        <h5>Transportation Inputs (each label and input has its own row ie. a lot more html better responsiveness</h5>
+                    </div>
+                    <div class="col-2">
+                        <p>Before Taking Action</P>
+                    </div>
+                    <div class="col-2">
+                        <p>After Taking Action</P>
+                    </div>
+                    <div class="col-8">
+                        <label for="input1">What is the roundtrip distance traveled per day? (# of miles)</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="input1">
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="input1">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-8">
+                        <label for="input1">What is the roundtrip distance traveled per day? (# of miles)</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="input1">
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="input1">
+                    </div>
+                </div>
+            </form>
+
+            <!-- Each label and input has shared columns -->
+            <form>
+                <div class="form-row">
+                    <div class="col-8">
+                        <h5>Transportation Inputs (each label and input shares columns ie. less html)</h5>
+                    </div>
+                    <div class="col-2">
+                        <p>Before Taking Action</P>
+                    </div>
+                    <div class="col-2">
+                        <p>After Taking Action</P>
+                    </div>
+                    <div class="col-8">
+                        <label class="label-spacer" for="input1">What is the roundtrip distance traveled per day? (# of
+                            miles)</label>
+                        <label class="label-spacer" for="input1">What is the roundtrip distance traveled per day? (# of
+                            miles)</label>
+                        <label class="label-spacer" for="input1">What is the roundtrip distance traveled per day? (# of
+                            miles)</label>
+                        <label class="label-spacer" for="input1">What is the roundtrip distance traveled per day? (# of
+                            miles)</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="input1">
+                        <input type="text" class="form-control" id="input1">
+                        <input type="text" class="form-control" id="input1">
+                        <input type="text" class="form-control" id="input1">
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="input1">
+                        <input type="text" class="form-control" id="input1">
+                        <input type="text" class="form-control" id="input1">
+                        <input type="text" class="form-control" id="input1">
+                    </div>
+                </div>
+            </form>
+
+            <!-- Using tables to format -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transportation Inputs (using a table)</th>
+                        <th>Before Taking Action</th>
+                        <th>After Taking Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">What is the roundtrip distance traveled per day? (# of miles)</td>
+                        <td><input type="text" id="input2"></td>
+                        <td><input type="text" id="input2"></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">What is the roundtrip distance traveled per day? (# of miles)</td>
+                        <td><input type="text" id="input2"></td>
+                        <td><input type="text" id="input2"></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">What is the roundtrip distance traveled per day? (# of miles)</td>
+                        <td><input type="text" id="input2"></td>
+                        <td><input type="text" id="input2"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+
+
+
+
+
+<!-- test github -->
+
+
+
+
+
+        <!-- <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type of Power</th>
+                        <th>National Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coal</td>
+                        <td>37.4%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Nuclear</td>
+                        <td>19%</td>
+                    </tr>
+                </tbody>
+            </table> -->
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- JQuery The Full Version With Added UI Elements -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- Jquery The Bootstrap Mini Slim Version -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/Scripts/custom.js"></script>
+</body>
+
+</html>
