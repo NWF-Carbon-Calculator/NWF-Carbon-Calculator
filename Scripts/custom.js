@@ -1,4 +1,4 @@
-// JavaScript Equivelent
+// JavaScript Equivalent
 // let btnElectricity = document.getElementById('btn_electricity');
 
 // btnElectricity.addEventListener('click', function(){
