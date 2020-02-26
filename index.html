@@ -100,65 +100,212 @@
     <!-- Electricity Content -->
     <div class="container content-container" id="container_electricity">
         <div class="row content-header">
-            <h4>Electricity Information</h4>
-        </div>
-        <div class="row content-instructions">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
-                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
-                assumenda tempora repellat.</p>
-        </div>
-        <div class="row calculation-area">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Type of Power</th>
-                        <th>National Average</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Coal</td>
-                        <td>37.4%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Nuclear</td>
-                        <td>19%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+            <h4>Electricity Information</h4> 
+        </div> 
+        <div class="row content-instructions"> 
+            <p><strong>Instructions: </strong>Before you begin using the Electricity section of your audit, you'll first need to decide whether 
+to use the "National Average" fuel mix or customize your results based on the fuel mix of your local utility.<br><br>
 
-    <!-- Record Content -->
-    <div class="container content-container" id="container_record-data">
-        <div class="row content-header">
-            <h4>Record Data</h4>
-        </div>
-        <div class="row content-instructions">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corrupti recusandae cupiditate, ab quis
-                asperiores veniam consequatur doloremque at. Ducimus ratione nam minus pariatur cupiditate aperiam dolor
-                assumenda tempora repellat.</p>
-        </div>
-        <div class="row calculation-area">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Type of Power</th>
-                        <th>National Average</th>
+&emsp;&#xbb;If you would like to create your own electricity emissions factor using the fuel mix of your local utility:<br>
+&emsp;1. Select the "Enter Your Own Utility Information" button in the box below.<br>
+&emsp;2. Enter the fuel mix of your utility in the appropriate boxes. Your state's average fuel mix can be found at <a href="http://eia.gov/state/">eia.gov/state</a>.<br>
+&emsp;3. You should now have your own custom electricity factor! Move on to the next section.</p> 
+        		<p><h6>INPUT UTILITY INFORMATION HERE:</h6></p>
+		</div> 
+		
+		  <form>
+				<label class="radio-inline"><input type="radio" name="option" checked> Use National Average</label>
+				&emsp; OR &emsp;
+				<label class="radio-inline"><input type="radio" name="option"> Enter Your Own Utility Information</label>
+			</form>
+		
+        <div class="row calculation-area"> 
+            <table class="table"> 
+
+        <thead> 
+                    <tr> 
+                        <th>Type of Power</th> 
+                        <th>National Average</th> 
+            <th>Custom Information</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <tr> 
+                        <td scope="row">Coal</td> 
+                        <td>37.4%</td> 
+                        <td><input type="text" id="coal"></td> 
+                    </tr> 
+                    <tr> 
+                        <td scope="row">Nuclear</td> 
+                        <td>19%</td> 
+                        <td><input type="text" id="nuclear"></td> 
+                    </tr> 
+					<tr> 
+                        <td scope="row">Natural Gas</td> 
+                        <td>30.3%</td> 
+                        <td><input type="text" id="gas"></td> 
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Coal</td>
-                        <td>37.4%</td>
+					<tr> 
+                        <td scope="row">Oil</td> 
+                        <td>0.6%</td> 
+                        <td><input type="text" id="oil"></td> 
                     </tr>
-                    <tr>
-                        <td scope="row">Nuclear</td>
-                        <td>19%</td>
+					<tr> 
+                        <td scope="row">Hydro</td> 
+                        <td>6.7%</td> 
+                        <td><input type="text" id="hydro"></td> 
                     </tr>
-                </tbody>
-            </table>
-        </div>
+					<tr> 
+                        <td scope="row">Renewables & Other*</td> 
+                        <td>5.4%</td> 
+                        <td><input type="text" id="other"></td> 
+                    </tr>
+					<tr> 
+                        <td scope="row"></td> 
+                        <td></td> 
+						<td></td>
+                         
+                    </tr>
+					<tr> 
+                        <td scope="row">Electricity Emissions Factor</td> 
+                        <td><input type="text" id="" readonly>lbs CO2/kWh</td>
+                        <td><input type="text" id="" readonly>lbs CO2/kWh</td>
+                    </tr>
+                </tbody> 
+            </table> 
+			<p class="font-italic">*Other includes generation from solar, wind, geothermal, biomass (agricultural waste, municipal solid waste, landfill gas recovery, wood, pitch), hydrogen, batteries, chemicals, non-wood waste, purchased steam, sulfur, and miscellaneous technologies</p>
+        </div> 
+    </div> 
+
+  
+
+    <!-- Lighting Content --> 
+
+    <div class="container content-container" id="container_record-data"> 
+
+        <div class="row content-header"> 
+            <h4>Classroom Lighting</h4> 
+        </div> 
+        <div class="row content-instructions"> 
+            <p><strong>Instructions: </strong>Enter the information collected on your audit form to calculate the classroom's carbon dioxide emissions from lighting both before and after implementing your action plan.</p>
+			<br>
+			<p>You have selected to use <input type="text" id="" readonly> as the source for your fuel mix.</p>
+			<br>
+			<p>Based on this electricity fuel mix, your electricity emissions factor is <input type="text" id="" readonly></p>
+			<br>
+			<p><br><br>Collect and record data below</p>
+        </div> 
+        <div class="row calculation-area"> 
+            <table class="table"> 
+                <thead> 
+                    <tr> 
+                        <th>Switch</th> 
+                        <th># of bulbs per switch</th> 
+						<th>Watts per bulb</th> 
+						<th>Before taking option (# of hours switch is on, per day)</th> 
+						<th>After taking option (# of hours switch is on, per day)</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <tr> 
+                        <td scope="row">1</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr> 
+					                    <tr> 
+                        <td scope="row">2</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">3</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">4</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">5</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">6</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">7</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">8</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">9</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+					                    <tr> 
+                        <td scope="row">10</td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                        <td><input type="text" id=""></td> 
+                    </tr>
+                </tbody> 
+            </table> 
+			<table>
+			<thead>
+			<tr>
+			<td>SUMMARY OF RESULTS</td>
+			<td>CO2 Emissions per day (lbs)</td>
+			<td>Co2 Emissions per 180-day school year (lbs)</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>Before Taking Action</td>
+            <td><input type="text" id="" readonly></td> 
+            <td><input type="text" id="" readonly></td> 
+			</tr>
+			<tr>
+			<td>After Taking Action</td>
+            <td><input type="text" id="" readonly></td> 
+            <td><input type="text" id="" readonly></td> 
+			</tr>
+			<tr>
+			<td>Total CO2 emissions savings</td>
+            <td><input type="text" id="" readonly></td> 
+            <td><input type="text" id="" readonly></td> 
+			</tr>
+			</tbody>
+			</table>
+        </div> 
     </div>
 
     <!-- Summary Content -->
