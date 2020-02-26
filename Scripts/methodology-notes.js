@@ -1,12 +1,12 @@
 //Place to setup the variables needed for calulation of carbon
-//round numbers to two decimal places using .toFixed(2) function
+//Round numbers to two decimal places using .toFixed(2) function
 
-//ELECTRICITY
+// *****ELECTRICITY*****
 
-//CLASSROOM LIGHTING
+// *****CLASSROOM LIGHTING*****
 
 
-//TRANSPORTATION
+// *****TRANSPORTATION*****
 // One gallon of gas generates f(x) lbs of CO2
 const GALLONCO2 = 20;
 
