@@ -13,8 +13,8 @@
 // })
 
 // Quick JQuery
-$('#container_transportation').insertAfter('#startDiv');
-$('#container_transportation').toggle();
+// $('#container_transportation').insertAfter('#startDiv');
+// $('#container_transportation').toggle();
 
 $('#btn_welcome').click(function () {
     $('#container_welcome').insertAfter('#startDiv');
@@ -46,8 +46,26 @@ $('#btn_transportation').click(function () {
     $('#container_transportation').toggle();
 })
 
+// *****Classroom Lighting Content Calculations*****
+var numberOfRows = 1;
 
-// Transportation Content Calculations
+// Add new row to lighting table
+$('#btn_add_row').click(function () {
+    numberOfRows++;
+    var row = createRowHTML(numberOfRows);
+    $("#table_light tbody").append(row);
+})
+
+function createRowHTML(counter) {
+    var stringHTML = "<tr><td scope='row'>"+counter+"</td>";
+    stringHTML += "<td><input type='text' id='number_switches"+counter+"'></td>";
+    stringHTML += "<td><input type='text' id='watts_bulb"+counter+"'></td>";
+    stringHTML += "<td><input type='text' id='before_option"+counter+"'></td>";
+    stringHTML += "<td><input type='text' id='after_option"+counter+"'></td></tr>";
+    return stringHTML;
+}
+
+// *****Transportation Content Calculations*****
 const TRANSPORTATIONINPUTS = 14;
 
 // Calculate carbon impact from user inputs
