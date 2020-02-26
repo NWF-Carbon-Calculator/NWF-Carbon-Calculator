@@ -382,79 +382,141 @@ to use the "National Average" fuel mix or customize your results based on the fu
                 method of transportation to and from school each day.
             </p>
         </div>
-        <div class="row calculation-area">
 
-            <!-- Using tables to format (a good balance of less html and responsive behavior)-->
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Transportation Inputs (using a table)</th>
-                        <th>Before Taking Action</th>
-                        <th>After Taking Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">What is the roundtrip distance traveled per day? (# of miles)</td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                    <tr>
-                        <td scope="row">How many days per week does the teacher drive <em><b>alone</b></em> to
-                            work?</em></td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                    <tr>
-                        <td scope="row">What is the mileage of the vehilce he/she drives? (mpg)</td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                    <tr>
-                        <td scope="row">How many days per week does the teacher <em><b>carpool</b></em> to work? </td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                    <tr>
-                        <td scope="row">What is the mileage of the carpool vehicle? (mpg)</td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                    <tr>
-                        <td scope="row">What is the total # of people traveling in the carpool?</td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                    <tr>
-                        <td scope="row">How many days per week does the teacher commute by walking, biking, or riding
-                            the bus?</td>
-                        <td><input type="text" id="input2"></td>
-                        <td><input type="text" id="input2"></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container">
+            <div class="row calculation-area">
 
+
+                <!-- Using tables to format (a good balance of less html and responsive behavior)-->
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Transportation Inputs (using a table)</th>
+                                <th scope="col">Before Taking Action</th>
+                                <th scope="col">After Taking Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-4" scope="row">What is the roundtrip distance traveled per day? (# of
+                                    miles)</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">How many days per week does the teacher drive
+                                    <em><b>alone</b></em> to
+                                    work?</em></td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input3">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input4">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">What is the mileage of the vehilce he/she drives? (mpg)
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input5">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input6">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">How many days per week does the teacher
+                                    <em><b>carpool</b></em> to work?
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input7">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input8">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">What is the mileage of the carpool vehicle? (mpg)</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input9">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">What is the total # of people traveling in the carpool?
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input11">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input12">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">How many days per week does the teacher commute by
+                                    walking, biking, or
+                                    riding
+                                    the bus?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input13">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input14">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button type="button" id="btn_reset_transportation"
+                                        class="btn btn-success">Reset</button></td>
+                                <td><button type="button" id="btn_calculate_transportation"
+                                        class="btn btn-success">Calculate</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Carbon Impact</th>
+                                <th scope="col">Before Taking Action</th>
+                                <th scope="col">After Taking Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Gallons of gasoline burned each week, driving alone to and from
+                                    work:
+                                </td>
+                                <td><span id="transportation_results1"></span></td>
+                                <td><span id="transportation_results2"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Pounds of CO2 emitted per week (lbs), <b><em>driving
+                                            alone</em></b></td>
+                                <td><span id="transportation_results3"></span></td>
+                                <td><span id="transportation_results4"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Gallons of gasoline burned each week by the carpool vehicle</td>
+                                <td><span id="transportation_results5"></span></td>
+                                <td><span id="transportation_results6"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Pounds of C02 emitted per week (lbs) <b><em>per person in the
+                                            carpool</em></b>
+                                </td>
+                                <td><span id="transportation_results7"></span></td>
+                                <td><span id="transportation_results8"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Commuting by foot, bike or bus are climate-friendly modes of
+                                    transportation
+                                    which do not generate any additional greenhouse gasses.</td>
+                                <td><span id="transportation_results9"></span></td>
+                                <td><span id="transportation_results10"></span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
         </div>
-
-        <!-- <table class="table">
-                <thead>
-                    <tr>
-                        <th>Type of Power</th>
-                        <th>National Average</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Coal</td>
-                        <td>37.4%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Nuclear</td>
-                        <td>19%</td>
-                    </tr>
-                </tbody>
-            </table> -->
-    </div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -473,6 +535,9 @@ to use the "National Average" fuel mix or customize your results based on the fu
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="/Scripts/methodology-notes.js"></script>
     <script type="text/javascript" src="/Scripts/custom.js"></script>
 </body>
 
