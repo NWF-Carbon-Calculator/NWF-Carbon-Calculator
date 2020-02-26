@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="/Css/main.css" rel="stylesheet">
+<!-->
+    <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -72,6 +75,10 @@
                 <button type="button" id="btn_transportation" class="btn btn-outline-success"
                     data-toggle="button">Transportation
                     Data</button>
+                    <button type="button" id="btn_bottles" class="btn btn-outline-success"
+                            data-toggle="button">Plastic Bottles</button>
+                    <button type="button" id="btn_cups" class="btn btn-outline-success"
+                                    data-toggle="button">Beverage Cupss</button>
                 <button type="button" id="btn_summary" class="btn btn-outline-success"
                     data-toggle="button">Summary</button>
                 <button type="button" id="btn_methodology" class="btn btn-outline-success"
@@ -496,6 +503,151 @@
         </div>
     </div>
 
+    <div class="container content-container" id="container_bottles">
+        <div class="row content-header">
+            <h4>Plastic Bottles</h4>
+        </div>
+        <div class="row content-instructions">
+            <div class="col">
+                <p>Collect and record data. In the orange table below, record the number of plastic bottles the students
+                  and/or staff uses in a typical week. Also record whether the they recycle the bottles.
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row calculation-area">
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Plastic water bottle consumption (using a table)</th>
+                                <th scope="col">Before Taking Action</th>
+                                <th scope="col">After Taking Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-4" scope="row">If the students and/or staff drinks bottled water,
+                                  approximately how many plastic water bottles does they go through each week?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">Most of the time, do they usually recycle the water bottles,
+                                  or throw them away? (Select one)</td>
+                                <td class="col-sm-4"> <select id="rt" name="rt">
+                                  <option value="blank"></option>
+                                  <option value="recycle">Recycle</option>
+                                  <option value="throwaway">Throw Away</option>
+                                </select>
+                                </td>
+                                <td class="col-sm-4"><select id="rt" name="rt">
+                                  <option value="blank"></option>
+                                  <option value="recycle">Recycle</option>
+                                  <option value="throwaway">Throw Away</option>
+                                </select>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Carbon Impact</th>
+                                <th scope="col">Before Taking Action</th>
+                                <th scope="col">After Taking Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">That's roughly this many lbs of plastic each week:
+                                </td>
+                                <td><span id="transportation_results1"></span></td>
+                                <td><span id="transportation_results2"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Which adds up to this many lbs of CO2 each week:
+                                </td>
+                                <td><span id="transportation_results3"></span></td>
+                                <td><span id="transportation_results4"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Recycling these water bottles saves this many lbs of CO2 each week. Emissions saved from recycling:</td>
+                                <td><span id="transportation_results5"></span></td>
+                                <td><span id="transportation_results6"></span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-container" id="container_cups">
+        <div class="row content-header">
+            <h4>Beverage Cups</h4>
+        </div>
+        <div class="row content-instructions">
+            <div class="col">
+                <p>Collect and record data. Input the class's/school's beverage cup data before and after implmenting the action plan.
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row calculation-area">
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Beverage cup consumption (using a table)</th>
+                                <th scope="col">Before Taking Action</th>
+                                <th scope="col">After Taking Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee, tea or other beverage,
+                                does he/she always use his/her own mug? (Select Yes or No from the drop-down menu.)</td>
+                              <td class="col-sm-4"> <select id="yn" name="yn">
+                                <option value="blank"></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </select>
+                              </td>
+                              <td class="col-sm-4"><select id="yn" name="yn">
+                                <option value="blank"></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </select>
+                              </td>
+                          </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">Approximately how many disposable cups are used in a week?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- JQuery The Full Version With Added UI Elements -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -516,6 +668,10 @@
     <!-- Custom Scripts -->
     <script type="text/javascript" src="/Scripts/methodology-notes.js"></script>
     <script type="text/javascript" src="/Scripts/custom.js"></script>
+
+    <!-- <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
+    <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script> -->
+
 </body>
 
 </html>

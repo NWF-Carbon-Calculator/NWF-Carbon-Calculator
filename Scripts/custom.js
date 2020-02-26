@@ -45,6 +45,14 @@ $('#btn_transportation').click(function () {
     $('#container_transportation').insertAfter('#startDiv');
     $('#container_transportation').toggle();
 })
+$('#btn_bottles').click(function () {
+    $('#container_bottles').insertAfter('#startDiv');
+    $('#container_bottles').toggle();
+})
+$('#btn_cups').click(function () {
+    $('#container_cups').insertAfter('#startDiv');
+    $('#container_cups').toggle();
+})
 
 // *****Classroom Lighting Content Calculations*****
 var numberOfRows = 1;
@@ -80,12 +88,12 @@ $('#btn_calculate_transportation').click(function () {
     var daysCarpool = $('#transportation_input7').val();
     var mpgCarpool = $('#transportation_input9').val();
     var peopleInCarpool = $('#transportation_input11').val();
-    
+
     gallonsBurnedBeforeAction = gallonsBurned(distanceTraveled,daysDriven,mpg);
     $('#transportation_results1').text(gallonsBurnedBeforeAction);
     weeklyCarbonEmitted = weeklyCarbonDrivingAlone(gallonsBurnedBeforeAction);
     $('#transportation_results3').text(weeklyCarbonEmitted);
-    
+
     distanceTraveled = $('#transportation_input2').val();
     daysDriven = $('#transportation_input4').val();
     mpg = $('#transportation_input6').val();
