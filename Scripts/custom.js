@@ -3,7 +3,7 @@
 $('#btn_welcome').click(function () {
     $(".button-wrapper").find(".btn").removeClass('active');
     $(this.id).addClass('active');
-    
+
     $('.content-container').hide();
     $('#container_welcome').insertAfter('#startDiv');
     $('#container_welcome').show();
@@ -12,10 +12,28 @@ $('#btn_welcome').click(function () {
 $('#btn_electricity').click(function () {
     $(".button-wrapper").find(".btn").removeClass('active');
     $(this.id).addClass('active');
-    
+
     $('.content-container').hide();
     $('#container_electricity').insertAfter('#startDiv');
     $('#container_electricity').show();
+})
+
+$('#btn_appliance').click(function () {
+    $(".button-wrapper").find(".btn").removeClass('active');
+    $(this.id).addClass('active');
+
+    $('.content-container').hide();
+    $('#container_appliance').insertAfter('#startDiv');
+    $('#container_appliance').show();
+})
+
+$('#btn_vampire').click(function () {
+    $(".button-wrapper").find(".btn").removeClass('active');
+    $(this.id).addClass('active');
+
+    $('.content-container').hide();
+    $('#container_vampire').insertAfter('#startDiv');
+    $('#container_vampire').show();
 })
 
 $('#btn_record-data').click(function () {

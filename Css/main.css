@@ -68,7 +68,10 @@
     max-width: 300px;
 } */
 
+.appliance {
+    width: 100px;
+}
 
-
-
-
+#appliance_tr thead{
+    width: 100px;
+}
