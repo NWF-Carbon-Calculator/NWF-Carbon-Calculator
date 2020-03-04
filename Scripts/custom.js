@@ -175,3 +175,22 @@ $('#transportation_input11').val(2);
 $('#transportation_input12').val(3);
 $('#transportation_input13').val(1);
 $('#transportation_input14').val(1);
+
+// *****Plastic Bottle Content Calculations*****
+const BOTTLESINPUTS = 4;
+// Calculate carbon impact from user inputs
+// Clear input values for bottles contents
+$('#btn_reset_bottles').click(function () {
+    for (let i = 1; i <= BOTTLESINPUTS; i++) {
+        $('#bottles_input' + i).val("");
+    }
+})
+// *****Beverage Cups Content Calculations*****
+const CUPSINPUTS = 4;
+// Calculate carbon impact from user inputs
+// Clear input values for bottles contents
+$('#btn_reset_cups').click(function () {
+    for (let i = 1; i <= CUPSINPUTS; i++) {
+        $('#cups_input' + i).val("");
+    }
+})
