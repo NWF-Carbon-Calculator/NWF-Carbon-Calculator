@@ -190,6 +190,26 @@ calculate = function () {
     var trashinput3 = document.getElementById('trash_input3').value;
     var trashinput4 = document.getElementById('trash_input4').value;
 
+    var answer2 = (parseInt(trashinput3)*answer)*1.27; //old value which is 1.27 new one should be 0.36
+    document.getElementById('trash_results2').innerHTML = answer2;
+
+    var answer3 = (parseInt(trashinput4)*answer)*1.27;
+    document.getElementById('trash_results4').innerHTML = answer3;
+
+    var answer4 = answer2 - answer3;
+    document.getElementById('trash_results6').innerHTML = answer4;
+
+    var answer5  = answer2*36;
+    document.getElementById('trash_results3').innerHTML = answer5;
+
+    //first test for rounding decimals to 2 starts here 4.08pm
+    //will implement later if required as of currently, it is good.
+    var answer6 = answer3*36;
+    
+    document.getElementById('trash_results5').innerHTML = answer6;
+
+    var answer7 = answer5-answer6;
+    document.getElementById('trash_results7').innerHTML = answer7;
 }
 
 // Clear input values for trash contents
