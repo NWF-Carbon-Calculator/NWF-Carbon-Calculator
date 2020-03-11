@@ -7,10 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/Css/main.css" rel="stylesheet">
-<<<<<<< HEAD
-<!--
-    <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
-=======
 
     <!-- Local Host Testing -->
     <!-- Linda -->
@@ -18,7 +14,6 @@
 
     <!-- Henry -->
     <!-- <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
->>>>>>> 8b4bdec356b301db4300f18bddb2bbfd775c5431
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -87,6 +82,13 @@
                     Data</button>
                 <button type="button" id="btn_transportation" class="btn btn-outline-success"
                     data-toggle="button">Transportation
+                    Data</button>
+
+                    <button type="button" id="btn_trash" class="btn btn-outline-success"
+                    data-toggle="button">Trash
+                    Data</button>
+                    <button type="button" id="btn_paper" class="btn btn-outline-success"
+                    data-toggle="button">Paper
                     Data</button>
                 <button type="button" id="btn_bottles" class="btn btn-outline-success" data-toggle="button">Plastic
                     Bottles</button>
@@ -215,6 +217,121 @@
         </div>
     </div>
 
+        <!-- Paper Consumption Content -->
+        <div class="container content-container" id="container_transportation">
+            <div class="row content-header">
+                <h4>CLASSROOM PAPER CONSUMPTION</h4>
+                
+            </div>
+            <div class="row content-instructions">
+                <div class="col">
+                    <p><b>Instructions:</b> Enter the information 
+                        collected in your audit to calculate the classroom's/grade level's/school's (choose one) carbon dioxide 
+                        emissions from paper use both before and after implementing the action plan.  One ream of paper contains 500 sheets.  
+                        One strategy to reduce the amount of paper you use is to change the default setting on your printer to print double-sided.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="container">
+                <div class="row calculation-area">
+                    <div class="table-responsive table-seperator">
+                        <table class="table w-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col">INPUT CLASSROOM DATA HERE:
+                                        <br>Paper Consumption</br></th>
+                                    <th scope="col">Before Taking Action</th>
+                                    <th scope="col">After Taking Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-4" scope="row">How many reams of paper are used by the classroom/grade level/school 
+                                        per week, on average?</td>
+                                    <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                    </td>
+                                    <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" scope="row">What is the recycled content of the paper?    
+                                        (pick one from the drop-down menu)</td>
+                                        <td class="col-sm-4"> <select id="yn" name="yn">
+                                                <option value="0">0</option>
+                                                <option value="30">30%</option>
+                                                <option value="100">100%</option>
+                                            </select>
+                                        </td>
+                                    </td>
+                                    <td class="col-sm-4"> <select id="yn" name="yn">
+                                        <option value="0">0</option>
+                                        <option value="30">30%</option>
+                                        <option value="100">100%</option>
+                                    </select>
+                                </td>
+                                <tr>
+                                    <td class="col-sm-4" scope="row">Based on its paper consumption habits, this classroom/grade level/school 
+                                        generates this many pounds of CO2 per week:</td>
+                                    <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                    </td>
+                                    <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                    </td>
+                                </tr>
+                                </tr>
+                                <!--This is the first half of the paper spreadsheet-->
+                                <!--would also have to adjust the top side of the third question though. 
+                                cause it need an indicator for "carbon impact"-->
+                                
+                                <tr>
+                                    <td></td>
+                                    <td><button type="button" id="btn_reset_transportation"
+                                            class="btn btn-success">Reset</button></td>
+                                    <td><button type="button" id="btn_calculate_transportation"
+                                            class="btn btn-success">Calculate</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive table-seperator">
+                        <table class="table w-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col">SUMMARY OF RESULTS</th>
+                                    <th scope="col">CO2 Emissions per week (lbs)</th>
+                                    <th scope="col">CO2 Emissions per 36-week school year (lbs)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">Before Taking Action:
+                                    </td>
+                                    <td><span id="transportation_results1"></span></td>
+                                    <td><span id="transportation_results2"></span></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">After Taking Action
+                                    </td>
+                                    <td><span id="transportation_results3"></span></td>
+                                    <td><span id="transportation_results4"></span></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">Total CO2 emissions savings</td>
+                                    <td><span id="transportation_results5"></span></td>
+                                    <td><span id="transportation_results6"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- As the result of carbon emissions saved, you are also reducing rates of consumption and increasing rates of recycling.  Be sure to note this
+                    data as you addres the Consumption and Waste patway-->
+                    <!-- not sure how to add this to the footer of the page same as the trash page-->
+                    <!--or adding the "did you know" section not sure how to add it to the side or is it even necessary-->
+    
+                </div>
+            </div>
+        </div>
+
     <!-- Lighting Content -->
     <div class="container content-container" id="container_record-data">
         <div class="row content-header">
@@ -298,6 +415,115 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trash Content -->
+    <div class="container content-container" id="container_trash">
+        <div class="row content-header">
+            <h4>Classroom Trash</h4>
+        </div>
+        <div class="row content-instructions">
+            <div class="col">
+                <p><b>Instructions:</b>  Every pound of trash sent to the landfill generates roughly 1.27 pounds of CO2.  
+                    To determine how many pounds of CO2 the classroom/grade level/school (choose one) generates from the trash thrown away, first estimate
+                    how many pounds of trash created by weighing your classroom’s trash can when empty and full.  
+                    Then figure out how many full bins of trash the classroom/grade level/school produces each week.
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row calculation-area">
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Trash Inputs (using a table)</th>
+                                <th scope="col">Before Taking Action</th>
+                                <th scope="col">After Taking Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-4" scope="row">How much does the trash can weigh when empty</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="trash_input1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">Fill it up completely and measure again. How much does 
+                                    the trash can weigh when completely full with trash?
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="trash_input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">That means a full trash can contains approximately this many pounds of trash:
+                                </td>
+                                <td><span id="trash_results1"></span></td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">Approximately how many full bins of trash does the 
+                                    classroom/grade level/school generate each week?
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="trash_input3">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="trash_input4">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td>
+                                <td><button type="button" id="btn_reset_trash"
+                                        class="btn btn-success">Reset</button></td>
+                                <td><button type="button" id="btn_calculate_trash"
+                                        class="btn btn-success">Calculate</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Review your results!</th>
+                                <th scope="col">CO2 emissions per week (lbs)</th>
+                                <th scope="col">CO2 emissions per 36-week school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Before Taking Action:
+                                </td>
+                                <td><span id="trash_results2"></span></td>
+                                <td><span id="trash_results3"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">After Taking Action:
+                                </td>
+                                <td><span id="trash_results4"></span></td>
+                                <td><span id="trash_results5"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total CO2 emissions savings</td>
+                                <td><span id="trash_results6"></span></td>
+                                <td><span id="trash_results7"></span></td>
+                            </tr>
+                            <!--have to figure out how to add this at the end just like what the excel had-->
+                            <!--As the result of carbon emissions saved you are also reducing rates of consumption and increasing rates of recycling.  Be sure to note this
+                            data as you address the Consumption and Waste pathway. -->
+                        </tbody>
+                    </table>
+                    <div class="container">
+
+                        <div class="row">As the result of carbon emissions saved you are also reducing rates of consumption and increasing rates of recycling.  Be sure to note this
+                            data as you address the Consumption and Waste pathway</div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
