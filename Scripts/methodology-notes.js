@@ -1,5 +1,4 @@
-//Place to setup the variables needed for calulation of carbon
-//Round numbers to two decimal places using .toFixed(2) function
+//Place to setup the variables and functions needed for calulation of carbon output
 
 // *****ELECTRICITY*****
 
@@ -13,13 +12,13 @@ const GALLONCO2 = 20;
 function gallonsBurned (roundtripDistance, daysDriven, mpg) {
     var carbonImpact = 0;
     carbonImpact = roundtripDistance / mpg * daysDriven;
-    return carbonImpact.toFixed(2);
+    return carbonImpact;
 }
 
 function weeklyCarbonDrivingAlone (gallonsBurned) {
     var carbonImpact = 0;
     carbonImpact = gallonsBurned * GALLONCO2;
-    return carbonImpact.toFixed(2);
+    return carbonImpact;
 }
 
 function weeklyCarbonDrivingCarpool (gallonsBurned, numberOfPeople) {

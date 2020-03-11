@@ -6,10 +6,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="/Css/main.css" rel="stylesheet">
+<<<<<<< HEAD
 <!--
     <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
+=======
+
+    <!-- Local Host Testing -->
+    <!-- Linda -->
+    <!--<link href="/Users/lindaly/Desktop/nwf2/NWF-Carbon-Calculator/NWF-Carbon-Calculator/Css/main.css" rel="stylesheet"> -->
+
+    <!-- Henry -->
+    <!-- <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
+>>>>>>> 8b4bdec356b301db4300f18bddb2bbfd775c5431
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -65,20 +74,24 @@
     <!-- Header Button Content -->
     <div class="container btn-control">
         <div class="row">
-            <div class="col text-center">
+            <div class="col text-center button-wrapper">
                 <button type="button" id="btn_welcome" class="btn btn-outline-success active"
                     data-toggle="button">Welcome</button>
                 <button type="button" id="btn_electricity" class="btn btn-outline-success"
                     data-toggle="button">Electricity Info</button>
+                <button type="button" id="btn_appliance" class="btn btn-outline-success" data-toggle="button">Other
+                    Appliance</button>
+                <button type="button" id="btn_vampire" class="btn btn-outline-success" data-toggle="button">Energy
+                    Vampire</button>
                 <button type="button" id="btn_record-data" class="btn btn-outline-success" data-toggle="button">Record
                     Data</button>
                 <button type="button" id="btn_transportation" class="btn btn-outline-success"
                     data-toggle="button">Transportation
                     Data</button>
-                    <button type="button" id="btn_bottles" class="btn btn-outline-success"
-                            data-toggle="button">Plastic Bottles</button>
-                    <button type="button" id="btn_cups" class="btn btn-outline-success"
-                                    data-toggle="button">Beverage Cupss</button>
+                <button type="button" id="btn_bottles" class="btn btn-outline-success" data-toggle="button">Plastic
+                    Bottles</button>
+                <button type="button" id="btn_cups" class="btn btn-outline-success" data-toggle="button">Beverage
+                    Cups</button>
                 <button type="button" id="btn_summary" class="btn btn-outline-success"
                     data-toggle="button">Summary</button>
                 <button type="button" id="btn_methodology" class="btn btn-outline-success"
@@ -190,8 +203,8 @@
                         </tr>
                         <tr>
                             <td scope="row">Electricity Emissions Factor</td>
-                            <td><input type="text" id="" readonly>lbs CO2/kWh</td>
-                            <td><input type="text" id="" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" readonly>lbs CO2/kWh</td>
                         </tr>
                     </tbody>
                 </table>
@@ -269,18 +282,330 @@
                         <tbody>
                             <tr>
                                 <td>Before Taking Action</td>
-                                <td><input type="text" id="" readonly></td>
-                                <td><input type="text" id="" readonly></td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
                             </tr>
                             <tr>
                                 <td>After Taking Action</td>
-                                <td><input type="text" id="" readonly></td>
-                                <td><input type="text" id="" readonly></td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
                             </tr>
                             <tr>
                                 <td>Total CO2 emissions savings</td>
-                                <td><input type="text" id="" readonly></td>
-                                <td><input type="text" id="" readonly></td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Appliances Content -->
+    <div class="container content-container" id="container_appliance">
+        <div class="row content-header">
+            <h4>Other Appliances</h4>
+        </div>
+        <div class="row content-instructions">
+            <div class="col">
+                <p><em><strong>Instructions:</strong></em>
+                    This is an optional sheet to help you calculate the carbon
+                    dioxide emissions from the electricy used by the equipment
+                    in your classroom during the day. If you would like to include
+                    addional daytime equipment energy use in your calculations, please
+                    enter the type of equipment, number, and hours of operation per day
+                    before and after implementing your action plan. You will also
+                    need to enter the wattage of the equipment. Please see the
+                    guidance below if you are unsure about determining the wattage.
+                </p>
+                <div>
+                    <p>You have selected to use <span id="electricity_plan"><em><strong>Standard Plan
+                                </strong></em></span> as the source for your fuel mix.</p>
+                </div>
+                <div>
+                    <p>Based on this electricity fuel mix, your electricity emissions factor is <span
+                            id="electricity_factor"><em><strong>Something </strong></em></span></p>
+                </div>
+                <div>
+                    <p>Collect and record data below</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row calculation-area">
+                <div class="table-responsive table-seperator">
+                    <table id="table_appliance" class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th>Electronic device</th>
+                                <th>Wattage</th>
+                                <th>How many?</th>
+                                <th colspan="2">Hours of operation per day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td><input type="text" id="electronic_device"></td>
+                                <td><input type="text" id="wattage"></td>
+                                <td><input type="text" id="appliance_before_option"></td>
+                                <td><input type="text" id="appliance_after_option"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="container">
+                        <div class="row d-flex flex-row-reverse">
+                            <button id="btn_add_row" class="btn btn-success">Add More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table>
+                        <thead id="appliance_tr">
+                            <tr>
+                                <th colspan="2">Total kWh consumed per day</th>
+                                <th colspan="2">Total kWh per 180-day school year</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions per day (lbs)</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>How To Determine Wattage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>You can usually find the wattage of most appliances
+                                    stamped on the bottom of back of the appliance,
+                                    or on its nameplate. The wattage listed is the maximum
+                                    power drawn by the appliance. The actual amount of power
+                                    consumed depends on the setting used. <br><br></td>
+                            </tr>
+                            <tr>
+                                <td>If the wattage is not listed on the appliance, you can
+                                    still estimate it by finding the current draw (in amperes)
+                                    and multiplying that by the voltage used by the appliance. Most
+                                    appliances in the US use 120 volts. The amperes might be stamped
+                                    on the unite in place of the wattage. If not, find a clamp-on ammeter -
+                                    an electrician's tool that clamps around one of the two wires on the
+                                    appliance - to measure the current flowing through it. You can obtain
+                                    this type of ammeter in stores that sell electrical and electronic equipment.
+                                    Take a reading while the device is running; this is the actual amount of current
+                                    being used at that instant. <br><br></td>
+                            </tr>
+                            <tr>
+                                <td>The "Methodology Notes" worksheet contains a table with the average
+                                    wattages for many typical pieces of classroom equipment.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table>
+                        <thead id="appliance_tr">
+                            <tr>
+                                <th>Summary of Results</th>
+                                <th>CO<sub>2</sub> Emissions per day (lbs)</th>
+                                <th colspan="2">CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Before Taking Action</td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>After Taking Action</td>
+                                <td><input type="text" eadonly></td>
+                                <td><input type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Total CO<sub>2</sub> emissions savings</td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Energy Vampire -->
+    <div class="container content-container" id="container_vampire">
+        <div class="row content-header">
+            <h4>Energy Vampire</h4>
+        </div>
+        <div class="row content-instructions">
+            <div class="col">
+                <p><em><strong>Instructions:</strong></em>
+                    Enter the information collected on your audit form to calculate
+                    the classroom's carbon dioxide emissions from energy "vampires"
+                    both before and after implementing your action plan.
+                </p>
+                <div>
+                    <p>You have selected to use <span id="electricity_plan"><em><strong>Standard Plan
+                                </strong></em></span> as the source for your fuel mix.</p>
+                </div>
+                <div>
+                    <p>Based on this electricity fuel mix, your electricity emissions factor is <span
+                            id="electricity_factor"><em><strong>Something </strong></em></span></p>
+                </div>
+                <div>
+                    <p>Collect and record data below</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row calculation-area">
+                <div class="table-responsive table-seperator">
+                    <table id="table_appliance" class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th>Electronic device</th>
+                                <th>How many?</th>
+                                <th colspan="2">End of day operating mode</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" id="vampire_device"></td>
+                                <td><input type="text" id="vampire_count"></td>
+                                <td><input type="text" id="vampire_before_option"></td>
+                                <td><input type="text" id="vampire_after_option"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="container">
+                        <div class="row d-flex flex-row-reverse">
+                            <button id="btn_add_row" class="btn btn-success">Add More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Total kWh consumed per day</th>
+                                <th colspan="2">Total kWh per 180-day school year</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions per day (lbs)</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                                <td>Before Taking Action</td>
+                                <td>After Taking Action</td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                                <td><input type="text" class='appliance' readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Common Operating Modes for Electonic Devices</th>
+                            </tr>
+                            <tr>
+                                <th colspan='2'>Mode</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>"Active"</td>
+                                <td>Device is on and serving its primary function. (Example: a DVD
+                                    player playing a movie, or a computer running a program.)</td>
+                            </tr>
+                            <tr>
+                                <td>"Sleep/Standby"</td>
+                                <td>Device is on low-power mode. (Example: DVD player is on, but not
+                                    playing a disc; computer is on, but in power-save/sleep mode.)</td>
+                            </tr>
+                            <tr>
+                                <td>"Off"</td>
+                                <td>Device is turned off, but still plugged in and ready for action.
+                                    (Example: DVD player is turned off, but could be activated by remote.
+                                    Digital displays will be visible.)</td>
+                            </tr>
+                            <tr>
+                                <td>"Power strip/ Unplugged"</td>
+                                <td>Device is plugged into a power strip, which is turned off at the end
+                                    of the day. Or - the electronic device is unplugged. (Example: DVD
+                                    player is receiving NO power. Digital display is OFF and cannot be
+                                    activated by remote.)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <table>
+                        <thead id="appliance_tr">
+                            <tr>
+                                <th>Summary of Results</th>
+                                <th>CO<sub>2</sub> Emissions per 16-hour "night" (lbs)</th>
+                                <th colspan="2">CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Before Taking Action</td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>After Taking Action</td>
+                                <td><input type="text" eadonly></td>
+                                <td><input type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Total CO<sub>2</sub> emissions savings</td>
+                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly></td>
                             </tr>
                         </tbody>
                     </table>
@@ -365,7 +690,6 @@
                 </p>
             </div>
         </div>
-
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
@@ -494,7 +818,6 @@
                                 <td><span id="transportation_results9"></span></td>
                                 <td><span id="transportation_results10"></span></td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
@@ -503,18 +826,24 @@
         </div>
     </div>
 
+    <!-- Plastic Bottle Content -->
     <div class="container content-container" id="container_bottles">
         <div class="row content-header">
-            <h4>Plastic Bottles</h4>
+            <h4>Plastic Water Bottles</h4>
         </div>
         <div class="row content-instructions">
             <div class="col">
+                <p><em><strong>Instructions: </strong></em>
+                    Use the information collected in the audit to estimate the greenhouse gas emissions resulting
+                    from plastic water bottle consumption both before and after implementing the action plan.</p>
+                <p><strong>1. Collect and record data. </strong>
+                    In the orange table below, record the number of plastic bottles the students and/or staff uses
+                    in a typical week. Also record whether the they recycle the bottles. </p>
                 <p>Collect and record data. In the orange table below, record the number of plastic bottles the students
-                  and/or staff uses in a typical week. Also record whether the they recycle the bottles.
+                    and/or staff uses in a typical week. Also record whether the they recycle the bottles.
                 </p>
             </div>
         </div>
-
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
@@ -529,33 +858,43 @@
                         <tbody>
                             <tr>
                                 <td class="col-sm-4" scope="row">If the students and/or staff drinks bottled water,
-                                  approximately how many plastic water bottles does they go through each week?</td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                    approximately how many plastic water bottles does they go through each week?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input1">
                                 </td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input2">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">Most of the time, do they usually recycle the water bottles,
-                                  or throw them away? (Select one)</td>
-                                <td class="col-sm-4"> <select id="rt" name="rt">
-                                  <option value="blank"></option>
-                                  <option value="recycle">Recycle</option>
-                                  <option value="throwaway">Throw Away</option>
-                                </select>
+                                <td class="col-sm-4" scope="row">Most of the time, do they usually recycle the water
+                                    bottles,
+                                    or throw them away? (Select one)</td>
+                                <td class="col-sm-4"> <select id="bottles_input3" name="rt">
+                                        <option value="blank"></option>
+                                        <option value="recycle">Recycle</option>
+                                        <option value="throwaway">Throw Away</option>
+                                    </select>
                                 </td>
-                                <td class="col-sm-4"><select id="rt" name="rt">
-                                  <option value="blank"></option>
-                                  <option value="recycle">Recycle</option>
-                                  <option value="throwaway">Throw Away</option>
-                                </select>
+                                <td class="col-sm-4"><select id="bottles_input4" name="rt">
+                                        <option value="blank"></option>
+                                        <option value="recycle">Recycle</option>
+                                        <option value="throwaway">Throw Away</option>
+                                    </select>
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td></td>
+                                <td><button type="button" id="btn_reset_bottles" class="btn btn-success">Reset</button>
+                                </td>
+                                <td><button type="button" id="btn_calculate_bottles"
+                                        class="btn btn-success">Calculate</button></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="table-responsive table-seperator">
+                    <p>
+                        <h6><b>CLASSROOM RESULTS:</b></h6>
+                    </p>
                     <table class="table w-auto">
                         <thead>
                             <tr>
@@ -568,36 +907,45 @@
                             <tr>
                                 <td scope="row">That's roughly this many lbs of plastic each week:
                                 </td>
-                                <td><span id="transportation_results1"></span></td>
-                                <td><span id="transportation_results2"></span></td>
+                                <td><span id="bottles_results1"></span></td>
+                                <td><span id="bottles_results2"></span></td>
                             </tr>
                             <tr>
                                 <td scope="row">Which adds up to this many lbs of CO2 each week:
                                 </td>
-                                <td><span id="transportation_results3"></span></td>
-                                <td><span id="transportation_results4"></span></td>
+                                <td><span id="bottles_results3"></span></td>
+                                <td><span id="bottles_results4"></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">Recycling these water bottles saves this many lbs of CO2 each week. Emissions saved from recycling:</td>
-                                <td><span id="transportation_results5"></span></td>
-                                <td><span id="transportation_results6"></span></td>
+                                <td scope="row">Recycling these water bottles saves this many lbs of CO2 each week.<br>
+                                    <i>Emissions saved from recycling:</i></td>
+                                <td><span id="bottles_results5"></span></td>
+                                <td><span id="bottles_results6"></span></td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
 
+    <!-- Beverage Cup Content -->
     <div class="container content-container" id="container_cups">
         <div class="row content-header">
             <h4>Beverage Cups</h4>
         </div>
         <div class="row content-instructions">
             <div class="col">
-                <p>Collect and record data. Input the class's/school's beverage cup data before and after implmenting the action plan.
+                <p><em><strong>Instructions: </strong></em>
+                    A typical 16-oz ("grande" size) beverage cup with lid and sleeve generates 0.25 lbs of carbon
+                    dioxide.
+                    Use the data collected in the audit to calculate </p>
+                <p><strong>1. Collect and record data. </strong>
+                    Input the class's/school's beverage cup data before and after implmenting the action plan. </p>
+            </div>
+            <div class="col">
+                <p>Collect and record data. Input the class's/school's beverage cup data before and after implmenting
+                    the action plan.
                 </p>
             </div>
         </div>
@@ -605,48 +953,56 @@
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
+                        <p><h6><strong>INPUT CLASSROOM DATA HERE:</s></h6></p>
                     <table class="table w-auto">
                         <thead>
                             <tr>
-                                <th scope="col">Beverage cup consumption (using a table)</th>
+                                <th scope="col">Beverage cup consumption</th>
                                 <th scope="col">Before Taking Action</th>
                                 <th scope="col">After Taking Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                              <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee, tea or other beverage,
-                                does he/she always use his/her own mug? (Select Yes or No from the drop-down menu.)</td>
-                              <td class="col-sm-4"> <select id="yn" name="yn">
-                                <option value="blank"></option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
-                              </select>
-                              </td>
-                              <td class="col-sm-4"><select id="yn" name="yn">
-                                <option value="blank"></option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
-                              </select>
-                              </td>
-                          </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">Approximately how many disposable cups are used in a week?</td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
+                                <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee, tea or
+                                    other beverage,
+                                    does he/she always use his/her own mug? <i>(Select Yes or No from the drop-down
+                                        menu.)</i></td>
+                                <td class="col-sm-4"> <select id="cups_input1" name="yn">
+                                        <option value="blank"></option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
                                 </td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
+                                <td class="col-sm-4"><select id="cups_input2" name="yn">
+                                        <option value="blank"></option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">Approximately how many disposable cups are used in a
+                                    week?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input3">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input4">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button type="button" id="btn_reset_cups" class="btn btn-success">Reset</button>
+                                </td>
+                                <td><button type="button" id="btn_calculate_cups"
+                                        class="btn btn-success">Calculate</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                        </tbody>
-                    </table>
-                </div>
-
             </div>
         </div>
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- JQuery The Full Version With Added UI Elements -->
@@ -669,6 +1025,12 @@
     <script type="text/javascript" src="/Scripts/methodology-notes.js"></script>
     <script type="text/javascript" src="/Scripts/custom.js"></script>
 
+    <!-- Local Host Testing -->
+    <!-- Linda -->
+    <!--<script type="text/javascript" src="/Users/lindaly/Desktop/nwf2/NWF-Carbon-Calculator/NWF-Carbon-Calculator/Scripts/custom.js"></script>
+    <script type="text/javascript" src="/Users/lindaly/Desktop/nwf2/NWF-Carbon-Calculator/NWF-Carbon-Calculator/Scripts/methodology-notes.js"></script> -->
+
+    <!-- Henry -->
     <!-- <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
     <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script> -->
 
