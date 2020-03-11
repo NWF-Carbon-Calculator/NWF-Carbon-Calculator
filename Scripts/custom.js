@@ -190,10 +190,10 @@ calculate = function () {
     var trashinput3 = document.getElementById('trash_input3').value;
     var trashinput4 = document.getElementById('trash_input4').value;
 
-    var answer2 = (parseInt(trashinput3)*answer)*1.27; //old value which is 1.27 new one should be 0.36
+    var answer2 = (parseInt(trashinput3)*answer)*0.36; //old value which is 1.27 new one should be 0.36
     document.getElementById('trash_results2').innerHTML = answer2;
 
-    var answer3 = (parseInt(trashinput4)*answer)*1.27;
+    var answer3 = (parseInt(trashinput4)*answer)*0.36;
     document.getElementById('trash_results4').innerHTML = answer3;
 
     var answer4 = answer2 - answer3;
