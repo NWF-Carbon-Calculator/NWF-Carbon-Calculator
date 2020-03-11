@@ -54,6 +54,13 @@ $('#btn_cups').click(function () {
     $('#container_cups').toggle();
 })
 
+$('#btn_trash').click(function () {
+    $('#container_trash').insertAfter('#startDiv');
+    $('#container_trash').toggle();
+})
+
+
+
 // *****Classroom Lighting Content Calculations*****
 var numberOfRows = 1;
 
@@ -141,3 +148,37 @@ $('#transportation_input11').val(2);
 $('#transportation_input12').val(3);
 $('#transportation_input13').val(1);
 $('#transportation_input14').val(1);
+
+
+// *****Trash Content Calculations*****
+const TRASHINPUTS = 4;
+
+// Trash (paul's part)
+$('#btn_calculate_trash').click(function () {
+    calculate();
+})
+
+
+// Calculate carbon impact from user inputs (trash) 
+calculate = function() {
+    var trashinput1 = document.getElementById('trash_input1').value;
+    var trashinput2 = document.getElementById('trash_input2').value;
+    var answer = parseInt(trashinput2)-parseInt(trashinput1);
+    document.getElementById('trash_results1').innerHTML = answer;
+
+    var trashinput3 = document.getElementById('trash_input3').value;
+    var trashinput4 = document.getElementById('trash_input4').value;
+
+}
+
+
+
+
+
+
+// Clear input values for trash contents
+$('#btn_reset_trash').click(function () {
+    for (let i = 1; i <= TRASHINPUTS; i++) {
+        $('#trash_input' + i).val("");
+    }
+})

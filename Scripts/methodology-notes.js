@@ -27,4 +27,3 @@ function weeklyCarbonDrivingCarpool (gallonsBurned, numberOfPeople) {
     carbonImpact = gallonsBurned * GALLONCO2 / numberOfPeople;
     return carbonImpact.toFixed(2);
 }
-
