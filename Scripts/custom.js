@@ -83,6 +83,7 @@ $('#btn_paper').click(function () {
     $('#container_paper').insertAfter('#startDiv');
     $('#container_paper').show();
 })
+
 // *****Classroom Lighting Content Calculations*****
 var numberOfRows = 1;
 
@@ -189,7 +190,6 @@ calculate = function () {
 
     var trashinput3 = document.getElementById('trash_input3').value;
     var trashinput4 = document.getElementById('trash_input4').value;
-
     var answer2 = (parseInt(trashinput3)*answer)*0.36; //old value which is 1.27 new one should be 0.36
     document.getElementById('trash_results2').innerHTML = answer2;
 
