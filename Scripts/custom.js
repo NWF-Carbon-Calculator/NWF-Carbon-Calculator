@@ -247,16 +247,16 @@ calculatev2 = function () {
 
     //if states for the following options
     if(paperoption1 == "0") {
-        panswer1 = parseInt(paperinput1)*15;
+        panswer1 = parseInt(paperinput1)*44;
         presult1 = panswer1;
         document.getElementById('paper_results1').innerHTML = panswer1;
     }else if (paperoption1 == "30") {
-        panswer1 = parseInt(paperinput1)*13;
+        panswer1 = parseInt(paperinput1)*37;
         presult1 = panswer1;
         document.getElementById('paper_results1').innerHTML = panswer1;
         
     } else if (paperoption1 == "100"){
-        panswer1 = parseInt(paperinput1)*8;
+        panswer1 = parseInt(paperinput1)*19;
         presult1 = panswer1;
         document.getElementById('paper_results1').innerHTML = panswer1;
 
@@ -282,15 +282,15 @@ calculatev2 = function () {
         // 100 = 5.80
 
     }if(paperoption2 == "0") {
-        panswer2 = parseInt(paperinput2)*15;
+        panswer2 = parseInt(paperinput2)*44;
         presult2 = panswer2; 
         document.getElementById('paper_results2').innerHTML = panswer2;
     }else if (paperoption2 == "30") {
-        panswer2 = parseInt(paperinput2)*13;
+        panswer2 = parseInt(paperinput2)*37;
         presult2 = panswer2;
         document.getElementById('paper_results2').innerHTML = panswer2;
     } else if (paperoption2 == "100"){
-        panswer2 = parseInt(paperinput2)*8;
+        panswer2 = parseInt(paperinput2)*19;
         presult2 = panswer2;
         document.getElementById('paper_results2').innerHTML = panswer2;
 }
