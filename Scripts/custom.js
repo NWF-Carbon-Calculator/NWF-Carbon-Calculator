@@ -222,7 +222,7 @@ $('#btn_reset_trash').click(function () {
 
 // paper (paul's part)
 
-const PAPERINPUTS = 4;
+const PAPERINPUTS = 10;
 
 
 $('#btn_calculate_paper').click(function () {
@@ -245,17 +245,18 @@ calculatev2 = function () {
     //two results option for above
 
 
-    if(paperoption1 = "0%") {
-        panswer1 = parseInt(paperinput1)*44;
+    //if states for the following options
+    if(paperoption1 == "0") {
+        panswer1 = parseInt(paperinput1)*15;
         presult1 = panswer1;
         document.getElementById('paper_results1').innerHTML = panswer1;
-    }else if (paperoption1 = "30%") {
-        panswer1 = parseInt(paperinput1)*37;
+    }else if (paperoption1 == "30") {
+        panswer1 = parseInt(paperinput1)*13;
         presult1 = panswer1;
         document.getElementById('paper_results1').innerHTML = panswer1;
         
-    } else if (paperoption1 = "100%"){
-        panswer1 = parseInt(paaperinput1)*19;
+    } else if (paperoption1 == "100"){
+        panswer1 = parseInt(paperinput1)*8;
         presult1 = panswer1;
         document.getElementById('paper_results1').innerHTML = panswer1;
 
@@ -280,19 +281,38 @@ calculatev2 = function () {
         // 30 = 5.20 
         // 100 = 5.80
 
-    }if(paperoption2 = "0%") {
-        panswer2 = parseInt(paperinput2)*44;
+    }if(paperoption2 == "0") {
+        panswer2 = parseInt(paperinput2)*15;
         presult2 = panswer2; 
         document.getElementById('paper_results2').innerHTML = panswer2;
-    }else if (paperoption2 = "30%") {
-        panswer2 = parseInt(paperinput2)*37;
+    }else if (paperoption2 == "30") {
+        panswer2 = parseInt(paperinput2)*13;
         presult2 = panswer2;
         document.getElementById('paper_results2').innerHTML = panswer2;
-    } else if (paperoption2 = "100%"){
-        panswer2 = parseInt(paaperinput2)*19;
+    } else if (paperoption2 == "100"){
+        panswer2 = parseInt(paperinput2)*8;
         presult2 = panswer2;
         document.getElementById('paper_results2').innerHTML = panswer2;
 }
+panswersum1 = panswer1;
+document.getElementById('paper_resultsum1').innerHTML = panswer1;
+panswersum2 = panswer2;
+document.getElementById('paper_resultsum3').innerHTML = panswer2;
+
+panswerDIFF = panswer1-panswer2;
+document.getElementById('paper_resultsum5').innerHTML = panswerDIFF;
+
+panswersum3 = panswer1*36;
+document.getElementById('paper_resultsum2').innerHTML = panswersum3;
+
+panswersum4 = panswer2*36;
+document.getElementById('paper_resultsum4').innerHTML = panswersum4;
+
+panswerDIFF2 = panswersum3-panswersum4;
+document.getElementById('paper_resultsum6').innerHTML = panswerDIFF2;
+
+console.log(panswer1);
+console.log(panswer2);
 
 
 }
