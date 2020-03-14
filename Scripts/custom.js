@@ -218,3 +218,107 @@ $('#btn_reset_trash').click(function () {
         $('#trash_input' + i).val("");
     }
 })
+
+
+// paper (paul's part)
+
+const PAPERINPUTS = 10;
+
+
+$('#btn_calculate_paper').click(function () {
+    calculatev2();
+})
+
+calculatev2 = function () {
+
+
+    //two inputs 
+    var paperinput1 = document.getElementById('paper_input1').value;
+    var paperinput2 = document.getElementById('paper_input2').value;
+
+    
+
+    // two options percentages
+    var paperoption1 = document.getElementById('yn1').value;
+    var paperoption2 = document.getElementById('yn2').value;
+
+    //two results option for above
+
+
+    //if states for the following options
+    if(paperoption1 == "0") {
+        panswer1 = parseInt(paperinput1)*15;
+        presult1 = panswer1;
+        document.getElementById('paper_results1').innerHTML = panswer1;
+    }else if (paperoption1 == "30") {
+        panswer1 = parseInt(paperinput1)*13;
+        presult1 = panswer1;
+        document.getElementById('paper_results1').innerHTML = panswer1;
+        
+    } else if (paperoption1 == "100"){
+        panswer1 = parseInt(paperinput1)*8;
+        presult1 = panswer1;
+        document.getElementById('paper_results1').innerHTML = panswer1;
+
+
+        //top side for yn1 bottom side for yn2
+
+        //OLD VALUES if 0% was selected times 15, else if 30% then times 13 
+        //else if 100% times 8
+
+        //NEW VALUES if 0% was selected times 44, else if 30% then times 37 
+        //else if 100% times 19
+
+        //personal side note: that is actually really substainial. 
+
+        //cost/REEM for NEW VALUES
+        // 0 = 10.99
+        // 30 = 11.49 
+        // 100 = 13.09
+
+        //cost/REEM for OLD VALUES
+        // 0 = 4.00
+        // 30 = 5.20 
+        // 100 = 5.80
+
+    }if(paperoption2 == "0") {
+        panswer2 = parseInt(paperinput2)*15;
+        presult2 = panswer2; 
+        document.getElementById('paper_results2').innerHTML = panswer2;
+    }else if (paperoption2 == "30") {
+        panswer2 = parseInt(paperinput2)*13;
+        presult2 = panswer2;
+        document.getElementById('paper_results2').innerHTML = panswer2;
+    } else if (paperoption2 == "100"){
+        panswer2 = parseInt(paperinput2)*8;
+        presult2 = panswer2;
+        document.getElementById('paper_results2').innerHTML = panswer2;
+}
+panswersum1 = panswer1;
+document.getElementById('paper_resultsum1').innerHTML = panswer1;
+panswersum2 = panswer2;
+document.getElementById('paper_resultsum3').innerHTML = panswer2;
+
+panswerDIFF = panswer1-panswer2;
+document.getElementById('paper_resultsum5').innerHTML = panswerDIFF;
+
+panswersum3 = panswer1*36;
+document.getElementById('paper_resultsum2').innerHTML = panswersum3;
+
+panswersum4 = panswer2*36;
+document.getElementById('paper_resultsum4').innerHTML = panswersum4;
+
+panswerDIFF2 = panswersum3-panswersum4;
+document.getElementById('paper_resultsum6').innerHTML = panswerDIFF2;
+
+console.log(panswer1);
+console.log(panswer2);
+
+
+}
+// Clear input values for paper contents
+$('#btn_reset_paper').click(function () {
+    for (let i = 1; i <= PAPERINPUTS; i++) {
+        $('#paper_input' + i).val("");
+    }
+})
