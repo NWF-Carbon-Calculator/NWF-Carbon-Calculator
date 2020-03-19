@@ -180,7 +180,6 @@ google.load("visualization", "1.1", {
 });
 google.setOnLoadCallback(drawChart);
 
-
 function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
@@ -206,62 +205,12 @@ function drawChart() {
         vAxis: {
             title: "Carbon Emitted (pounds)"
         },
-        // width: 100%,
         height: 500
     };
-
 
     chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
     chart.draw(data, options);
 }
-
-// Google Charts Testing Material
-// google.charts.load('current', {'packages':['bar']});
-// google.charts.setOnLoadCallback(drawChart);
-
-// function drawChart() {
-//       var data = google.visualization.arrayToDataTable([
-//     ['Category', 'Before Action', 'After Action'],
-//     ['Lighting', 1000, 400],
-//     ['Energy Vampires', 1030, 540],
-//     ['Appliances', 1170, 460],
-//     ['Transportation', 1000, 400],
-//     ['Trash', 660, 1120],
-//     ['Paper', 1170, 460],
-//     ['Plastics', 660, 1120],
-//     ['Cups', 1030, 540]
-//   ]);
-
-//   var options = {
-//     chart: {
-//       title: 'Carbon Emission Results',
-//       subtitle: 'Before and After Taking Action',
-//     },
-//     bars: 'vertical',
-//     vAxis: {format: 'decimal'},
-//     height: 400,
-//     animation:{
-//         startup: true,
-//         duration: 2000,
-//         easing: 'out',
-//       },
-//     colors: ['#d40f0f', '#52de58', '#7570b3']
-//   };
-
-//   var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-//   chart.draw(data, google.charts.Bar.convertOptions(options));
-
-//   var btns = document.getElementById('btn-group');
-
-//   btns.onclick = function (e) {
-
-//     if (e.target.tagName === 'BUTTON') {
-//       options.vAxis.format = e.target.id === 'none' ? '' : e.target.id;
-//       chart.draw(data, google.charts.Bar.convertOptions(options));
-//     }
-//   }
-// }
 
 // *****Trash Content Calculations*****
 const TRASHINPUTS = 4;

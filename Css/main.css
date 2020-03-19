@@ -58,6 +58,14 @@
     margin-top: 6px;
 }
 
+.blue {
+    color: #0084c2;
+}
+
+.orange {
+    color: #ff9500;
+}
+
 .table-seperator {
     padding: 20px;
     margin: 10px;
