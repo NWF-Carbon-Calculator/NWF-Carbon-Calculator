@@ -15,6 +15,9 @@
     <!-- Henry -->
     <!-- <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
 
+    <!-- Google charts AJAX API -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -275,7 +278,7 @@
                                 <td class="col-sm-4" scope="row">Based on its paper consumption habits, this
                                     classroom/grade level/school
                                     generates this many pounds of CO2 per week:</td>
-                                    <td><span id="paper_results1"></span></td>
+                                <td><span id="paper_results1"></span></td>
                                 </td>
                                 <td><span id="paper_results2"></span></td>
                                 </td>
@@ -287,8 +290,8 @@
 
                             <tr>
                                 <td></td>
-                                <td><button type="button" id="btn_reset_paper"
-                                        class="btn btn-success">Reset</button></td>
+                                <td><button type="button" id="btn_reset_paper" class="btn btn-success">Reset</button>
+                                </td>
                                 <td><button type="button" id="btn_calculate_paper"
                                         class="btn btn-success">Calculate</button></td>
                             </tr>
@@ -324,13 +327,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="row">As the result of carbon emissions saved, you are also reducing rates of consumption and increasing rates of recycling.  Be sure to note this
+                    <div class="row">As the result of carbon emissions saved, you are also reducing rates of consumption
+                        and increasing rates of recycling. Be sure to note this
                         data as you addres the Consumption and Waste pathway</div>
                 </div>
                 <!-- As the result of carbon emissions saved, you are also reducing rates of consumption and increasing rates of recycling.  Be sure to note this
                     data as you addres the Consumption and Waste pathway
                 EDIT1: 3/13/20 = this has probably been solved. I have added it to the bottom of the results
-                section at the bottom--> 
+                section at the bottom-->
                 <!--or adding the "did you know" section not sure how to add it to the side or is it even necessary?-->
 
             </div>
@@ -916,9 +920,18 @@
         </div>
         <div class="row content-instructions">
             <div class="col">
+                <p>Travel varies according to where we live and where we need to go. Every mode of transportation has an
+                    impact on an individual’s health, community, and the environment. Often our modes of transportation
+                    rely heavily on methods that contribute to significant amounts carbon dioxide (CO2). Take a look at
+                    how the school community travels to and from school, by bus, driving or being driven, walking or
+                    riding a bike. One strategy to use is to promote and communicate alternatives forms of
+                    transportation and safe routes to school.</p>
                 <p>Collect and record data. In the orage table below, input Information about the teacher's usual
                     method of transportation to and from school each day.
                 </p>
+                <p>Note: Riding the bus is a climate-friendlier action than driving alone or carpooling. At this time
+                    there is no conclusive data for school bus contributions to CO2 emissions and is the reason we have
+                    chosen not to include school buses as a transportation option. </p>
             </div>
         </div>
         <div class="container">
@@ -934,19 +947,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-sm-4" scope="row">What is the roundtrip distance traveled per day? (# of
-                                    miles)</td>
+                                <td class="col-sm-4" scope="row">What is the average, roundtrip distance (miles per day)
+                                    traveled per day, by students/staff</td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">How many days per week does the teacher drive
-                                    <em>
-                                        <bold>alone</bold>
-                                    </em> to
-                                    work?</em></td>
+                                <td class="col-sm-4" scope="row">What is the average number of days students/staff drive
+                                    alone? parent and student, student only, staff member only
+                                </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input3">
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input4">
@@ -961,10 +972,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">How many days per week does the teacher
-                                    <em>
-                                        <bold>carpool</bold>
-                                    </em> to work?
+                                <td class="col-sm-4" scope="row">How many days per week, on average do students/staff
+                                    carpool to school? parent and student plus other students, multiple students,
+                                    multiple staff
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input7">
                                 </td>
@@ -987,10 +997,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">How many days per week does the teacher commute by
-                                    walking, biking, or
-                                    riding
-                                    the bus?</td>
+                                <td class="col-sm-4" scope="row">In a week, what is the average number of days
+                                    students/staff walk or bike to school?</td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input13">
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input14">
@@ -1017,15 +1025,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">Gallons of gasoline burned each week, driving alone to and from
-                                    work:
+                                <td scope="row">The average gallons of gasoline burned each week, driving alone to and
+                                    from school
                                 </td>
                                 <td><span id="transportation_results1"></span></td>
                                 <td><span id="transportation_results2"></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">Pounds of CO2 emitted per week (lbs), <bold><em>driving
-                                            alone</em></bold>
+                                <td scope="row">The average the pounds of CO2 emitted per week, driving alone by
+                                    students and staff
                                 </td>
                                 <td><span id="transportation_results3"></span></td>
                                 <td><span id="transportation_results4"></span></td>
@@ -1036,8 +1044,7 @@
                                 <td><span id="transportation_results6"></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">Pounds of C02 emitted per week (lbs) <bold><em>per person in the
-                                            carpool</em></bold>
+                                <td scope="row">The average pounds of CO2 emitted per week, per person in the carpool
                                 </td>
                                 <td><span id="transportation_results7"></span></td>
                                 <td><span id="transportation_results8"></span></td>

@@ -172,7 +172,6 @@ $('#transportation_input12').val(3);
 $('#transportation_input13').val(1);
 $('#transportation_input14').val(1);
 
-
 // *****Trash Content Calculations*****
 const TRASHINPUTS = 4;
 
