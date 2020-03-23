@@ -7,18 +7,18 @@
 
 // *****TRANSPORTATION*****
 // One gallon of gas generates f(x) lbs of CO2
-const GALLONCO2 = 20;
+const GALLONCO2 = 19.64;
 
 function gallonsBurned (roundtripDistance, daysDriven, mpg) {
     var carbonImpact = 0;
     carbonImpact = roundtripDistance / mpg * daysDriven;
-    return carbonImpact;
+    return carbonImpact.toFixed(2);
 }
 
 function weeklyCarbonDrivingAlone (gallonsBurned) {
     var carbonImpact = 0;
     carbonImpact = gallonsBurned * GALLONCO2;
-    return carbonImpact;
+    return carbonImpact.toFixed(2);
 }
 
 function weeklyCarbonDrivingCarpool (gallonsBurned, numberOfPeople) {
