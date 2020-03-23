@@ -8,12 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/Css/main.css" rel="stylesheet">
 
-    <!-- Local Host Testing -->
-    <!-- Linda -->
-    <!--<link href="/Users/lindaly/Desktop/nwf2/NWF-Carbon-Calculator/NWF-Carbon-Calculator/Css/main.css" rel="stylesheet"> -->
 
     <!-- Henry -->
-    <!-- <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
+    <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">
 
     <!-- Google charts AJAX API -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -284,7 +281,7 @@
                             </tr>
                             </tr>
                             <!--This is the first half of the paper spreadsheet-->
-                            <!--would also have to adjust the top side of the third question though. 
+                            <!--would also have to adjust the top side of the third question though.
                                 cause it need an indicator for "carbon impact"-->
 
                             <tr>
@@ -1094,15 +1091,13 @@
                     from plastic water bottle consumption both before and after implementing the action plan.</p>
                 <p><strong>1. Collect and record data. </strong>
                     In the orange table below, record the number of plastic bottles the students and/or staff uses
-                    in a typical week. Also record whether the they recycle the bottles. </p>
-                <p>Collect and record data. In the orange table below, record the number of plastic bottles the students
-                    and/or staff uses in a typical week. Also record whether the they recycle the bottles.
-                </p>
+                    in a typical week. Also record whether the they recycle the bottles.</p>
             </div>
         </div>
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
+                  <p><h6><b>INPUT CLASSROOM DATA HERE:</b></h6></p>
                     <table class="table w-auto">
                         <thead>
                             <tr>
@@ -1122,18 +1117,17 @@
                             </tr>
                             <tr>
                                 <td class="col-sm-4" scope="row">Most of the time, do they usually recycle the water
-                                    bottles,
-                                    or throw them away? (Select one)</td>
-                                <td class="col-sm-4"> <select id="bottles_input3" name="rt">
-                                        <option value="blank"></option>
-                                        <option value="recycle">Recycle</option>
-                                        <option value="throwaway">Throw Away</option>
+                                    bottles, or throw them away? (Select one)</td>
+                                <td class="col-sm-4"> <select id="bottles_input" name="bottles_input">
+                                        <option value=""></option>
+                                        <option value="1.67">Recycle</option>
+                                        <option value="0">Throw Away</option>
                                     </select>
                                 </td>
-                                <td class="col-sm-4"><select id="bottles_input4" name="rt">
-                                        <option value="blank"></option>
-                                        <option value="recycle">Recycle</option>
-                                        <option value="throwaway">Throw Away</option>
+                                <td class="col-sm-4"><select id="bottles_input0" name="bottles_input0">
+                                        <option value=""></option>
+                                        <option value="1.67">Recycle</option>
+                                        <option value="0">Throw Away</option>
                                     </select>
                                 </td>
                             </tr>
@@ -1161,14 +1155,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">That's roughly this many lbs of plastic each week:
-                                </td>
+                                <td scope="row">That's roughly this many lbs of plastic each week:</td>
                                 <td><span id="bottles_results1"></span></td>
                                 <td><span id="bottles_results2"></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">Which adds up to this many lbs of CO2 each week:
-                                </td>
+                                <td scope="row">Which adds up to this many lbs of CO2 each week:</td>
                                 <td><span id="bottles_results3"></span></td>
                                 <td><span id="bottles_results4"></span></td>
                             </tr>
@@ -1181,9 +1173,39 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="table-responsive table-seperator">
+                    <p>
+                        <h6><b>SUMMARY OF RESULTS:</b></h6>
+                    </p>
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">CO<sub>2</sub> Emissions per week (lbs)</th>
+                                <th scope="col">CO<sub>2</sub> emissions per 36-week school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Before Taking Action</td>
+                                <td><span id="bottles_results7"></span></td>
+                                <td><span id="bottles_results8"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">After Taking Action</td>
+                                <td><span id="bottles_results9"></span></td>
+                                <td><span id="bottles_results10"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total CO2 emissions savings</td>
+                                <td><span id="bottles_results11"></span></td>
+                                <td><span id="bottles_results12"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates of
+                  consumption and increasing rates of recycling. Be sure to note this data as you address the Consumption and Waste pathway.</p>
 
     <!-- Beverage Cup Content -->
     <div class="container content-container" id="container_cups">
@@ -1193,25 +1215,16 @@
         <div class="row content-instructions">
             <div class="col">
                 <p><em><strong>Instructions: </strong></em>
-                    A typical 16-oz ("grande" size) beverage cup with lid and sleeve generates 0.25 lbs of carbon
-                    dioxide.
+                    A typical 16-oz ("grande" size) beverage cup with lid and sleeve generates 0.25 lbs of carbon dioxide.
                     Use the data collected in the audit to calculate </p>
                 <p><strong>1. Collect and record data. </strong>
-                    Input the class's/school's beverage cup data before and after implmenting the action plan. </p>
-            </div>
-            <div class="col">
-                <p>Collect and record data. Input the class's/school's beverage cup data before and after implmenting
-                    the action plan.
-                </p>
+                    Input the class's/school's beverage cup data before and after implmenting the action plan.</p>
             </div>
         </div>
-
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
-                    <p>
-                        <h6><strong>INPUT CLASSROOM DATA HERE:</s></h6>
-                    </p>
+                  <p><h6><b>INPUT CLASSROOM DATA HERE:</b></h6></p>
                     <table class="table w-auto">
                         <thead>
                             <tr>
@@ -1221,27 +1234,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                          <tr>
+                              <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee, tea or other beverage,
+                                does he/she always use his/her own mug? (Select Yes or No from the drop-down menu.)</td>
+                              <td class="col-sm-4"> <select id="cups_input1" name="cups_input1">
+                                      <option value="0"></option>
+                                      <option value="1">Yes</option>
+                                      <option value="0.25">No</option>
+                                  </select>
+                              </td>
+                              <td class="col-sm-4"><select id="cups_input2" name="cups_input2">
+                                      <option value="0"></option>
+                                      <option value="1">Yes</option>
+                                      <option value="0.25">No</option>
+                                  </select>
+                              </td>
+                          </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee, tea or
-                                    other beverage,
-                                    does he/she always use his/her own mug? <i>(Select Yes or No from the drop-down
-                                        menu.)</i></td>
-                                <td class="col-sm-4"> <select id="cups_input1" name="yn">
-                                        <option value="blank"></option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </td>
-                                <td class="col-sm-4"><select id="cups_input2" name="yn">
-                                        <option value="blank"></option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-sm-4" scope="row">Approximately how many disposable cups are used in a
-                                    week?</td>
+                                <td class="col-sm-4" scope="row">Approximately how many disposable cups are used in a week?</td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input3">
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input4">
@@ -1257,9 +1267,40 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="table-responsive table-seperator">
+                    <p>
+                        <h6><b>SUMMARY OF RESULTS:</b></h6>
+                    </p>
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">CO<sub>2</sub> Emissions per week (lbs)</th>
+                                <th scope="col">CO<sub>2</sub> emissions per 36-week school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Before Taking Action</td>
+                                <td><span id="cup_results1"></span></td>
+                                <td><span id="cup_results2"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">After Taking Action</td>
+                                <td><span id="cup_results3"></span></td>
+                                <td><span id="cup_results4"></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total CO2 emissions savings</td>
+                                <td><span id="cup_results5"></span></td>
+                                <td><span id="cup_results6"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates of consumption and
+                increasing rates of recycling.  Be sure to note this data as you address the Consumption and
+                Waste pathway.</p>
 
 
     <!-- Optional JavaScript -->
@@ -1284,13 +1325,9 @@
     <script type="text/javascript" src="/Scripts/custom.js"></script>
 
     <!-- Local Host Testing -->
-    <!-- Linda -->
-    <!--<script type="text/javascript" src="/Users/lindaly/Desktop/nwf2/NWF-Carbon-Calculator/NWF-Carbon-Calculator/Scripts/custom.js"></script>
-    <script type="text/javascript" src="/Users/lindaly/Desktop/nwf2/NWF-Carbon-Calculator/NWF-Carbon-Calculator/Scripts/methodology-notes.js"></script> -->
-
     <!-- Henry -->
-    <!-- <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
-    <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script> -->
+    <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
+    <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
 
 </body>
 
