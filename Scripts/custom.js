@@ -378,10 +378,10 @@ calculate1 = function () {
   var answer2 = (parseInt(bottleinput2) * 0.04);
   document.getElementById('bottles_results2').innerHTML = answer2;
 
-  var answer3 = (answer * 2.27);
+  var answer3 = (answer * 2.17);
   document.getElementById('bottles_results3').innerHTML = answer3;
 
-  var answer4 = (answer2 * 2.27);
+  var answer4 = (answer2 * 2.17);
   document.getElementById('bottles_results4').innerHTML = answer4;
 
   var bottleinput3 = document.getElementById('bottles_input').value;
@@ -391,8 +391,8 @@ calculate1 = function () {
   if (bottleinput3 == "") {
       answer5 = "";
       document.getElementById('bottles_results5').innerHTML = answer5;
-  } else if (bottleinput3 == "1.67") {
-      answer5 = answer * 1.67;
+  } else if (bottleinput3 == "1.15") {
+      answer5 = answer * 1.15;
       result = answer5;
       document.getElementById('bottles_results5').innerHTML = answer5;
   } else if (bottleinput3 == "0") {
@@ -406,8 +406,8 @@ calculate1 = function () {
       answer6 = "";
       result = answer5;
       document.getElementById('bottles_results6').innerHTML = answer6;
-  } else if (bottleinput4 == "1.67") {
-      answer6 = answer2 * 1.67;
+  } else if (bottleinput4 == "1.15") {
+      answer6 = answer2 * 1.15;
       result = answer6;
       document.getElementById('bottles_results6').innerHTML = answer6;
   } else if (bottleinput4 == "0") {
