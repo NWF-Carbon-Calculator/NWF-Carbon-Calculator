@@ -311,6 +311,7 @@ document.getElementById('paper_resultsum4').innerHTML = panswersum4;
 panswerDIFF2 = panswersum3-panswersum4;
 document.getElementById('paper_resultsum6').innerHTML = panswerDIFF2;
 
+//console.log to check if my values were correct
 console.log(panswer1);
 console.log(panswer2);
 
