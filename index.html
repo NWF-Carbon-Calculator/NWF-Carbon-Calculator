@@ -127,20 +127,13 @@
         </div>
         <div class="row content-instructions">
             <div class="col">
-                <p><em><strong>Instructions: </strong></em>Before you begin using the Electricity section of your audit,
-                    you'll first
-                    need to decide whether
-                    to use the "National Average" fuel mix or customize your results based on the fuel mix of your local
-                    utility.<br><br>
+                <p><em><strong>Instructions: </strong></em>In order to calculate your Electricity Emissions Factor, you'll 
+				first need to decide which energy mix you will use, the national average or your state's energy mix. <br><br>
 
-                    &emsp;&#xbb;If you would like to create your own electricity emissions factor using the fuel mix of
-                    your
-                    local utility:<br>
-                    &emsp;1. Select the "Enter Your Own Utility Information" button in the box below.<br>
-                    &emsp;2. Enter the fuel mix of your utility in the appropriate boxes. Your state's average fuel mix
-                    can
-                    be found at <a href="http://eia.gov/state/">eia.gov/state</a>.<br>
-                    &emsp;3. You should now have your own custom electricity factor! Move on to the next section.</p>
+                    &emsp;&#xbb;To enter your own state's energy mix, go to <a href="http://eia.gov/state/">eia.gov/state/</a><br>
+                    &emsp;1. Click on your state.<br>
+                    &emsp;2. Scroll down under the Quick Facts. Click on the tab labeled, Electricity.<br>
+                    &emsp;3. Input your energy data into the appropriate spaces below.</p>
                 <p>
                     <h6>INPUT UTILITY INFORMATION HERE:</h6>
                 </p>
@@ -148,10 +141,13 @@
         </div>
 
         <form>
-            <label class="radio-inline"><input type="radio" name="option" checked> Use National Average</label>
+            <label class="radio-inline"><input type="radio" name="option" id="national_average" checked> Use National Average</label>
             &emsp; OR &emsp;
-            <label class="radio-inline"><input type="radio" name="option"> Enter Your Own Utility Information</label>
+            <label class="radio-inline"><input type="radio" name="option" id="custom_average"> Enter Your Own Utility Information</label>
         </form>
+		<form>
+				<td><button type="button" id="btn_calculate_EEF" class="btn btn-success">Calculate Electricity Emissions Factor</button>
+		</form><br>
 
         <div class="row calculation-area">
             <div class="table-responsive table-seperator">
@@ -166,23 +162,23 @@
                     <tbody>
                         <tr>
                             <td scope="row">Coal</td>
-                            <td>37.4%</td>
-                            <td><input type="text" id="coal"></td>
+                            <td id="coal_percent" value=".374">37.4%</td>
+                            <td><input type="text" id="custom_coal_percent"></td>
                         </tr>
                         <tr>
                             <td scope="row">Nuclear</td>
                             <td>19%</td>
-                            <td><input type="text" id="nuclear"></td>
+                            <td><input type="text" id=""></td>
                         </tr>
                         <tr>
                             <td scope="row">Natural Gas</td>
-                            <td>30.3%</td>
-                            <td><input type="text" id="gas"></td>
+                            <td id="nat_gas_percent" value=".303">30.3%</td>
+                            <td><input type="text" id="custom_nat_gas_percent"></td>
                         </tr>
                         <tr>
                             <td scope="row">Oil</td>
-                            <td>0.6%</td>
-                            <td><input type="text" id="oil"></td>
+                            <td id="oil_percent" value = ".06" >0.6%</td>
+                            <td><input type="text" id="custom_oil_percent"></td>
                         </tr>
                         <tr>
                             <td scope="row">Hydro</td>
@@ -201,8 +197,8 @@
                         </tr>
                         <tr>
                             <td scope="row">Electricity Emissions Factor</td>
-                            <td><input type="text" readonly>lbs CO2/kWh</td>
-                            <td><input type="text" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" id="national_average_factor" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" id="custom_factor" readonly>lbs CO2/kWh</td>
                         </tr>
                     </tbody>
                 </table>
@@ -906,22 +902,28 @@
                 reiciendis suscipit laudantium sint vero sapiente possimus, explicabo quia? Ducimus voluptatibus laborum
                 laboriosam, nostrum exercitationem soluta quas architecto.</p>
         </div>
-        <div class="row calculation-area">
+ 
+		<div class="row calculation-area">
             <table class="table">
                 <thead>
+				<tr>ELECTRICITY CONVERSION FACTORS</tr>
                     <tr>
-                        <th>Type of Power</th>
-                        <th>National Average</th>
+                        <th>SOURCE</th>
+                        <th>lbs. CO2/kWh</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row">Coal</td>
-                        <td>37.4%</td>
+                        <td scope="row">coal</td>
+                        <td id="coal_factor">2.23</td>
                     </tr>
                     <tr>
-                        <td scope="row">Nuclear</td>
-                        <td>19%</td>
+                        <td scope="row">natural gas</td>
+                        <td "nat_gas_factor">0.92</td>
+                    </tr>
+					<tr>
+                        <td scope="row">oil</td>
+                        <td "oil_factor">2.02</td>
                     </tr>
                 </tbody>
             </table>
