@@ -9,7 +9,10 @@
     <link href="/Css/main.css" rel="stylesheet">
 
     <!-- Henry -->
-    <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">
+    <!--<link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet"> -->
+
+    <!-- Linda -->
+    <!--<link href="/Users/lindaly/Desktop/NWF-Carbon-Calculator/Css/main.css" rel="stylesheet">-->
 
     <!-- Google charts AJAX API -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -222,11 +225,11 @@
         </div>
         <div class="row content-instructions">
             <div class="col">
-                <p><b>Instructions:</b> The process by which paper makes it to school contributes to a school's carbon footprint. 
-                    One ream of paper contains 500 sheets and it is estimated that the average teacher uses 50 reams of paper in one school year. 
-                    Enter the data below to determine CO2 emissions from paper use. Consider the following strategies to reduce the amount of paper you use. 
-                    Change the default setting on your printer to print double-sided, ask yourself before you print, "Does this really need to be printed?", 
-                    and investigate a paper-less policy (many districts are looking at this as a way to save money). Use the worksheet titled, 
+                <p><b>Instructions:</b> The process by which paper makes it to school contributes to a school's carbon footprint.
+                    One ream of paper contains 500 sheets and it is estimated that the average teacher uses 50 reams of paper in one school year.
+                    Enter the data below to determine CO2 emissions from paper use. Consider the following strategies to reduce the amount of paper you use.
+                    Change the default setting on your printer to print double-sided, ask yourself before you print, "Does this really need to be printed?",
+                    and investigate a paper-less policy (many districts are looking at this as a way to save money). Use the worksheet titled,
                     <b><i>Carbon Calculator: School Paper</i></b> to gather all data, whether it is from one classroom, grade level, floor or entire school.
                     Enter the sum of all data below.
                 </p>
@@ -430,9 +433,9 @@
         </div>
         <div class="row content-instructions">
             <div class="col">
-                <p><b>Instructions:</b> Americans make up roughly 5% of the world’s population, but generate nearly 40% of the world’s total waste 
-                    and on a daily basis, the United States produces enough trash to fill 63,000 garbage trucks. Enter data below to determine 
-                    how many pounds of CO2 is generated from the trash thrown away at school. Use the worksheet titled, <b><i>Carbon Calculator: Classroom Trash</i></b> 
+                <p><b>Instructions:</b> Americans make up roughly 5% of the world’s population, but generate nearly 40% of the world’s total waste
+                    and on a daily basis, the United States produces enough trash to fill 63,000 garbage trucks. Enter data below to determine
+                    how many pounds of CO2 is generated from the trash thrown away at school. Use the worksheet titled, <b><i>Carbon Calculator: Classroom Trash</i></b>
                     to gather all data, whether it is from one classroom, grade level, floor or entire school. Enter the sum of all the data below.
                 </p>
             </div>
@@ -571,10 +574,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Before Taking Action</td>
+                            <td>After Taking Action</td>
+                          </tr>
+                            <tr id="appliance_input">
                                 <td scope="row">1</td>
-                                <td><input type="text" id="electronic_device"></td>
-                                <td><input type="text" id="wattage"></td>
+                                <td><input type="text" id="appliance_wattage"></td>
+                                <td><input type="text" id="appliance_count"></td>
                                 <td><input type="text" id="appliance_before_option"></td>
                                 <td><input type="text" id="appliance_after_option"></td>
                             </tr>
@@ -582,7 +592,12 @@
                     </table>
                     <div class="container">
                         <div class="row d-flex flex-row-reverse">
-                            <button id="btn_add_row" class="btn btn-success">Add More</button>
+                            <button id="appliance_btn_add_row" class="btn btn-success">Add More</button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row d-flex flex-row-reverse">
+                            <button id="btn_calculate_appliance" class="btn btn-success">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -608,14 +623,14 @@
                                 <td>After Taking Action</td>
                             </tr>
                             <tr>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
+                                <td class="appliance" class="appliance"><input type="text" id="appliance_before_per_day" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_after_per_day" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_before_per_year" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_after_per_year" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_before_CO2_per_day" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_after_CO2_per_day" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_before_CO2_per_year" readonly></td>
+                                <td class="appliance"><input type="text" id="appliance_after_CO2_per_year" readonly></td>
                             </tr>
                         </tbody>
                     </table>
@@ -666,18 +681,18 @@
                         <tbody>
                             <tr>
                                 <td>Before Taking Action</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" id="before_appliance_result_day" readonly></td>
+                                <td><input type="text" id="before_appliance_result_year" readonly></td>
                             </tr>
                             <tr>
                                 <td>After Taking Action</td>
-                                <td><input type="text" eadonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" id="after_appliance_result_day" readonly></td>
+                                <td><input type="text" id="after_appliance_result_year"readonly></td>
                             </tr>
                             <tr>
                                 <td>Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" id="total_appliance_result_day" readonly></td>
+                                <td><input type="text" id="total_appliance_result_year" readonly></td>
                             </tr>
                         </tbody>
                     </table>
@@ -721,19 +736,222 @@
                                 <th>How many?</th>
                                 <th colspan="2">End of day operating mode</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" id="vampire_device"></td>
-                                <td><input type="text" id="vampire_count"></td>
-                                <td><input type="text" id="vampire_before_option"></td>
-                                <td><input type="text" id="vampire_after_option"></td>
-                            </tr>
-                        </tbody>
+                            </thead>
+                            <tbody>
+                                <!--Desktop Computer-->
+                                <tr>
+                                    <td><p id="vampire_device_1">Desktop Computer</p></td>
+                                    <td><input type="text" id="vampire_count_1"></td>
+                                    <td>
+                                        <select id="vampire_before_1" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_1" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Laptop-->
+                                <tr>
+                                    <td><p id="vampire_device_2">Laptop</p></td>
+                                    <td><input type="text" id="vampire_count_2"></td>
+                                    <td>
+                                        <select id="vampire_before_2" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_2" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Tablet-->
+                                <tr>
+                                    <td><p id="vampire_device_3">Tablet</p></td>
+                                    <td><input type="text" id="vampire_count_3"></td>
+                                    <td>
+                                        <select id="vampire_before_3" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_3" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Flat Screen Monitor (LCD)-->
+                                <tr>
+                                    <td><p id="vampire_device_4">Flat Screen Monitor (LCD)</p></td>
+                                    <td><input type="text" id="vampire_count_4"></td>
+                                    <td>
+                                        <select id="vampire_before_4" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_4" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Multi-Function Printer/Scanner/Copier-->
+                                <tr>
+                                    <td><p id="vampire_device_5">Multi-Function Printer/Scanner/Copier</p></td>
+                                    <td><input type="text" id="vampire_count_5"></td>
+                                    <td>
+                                        <select id="vampire_before_5" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_5" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Speakers-->
+                                <tr>
+                                    <td><p id="vampire_device_6">Speakers</p></td>
+                                    <td><input type="text" id="vampire_count_6"></td>
+                                    <td>
+                                        <select id="vampire_before_6" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_6" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--SMART Board-->
+                                <tr>
+                                    <td><p id="vampire_device_7">SMART Board</p></td>
+                                    <td><input type="text" id="vampire_count_7"></td>
+                                    <td>
+                                        <select id="vampire_before_7" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_7" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Projector-->
+                                <tr>
+                                    <td><p id="vampire_device_8">Projector</p></td>
+                                    <td><input type="text" id="vampire_count_8"></td>
+                                    <td>
+                                        <select id="vampire_before_8" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_8" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Coffee Maker-->
+                                <tr>
+                                    <td><p id="vampire_device_9">Coffee Maker</p></td>
+                                    <td><input type="text" id="vampire_count_9"></td>
+                                    <td>
+                                        <select id="vampire_before_9" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_9" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Personal Microwave-->
+                                <tr>
+                                    <td><p id="vampire_device_10">Personal Microwave</p></td>
+                                    <td><input type="text" id="vampire_count_10"></td>
+                                    <td>
+                                        <select id="vampire_before_10" name="vampire_before">
+                                            <<option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_10" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!--Mini-fridge-->
+                                <tr>
+                                    <td><p id="vampire_device_11">Personal Mini-Refrigerator</p></td>
+                                    <td><input type="text" id="vampire_count_11"></td>
+                                    <td>
+                                        <select id="vampire_before_11" name="vampire_before">
+                                            <option value="vampire_before_off">Off</option>
+                                            <option value="vampire_before_active">Active</option>
+                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="vampire_after_11" name="vampire_after">
+                                            <option value="vampire_after_off">Off</option>
+                                            <option value="vampire_after_active">Active</option>
+                                            <option value="vampire_after_unplugged">Power Strip/ Unplugged</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
                     </table>
                     <div class="container">
                         <div class="row d-flex flex-row-reverse">
-                            <button id="btn_add_row" class="btn btn-success">Add More</button>
+                            <button id="btn_calculate_vampire" class="btn btn-success">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -741,14 +959,16 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="2">Total kWh consumed per day</th>
-                                <th colspan="2">Total kWh per 180-day school year</th>
-                                <th colspan="2">Total CO<sub>2</sub> emissions per day (lbs)</th>
-                                <th colspan="2">Total CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                                <th class="vampire_result"></th>
+                                <th class="vampire_result" colspan="2">Total kWh consumed per day</th>
+                                <th class="vampire_result" colspan="2">Total kWh per 180-day school year</th>
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per "night" (lbs)</th>
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <th>Device</th>
                                 <td>Before Taking Action</td>
                                 <td>After Taking Action</td>
                                 <td>Before Taking Action</td>
@@ -759,14 +979,125 @@
                                 <td>After Taking Action</td>
                             </tr>
                             <tr>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
-                                <td><input type="text" class='appliance' readonly></td>
+                                <td class="appliance_name">Desktop Computer</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_1' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_1' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Laptop</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_2' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_2' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Tablet</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_3' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_3' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Flat Screen Monitor (LCD)</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_4' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_4' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Multi-Function Printer/Scanner/Copier</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_5' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_5' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Speakers</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_6' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_6' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>SMART Board</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_7' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_7' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Projector</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_8' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_8' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Coffee Maker</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_9' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_9' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Personal Microwave</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_10' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_10' readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Personal Mini-Refrigerator</td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_11' readonly></td>
+                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_11' readonly></td>
                             </tr>
                         </tbody>
                     </table>
@@ -820,18 +1151,18 @@
                         <tbody>
                             <tr>
                                 <td>Before Taking Action</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" id="before_result_day" readonly></td>
+                                <td><input type="text" id="before_result_year" readonly></td>
                             </tr>
                             <tr>
                                 <td>After Taking Action</td>
-                                <td><input type="text" eadonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" id="after_result_day" readonly></td>
+                                <td><input type="text" id="after_result_year" readonly></td>
                             </tr>
                             <tr>
                                 <td>Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" id="total_result_day" readonly></td>
+                                <td><input type="text" id="total_result_year" readonly></td>
                             </tr>
                         </tbody>
                     </table>
@@ -924,7 +1255,7 @@
                         <td scope="row">oil</td>
                         <td id="oil_factor">2.02</td>
                     </tr>
-                </tbody>   
+                </tbody>
             </table>
         </div>
         <div class="row calculation-area">
@@ -949,9 +1280,9 @@
                         <td scope="row">National average cost of waste collection services</td>
                         <td id="money_factor">0.0004 $/lbs </td>
                         <td id="money2_factor">55.36 $/metric ton </td>
-                        
+
                     </tr>
-                </tbody>   
+                </tbody>
             </table>
         </div>
         <div class="row calculation-area">
@@ -981,7 +1312,7 @@
                         <td id="recycle3_factor">19</td>
                         <td id="papercost3_factor">13.09</td>
                     </tr>
-                </tbody>   
+                </tbody>
             </table>
         </div>
     </div>
@@ -1398,10 +1729,14 @@
 
                             <!-- Local Host Testing -->
                             <!-- Henry -->
-                            <script type="text/javascript"
+                            <!--<script type="text/javascript"
                                 src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
                             <script type="text/javascript"
-                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
+                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script> -->
+
+                            <!-- Linda -->
+                            <!--<script type="text/javascript" src="/Users/lindaly/Desktop/NWF-Carbon-Calculator/Scripts/custom.js"></script>
+                            <script type="text/javascript" src="/Users/lindaly/Desktop/NWF-Carbon-Calculator/Scripts/methodology-notes.js"></script>-->
 
 </body>
 

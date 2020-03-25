@@ -26,3 +26,40 @@ function weeklyCarbonDrivingCarpool (gallonsBurned, numberOfPeople) {
     carbonImpact = gallonsBurned * GALLONCO2 / numberOfPeople;
     return carbonImpact.toFixed(2);
 }
+
+//***********OTHER APPLIANCES************
+function totalkWHPerDay(wattage, count, action) {
+  total = wattage * count * action;
+  return total
+}
+
+function totalkwHPerYear(action){
+  total = action * 180;
+  return total;
+}
+
+// ****Energy Vampire*****
+const HOURSAWAYFROMSCHOOL = 16;
+const WATTSPERKW = 1000;
+const days = 180;
+var total;
+
+function totalkWhConsumedOvernight(numberOfDevice, action) {
+    total = numberOfDevice * HOURSAWAYFROMSCHOOL / WATTSPERKW * action;
+    return total.toFixed(4);
+}
+
+function totalkWhPerSchoolYear(kWhConsumedOvernight) {
+    total = kWhConsumedOvernight / days;
+    return total.toFixed(4);
+}
+
+function totalCO2Per16HrNight(kWhConsumedOvernight, emissionsFactor) {
+    total = kWhConsumedOvernight * emissionsFactor;
+    return total.toFixed(4);
+}
+
+function totalCO2PerSchoolYear(CO2PerNight){
+    total = CO2PerNight * 180;
+    return total.toFixed(4);
+}
