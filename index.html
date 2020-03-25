@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/Css/main.css" rel="stylesheet">
 
-
     <!-- Henry -->
     <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">
 
@@ -127,20 +126,16 @@
         </div>
         <div class="row content-instructions">
             <div class="col">
-                <p><em><strong>Instructions: </strong></em>Before you begin using the Electricity section of your audit,
-                    you'll first
-                    need to decide whether
-                    to use the "National Average" fuel mix or customize your results based on the fuel mix of your local
-                    utility.<br><br>
+                <p><em><strong>Instructions: </strong></em>In order to calculate your Electricity Emissions Factor,
+                    you'll
+                    first need to decide which energy mix you will use, the national average or your state's energy mix.
+                    <br><br>
 
-                    &emsp;&#xbb;If you would like to create your own electricity emissions factor using the fuel mix of
-                    your
-                    local utility:<br>
-                    &emsp;1. Select the "Enter Your Own Utility Information" button in the box below.<br>
-                    &emsp;2. Enter the fuel mix of your utility in the appropriate boxes. Your state's average fuel mix
-                    can
-                    be found at <a href="http://eia.gov/state/">eia.gov/state</a>.<br>
-                    &emsp;3. You should now have your own custom electricity factor! Move on to the next section.</p>
+                    &emsp;&#xbb;To enter your own state's energy mix, go to <a
+                        href="http://eia.gov/state/">eia.gov/state/</a><br>
+                    &emsp;1. Click on your state.<br>
+                    &emsp;2. Scroll down under the Quick Facts. Click on the tab labeled, Electricity.<br>
+                    &emsp;3. Input your energy data into the appropriate spaces below.</p>
                 <p>
                     <h6>INPUT UTILITY INFORMATION HERE:</h6>
                 </p>
@@ -148,10 +143,16 @@
         </div>
 
         <form>
-            <label class="radio-inline"><input type="radio" name="option" checked> Use National Average</label>
+            <label class="radio-inline"><input type="radio" name="option" id="national_average" checked> Use National
+                Average</label>
             &emsp; OR &emsp;
-            <label class="radio-inline"><input type="radio" name="option"> Enter Your Own Utility Information</label>
+            <label class="radio-inline"><input type="radio" name="option" id="custom_average"> Enter Your Own Utility
+                Information</label>
         </form>
+        <form>
+            <td><button type="button" id="btn_calculate_EEF" class="btn btn-success">Calculate Electricity Emissions
+                    Factor</button>
+        </form><br>
 
         <div class="row calculation-area">
             <div class="table-responsive table-seperator">
@@ -166,23 +167,23 @@
                     <tbody>
                         <tr>
                             <td scope="row">Coal</td>
-                            <td>37.4%</td>
-                            <td><input type="text" id="coal"></td>
+                            <td id="coal_percent">37.4%</td>
+                            <td><input type="text" id="custom_coal_percent">%</td>
                         </tr>
                         <tr>
                             <td scope="row">Nuclear</td>
                             <td>19%</td>
-                            <td><input type="text" id="nuclear"></td>
+                            <td><input type="text" id=""></td>
                         </tr>
                         <tr>
                             <td scope="row">Natural Gas</td>
-                            <td>30.3%</td>
-                            <td><input type="text" id="gas"></td>
+                            <td id="nat_gas_percent">30.3%</td>
+                            <td><input type="text" id="custom_nat_gas_percent">%</td>
                         </tr>
                         <tr>
                             <td scope="row">Oil</td>
-                            <td>0.6%</td>
-                            <td><input type="text" id="oil"></td>
+                            <td id="oil_percent">0.6%</td>
+                            <td><input type="text" id="custom_oil_percent">%</td>
                         </tr>
                         <tr>
                             <td scope="row">Hydro</td>
@@ -201,8 +202,8 @@
                         </tr>
                         <tr>
                             <td scope="row">Electricity Emissions Factor</td>
-                            <td><input type="text" readonly>lbs CO2/kWh</td>
-                            <td><input type="text" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" id="national_average_factor" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" id="custom_factor" readonly>lbs CO2/kWh</td>
                         </tr>
                     </tbody>
                 </table>
@@ -906,22 +907,28 @@
                 reiciendis suscipit laudantium sint vero sapiente possimus, explicabo quia? Ducimus voluptatibus laborum
                 laboriosam, nostrum exercitationem soluta quas architecto.</p>
         </div>
+
         <div class="row calculation-area">
             <table class="table">
                 <thead>
+                    <tr>ELECTRICITY CONVERSION FACTORS</tr>
                     <tr>
-                        <th>Type of Power</th>
-                        <th>National Average</th>
+                        <th>SOURCE</th>
+                        <th>lbs. CO2/kWh</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row">Coal</td>
-                        <td>37.4%</td>
+                        <td scope="row">coal</td>
+                        <td id="coal_factor">2.23</td>
                     </tr>
                     <tr>
-                        <td scope="row">Nuclear</td>
-                        <td>19%</td>
+                        <td scope="row">natural gas</td>
+                        <td id="nat_gas_factor">0.92</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">oil</td>
+                        <td id="oil_factor">2.02</td>
                     </tr>
                 </tbody>
             </table>
@@ -1097,7 +1104,9 @@
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
-                  <p><h6><b>INPUT CLASSROOM DATA HERE:</b></h6></p>
+                    <p>
+                        <h6><b>INPUT CLASSROOM DATA HERE:</b></h6>
+                    </p>
                     <table class="table w-auto">
                         <thead>
                             <tr>
@@ -1205,129 +1214,143 @@
                     </table>
                 </div>
                 <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates of
-                  consumption and increasing rates of recycling. Be sure to note this data as you address the Consumption and Waste pathway.</p>
+                    consumption and increasing rates of recycling. Be sure to note this data as you address the
+                    Consumption and Waste pathway.</p>
 
-    <!-- Beverage Cup Content -->
-    <div class="container content-container" id="container_cups">
-        <div class="row content-header">
-            <h4>Beverage Cups</h4>
-        </div>
-        <div class="row content-instructions">
-            <div class="col">
-                <p><em><strong>Instructions: </strong></em>
-                    A typical 16-oz ("grande" size) beverage cup with lid and sleeve generates 0.25 lbs of carbon dioxide.
-                    Use the data collected in the audit to calculate </p>
-                <p><strong>1. Collect and record data. </strong>
-                    Input the class's/school's beverage cup data before and after implmenting the action plan.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row calculation-area">
-                <div class="table-responsive table-seperator">
-                  <p><h6><b>INPUT CLASSROOM DATA HERE:</b></h6></p>
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col">Beverage cup consumption</th>
-                                <th scope="col">Before Taking Action</th>
-                                <th scope="col">After Taking Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                              <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee, tea or other beverage,
-                                does he/she always use his/her own mug? (Select Yes or No from the drop-down menu.)</td>
-                              <td class="col-sm-4"> <select id="cups_input1" name="cups_input1">
-                                      <option value="0"></option>
-                                      <option value="1">Yes</option>
-                                      <option value="0.25">No</option>
-                                  </select>
-                              </td>
-                              <td class="col-sm-4"><select id="cups_input2" name="cups_input2">
-                                      <option value="0"></option>
-                                      <option value="1">Yes</option>
-                                      <option value="0.25">No</option>
-                                  </select>
-                              </td>
-                          </tr>
-                            <tr>
-                                <td class="col-sm-4" scope="row">Approximately how many disposable cups are used in a week?</td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input3">
-                                </td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input4">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><button type="button" id="btn_reset_cups" class="btn btn-success">Reset</button>
-                                </td>
-                                <td><button type="button" id="btn_calculate_cups"
-                                        class="btn btn-success">Calculate</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive table-seperator">
-                    <p>
-                        <h6><b>SUMMARY OF RESULTS:</b></h6>
-                    </p>
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">CO<sub>2</sub> Emissions per week (lbs)</th>
-                                <th scope="col">CO<sub>2</sub> emissions per 36-week school year (lbs)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">Before Taking Action</td>
-                                <td><span id="cup_results1"></span></td>
-                                <td><span id="cup_results2"></span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">After Taking Action</td>
-                                <td><span id="cup_results3"></span></td>
-                                <td><span id="cup_results4"></span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Total CO2 emissions savings</td>
-                                <td><span id="cup_results5"></span></td>
-                                <td><span id="cup_results6"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates of consumption and
-                increasing rates of recycling.  Be sure to note this data as you address the Consumption and
-                Waste pathway.</p>
+                <!-- Beverage Cup Content -->
+                <div class="container content-container" id="container_cups">
+                    <div class="row content-header">
+                        <h4>Beverage Cups</h4>
+                    </div>
+                    <div class="row content-instructions">
+                        <div class="col">
+                            <p><em><strong>Instructions: </strong></em>
+                                A typical 16-oz ("grande" size) beverage cup with lid and sleeve generates 0.25 lbs of
+                                carbon dioxide.
+                                Use the data collected in the audit to calculate </p>
+                            <p><strong>1. Collect and record data. </strong>
+                                Input the class's/school's beverage cup data before and after implmenting the action
+                                plan.</p>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row calculation-area">
+                            <div class="table-responsive table-seperator">
+                                <p>
+                                    <h6><b>INPUT CLASSROOM DATA HERE:</b></h6>
+                                </p>
+                                <table class="table w-auto">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Beverage cup consumption</th>
+                                            <th scope="col">Before Taking Action</th>
+                                            <th scope="col">After Taking Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-sm-4" scope="row">If the students and/or staff drinks coffee,
+                                                tea or other beverage,
+                                                does he/she always use his/her own mug? (Select Yes or No from the
+                                                drop-down menu.)</td>
+                                            <td class="col-sm-4"> <select id="cups_input1" name="cups_input1">
+                                                    <option value="0"></option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0.25">No</option>
+                                                </select>
+                                            </td>
+                                            <td class="col-sm-4"><select id="cups_input2" name="cups_input2">
+                                                    <option value="0"></option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0.25">No</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-4" scope="row">Approximately how many disposable cups are
+                                                used in a week?</td>
+                                            <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input3">
+                                            </td>
+                                            <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input4">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><button type="button" id="btn_reset_cups"
+                                                    class="btn btn-success">Reset</button>
+                                            </td>
+                                            <td><button type="button" id="btn_calculate_cups"
+                                                    class="btn btn-success">Calculate</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive table-seperator">
+                                <p>
+                                    <h6><b>SUMMARY OF RESULTS:</b></h6>
+                                </p>
+                                <table class="table w-auto">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">CO<sub>2</sub> Emissions per week (lbs)</th>
+                                            <th scope="col">CO<sub>2</sub> emissions per 36-week school year (lbs)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row">Before Taking Action</td>
+                                            <td><span id="cup_results1"></span></td>
+                                            <td><span id="cup_results2"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">After Taking Action</td>
+                                            <td><span id="cup_results3"></span></td>
+                                            <td><span id="cup_results4"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">Total CO2 emissions savings</td>
+                                            <td><span id="cup_results5"></span></td>
+                                            <td><span id="cup_results6"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates
+                                of consumption and
+                                increasing rates of recycling. Be sure to note this data as you address the Consumption
+                                and
+                                Waste pathway.</p>
 
 
-    <!-- Optional JavaScript -->
-    <!-- JQuery The Full Version With Added UI Elements -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                            <!-- Optional JavaScript -->
+                            <!-- JQuery The Full Version With Added UI Elements -->
+                            <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                                crossorigin="anonymous"></script>
+                            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <!-- Jquery The Bootstrap Mini Slim Version -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                            <!-- Jquery The Bootstrap Mini Slim Version -->
+                            <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                                crossorigin="anonymous"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                                crossorigin="anonymous"></script>
 
-    <!-- Custom Scripts -->
-    <script type="text/javascript" src="/Scripts/methodology-notes.js"></script>
-    <script type="text/javascript" src="/Scripts/custom.js"></script>
+                            <!-- Custom Scripts -->
+                            <script type="text/javascript" src="/Scripts/methodology-notes.js"></script>
+                            <script type="text/javascript" src="/Scripts/custom.js"></script>
 
-    <!-- Local Host Testing -->
-    <!-- Henry -->
-    <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
-    <script type="text/javascript" src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
+                            <!-- Local Host Testing -->
+                            <!-- Henry -->
+                            <script type="text/javascript"
+                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
+                            <script type="text/javascript"
+                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
 
 </body>
 

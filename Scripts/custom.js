@@ -105,6 +105,43 @@ function createRowHTML(counter) {
     return stringHTML;
 }
 
+// *****Electricity Content Calculations*****
+// Calculate and display Electricity Emission Factor (EEF)
+$('#btn_calculate_EEF').click(function () {
+
+    //get the value of the factors to be used in calculations
+    var coal_factor = document.getElementById("coal_factor").innerHTML;
+    var coal_percent = parseFloat(document.getElementById("coal_percent").innerHTML) / 100;
+    var oil_factor = document.getElementById("oil_factor").innerHTML;
+    var oil_percent = parseFloat(document.getElementById("oil_percent").innerHTML) / 100;
+    var nat_gas_factor = document.getElementById("nat_gas_factor").innerHTML;
+    var nat_gas_percent = parseFloat(document.getElementById("nat_gas_percent").innerHTML) / 100;
+
+    //Is radio button for national average checked 
+    if (document.getElementById('national_average').checked) {
+        //Calculate the national average EEF
+        var EEF = coal_factor * coal_percent + oil_factor * oil_percent + nat_gas_factor * nat_gas_percent;
+
+        //set text of EEF to national average
+        document.getElementById("national_average_factor").innerHTML = EEF;
+        document.getElementById("national_average_factor").value = EEF.toFixed(2);
+
+        //Is radio button for custom average checked 
+    } else if (document.getElementById('custom_average').checked) {
+
+        //get the custom values
+        var coal_percent = document.getElementById("custom_coal_percent").value / 100;
+        var oil_percent = document.getElementById("custom_oil_percent").value / 100;
+        var nat_gas_percent = document.getElementById("custom_nat_gas_percent").value / 100;
+
+        //Calculate the custom EEF
+        var custom_EEF = coal_factor * coal_percent + oil_factor * oil_percent + nat_gas_factor * nat_gas_percent;
+
+        //set text of EEF to custom value
+        document.getElementById("custom_factor").value = custom_EEF.toFixed(2);
+    }
+})
+
 // *****Transportation Content Calculations*****
 const TRANSPORTATIONINPUTS = 14;
 
@@ -365,77 +402,77 @@ $('#btn_reset_paper').click(function () {
 const BOTTLESINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_bottles').click(function () {
-  calculate1();
+    calculate1();
 })
 
 calculate1 = function () {
-  var bottleinput1 = document.getElementById('bottles_input1').value;
-  var bottleinput2 = document.getElementById('bottles_input2').value;
+    var bottleinput1 = document.getElementById('bottles_input1').value;
+    var bottleinput2 = document.getElementById('bottles_input2').value;
 
-  var answer = (parseInt(bottleinput1) * 0.04);
-  document.getElementById('bottles_results1').innerHTML = answer;
+    var answer = (parseInt(bottleinput1) * 0.04);
+    document.getElementById('bottles_results1').innerHTML = answer;
 
-  var answer2 = (parseInt(bottleinput2) * 0.04);
-  document.getElementById('bottles_results2').innerHTML = answer2;
+    var answer2 = (parseInt(bottleinput2) * 0.04);
+    document.getElementById('bottles_results2').innerHTML = answer2;
 
-  var answer3 = (answer * 2.17);
-  document.getElementById('bottles_results3').innerHTML = answer3;
+    var answer3 = (answer * 2.17);
+    document.getElementById('bottles_results3').innerHTML = answer3;
 
-  var answer4 = (answer2 * 2.17);
-  document.getElementById('bottles_results4').innerHTML = answer4;
+    var answer4 = (answer2 * 2.17);
+    document.getElementById('bottles_results4').innerHTML = answer4;
 
-  var bottleinput3 = document.getElementById('bottles_input').value;
-  var bottleinput4 = document.getElementById('bottles_input0').value;
+    var bottleinput3 = document.getElementById('bottles_input').value;
+    var bottleinput4 = document.getElementById('bottles_input0').value;
 
-  //before taking action
-  if (bottleinput3 == "") {
-      answer5 = "";
-      document.getElementById('bottles_results5').innerHTML = answer5;
-  } else if (bottleinput3 == "1.15") {
-      answer5 = answer * 1.15;
-      result = answer5;
-      document.getElementById('bottles_results5').innerHTML = answer5;
-  } else if (bottleinput3 == "0") {
-      answer5 = answer * 0;
-      result = answer5;
-      document.getElementById('bottles_results5').innerHTML = answer5;
-  }
+    //before taking action
+    if (bottleinput3 == "") {
+        answer5 = "";
+        document.getElementById('bottles_results5').innerHTML = answer5;
+    } else if (bottleinput3 == "1.15") {
+        answer5 = answer * 1.15;
+        result = answer5;
+        document.getElementById('bottles_results5').innerHTML = answer5;
+    } else if (bottleinput3 == "0") {
+        answer5 = answer * 0;
+        result = answer5;
+        document.getElementById('bottles_results5').innerHTML = answer5;
+    }
 
-  //after taking action
-  if (bottleinput4 == "") {
-      answer6 = "";
-      result = answer5;
-      document.getElementById('bottles_results6').innerHTML = answer6;
-  } else if (bottleinput4 == "1.15") {
-      answer6 = answer2 * 1.15;
-      result = answer6;
-      document.getElementById('bottles_results6').innerHTML = answer6;
-  } else if (bottleinput4 == "0") {
-      answer6 = answer2 * 0;
-      result = answer6;
-      document.getElementById('bottles_results6').innerHTML = answer6;
-  }
+    //after taking action
+    if (bottleinput4 == "") {
+        answer6 = "";
+        result = answer5;
+        document.getElementById('bottles_results6').innerHTML = answer6;
+    } else if (bottleinput4 == "1.15") {
+        answer6 = answer2 * 1.15;
+        result = answer6;
+        document.getElementById('bottles_results6').innerHTML = answer6;
+    } else if (bottleinput4 == "0") {
+        answer6 = answer2 * 0;
+        result = answer6;
+        document.getElementById('bottles_results6').innerHTML = answer6;
+    }
 
     console.log(answer5);
     console.log(answer6);
 
-  var answer7 = (answer3 - answer5);
-  document.getElementById('bottles_results7').innerHTML = answer7;
+    var answer7 = (answer3 - answer5);
+    document.getElementById('bottles_results7').innerHTML = answer7;
 
-  var answer8 = (answer7 * 36);
-  document.getElementById('bottles_results8').innerHTML = answer8;
+    var answer8 = (answer7 * 36);
+    document.getElementById('bottles_results8').innerHTML = answer8;
 
-  var answer9 = (answer4 - answer6);
-  document.getElementById('bottles_results9').innerHTML = answer9;
+    var answer9 = (answer4 - answer6);
+    document.getElementById('bottles_results9').innerHTML = answer9;
 
-  var answer10 = (answer9 * 36);
-  document.getElementById('bottles_results10').innerHTML = answer10;
+    var answer10 = (answer9 * 36);
+    document.getElementById('bottles_results10').innerHTML = answer10;
 
-  var answer11 = (answer7 - answer9);
-  document.getElementById('bottles_results11').innerHTML = answer11;
+    var answer11 = (answer7 - answer9);
+    document.getElementById('bottles_results11').innerHTML = answer11;
 
-  var answer12 = (answer11 * 36);
-  document.getElementById('bottles_results12').innerHTML = answer12;
+    var answer12 = (answer11 * 36);
+    document.getElementById('bottles_results12').innerHTML = answer12;
 
 }
 
@@ -451,39 +488,39 @@ $('#btn_reset_bottles').click(function () {
 const CUPSINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_cups').click(function () {
-  calculate2();
+    calculate2();
 })
 
 calculate2 = function () {
 
-  var cupinput1 = document.getElementById('cups_input1').value;
-  var cupinput2 = document.getElementById('cups_input2').value;
-  var cupinput3 = document.getElementById('cups_input3').value;
-  var cupinput4 = document.getElementById('cups_input4').value;
+    var cupinput1 = document.getElementById('cups_input1').value;
+    var cupinput2 = document.getElementById('cups_input2').value;
+    var cupinput3 = document.getElementById('cups_input3').value;
+    var cupinput4 = document.getElementById('cups_input4').value;
 
-  //before taking action
-  if (cupinput1 == "0") {
-      canswer = parseInt(cupinput3) * 0.25;
-      document.getElementById('cup_results1').innerHTML = canswer;
-  } else if (cupinput1 == "1") {
-      canswer = parseInt(cupinput3) * 0;
-      document.getElementById('cup_results1').innerHTML = canswer;
-  } else if (cupinput1 == "0.25") {
-      canswer = parseInt(cupinput3) * 0.25;
-      document.getElementById('cup_results1').innerHTML = canswer;
-  }
+    //before taking action
+    if (cupinput1 == "0") {
+        canswer = parseInt(cupinput3) * 0.25;
+        document.getElementById('cup_results1').innerHTML = canswer;
+    } else if (cupinput1 == "1") {
+        canswer = parseInt(cupinput3) * 0;
+        document.getElementById('cup_results1').innerHTML = canswer;
+    } else if (cupinput1 == "0.25") {
+        canswer = parseInt(cupinput3) * 0.25;
+        document.getElementById('cup_results1').innerHTML = canswer;
+    }
 
-  //after taking action
-  if (cupinput2 == "0") {
-      canswer1 = parseInt(cupinput4) * 0.25;
-      document.getElementById('cup_results3').innerHTML = canswer1;
-  } else if (cupinput2 == "1") {
-      canswer1 = parseInt(cupinput4) * 0;
-      document.getElementById('cup_results3').innerHTML = canswer1;
-  } else if (cupinput2 == "0.25") {
-      canswer1 = parseInt(cupinput4) * 0.25;
-      document.getElementById('cup_results3').innerHTML = canswer1;
-  }
+    //after taking action
+    if (cupinput2 == "0") {
+        canswer1 = parseInt(cupinput4) * 0.25;
+        document.getElementById('cup_results3').innerHTML = canswer1;
+    } else if (cupinput2 == "1") {
+        canswer1 = parseInt(cupinput4) * 0;
+        document.getElementById('cup_results3').innerHTML = canswer1;
+    } else if (cupinput2 == "0.25") {
+        canswer1 = parseInt(cupinput4) * 0.25;
+        document.getElementById('cup_results3').innerHTML = canswer1;
+    }
 
     var canswer2 = (canswer * 36);
     document.getElementById('cup_results2').innerHTML = canswer2;
