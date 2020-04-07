@@ -89,7 +89,7 @@ $('#btn_methodology').click(function () {
 // *****Electricity Content Calculations*****
 // Calculate and display Electricity Emission Factor (EEF)
 $('#btn_calculate_EEF').click(function () {
-  
+
   //get the value of the factors to be used in calculations
   var coal_factor = document.getElementById("coal_factor").innerHTML;
   var coal_percent = parseFloat(document.getElementById("coal_percent").innerHTML) / 100;
@@ -97,7 +97,7 @@ $('#btn_calculate_EEF').click(function () {
   var oil_percent = parseFloat(document.getElementById("oil_percent").innerHTML) / 100;
   var nat_gas_factor = document.getElementById("nat_gas_factor").innerHTML;
   var nat_gas_percent = parseFloat(document.getElementById("nat_gas_percent").innerHTML) / 100;
-  
+
   //Is radio button for national average checked
   if (document.getElementById('national_average').checked) {
     //Calculate the national average EEF
@@ -716,7 +716,7 @@ $('#btn_reset_paper').click(function () {
 })
 
 
-// *****Plastic Bottle Content Calculations*****
+// *****Solid Waste-Plastic Bottles Content Calculations*****
 const BOTTLESINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_bottles').click(function () {
@@ -801,7 +801,7 @@ $('#btn_reset_bottles').click(function () {
   }
 })
 
-// *****Beverage Cups Content Calculations*****
+// *****Solid Waste-Beverage Cups Content Calculations*****
 const CUPSINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_cups').click(function () {
@@ -856,7 +856,7 @@ calculate2 = function () {
 
 }
 
-// Clear input values for bottles contents
+// Clear input values for cups contents
 $('#btn_reset_cups').click(function () {
   for (let i = 1; i <= CUPSINPUTS; i++) {
     $('#cups_input' + i).val("");
