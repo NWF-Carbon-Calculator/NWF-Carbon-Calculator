@@ -886,6 +886,7 @@ function drawChart() {
 
   var options = {
     title: "Carbon Emission Results: Before and After Taking Action",
+    titlePosition: "none",
     animation: {
       duration: 3000,
       easing: 'out',

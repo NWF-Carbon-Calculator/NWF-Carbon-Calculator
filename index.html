@@ -625,9 +625,9 @@
                                 <td><input type="text" id="vampire_count_10"></td>
                                 <td>
                                     <select id="vampire_before_10" name="vampire_before">
-                                        <<option value="vampire_before_off">Off</option>
-                                            <option value="vampire_before_active">Active</option>
-                                            <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
+                                        <option value="vampire_before_off">Off</option>
+                                        <option value="vampire_before_active">Active</option>
+                                        <option value="vampire_before_unplugged">Power Strip/ Unplugged</option>
                                     </select>
                                 </td>
                                 <td>
@@ -1029,8 +1029,8 @@
                     how the school community travels to and from school, by bus, driving or being driven, walking or
                     riding a bike. One strategy to use is to promote and communicate alternatives forms of
                     transportation and safe routes to school.</p>
-                <p>Collect and record data. In the orage table below, input Information about the teacher's usual
-                    method of transportation to and from school each day.
+                <p>Data entered below should be the summation the data collected from participating students and staff.
+                    Input the data below collected from your worksheet, Carbon Calculator: Transportation.
                 </p>
                 <p>Note: Riding the bus is a climate-friendlier action than driving alone or carpooling. At this time
                     there is no conclusive data for school bus contributions to CO2 emissions and is the reason we have
@@ -1050,16 +1050,18 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-sm-4" scope="row">What is the average, roundtrip distance (miles per day)
-                                    traveled per day, by students/staff</td>
+                                <td class="col-sm-4" scope="row">1. What is the average, roundtrip distance (miles per
+                                    day)
+                                    traveled per day, by students/staff?</td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input1">
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input2">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">What is the average number of days students/staff drive
-                                    alone? parent and student, student only, staff member only
+                                <td class="col-sm-4" scope="row">2. What is the average number of days students/staff
+                                    drive
+                                    alone? (Parent and student, student only, staff member only)
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input3">
                                 </td>
@@ -1067,7 +1069,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">What is the mileage of the vehilce he/she drives? (mpg)
+                                <td class="col-sm-4" scope="row">3. What is the mileage of the vehicle driven? (MPG)
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input5">
                                 </td>
@@ -1075,9 +1077,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">How many days per week, on average do students/staff
-                                    carpool to school? parent and student plus other students, multiple students,
-                                    multiple staff
+                                <td class="col-sm-4" scope="row">4. How many days per week, on average do students/staff
+                                    carpool to school? (Parent and student plus other students, multiple students,
+                                    multiple staff)
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input7">
                                 </td>
@@ -1085,14 +1087,16 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">What is the mileage of the carpool vehicle? (mpg)</td>
+                                <td class="col-sm-4" scope="row">5. What is the mileage of the carpool vehicle? (MPG)
+                                </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input9">
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input10">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">What is the total # of people traveling in the carpool?
+                                <td class="col-sm-4" scope="row">6. What are the total # of people traveling in the
+                                    carpool?
                                 </td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input11">
                                 </td>
@@ -1100,7 +1104,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4" scope="row">In a week, what is the average number of days
+                                <td class="col-sm-4" scope="row">7. In a week, what are the average number of days
                                     students/staff walk or bike to school?</td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="transportation_input13">
                                 </td>
@@ -1135,8 +1139,8 @@
                                 <td><span id="transportation_results2"></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">The average the pounds of CO2 emitted per week, driving alone by
-                                    students and staff
+                                <td scope="row">The average the pounds of CO<sub>2</sub> emitted per week, when driving
+                                    alone
                                 </td>
                                 <td><span id="transportation_results3"></span></td>
                                 <td><span id="transportation_results4"></span></td>
@@ -1147,7 +1151,8 @@
                                 <td><span id="transportation_results6"></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">The average pounds of CO2 emitted per week, per person in the carpool
+                                <td scope="row">The average pounds of CO<sub>2</sub> emitted per week, per person in the
+                                    carpool
                                 </td>
                                 <td><span id="transportation_results7"></span></td>
                                 <td><span id="transportation_results8"></span></td>
@@ -1420,153 +1425,6 @@
         </div>
     </div>
 
-    <!-- Summary Content -->
-    <div class="container content-container" id="container_summary">
-        <div class="row content-header">
-            <h4>Summary</h4>
-        </div>
-        <div class="row content-instructions">
-            <p>This bar graph shows the difference between this classroom's emissions before and after taking action to
-                reduce its carbon footprint. The <strong><span class="orange">orange</span></strong> bars represent the
-                classroom's emissions before taking action;
-                the <strong><span class="blue">blue</span></strong> bars represent the classroom's emissions after
-                taking action.</p>
-        </div>
-
-        <!-- Used for Google core charts -->
-        <div id="chart_div"></div>
-
-        <div class="row content-instructions">
-            <p>Below is a summary of the school's carbon footprint. Take into account this summary doesn't reflect the
-                school's entire footprint. </p>
-            <p>The "Before Taking Action" column represents an estimate of the annual "normal" CO2 emissions, if the
-                school makes no effort to reduce its carbon footprint. The "After Taking Action" column represents an
-                estimate of the annual CO2 emissions after students implement their action plan - implementing changes
-                to reduce the school's carbon footprint. </p>
-            <p>The "Potential Savings per Year" comums represent estimates of the CO2 emissions, electricity and costs
-                the school has prevented or saved, by taking action. Savings are based on the assumption that the school
-                will maintain the climate-friendly actions they have adopted. Electricity and natural gas cost savings
-                are based on average utility rates. For more accurate cost savings information, contact your local
-                utility provider. </p>
-        </div>
-        <div class="row calculation-area">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Type of Power</th>
-                        <th>National Average</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Coal</td>
-                        <td>37.4%</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Nuclear</td>
-                        <td>19%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Methodology Content -->
-    <div class="container content-container" id="container_methodology">
-        <div class="row content-header">
-            <h4>Methodology</h4>
-        </div>
-        <div class="row content-instructions">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam necessitatibus cupiditate iusto
-                reiciendis suscipit laudantium sint vero sapiente possimus, explicabo quia? Ducimus voluptatibus laborum
-                laboriosam, nostrum exercitationem soluta quas architecto.</p>
-        </div>
-
-        <div class="row calculation-area">
-            <table class="table">
-                <thead>
-                    <tr>ELECTRICITY CONVERSION FACTORS</tr>
-                    <tr>
-                        <th>SOURCE</th>
-                        <th>lbs. CO2/kWh</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">coal</td>
-                        <td id="coal_factor">2.23</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">natural gas</td>
-                        <td id="nat_gas_factor">0.92</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">oil</td>
-                        <td id="oil_factor">2.02</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="row calculation-area">
-            <table class="table">
-                <thead>
-                    <tr>SCHOOL TRASH</tr>
-                    <tr>
-                        <th>SOURCE</th>
-                        <th>AMOUNT</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">One metric ton of municipal solid waste sent to the landfil emits</td>
-                        <td id="waste_factor">0.36 CO2e</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">1 metric ton</td>
-                        <td id="wastelb_factor">2204.62 lbs</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">National average cost of waste collection services</td>
-                        <td id="money_factor">0.0004 $/lbs </td>
-                        <td id="money2_factor">55.36 $/metric ton </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="row calculation-area">
-            <table class="table">
-                <thead>
-                    <tr>SCHOOL PAPER</tr>
-                    <td> <b>POUNDS OF CO2 EQUIVALENT PER REAM OF PAPER, BY RECYCLED CONTENT </b> </td>
-                    <tr>
-                        <th>RECYCLE CONTENT</th>
-                        <th>lbs CO2/ Ream</th>
-                        <th>Cost/Ream</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">0%</td>
-                        <td id="recycle1_factor">44</td>
-                        <td id="papercost1_factor">10.99</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">30%</td>
-                        <td id="recycle2_factor">37</td>
-                        <td id="papercost2_factor">11.49</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">100%</td>
-                        <td id="recycle3_factor">19</td>
-                        <td id="papercost3_factor">13.09</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
 
     <!-- Plastic Bottle Content -->
     <div class="container content-container" id="container_bottles">
@@ -1806,6 +1664,148 @@
                     and
                     Waste pathway.</p>
             </div>
+        </div>
+    </div>
+
+    <!-- Summary Content -->
+    <div class="container content-container" id="container_summary">
+        <div class="row content-header">
+            <h4>Summary</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Number of students and staff at your school</p>
+            <p>Below is a summary of the school's carbon footprint. Take into account this summary doesn't reflect the
+                school's entire footprint. </p>
+            <p>The "Before Taking Action" column represents an estimate of the annual "normal" CO<sub>2</sub> emissions, if the
+                school makes no effort to reduce its carbon footprint. The "After Taking Action" column represents an
+                estimate of the annual CO<sub>2</sub> emissions after students implement their action plan - implementing changes
+                to reduce the school's carbon footprint. </p>
+            <p>The "Potential Savings per Year" represent estimates of the CO<sub>2</sub> emissions, electricity and costs
+                the school has prevented or saved, by taking action. Savings are based on the assumption that the school
+                will maintain the climate-friendly actions they have adopted.</p>
+            <p>This graph below shows the difference between this school's emissions before and after taking action to
+                reduce its carbon footprint. The <strong><span class="orange">orange</span></strong> bars represent the
+                classroom's emissions before taking action and the <strong><span class="blue">blue</span></strong> bars
+                represent the classroom's emissions after taking action.</p>
+        </div>
+        
+        <!-- Used for Google core charts -->
+        <h5 id="chart_head">Carbon Emission Results: Before and After Taking Action</h5>
+        <div id="chart_div"></div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type of Power</th>
+                        <th>National Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coal</td>
+                        <td>37.4%</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Nuclear</td>
+                        <td>19%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Methodology Content -->
+    <div class="container content-container" id="container_methodology">
+        <div class="row content-header">
+            <h4>Methodology</h4>
+        </div>
+        <div class="row content-instructions">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam necessitatibus cupiditate iusto
+                reiciendis suscipit laudantium sint vero sapiente possimus, explicabo quia? Ducimus voluptatibus laborum
+                laboriosam, nostrum exercitationem soluta quas architecto.</p>
+        </div>
+
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>ELECTRICITY CONVERSION FACTORS</tr>
+                    <tr>
+                        <th>SOURCE</th>
+                        <th>lbs. CO2/kWh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">coal</td>
+                        <td id="coal_factor">2.23</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">natural gas</td>
+                        <td id="nat_gas_factor">0.92</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">oil</td>
+                        <td id="oil_factor">2.02</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>SCHOOL TRASH</tr>
+                    <tr>
+                        <th>SOURCE</th>
+                        <th>AMOUNT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">One metric ton of municipal solid waste sent to the landfil emits</td>
+                        <td id="waste_factor">0.36 CO2e</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">1 metric ton</td>
+                        <td id="wastelb_factor">2204.62 lbs</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">National average cost of waste collection services</td>
+                        <td id="money_factor">0.0004 $/lbs </td>
+                        <td id="money2_factor">55.36 $/metric ton </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>SCHOOL PAPER</tr>
+                    <td> <b>POUNDS OF CO2 EQUIVALENT PER REAM OF PAPER, BY RECYCLED CONTENT </b> </td>
+                    <tr>
+                        <th>RECYCLE CONTENT</th>
+                        <th>lbs CO2/ Ream</th>
+                        <th>Cost/Ream</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">0%</td>
+                        <td id="recycle1_factor">44</td>
+                        <td id="papercost1_factor">10.99</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">30%</td>
+                        <td id="recycle2_factor">37</td>
+                        <td id="papercost2_factor">11.49</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">100%</td>
+                        <td id="recycle3_factor">19</td>
+                        <td id="papercost3_factor">13.09</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

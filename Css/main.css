@@ -2,6 +2,10 @@
     background: none;
 }
 
+#chart_head {
+    text-align: center;
+}
+
 #container_welcome {
     display: block;
 }
@@ -72,6 +76,10 @@
     background-color: rgb(188, 201, 188);
 }
 
+.table th {
+    text-align: center;
+}
+
 /* input {
     max-width: 300px;
 } */
@@ -79,10 +87,10 @@
 th.vampire_result {
     width: 100px;
 }
+
 td.appliance input, td.appliance_name{
     width: 100px;
 }
-
 
 #appliance_tr thead{
     width: 100px;
