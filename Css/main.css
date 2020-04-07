@@ -2,6 +2,10 @@
     background: none;
 }
 
+#chart_head {
+    text-align: center;
+}
+
 #container_welcome {
     display: block;
 }
