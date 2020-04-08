@@ -518,9 +518,9 @@ $('#btn_calculate_transportation').click(function () {
   var peopleInCarpool = $('#transportation_input11').val();
 
   gallonsBurnedBeforeAction = gallonsBurned(distanceTraveled, daysDriven, mpg);
-  $('#transportation_results1').text(gallonsBurnedBeforeAction);
+  $('#transportation_results1').val(gallonsBurnedBeforeAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingAlone(gallonsBurnedBeforeAction);
-  $('#transportation_results3').text(weeklyCarbonEmitted);
+  $('#transportation_results3').val(weeklyCarbonEmitted);
   transportationCarbonBefore += parseFloat(weeklyCarbonEmitted);
 
   distanceTraveled = $('#transportation_input2').val();
@@ -528,16 +528,16 @@ $('#btn_calculate_transportation').click(function () {
   mpg = $('#transportation_input6').val();
 
   gallonsBurnedAfterAction = gallonsBurned(distanceTraveled, daysDriven, mpg);
-  $('#transportation_results2').text(gallonsBurnedAfterAction);
+  $('#transportation_results2').val(gallonsBurnedAfterAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingAlone(gallonsBurnedAfterAction);
-  $('#transportation_results4').text(weeklyCarbonEmitted);
+  $('#transportation_results4').val(weeklyCarbonEmitted);
   transportationCarbonAfter += parseFloat(weeklyCarbonEmitted);
 
   distanceTraveled = $('#transportation_input1').val();
   gallonsBurnedBeforeAction = gallonsBurned(distanceTraveled, daysCarpool, mpgCarpool);
-  $('#transportation_results5').text(gallonsBurnedBeforeAction);
+  $('#transportation_results5').val(gallonsBurnedBeforeAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedBeforeAction, peopleInCarpool);
-  $('#transportation_results7').text(weeklyCarbonEmitted);
+  $('#transportation_results7').val(weeklyCarbonEmitted);
   transportationCarbonBefore += parseFloat(weeklyCarbonEmitted);
 
   distanceTraveled = $('#transportation_input2').val();
@@ -545,15 +545,17 @@ $('#btn_calculate_transportation').click(function () {
   mpgCarpool = $('#transportation_input10').val();
   peopleInCarpool = $('#transportation_input12').val();
   gallonsBurnedAfterAction = gallonsBurned(distanceTraveled, daysCarpool, mpgCarpool);
-  $('#transportation_results6').text(gallonsBurnedAfterAction);
+  $('#transportation_results6').val(gallonsBurnedAfterAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedAfterAction, peopleInCarpool);
-  var test = weeklyCarbonEmitted;
-  console.log("test" + typeof (test));
-  $('#transportation_results8').text(weeklyCarbonEmitted);
+  $('#transportation_results8').val(weeklyCarbonEmitted);
   transportationCarbonAfter += parseFloat(weeklyCarbonEmitted);
+
+  $('#transportation_results9').val(0);
+  $('#transportation_results10').val(0);
+  
   transportationCarbonBefore *= 36;
   transportationCarbonAfter *= 36;
-})
+})+
 
 // Clear input values for transportation contents
 $('#btn_reset_transportation').click(function () {
