@@ -501,6 +501,7 @@ function createRowHTML(counter) {
 
 // *****Transportation Content Calculations*****
 const TRANSPORTATIONINPUTS = 14;
+const TRANSPORTATIONRESULTS = 16;
 var transportationCarbonBefore = 0;
 var transportationCarbonAfter = 0;
 
@@ -539,6 +540,7 @@ $('#btn_calculate_transportation').click(function () {
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedBeforeAction, peopleInCarpool);
   $('#transportation_results7').val(weeklyCarbonEmitted);
   transportationCarbonBefore += parseFloat(weeklyCarbonEmitted);
+  $('#transportation_results11').val(transportationCarbonBefore);
 
   distanceTraveled = $('#transportation_input2').val();
   daysCarpool = $('#transportation_input8').val();
@@ -549,18 +551,31 @@ $('#btn_calculate_transportation').click(function () {
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedAfterAction, peopleInCarpool);
   $('#transportation_results8').val(weeklyCarbonEmitted);
   transportationCarbonAfter += parseFloat(weeklyCarbonEmitted);
+  $('#transportation_results13').val(transportationCarbonAfter);
 
   $('#transportation_results9').val(0);
   $('#transportation_results10').val(0);
-  
+
+  var totalSavings = 0;
+  totalSavings = transportationCarbonBefore - transportationCarbonAfter;
+  $('#transportation_results15').val(totalSavings);
+
   transportationCarbonBefore *= 36;
+  $('#transportation_results12').val(transportationCarbonBefore);
   transportationCarbonAfter *= 36;
-})+
+  $('#transportation_results14').val(transportationCarbonAfter);
+  totalSavings = transportationCarbonBefore - transportationCarbonAfter;
+  $('#transportation_results16').val(totalSavings);
+
+})
 
 // Clear input values for transportation contents
 $('#btn_reset_transportation').click(function () {
   for (let i = 1; i <= TRANSPORTATIONINPUTS; i++) {
     $('#transportation_input' + i).val("");
+  }
+  for (let i = 1; i <= TRANSPORTATIONRESULTS; i++) {
+    $('#transportation_results' + i).val("");
   }
   transportationCarbonAfter = 0;
   transportationCarbonBefore = 0;
