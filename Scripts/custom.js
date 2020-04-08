@@ -501,6 +501,8 @@ function createRowHTML(counter) {
 
 // *****Transportation Content Calculations*****
 const TRANSPORTATIONINPUTS = 14;
+var transportationCarbonBefore = 0;
+var transportationCarbonAfter = 0;
 
 // Calculate carbon impact from user inputs
 $('#btn_calculate_transportation').click(function () {
@@ -519,6 +521,7 @@ $('#btn_calculate_transportation').click(function () {
   $('#transportation_results1').text(gallonsBurnedBeforeAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingAlone(gallonsBurnedBeforeAction);
   $('#transportation_results3').text(weeklyCarbonEmitted);
+  transportationCarbonBefore += parseFloat(weeklyCarbonEmitted);
 
   distanceTraveled = $('#transportation_input2').val();
   daysDriven = $('#transportation_input4').val();
@@ -528,12 +531,14 @@ $('#btn_calculate_transportation').click(function () {
   $('#transportation_results2').text(gallonsBurnedAfterAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingAlone(gallonsBurnedAfterAction);
   $('#transportation_results4').text(weeklyCarbonEmitted);
+  transportationCarbonAfter += parseFloat(weeklyCarbonEmitted);
 
   distanceTraveled = $('#transportation_input1').val();
   gallonsBurnedBeforeAction = gallonsBurned(distanceTraveled, daysCarpool, mpgCarpool);
   $('#transportation_results5').text(gallonsBurnedBeforeAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedBeforeAction, peopleInCarpool);
   $('#transportation_results7').text(weeklyCarbonEmitted);
+  transportationCarbonBefore += parseFloat(weeklyCarbonEmitted);
 
   distanceTraveled = $('#transportation_input2').val();
   daysCarpool = $('#transportation_input8').val();
@@ -542,7 +547,12 @@ $('#btn_calculate_transportation').click(function () {
   gallonsBurnedAfterAction = gallonsBurned(distanceTraveled, daysCarpool, mpgCarpool);
   $('#transportation_results6').text(gallonsBurnedAfterAction);
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedAfterAction, peopleInCarpool);
+  var test = weeklyCarbonEmitted;
+  console.log("test" + typeof (test));
   $('#transportation_results8').text(weeklyCarbonEmitted);
+  transportationCarbonAfter += parseFloat(weeklyCarbonEmitted);
+  transportationCarbonBefore *= 36;
+  transportationCarbonAfter *= 36;
 })
 
 // Clear input values for transportation contents
@@ -550,6 +560,8 @@ $('#btn_reset_transportation').click(function () {
   for (let i = 1; i <= TRANSPORTATIONINPUTS; i++) {
     $('#transportation_input' + i).val("");
   }
+  transportationCarbonAfter = 0;
+  transportationCarbonBefore = 0;
 })
 
 // Automatically add values to debug calculations
@@ -716,7 +728,7 @@ $('#btn_reset_paper').click(function () {
 })
 
 
-// *****Solid Waste-Plastic Bottles Content Calculations*****
+// *****Plastic Bottle Content Calculations*****
 const BOTTLESINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_bottles').click(function () {
@@ -801,7 +813,7 @@ $('#btn_reset_bottles').click(function () {
   }
 })
 
-// *****Solid Waste-Beverage Cups Content Calculations*****
+// *****Beverage Cups Content Calculations*****
 const CUPSINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_cups').click(function () {
@@ -856,7 +868,7 @@ calculate2 = function () {
 
 }
 
-// Clear input values for cups contents
+// Clear input values for bottles contents
 $('#btn_reset_cups').click(function () {
   for (let i = 1; i <= CUPSINPUTS; i++) {
     $('#cups_input' + i).val("");
@@ -874,10 +886,10 @@ function drawChart() {
 
   var data = google.visualization.arrayToDataTable([
     ['Category', 'Before Action', 'After Action'],
-    ['Lighting', 1000, 400],
+    ['Lighting', 1000, 2000],
     ['Energy Vampires', 1030, 540],
     ['Appliances', 1170, 460],
-    ['Transportation', 1000, 400],
+    ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
     ['Trash', 880, 800],
     ['Paper', 700, 460],
     ['Plastics', 660, 320],
