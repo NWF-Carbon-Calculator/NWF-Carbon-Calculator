@@ -139,9 +139,9 @@
 
                     &emsp;&#xbb;To enter your own state's energy mix, go to <a
                         href="http://eia.gov/state/">eia.gov/state/</a><br>
-                    &emsp;1. Click on your state.<br>
-                    &emsp;2. Scroll down under the Quick Facts. Click on the tab labeled, Electricity.<br>
-                    &emsp;3. Input your energy data into the appropriate spaces below.</p>
+                    &emsp;&emsp;&emsp;1. Click on your state.<br>
+                    &emsp;&emsp;&emsp;2. Scroll down under the Quick Facts. Click on the tab labeled, Electricity.<br>
+                    &emsp;&emsp;&emsp;3. Input your energy data into the appropriate spaces below.</p>
                 <p>
                     <h6>INPUT UTILITY INFORMATION HERE:</h6>
                 </p>
@@ -167,7 +167,7 @@
                         <tr>
                             <th>Type of Power</th>
                             <th>National Average</th>
-                            <th>Custom Information</th>
+                            <th>State-Based Average</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -179,7 +179,7 @@
                         <tr>
                             <td scope="row">Nuclear</td>
                             <td>19%</td>
-                            <td><input type="text" id=""></td>
+                            <td><input type="text" id="">%</td>
                         </tr>
                         <tr>
                             <td scope="row">Natural Gas</td>
@@ -194,12 +194,12 @@
                         <tr>
                             <td scope="row">Hydro</td>
                             <td>6.7%</td>
-                            <td><input type="text" id="hydro"></td>
+                            <td><input type="text" id="hydro">%</td>
                         </tr>
                         <tr>
                             <td scope="row">Renewables & Other*</td>
                             <td>5.4%</td>
-                            <td><input type="text" id="other"></td>
+                            <td><input type="text" id="other">%</td>
                         </tr>
                         <tr>
                             <td scope="row"></td>
@@ -208,8 +208,8 @@
                         </tr>
                         <tr>
                             <td scope="row">Electricity Emissions Factor</td>
-                            <td><input type="text" id="national_average_factor" readonly>lbs CO2/kWh</td>
-                            <td><input type="text" id="custom_factor" readonly>lbs CO2/kWh</td>
+                            <td><input type="text" id="national_average_factor" readonly>lbs CO<sub>2</sub>/kWh</td>
+                            <td><input type="text" id="custom_factor" readonly>lbs CO<sub>2</sub>/kWh</td>
                         </tr>
                     </tbody>
                 </table>
