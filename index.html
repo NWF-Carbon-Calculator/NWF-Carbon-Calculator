@@ -1792,6 +1792,40 @@
             </div>
 
             <div class="table-responsive table-seperator">
+                <h5 class="centerHeading">testing</h5>
+                <h6>Through your actions to reduce your carbon footprint, your classroom could save <span
+                        id="savings"></span> pounds of CO<sub>2</sub> emissions per year. This is the same as:</h6>
+                <table class="table w-auto">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">State</th>
+                            <th rowspan="2">Utilities Company</th>
+                            <th colspan="3">Summer Period</th>
+                        </tr>
+                        <tr>
+                            <th>data1</th>
+                            <th>data2</th>
+                            <th>data3</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">The CO<sub>2</sub> emitted by driving a 4 passenger car <span
+                                    id="carEquiv"></span> miles.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">The CO<sub>2</sub> emitted by driving <span id="passEquiv"></span> passenger
+                                vehicles.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">The CO<sub>2</sub> sequestered by <span id="treeEquiv"></span> tree
+                                seedlings grown for 10 years.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive table-seperator">
                 <h5 class="centerHeading">Classroom Audit Summary</h5>
                 <table class="table w-auto">
                     <thead>
@@ -1831,11 +1865,11 @@
                         </tr>
                         <tr>
                             <td>Transportation</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="sumTranBefore"></td>
+                            <td id="sumTranAfter"></td>
+                            <td id="sumTranEmissionSavings"></td>
+                            <td id="sumTranElectricitySavings"></td>
+                            <td id="sumTranCostSavings"></td>
                         </tr>
                         <tr>
                             <td>Heating</td>
@@ -1879,11 +1913,18 @@
                         </tr>
                         <tr>
                             <td>Total</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="sumTotalBefore"></td>
+                            <td id="sumTotalAfter"></td>
+                            <td id="sumEmissionSavings"></td>
+                            <td id="sumElectricitySavings"></td>
+                            <td id="sumCostSavings"></td>
+                        </tr>
+                        <tr>
+                            <td>This is equal to</td>
+                            <td id="sumStudentTotalBefore"></td>
+                            <td id="sumStudentTotalAfter"></td>
+                            <td id="sumStudentEmissionSavings"></td>
+                            <td colspan="2">lbs of CO<sub>2</sub> per student</td>
                         </tr>
                     </tbody>
                 </table>

@@ -565,8 +565,14 @@ $('#btn_calculate_transportation').click(function () {
   transportationCarbonAfter *= 36;
   $('#transportation_results14').val(transportationCarbonAfter);
   totalSavings = transportationCarbonBefore - transportationCarbonAfter;
+  totalSavings = totalSavings.toFixed(2);
   $('#transportation_results16').val(totalSavings);
 
+  // Chainging summary content
+  $('#sumTranBefore').text(transportationCarbonBefore);
+  $('#sumTranAfter').text(transportationCarbonAfter);
+  $('#sumTranEmissionSavings').text(totalSavings);
+  reCalculateSummary();
 })
 
 // Clear input values for transportation contents
@@ -582,18 +588,18 @@ $('#btn_reset_transportation').click(function () {
 })
 
 // Automatically add values to debug calculations
-$('#transportation_input1').val(3);
-$('#transportation_input2').val(3);
+$('#transportation_input1').val(20);
+$('#transportation_input2').val(18);
 $('#transportation_input3').val(4);
 $('#transportation_input4').val(3);
-$('#transportation_input5').val(22);
+$('#transportation_input5').val(18);
 $('#transportation_input6').val(33);
 $('#transportation_input7').val(4);
 $('#transportation_input8').val(5);
 $('#transportation_input9').val(23);
 $('#transportation_input10').val(34);
 $('#transportation_input11').val(2);
-$('#transportation_input12').val(3);
+$('#transportation_input12').val(4);
 $('#transportation_input13').val(1);
 $('#transportation_input14').val(1);
 
@@ -930,4 +936,30 @@ function drawChart() {
 
   chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
   chart.draw(data, options);
+}
+
+function reCalculateSummary() {
+
+  // Emissions before taking action sum
+  var totalBeforeAction = 0;
+  totalBeforeAction += parseFloat($('#sumTranBefore').text());
+  $('#sumTotalBefore').text(totalBeforeAction);
+
+  // Emissions after taking action sum
+  var totalAfterAction = 0;
+  totalAfterAction += parseFloat($('#sumTranAfter').text());
+  $('#sumTotalAfter').text(totalAfterAction);
+
+  // Emissions savings sum
+  var totalEmissionSavings = 0;
+  totalEmissionSavings += parseFloat($('#sumTranEmissionSavings').text());
+  $('#sumEmissionSavings').text(totalEmissionSavings);
+
+  // Electricity savings sum
+  var electricitySavings = 0;
+  $('#sumElectricitySavings').text(electricitySavings);
+
+  // Cost savings sum
+  var costSavings = 0;
+  $('#sumCostSavings').text(costSavings);
 }
