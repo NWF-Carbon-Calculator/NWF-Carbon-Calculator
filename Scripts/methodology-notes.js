@@ -1,5 +1,5 @@
 //Place to setup the variables and functions needed for calulation of carbon output
-
+var numberOfStudents = 32;
 // *****ELECTRICITY*****
 
 // *****CLASSROOM LIGHTING*****

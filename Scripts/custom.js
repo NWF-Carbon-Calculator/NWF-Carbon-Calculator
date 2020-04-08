@@ -940,26 +940,76 @@ function drawChart() {
 
 function reCalculateSummary() {
 
+  $('#numberOfStudents').text(numberOfStudents);
+
   // Emissions before taking action sum
   var totalBeforeAction = 0;
+  totalBeforeAction += parseFloat($('#sumLightBefore').text());
+  totalBeforeAction += parseFloat($('#sumVampireBefore').text());
+  totalBeforeAction += parseFloat($('#sumOtherBefore').text());
   totalBeforeAction += parseFloat($('#sumTranBefore').text());
+  totalBeforeAction += parseFloat($('#sumTrashBefore').text());
+  totalBeforeAction += parseFloat($('#sumPaperBefore').text());
+  totalBeforeAction += parseFloat($('#sumPlasticBefore').text());
+  totalBeforeAction += parseFloat($('#sumBeverageBefore').text());
   $('#sumTotalBefore').text(totalBeforeAction);
 
   // Emissions after taking action sum
   var totalAfterAction = 0;
+  totalAfterAction += parseFloat($('#sumLightAfter').text());
+  totalAfterAction += parseFloat($('#sumVampireAfter').text());
+  totalAfterAction += parseFloat($('#sumOtherAfter').text());
   totalAfterAction += parseFloat($('#sumTranAfter').text());
+  totalAfterAction += parseFloat($('#sumTrashAfter').text());
+  totalAfterAction += parseFloat($('#sumPaperAfter').text());
+  totalAfterAction += parseFloat($('#sumPlasticAfter').text());
+  totalAfterAction += parseFloat($('#sumBeverageAfter').text());
   $('#sumTotalAfter').text(totalAfterAction);
 
   // Emissions savings sum
   var totalEmissionSavings = 0;
+  totalEmissionSavings += parseFloat($('#sumLightEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumVampireEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumOtherEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumTranEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumTrashEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumPaperEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumPlasticEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumBeverageEmissionSavings').text());
   $('#sumEmissionSavings').text(totalEmissionSavings);
 
   // Electricity savings sum
   var electricitySavings = 0;
+  electricitySavings += parseFloat($('#sumLightElectricitySavings').text());
+  console.log(electricitySavings);
+  electricitySavings += parseFloat($('#sumVampireElectricitySavings').text());
+  electricitySavings += parseFloat($('#sumOtherElectricitySavings').text());
+  electricitySavings += parseFloat($('#sumTranElectricitySavings').text());
+  electricitySavings += parseFloat($('#sumTrashElectricitySavings').text());
+  electricitySavings += parseFloat($('#sumPaperElectricitySavings').text());
+  electricitySavings += parseFloat($('#sumPlasticElectricitySavings').text());
+  electricitySavings += parseFloat($('#sumBeverageElectricitySavings').text());
   $('#sumElectricitySavings').text(electricitySavings);
 
   // Cost savings sum
   var costSavings = 0;
+  costSavings += parseFloat($('#sumLightCostSavings').text());
+  costSavings += parseFloat($('#sumVampireCostSavings').text());
+  costSavings += parseFloat($('#sumOtherCostSavings').text());
+  costSavings += parseFloat($('#sumTranCostSavings').text());
+  costSavings += parseFloat($('#sumTrashCostSavings').text());
+  costSavings += parseFloat($('#sumPaperCostSavings').text());
+  costSavings += parseFloat($('#sumPlasticCostSavings').text());
+  costSavings += parseFloat($('#sumBeverageCostSavings').text());
   $('#sumCostSavings').text(costSavings);
+
+  // Per student calculation
+  var studentBefore = totalBeforeAction / numberOfStudents;
+  $('#sumStudentTotalBefore').text(studentBefore.toFixed(2));
+
+  var studentAfter = totalAfterAction / numberOfStudents;
+  $('#sumStudentTotalAfter').text(studentAfter.toFixed(2));
+
+  var studentEmissions = totalEmissionSavings / numberOfStudents;
+  $('#sumStudentEmissionSavings').text(studentEmissions.toFixed(2));
 }

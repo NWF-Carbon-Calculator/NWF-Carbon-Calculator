@@ -1745,7 +1745,7 @@
             <h4>Summary</h4>
         </div>
         <div class="row content-instructions">
-            <p>Number of students and staff at your school</p>
+            <p>Number of students and staff at your school: <span id="numberOfStudents"></span></span></p>
             <p>Below is a summary of the school's carbon footprint. Take into account this summary doesn't reflect the
                 school's entire footprint. </p>
             <p>The "Before Taking Action" column represents an estimate of the annual "normal" CO<sub>2</sub> emissions,
@@ -1792,47 +1792,17 @@
             </div>
 
             <div class="table-responsive table-seperator">
-                <h5 class="centerHeading">testing</h5>
-                <h6>Through your actions to reduce your carbon footprint, your classroom could save <span
-                        id="savings"></span> pounds of CO<sub>2</sub> emissions per year. This is the same as:</h6>
-                <table class="table w-auto">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">State</th>
-                            <th rowspan="2">Utilities Company</th>
-                            <th colspan="3">Summer Period</th>
-                        </tr>
-                        <tr>
-                            <th>data1</th>
-                            <th>data2</th>
-                            <th>data3</th>
-                          </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">The CO<sub>2</sub> emitted by driving a 4 passenger car <span
-                                    id="carEquiv"></span> miles.</td>
-                        </tr>
-                        <tr>
-                            <td scope="row">The CO<sub>2</sub> emitted by driving <span id="passEquiv"></span> passenger
-                                vehicles.</td>
-                        </tr>
-                        <tr>
-                            <td scope="row">The CO<sub>2</sub> sequestered by <span id="treeEquiv"></span> tree
-                                seedlings grown for 10 years.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="table-responsive table-seperator">
                 <h5 class="centerHeading">Classroom Audit Summary</h5>
                 <table class="table w-auto">
                     <thead>
                         <tr>
-                            <th scope="col">Audit Category</th>
-                            <th scope="col">CO<sub>2</sub> per year before action (lbs)</th>
-                            <th scope="col">CO<sub>2</sub> per year after action (lbs)</th>
+                            <th rowspan="2">Audit Category</th>
+                            <th colspan="2">Estimated CO<sub>2</sub> emissions per year</th>
+                            <th colspan="3">Potiential savings per year</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Before taking action (lbs)</th>
+                            <th scope="col">After taking action (lbs)</th>
                             <th scope="col">CO<sub>2</sub> emissions savings (lbs)</th>
                             <th scope="col">Electricity savings (kWh)</th>
                             <th scope="col">Cost Savings ($)</th>
@@ -1841,75 +1811,67 @@
                     <tbody>
                         <tr>
                             <td>Classroom lighting</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="sumLightBefore">0</td>
+                            <td id="sumLightAfter">0</td>
+                            <td id="sumLightEmissionSavings">0</td>
+                            <td id="sumLightElectricitySavings">0</td>
+                            <td id="sumLightCostSavings">0</td>
                         </tr>
                         <tr>
                             <td>Energy "vampires"</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="sumVampireBefore">0</td>
+                            <td id="sumVampireAfter">0</td>
+                            <td id="sumVampireEmissionSavings">0</td>
+                            <td id="sumVampireElectricitySavings">0</td>
+                            <td id="sumVampireCostSavings">0</td>
                         </tr>
                         <tr>
                             <td>Other Appliances</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="sumOtherBefore">0</td>
+                            <td id="sumOtherAfter">0</td>
+                            <td id="sumOtherEmissionSavings">0</td>
+                            <td id="sumOtherElectricitySavings">0</td>
+                            <td id="sumOtherCostSavings">0</td>
                         </tr>
                         <tr>
                             <td>Transportation</td>
-                            <td id="sumTranBefore"></td>
-                            <td id="sumTranAfter"></td>
-                            <td id="sumTranEmissionSavings"></td>
-                            <td id="sumTranElectricitySavings"></td>
-                            <td id="sumTranCostSavings"></td>
+                            <td id="sumTranBefore">0</td>
+                            <td id="sumTranAfter">0</td>
+                            <td id="sumTranEmissionSavings">0</td>
+                            <td id="sumTranElectricitySavings">0</td>
+                            <td id="sumTranCostSavings">0</td>
                         </tr>
                         <tr>
-                            <td>Heating</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Trash</td>
+                            <td id="sumTrashBefore">0</td>
+                            <td id="sumTrashAfter">0</td>
+                            <td id="sumTrashEmissionSavings">0</td>
+                            <td id="sumTrashElectricitySavings">0</td>
+                            <td id="sumTrashCostSavings">0</td>
                         </tr>
                         <tr>
-                            <td>Classroom trash</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Paper</td>
+                            <td id="sumPaperBefore">0</td>
+                            <td id="sumPaperAfter">0</td>
+                            <td id="sumPaperEmissionSavings">0</td>
+                            <td id="sumPaperElectricitySavings">0</td>
+                            <td id="sumPaperCostSavings">0</td>
                         </tr>
                         <tr>
-                            <td>Classroom paper</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Plastic Bottles</td>
+                            <td id="sumPlasticBefore">0</td>
+                            <td id="sumPlasticAfter">0</td>
+                            <td id="sumPlasticEmissionSavings">0</td>
+                            <td id="sumPlasticElectricitySavings">0</td>
+                            <td id="sumPlasticCostSavings">0</td>
                         </tr>
                         <tr>
-                            <td>Plastic water bottles</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Beverage cups</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Beverage Cups</td>
+                            <td id="sumBeverageBefore">0</td>
+                            <td id="sumBeverageAfter">0</td>
+                            <td id="sumBeverageEmissionSavings">0</td>
+                            <td id="sumBeverageElectricitySavings">0</td>
+                            <td id="sumBeverageCostSavings">0</td>
                         </tr>
                         <tr>
                             <td>Total</td>
@@ -1928,7 +1890,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <h6 class="centerHeading">This is equal to lbs of CO<sub>2</sub> per student</h6>
             </div>
 
         </div>
