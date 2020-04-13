@@ -927,7 +927,7 @@
     <!-- Lighting Content -->
     <div class="container content-container" id="container_record-data">
         <div class="row content-header">
-            <h4>Classroom Lighting</h4>
+            <h4>School Lighting</h4>
         </div>
         <div class="row content-instructions">
             <div class="col">
@@ -979,15 +979,79 @@
                                 <td scope="row">1</td>
                                 <td><input type="text" id="number_switches1"></td>
                                 <td><input type="text" id="watts_bulb1"></td>
-                                <td><input type="text" id="before_option1"></td>
-                                <td><input type="text" id="after_option1"></td>
+                                <td><input type="text" id="before_action1"></td>
+                                <td><input type="text" id="after_action1"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">2</td>
+                                <td><input type="text" id="number_switches2"></td>
+                                <td><input type="text" id="watts_bulb2"></td>
+                                <td><input type="text" id="before_action2"></td>
+                                <td><input type="text" id="after_action2"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">3</td>
+                                <td><input type="text" id="number_switches3"></td>
+                                <td><input type="text" id="watts_bulb3"></td>
+                                <td><input type="text" id="before_action3"></td>
+                                <td><input type="text" id="after_action3"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">4</td>
+                                <td><input type="text" id="number_switches4"></td>
+                                <td><input type="text" id="watts_bulb4"></td>
+                                <td><input type="text" id="before_action4"></td>
+                                <td><input type="text" id="after_action4"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">5</td>
+                                <td><input type="text" id="number_switches5"></td>
+                                <td><input type="text" id="watts_bulb5"></td>
+                                <td><input type="text" id="before_action5"></td>
+                                <td><input type="text" id="after_action5"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">6</td>
+                                <td><input type="text" id="number_switches6"></td>
+                                <td><input type="text" id="watts_bulb6"></td>
+                                <td><input type="text" id="before_action6"></td>
+                                <td><input type="text" id="after_action6"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">7</td>
+                                <td><input type="text" id="number_switches7"></td>
+                                <td><input type="text" id="watts_bulb7"></td>
+                                <td><input type="text" id="before_action7"></td>
+                                <td><input type="text" id="after_action7"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">8</td>
+                                <td><input type="text" id="number_switches8"></td>
+                                <td><input type="text" id="watts_bulb8"></td>
+                                <td><input type="text" id="before_action8"></td>
+                                <td><input type="text" id="after_action8"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">9</td>
+                                <td><input type="text" id="number_switches9"></td>
+                                <td><input type="text" id="watts_bulb9"></td>
+                                <td><input type="text" id="before_action9"></td>
+                                <td><input type="text" id="after_action9"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">10</td>
+                                <td><input type="text" id="number_switches10"></td>
+                                <td><input type="text" id="watts_bulb10"></td>
+                                <td><input type="text" id="before_action10"></td>
+                                <td><input type="text" id="after_action10"></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="container">
                         <div class="row d-flex flex-row-reverse">
-                            <button id="btn_add_row" class="btn btn-success">Add More</button>
+							<button id="btn_calculate_lighting" class="btn btn-success">Calculate</button>&nbsp;&nbsp;
                         </div>
+
                     </div>
                 </div>
                 <div class="table-responsive table-seperator">
@@ -1005,18 +1069,18 @@
                         <tbody>
                             <tr>
                                 <td>Before Taking Action</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly id="lighting_co2_before"></td>
+                                <td><input type="text" readonly id="lighting_co2_before_180"></td>
                             </tr>
                             <tr>
                                 <td>After Taking Action</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly id="lighting_co2_after"></td>
+                                <td><input type="text" readonly id="lighting_co2_after_180"></td>
                             </tr>
                             <tr>
                                 <td>Total CO2 emissions savings</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly id="lighting_co2_saved"></td>
+                                <td><input type="text" readonly id="lighting_co2_saved_180"></td>
                             </tr>
                         </tbody>
                     </table>
