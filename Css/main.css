@@ -88,10 +88,48 @@ th.vampire_result {
     width: 100px;
 }
 
-td.appliance input, td.appliance_name{
+#table_appliance td {
+    width: auto;
+}
+
+#table_appliance th {
+    width: 100px;
+}
+
+td.appliance input, td.appliance_name {
     width: 100px;
 }
 
 #appliance_tr thead{
     width: 100px;
+}
+
+.appliance_button_container {
+    float: right;
+}
+
+#appliance_btn_add_row, #btn_calculate_appliance {
+    display: inline-block;
+    margin: 20px;
+}
+
+table#appliance_summary_table {
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
+}
+table#vampire_result_table {
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
+}
+
+table#vampire_re td{
+    width: 50px;
+    padding: 5px
+}
+
+td.appliance_name{
+    width: 50px;
+    padding: 5px
 }

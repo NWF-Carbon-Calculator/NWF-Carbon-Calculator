@@ -133,27 +133,26 @@ $('#btn_add_row').click(function () {
   $("#table_light tbody").append(row);
 })
 
-function createRowHTMLAppliance(counter) {
-  var stringHTML = "<tr><td scope='row'>" + counter + "</td>";
-  stringHTML += "<td><input type='text' id='appliance_wattage" + counter + "'></td>";
-  stringHTML += "<td><input type='text' id='appliance_count" + counter + "'></td>";
-  stringHTML += "<td><input type='text' id='appliance_before_option" + counter + "'></td>";
-  stringHTML += "<td><input type='text' id='appliance_after_option" + counter + "'></td></tr>";
-  return stringHTML;
-}
-$('#appliance_btn_add_row').click(function () {
-  numberOfRows++;
-  var row = createRowHTMLAppliance(numberOfRows);
-  $("#table_appliance tbody").append(row);
-})
+let lineNo = 2;
+$("#appliance_btn_add_row").click(function () {
+    markup = "<tr><td><input type='text' id='appliance_type" + lineNo + "'</td>" +
+    "<td><input type='text' id='appliance_wattage" + lineNo + "'</td>" +
+    "<td><input type='text' id='appliance_count" + lineNo + "'</td>" +
+    "<td><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
+    "<td><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
+
+    tableBody = $("#table_appliance tbody");
+    tableBody.append(markup);
+    lineNo++;
+});
 
 
 $('#btn_calculate_appliance').click(function () {
-  var wattage = parseInt($('#appliance_wattage').val());
+  var wattage = parseInt($('#appliance_wattage1').val());
   console.log(wattage);
-  var count = parseInt($('#appliance_count').val());
-  var before_hours = parseInt($('#appliance_before_option').val());
-  var after_hours = parseInt($('#appliance_after_option').val());
+  var count = parseInt($('#appliance_count1').val());
+  var before_hours = parseInt($('#appliance_before_option1').val());
+  var after_hours = parseInt($('#appliance_after_option1').val());
 
   var totalPerDayBefore = totalkWHPerDay(wattage, count, before_hours);
   console.log(totalPerDayBefore);
@@ -194,10 +193,11 @@ $('#btn_calculate_appliance').click(function () {
   $('#total_appliance_result_year').val(total_appliance_result_year);
 })
 
-$('#appliance_wattage').val(120);
-$('#appliance_count').val(1);
-$('#appliance_before_option').val(2);
-$('#appliance_after_option').val(2);
+$('#appliance_type1').val("Computer");
+$('#appliance_wattage1').val(120);
+$('#appliance_count1').val(1);
+$('#appliance_before_option1').val(2);
+$('#appliance_after_option1').val(2);
 
 
 //***********ENERGY VAMPIRE**************
