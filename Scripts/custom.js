@@ -956,7 +956,7 @@ function drawChart() {
   ]);
 
   var options = {
-    title: "Carbon Emission Results: Before and After Taking Action",
+    // title: "Carbon Emission Results: Before and After Taking Action",
     titlePosition: "none",
     animation: {
       duration: 3000,
@@ -975,8 +975,6 @@ function drawChart() {
 }
 
 function reCalculateSummary() {
-
-  $('#numberOfStudents').text(numberOfStudents);
 
   // Emissions before taking action sum
   var totalBeforeAction = 0;
