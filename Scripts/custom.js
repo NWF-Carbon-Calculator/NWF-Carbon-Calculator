@@ -1054,7 +1054,7 @@ function drawChart() {
 
   var data = google.visualization.arrayToDataTable([
     ['Category', 'Before Action', 'After Action'],
-    ['Lighting', 1000, 2000],
+    ['Lighting', lighting_emmissions_before, lighting_emmissions_after],
     ['Energy Vampires', before_vampire, after_vampire],
     ['Appliances', before_appliance, after_vampire],
     ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
