@@ -609,9 +609,14 @@ const TRASHINPUTS = 4;
 // Trash (paul's part)
 $('#btn_calculate_trash').click(function () {
   calculate();
+reCalculateSummary();
 })
 
+
 // Calculate carbon impact from user inputs (trash)
+var trashCarbonBefore = 0;
+var trashCarbonAfter = 0;
+
 calculate = function () {
   var trashinput1 = document.getElementById('trash_input1').value;
   var trashinput2 = document.getElementById('trash_input2').value;
@@ -623,6 +628,8 @@ calculate = function () {
   var answer2 = (parseInt(trashinput3) * answer) * 0.36; //old value which is 1.27 new one should be 0.36
   document.getElementById('trash_results2').innerHTML = answer2;
 
+
+
   var answer3 = (parseInt(trashinput4) * answer) * 0.36;
   document.getElementById('trash_results4').innerHTML = answer3;
 
@@ -632,15 +639,28 @@ calculate = function () {
   var answer5 = answer2 * 36;
   document.getElementById('trash_results3').innerHTML = answer5;
 
+  trashCarbonBefore = answer5; //this is used for the chart
+  //1) before action carbon x36 week
+  document.getElementById("sumTrashBefore").innerHTML = answer5;
+  //2) after action carbon x36 week
+  //3) cost savings x constant value
+
   //first test for rounding decimals to 2 starts here 4.08pm
   //will implement later if required as of currently, it is good.
   var answer6 = answer3 * 36;
 
   document.getElementById('trash_results5').innerHTML = answer6;
+  trashCarbonAfter = answer6;
+  document.getElementById("sumTrashAfter").innerHTML = answer6;
 
   var answer7 = answer5 - answer6;
   document.getElementById('trash_results7').innerHTML = answer7;
+
+
+  document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
+
 }
+
 
 // Clear input values for trash contents
 $('#btn_reset_trash').click(function () {
@@ -913,7 +933,7 @@ function drawChart() {
     ['Energy Vampires', 1030, 540],
     ['Appliances', 1170, 460],
     ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
-    ['Trash', 880, 800],
+    ['Trash', trashCarbonBefore, trashCarbonAfter],
     ['Paper', 700, 460],
     ['Plastics', 660, 320],
     ['Cups', 1030, 540]
