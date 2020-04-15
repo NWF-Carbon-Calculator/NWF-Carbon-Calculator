@@ -9,7 +9,7 @@
     <link href="/Css/main.css" rel="stylesheet">
 
     <!-- Henry -->
-    <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">
+    <!--<link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">-->
 
 
     <!-- Google charts AJAX API -->
@@ -75,7 +75,7 @@
                 <button type="button" id="btn_electricity" class="btn btn-outline-success"
                     data-toggle="button">Electricity Info</button>
                 <button type="button" id="btn_record-data" class="btn btn-outline-success"
-                    data-toggle="button">Classroom
+                    data-toggle="button">School
                     Lighting</button>
                 <button type="button" id="btn_vampire" class="btn btn-outline-success" data-toggle="button">Energy
                     Vampires</button>
@@ -135,7 +135,6 @@
                     <div class="col-sm-6">
                         <input type="number" class="form-control" id="NUMBER_OF_STUDENTS">
                     </div>
-                    <span id="testing"></span>
                 </div>
             </form>
         </div>
@@ -279,7 +278,7 @@
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
-                    <table id="table_appliance">
+                    <table id="table_appliance" class="table w-auto">
                         <thead>
                             <tr>
                                 <th>Electronic device</th>
@@ -312,9 +311,10 @@
                     </div>
                 </div>
                 <div class="table-responsive table-seperator">
-                    <table>
-                        <thead id="appliance_tr">
+                    <table id="table_appliance_results" class="table w-auto">
+                        <thead>
                             <tr>
+                                <th></th>
                                 <th colspan="2">Total kWh consumed <br>per day</th>
                                 <th colspan="2">Total kWh <br>per 180-day school year</th>
                                 <th colspan="2">Total CO<sub>2</sub> emissions <br>per day (lbs)</th>
@@ -323,36 +323,34 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
+                                <th>Device</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
                             </tr>
                             <tr>
-                                <td class="appliance" class="appliance"><input type="text" id="appliance_before_per_day"
-                                        readonly></td>
-                                <td class="appliance"><input type="text" id="appliance_after_per_day" readonly></td>
-                                <td class="appliance"><input type="text" id="appliance_before_per_year" readonly></td>
-                                <td class="appliance"><input type="text" id="appliance_after_per_year" readonly></td>
-                                <td class="appliance"><input type="text" id="appliance_before_CO2_per_day" readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id="appliance_after_CO2_per_day" readonly></td>
-                                <td class="appliance"><input type="text" id="appliance_before_CO2_per_year" readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id="appliance_after_CO2_per_year" readonly>
-                                </td>
+                                <td><span id="appliance1"></span></td>
+                                <td><span id="appliance_before_per_day1"></span></td>
+                                <td><span id="appliance_after_per_day1"></span></td>
+                                <td><span id="appliance_before_per_year1"></span></td>
+                                <td><span id="appliance_after_per_year1"></span></td>
+                                <td><span id="appliance_before_CO2_per_day1"></span></td>
+                                <td><span id="appliance_after_CO2_per_day1"></span></td>
+                                <td><span id="appliance_before_CO2_per_year1"></span></td>
+                                <td><span id="appliance_after_CO2_per_year1"></span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="table-responsive table-seperator">
                     <p><b>Summary of Results</b></p>
-                    <table id="appliance_summary_table">
-                        <thead id="appliance_tr">
+                    <table id="appliance_summary_table" class="table w-auto">
+                        <thead>
                             <tr>
                                 <th></th>
                                 <th>CO<sub>2</sub> Emissions <br>per day (lbs)</th>
@@ -361,19 +359,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><b>Before Taking Action</b></td>
-                                <td><input type="text" id="before_appliance_result_day" readonly></td>
-                                <td><input type="text" id="before_appliance_result_year" readonly></td>
+                                <td scope="row"><b>Before Taking Action</b></td>
+                                <td><span id="before_appliance_result_day"></span></td>
+                                <td><span id="before_appliance_result_year"></span></td>
                             </tr>
                             <tr>
-                                <td><b>After Taking Action</b></td>
-                                <td><input type="text" id="after_appliance_result_day" readonly></td>
-                                <td><input type="text" id="after_appliance_result_year" readonly></td>
+                                <td scope="row"><b>After Taking Action</b></td>
+                                <td><span id="after_appliance_result_day"></span></td>
+                                <td><span id="after_appliance_result_year"></span></td>
                             </tr>
                             <tr>
-                                <td><b>Total CO<sub>2</sub> emissions savings</b></td>
-                                <td><input type="text" id="total_appliance_result_day" readonly></td>
-                                <td><input type="text" id="total_appliance_result_year" readonly></td>
+                                <td scope="row"><b>Total CO<sub>2</sub> emissions savings</b></td>
+                                <td><span id="total_appliance_result_day"></span></td>
+                                <td><span id="total_appliance_result_year"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -397,9 +395,11 @@
                         being used at that instant. </p>
                     <p>The "Methodology Notes" worksheet contains a table with the average
                         wattages for many typical pieces of classroom equipment.</p>
-                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
-                            reducing carbon impacts and saving the school district money. Be sure to note
-                            this data as you address the Energy Pathway.</em></p>
+                </div>
+                <div class="table-responsive table-seperator">
+                <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                    reducing carbon impacts and saving the school district money. Be sure to note
+                    this data as you address the Energy Pathway.</em></p>
                 </div>
             </div>
         </div>
@@ -702,234 +702,187 @@
                     </div>
                 </div>
                 <div class="table-responsive table-seperator">
-                    <table id="vampire_re">
+                    <table id="vampire_re" class="table w-auto">
                         <thead>
                             <tr>
                                 <th class="vampire_result"></th>
-                                <th class="vampire_result" colspan="2">Total kWh consumed<br>per day</th>
-                                <th class="vampire_result" colspan="2">Total kWh<br> per 180-day school year</th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per "night"
-                                    (lbs)
+                                <th class="vampire_result" colspan="2">Total kWh consumed per day</th>
+                                <th class="vampire_result" colspan="2">Total kWh per 180-day school year</th>
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per "night" (lbs)
                                 </th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per 180-day
-                                    school
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per 180-day school
                                     year (lbs)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th id="vampire_device">Device</th>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
-                                <td>Before Taking Action</td>
-                                <td>After Taking Action</td>
+                                <th>Device</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
                             </tr>
                             <tr>
-                                <td class="appliance_name">Desktop Computer</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_1' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_1' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_1' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_1' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_1' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_1' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_1' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_1' readonly>
-                                </td>
+                                <td>Desktop Computer</td>
+                                <td><span id='vampire_before_kWhPerDay_1'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_1'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_1'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_1'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_1'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_1'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_1'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_1'></span></td>
                             </tr>
                             <tr>
                                 <td>Laptop</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_2' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_2' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_2' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_2' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_2' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_2' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_2' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_2' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_2'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_2'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_2'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_2'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_2'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_2'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_2'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_2'></span></td>
                             </tr>
                             <tr>
                                 <td>Tablet</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_3' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_3' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_3' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_3' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_3' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_3' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_3' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_3' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_3'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_3'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_3'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_3'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_3'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_3'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_3'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_3'></span></td>
                             </tr>
                             <tr>
                                 <td>Flat Screen Monitor (LCD)</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_4' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_4' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_4' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_4' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_4' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_4' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_4' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_4' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_4'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_4'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_4'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_4'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_4'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_4'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_4'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_4'></span></td>
                             </tr>
                             <tr>
                                 <td>Multi-Function Printer/Scanner/Copier</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_5' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_5' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_5' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_5' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_5' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_5' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_5' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_5' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_5'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_5'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_5'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_5'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_5'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_5'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_5'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_5'></span></td>
                             </tr>
                             <tr>
                                 <td>Speakers</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_6' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_6' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_6' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_6' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_6' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_6' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_6' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_6' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_6'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_6'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_6'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_6'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_6'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_6'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_6'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_6'></span></td>
                             </tr>
                             <tr>
                                 <td>SMART Board</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_7' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_7' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_7' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_7' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_7' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_7' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_7' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_7' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_7'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_7'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_7'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_7'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_7'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_7'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_7'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_7'></span></td>
                             </tr>
                             <tr>
                                 <td>Projector</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_8' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_8' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_8' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_8' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_8' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_8' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_8' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_8' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_8'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_8'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_8'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_8'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_8'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_8'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_8'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_8'></span></td>
                             </tr>
                             <tr>
                                 <td>Coffee Maker</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_9' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_9' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_9' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_9' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_9' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_9' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_9' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_9' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_9'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_9'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_9'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_9'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_9'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_9'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_9'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_9'></span></td>
                             </tr>
                             <tr>
                                 <td>Personal Microwave</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_10' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_10' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_10' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_10' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_10' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_10' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_10' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_10' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_10'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_10'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_10'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_10'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_10'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_10'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_10'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_10'></span></td>
                             </tr>
                             <tr>
                                 <td>Personal Mini-Refrigerator</td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerDay_11' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerDay_11' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_kWhPerSchoolYr_11' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_kWhPerSchoolYr_11' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerDay_11' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerDay_11' readonly></td>
-                                <td class="appliance"><input type="text" id='vampire_before_CO2PerSchoolYr_11' readonly>
-                                </td>
-                                <td class="appliance"><input type="text" id='vampire_after_CO2PerSchoolYr_11' readonly>
-                                </td>
+                                <td><span id='vampire_before_kWhPerDay_11'></span></td>
+                                <td><span id='vampire_after_kWhPerDay_11'></span></td>
+                                <td><span id='vampire_before_kWhPerSchoolYr_11'></span></td>
+                                <td><span id='vampire_after_kWhPerSchoolYr_11'></span></td>
+                                <td><span id='vampire_before_CO2PerDay_11'></span></td>
+                                <td><span id='vampire_after_CO2PerDay_11'></span></td>
+                                <td><span id='vampire_before_CO2PerSchoolYr_11'></span></td>
+                                <td><span id='vampire_after_CO2PerSchoolYr_11'></span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="table-responsive table-seperator">
-                    <table id="vampire_result_table">
-                        <p><b>Summary of Results</b></p>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
-                                <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Before Taking Action</td>
-                                <td><input type="text" id="before_result_day" readonly></td>
-                                <td><input type="text" id="before_result_year" readonly></td>
-                            </tr>
-                            <tr>
-                                <td>After Taking Action</td>
-                                <td><input type="text" id="after_result_day" readonly></td>
-                                <td><input type="text" id="after_result_year" readonly></td>
-                            </tr>
-                            <tr>
-                                <td>Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" id="total_result_day" readonly></td>
-                                <td><input type="text" id="total_result_year" readonly></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive table-seperator">
-                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
-                            reducing carbon impacts and saving the school district money. Be sure to note
-                            this data as you address the Energy Pathway.</em></p>
-                </div>
+            <div class="table-responsive table-seperator">
+                <table id="vampire_result_table" class="table w-auto">
+                    <p><b>Summary of Results</b></p>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
+                            <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Before Taking Action</th>
+                            <td><span id="before_result_day"></span></td>
+                            <td><span id="before_result_year"></span></td>
+                        </tr>
+                        <tr>
+                            <th>After Taking Action</th>
+                            <td><span id="after_result_day"></span></td>
+                            <td><span id="after_result_year"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Total CO<sub>2</sub> emissions savings</th>
+                            <td><span id="total_result_day"></span></td>
+                            <td><span id="total_result_year"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive table-seperator">
+            <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                reducing carbon impacts and saving the school district money. Be sure to note
+                this data as you address the Energy Pathway.</em></p>
             </div>
         </div>
     </div>
@@ -1269,18 +1222,18 @@
                         <tbody>
                             <tr>
                                 <td scope="row">Before Taking Action</td>
-                                <td><input type="text" id="transportation_results11" readonly></td>
-                                <td><input type="text" id="transportation_results12" readonly></td>
+                                <td><input type="text" id="transportation_results11"></span></td>
+                                <td><input type="text" id="transportation_results12"></span></td>
                             </tr>
                             <tr>
                                 <td scope="row">After Taking Action</td>
-                                <td><input type="text" id="transportation_results13" readonly></td>
-                                <td><input type="text" id="transportation_results14" readonly></td>
+                                <td><input type="text" id="transportation_results13"></span></td>
+                                <td><input type="text" id="transportation_results14"></span></td>
                             </tr>
                             <tr>
                                 <td scope="row">Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" id="transportation_results15" readonly></td>
-                                <td><input type="text" id="transportation_results16" readonly></td>
+                                <td><input type="text" id="transportation_results15"></span></td>
+                                <td><input type="text" id="transportation_results16"></span></td>
                             </tr>
 
                         </tbody>
@@ -2080,10 +2033,10 @@
 
     <!-- Local Host Testing -->
     <!-- Henry -->
-    <script type="text/javascript"
+    <!--<script type="text/javascript"
                                 src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
                             <script type="text/javascript"
-                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
+                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>-->
 
 
 </body>
