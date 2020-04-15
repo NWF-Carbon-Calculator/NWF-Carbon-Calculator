@@ -3,6 +3,7 @@ const GALLONCO2 = parseFloat($('#GAS_CO2_EQUIVALENT').text());
 const AVERAGEMPG = parseFloat($('#AVERAGE_MPG').text());
 const YEARLYCARCO2 = parseFloat($('#CO2_PER_CAR').text());
 const TREECO2 = parseFloat($('#TREE_CO2').text());
+const GASCOST = parseFloat($('#GAS_COST').text());
 
 var numberOfStudents = 1;
 // *****ELECTRICITY*****
@@ -29,6 +30,11 @@ function weeklyCarbonDrivingCarpool (gallonsBurned, numberOfPeople) {
     var carbonImpact = 0;
     carbonImpact = gallonsBurned * GALLONCO2 / numberOfPeople;
     return carbonImpact.toFixed(2);
+}
+
+function calculateTransportationSavings (gasAloneSavings, gasCarpoolSavings) {
+    var savings =(gasAloneSavings * 36 + gasCarpoolSavings * 36) * GASCOST;
+    return savings.toFixed(2);
 }
 
 //***********OTHER APPLIANCES************
