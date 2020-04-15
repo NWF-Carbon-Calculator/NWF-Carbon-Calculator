@@ -12,8 +12,6 @@ var numberOfStudents = 1;
 
 
 // *****TRANSPORTATION*****
-// One gallon of gas generates f(x) lbs of CO2
-
 function gallonsBurned (roundtripDistance, daysDriven, mpg) {
     var carbonImpact = 0;
     carbonImpact = roundtripDistance / mpg * daysDriven;

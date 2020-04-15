@@ -711,66 +711,79 @@ calculatev2 = function () {
   //two results option for above
 
 
+  var beforeTotalCost = 0;
   //if states for the following options
   if (paperoption1 == "0") {
     panswer1 = parseInt(paperinput1) * 44;
+    beforeTotalCost = 10.99 * paperinput1;
     presult1 = panswer1;
     document.getElementById('paper_results1').innerHTML = panswer1;
   } else if (paperoption1 == "30") {
     panswer1 = parseInt(paperinput1) * 37;
+    beforeTotalCost = 11.49 * paperinput1;
     presult1 = panswer1;
     document.getElementById('paper_results1').innerHTML = panswer1;
 
   } else if (paperoption1 == "100") {
     panswer1 = parseInt(paperinput1) * 19;
+    beforeTotalCost = 13.09 * paperinput1;
     presult1 = panswer1;
     document.getElementById('paper_results1').innerHTML = panswer1;
-
-
+    
+    
     //top side for yn1 bottom side for yn2
-
+    
     //OLD VALUES if 0% was selected times 15, else if 30% then times 13
     //else if 100% times 8
-
+    
     //NEW VALUES if 0% was selected times 44, else if 30% then times 37
     //else if 100% times 19
-
+    
     //personal side note: that is actually really substainial.
-
-
+    
+    
     //cost/REEM for NEW VALUES
     // 0 = 10.99
     // 30 = 11.49
     // 100 = 13.09
-
+    
     //cost/REEM for OLD VALUES
     // 0 = 4.00
     // 30 = 5.20
     // 100 = 5.80
-
-  } if (paperoption2 == "0") {
+    
+  } 
+  
+  var afterTotalCost = 0;
+  if (paperoption2 == "0") {
     panswer2 = parseInt(paperinput2) * 44;
+    afterTotalCost = 10.99 * paperinput2;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
     paperCost = panswer2*10.99;
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
-
+    
   } else if (paperoption2 == "30") {
     panswer2 = parseInt(paperinput2) * 37;
+    afterTotalCost = 11.49 * paperinput2;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
     paperCost = panswer2*11.49;
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
-
+    
   } else if (paperoption2 == "100") {
     panswer2 = parseInt(paperinput2) * 19;
+    afterTotalCost = 13.09 * paperinput2;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
     paperCost = panswer2*13.09;
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
-
-
   }
+  
+var totalCost = beforeTotalCost - afterTotalCost;
+$('#sumPaperCostSavings').text(totalCost);
+
+
   panswersum1 = panswer1;
   document.getElementById('paper_resultsum1').innerHTML = panswer1;
   panswersum2 = panswer2;
