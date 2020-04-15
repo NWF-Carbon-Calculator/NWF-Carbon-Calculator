@@ -642,21 +642,21 @@ calculate = function () {
   trashCarbonBefore = answer5; //this is used for the chart
   //1) before action carbon x36 week
   document.getElementById("sumTrashBefore").innerHTML = answer5;
-  //2) after action carbon x36 week
-  //3) cost savings x constant value
+
 
   //first test for rounding decimals to 2 starts here 4.08pm
   //will implement later if required as of currently, it is good.
   var answer6 = answer3 * 36;
 
   document.getElementById('trash_results5').innerHTML = answer6;
+   //2) after action carbon x36 week
   trashCarbonAfter = answer6;
   document.getElementById("sumTrashAfter").innerHTML = answer6;
 
   var answer7 = answer5 - answer6;
   document.getElementById('trash_results7').innerHTML = answer7;
 
-
+//3) cost savings x constant value
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
 
 }
