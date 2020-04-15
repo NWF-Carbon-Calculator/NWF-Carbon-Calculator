@@ -113,20 +113,13 @@ td.appliance input, td.appliance_name {
     margin: 20px;
 }
 
-table#appliance_summary_table {
+table#appliance_summary_table, table#vampire_result_table {
     width:70%;
-    margin-left:15%;
-    margin-right:15%;
+    margin: auto;
 }
 table#vampire_result_table {
     width:70%;
-    margin-left:15%;
-    margin-right:15%;
-}
-
-table#vampire_re td{
-    width: 50px;
-    padding: 5px
+    margin: auto;
 }
 
 td.appliance_name{
