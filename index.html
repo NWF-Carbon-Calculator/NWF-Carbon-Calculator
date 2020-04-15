@@ -11,7 +11,7 @@
     <!-- Henry -->
     <!--<link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">-->
     <!--linda-->
-    <link href="C:\Users\Linda\Desktop\NWF\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">
+    <link href="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Css/main.css" rel="stylesheet">
 
 
     <!-- Google charts AJAX API -->
@@ -80,9 +80,9 @@
                     data-toggle="button">Classroom
                     Lighting</button>
                 <button type="button" id="btn_vampire" class="btn btn-outline-success" data-toggle="button">Energy
-                    Vampire</button>
+                    Vampires</button>
                 <button type="button" id="btn_appliance" class="btn btn-outline-success" data-toggle="button">Other
-                    Appliance</button>
+                    Appliances</button>
                 <button type="button" id="btn_transportation" class="btn btn-outline-success"
                     data-toggle="button">Transportation
                     Data</button>
@@ -252,14 +252,16 @@
                     Calculator:
                     School Lighting, Energy Vampires, and Other Appliances to enter data into the next three tabs.
                     <strong>Data entered below should be the summation of all rooms assessed.</strong>
+                    Input the data below collected from your worksheet, <em>Carbon Calculator: School Lighting,
+                        Energy Vampires, and Other Appliances.</em>
                 </p>
                 <div>
-                    <p>You have selected to use <span id="electricity_plan"><em><strong>Standard Plan
-                                </strong></em></span> as the source for your fuel mix.</p>
+                    <p>You have selected to use the <span id="electricity_plan"><em><strong> x </strong></em></span>
+                        as the source for your fuel mix.</p>
                 </div>
                 <div>
                     <p>Based on this electricity fuel mix, your electricity emissions factor is <span
-                            id="electricity_factor"><em><strong>Something </strong></em></span></p>
+                            id="electricity_factor"><em><strong> x </strong></em></span></p>
                 </div>
                 <div>
                     <p>Collect and record data below</p>
@@ -269,7 +271,7 @@
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
-                    <table id="table_appliance" class="table w-auto">
+                    <table id="table_appliance">
                         <thead>
                             <tr>
                                 <th>Electronic device</th>
@@ -286,34 +288,29 @@
                                 <td>Before Taking Action</td>
                                 <td>After Taking Action</td>
                             </tr>
-                            <tr id="appliance_input">
-                                <td scope="row">1</td>
-                                <td><input type="text" id="appliance_wattage"></td>
-                                <td><input type="text" id="appliance_count"></td>
-                                <td><input type="text" id="appliance_before_option"></td>
-                                <td><input type="text" id="appliance_after_option"></td>
+                            <tr>
+                                <td><input type="text" id="appliance_type1"></td>
+                                <td><input type="text" id="appliance_wattage1"></td>
+                                <td><input type="text" id="appliance_count1"></td>
+                                <td><input type="text" id="appliance_before_option1"></td>
+                                <td><input type="text" id="appliance_after_option1"></td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="container">
-                        <div class="row d-flex flex-row-reverse">
-                            <button id="appliance_btn_add_row" class="btn btn-success">Add More</button>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row d-flex flex-row-reverse">
-                            <button id="btn_calculate_appliance" class="btn btn-success">Calculate</button>
-                        </div>
+
+                    <div class="appliance_button_container">
+                        <button id="appliance_btn_add_row" class="btn btn-success">Add More</button>
+                        <button id="btn_calculate_appliance" class="btn btn-success">Calculate</button>
                     </div>
                 </div>
                 <div class="table-responsive table-seperator">
                     <table>
                         <thead id="appliance_tr">
                             <tr>
-                                <th colspan="2">Total kWh consumed per day</th>
-                                <th colspan="2">Total kWh per 180-day school year</th>
-                                <th colspan="2">Total CO<sub>2</sub> emissions per day (lbs)</th>
-                                <th colspan="2">Total CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                                <th colspan="2">Total kWh consumed <br>per day</th>
+                                <th colspan="2">Total kWh <br>per 180-day school year</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions <br>per day (lbs)</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -345,66 +342,56 @@
                     </table>
                 </div>
                 <div class="table-responsive table-seperator">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>How To Determine Wattage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>You can usually find the wattage of most appliances
-                                    stamped on the bottom of back of the appliance,
-                                    or on its nameplate. The wattage listed is the maximum
-                                    power drawn by the appliance. The actual amount of power
-                                    consumed depends on the setting used. <br><br></td>
-                            </tr>
-                            <tr>
-                                <td>If the wattage is not listed on the appliance, you can
-                                    still estimate it by finding the current draw (in amperes)
-                                    and multiplying that by the voltage used by the appliance. Most
-                                    appliances in the US use 120 volts. The amperes might be stamped
-                                    on the unite in place of the wattage. If not, find a clamp-on ammeter -
-                                    an electrician's tool that clamps around one of the two wires on the
-                                    appliance - to measure the current flowing through it. You can obtain
-                                    this type of ammeter in stores that sell electrical and electronic equipment.
-                                    Take a reading while the device is running; this is the actual amount of current
-                                    being used at that instant. <br><br></td>
-                            </tr>
-                            <tr>
-                                <td>The "Methodology Notes" worksheet contains a table with the average
-                                    wattages for many typical pieces of classroom equipment.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive table-seperator">
-                    <table>
+                    <p><b>Summary of Results</b></p>
+                    <table id="appliance_summary_table">
                         <thead id="appliance_tr">
                             <tr>
-                                <th>Summary of Results</th>
-                                <th>CO<sub>2</sub> Emissions per day (lbs)</th>
-                                <th colspan="2">CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                                <th></th>
+                                <th>CO<sub>2</sub> Emissions <br>per day (lbs)</th>
+                                <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Before Taking Action</td>
+                                <td><b>Before Taking Action</b></td>
                                 <td><input type="text" id="before_appliance_result_day" readonly></td>
                                 <td><input type="text" id="before_appliance_result_year" readonly></td>
                             </tr>
                             <tr>
-                                <td>After Taking Action</td>
+                                <td><b>After Taking Action</b></td>
                                 <td><input type="text" id="after_appliance_result_day" readonly></td>
                                 <td><input type="text" id="after_appliance_result_year" readonly></td>
                             </tr>
                             <tr>
-                                <td>Total CO<sub>2</sub> emissions savings</td>
+                                <td><b>Total CO<sub>2</sub> emissions savings</b></td>
                                 <td><input type="text" id="total_appliance_result_day" readonly></td>
                                 <td><input type="text" id="total_appliance_result_year" readonly></td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <p><b>How To Determine Wattage</b></p>
+                    <p>You can usually find the wattage of most appliances
+                        stamped on the bottom of back of the appliance,
+                        or on its nameplate. The wattage listed is the maximum
+                        power drawn by the appliance. The actual amount of power
+                        consumed depends on the setting used. </p>
+                    <p>If the wattage is not listed on the appliance, you can
+                        still estimate it by finding the current draw (in amperes)
+                        and multiplying that by the voltage used by the appliance. Most
+                        appliances in the US use 120 volts. The amperes might be stamped
+                        on the unite in place of the wattage. If not, find a clamp-on ammeter -
+                        an electrician's tool that clamps around one of the two wires on the
+                        appliance - to measure the current flowing through it. You can obtain
+                        this type of ammeter in stores that sell electrical and electronic equipment.
+                        Take a reading while the device is running; this is the actual amount of current
+                        being used at that instant. </p>
+                    <p>The "Methodology Notes" worksheet contains a table with the average
+                        wattages for many typical pieces of classroom equipment.</p>
+                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                        reducing carbon impacts and saving the school district money. Be sure to note
+                        this data as you address the Energy Pathway.</em></p>
                 </div>
             </div>
         </div>
@@ -413,7 +400,7 @@
     <!-- Energy Vampire -->
     <div class="container content-container" id="container_vampire">
         <div class="row content-header">
-            <h4>Energy Vampire</h4>
+            <h4>Energy Vampires</h4>
         </div>
         <div class="row content-instructions">
             <div class="col">
@@ -433,14 +420,16 @@
                     Calculator:
                     School Lighting, Energy Vampires, and Other Appliances to enter data into the next three tabs.
                     <strong>Data entered below should be the summation of all rooms assessed.</strong>
+                    Input the data below collected from your worksheet, <em>Carbon Calculator: School Lighting,
+                        Energy Vampires, and Other Appliances.</em>
                 </p>
                 <div>
-                    <p>You have selected to use <span id="electricity_plan"><em><strong>Standard Plan
-                                </strong></em></span> as the source for your fuel mix.</p>
+                    <p>You have selected to use the <span id="electricity_plan"><em><strong> x </strong></em></span>
+                        as the source for your fuel mix.</p>
                 </div>
                 <div>
                     <p>Based on this electricity fuel mix, your electricity emissions factor is <span
-                            id="electricity_factor"><em><strong>Something </strong></em></span></p>
+                            id="electricity_factor"><em><strong> x </strong></em></span></p>
                 </div>
                 <div>
                     <p>Collect and record data below</p>
@@ -450,12 +439,18 @@
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
-                    <table id="table_appliance" class="table w-auto">
+                    <table id="table_vampire" class="table w-auto">
                         <thead>
                             <tr>
                                 <th>Electronic device</th>
                                 <th>How many?</th>
                                 <th colspan="2">End of day operating mode</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Before Taking Action</th>
+                                <th>After Taking Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -699,21 +694,21 @@
                     </div>
                 </div>
                 <div class="table-responsive table-seperator">
-                    <table>
+                    <table id="vampire_re">
                         <thead>
                             <tr>
                                 <th class="vampire_result"></th>
-                                <th class="vampire_result" colspan="2">Total kWh consumed per day</th>
-                                <th class="vampire_result" colspan="2">Total kWh per 180-day school year</th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per "night" (lbs)
+                                <th class="vampire_result" colspan="2">Total kWh consumed<br>per day</th>
+                                <th class="vampire_result" colspan="2">Total kWh<br> per 180-day school year</th>
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per "night" (lbs)
                                 </th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per 180-day school
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per 180-day school
                                     year (lbs)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th>Device</th>
+                                <th id="vampire_device">Device</th>
                                 <td>Before Taking Action</td>
                                 <td>After Taking Action</td>
                                 <td>Before Taking Action</td>
@@ -891,14 +886,14 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
             <div class="table-responsive table-seperator">
-                <table>
-                    <thead id="appliance_tr">
+                <table id="vampire_result_table">
+                    <p><b>Summary of Results</b></p>
+                    <thead>
                         <tr>
-                            <th>Summary of Results</th>
-                            <th>CO<sub>2</sub> Emissions per 16-hour "night" (lbs)</th>
-                            <th colspan="2">CO<sub>2</sub> emissions per 180-day school year (lbs)</th>
+                            <th></th>
+                            <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
+                            <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -920,6 +915,12 @@
                     </tbody>
                 </table>
             </div>
+            <div class="table-responsive table-seperator">
+            <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                reducing carbon impacts and saving the school district money. Be sure to note
+                this data as you address the Energy Pathway.</em></p>
+            </div>
+        </div>
         </div>
     </div>
     </div>
@@ -927,7 +928,7 @@
     <!-- Lighting Content -->
     <div class="container content-container" id="container_record-data">
         <div class="row content-header">
-            <h4>Classroom Lighting</h4>
+            <h4>School Lighting</h4>
         </div>
         <div class="row content-instructions">
             <div class="col">
@@ -979,15 +980,79 @@
                                 <td scope="row">1</td>
                                 <td><input type="text" id="number_switches1"></td>
                                 <td><input type="text" id="watts_bulb1"></td>
-                                <td><input type="text" id="before_option1"></td>
-                                <td><input type="text" id="after_option1"></td>
+                                <td><input type="text" id="before_action1"></td>
+                                <td><input type="text" id="after_action1"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">2</td>
+                                <td><input type="text" id="number_switches2"></td>
+                                <td><input type="text" id="watts_bulb2"></td>
+                                <td><input type="text" id="before_action2"></td>
+                                <td><input type="text" id="after_action2"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">3</td>
+                                <td><input type="text" id="number_switches3"></td>
+                                <td><input type="text" id="watts_bulb3"></td>
+                                <td><input type="text" id="before_action3"></td>
+                                <td><input type="text" id="after_action3"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">4</td>
+                                <td><input type="text" id="number_switches4"></td>
+                                <td><input type="text" id="watts_bulb4"></td>
+                                <td><input type="text" id="before_action4"></td>
+                                <td><input type="text" id="after_action4"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">5</td>
+                                <td><input type="text" id="number_switches5"></td>
+                                <td><input type="text" id="watts_bulb5"></td>
+                                <td><input type="text" id="before_action5"></td>
+                                <td><input type="text" id="after_action5"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">6</td>
+                                <td><input type="text" id="number_switches6"></td>
+                                <td><input type="text" id="watts_bulb6"></td>
+                                <td><input type="text" id="before_action6"></td>
+                                <td><input type="text" id="after_action6"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">7</td>
+                                <td><input type="text" id="number_switches7"></td>
+                                <td><input type="text" id="watts_bulb7"></td>
+                                <td><input type="text" id="before_action7"></td>
+                                <td><input type="text" id="after_action7"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">8</td>
+                                <td><input type="text" id="number_switches8"></td>
+                                <td><input type="text" id="watts_bulb8"></td>
+                                <td><input type="text" id="before_action8"></td>
+                                <td><input type="text" id="after_action8"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">9</td>
+                                <td><input type="text" id="number_switches9"></td>
+                                <td><input type="text" id="watts_bulb9"></td>
+                                <td><input type="text" id="before_action9"></td>
+                                <td><input type="text" id="after_action9"></td>
+                            </tr>
+							<tr>
+                                <td scope="row">10</td>
+                                <td><input type="text" id="number_switches10"></td>
+                                <td><input type="text" id="watts_bulb10"></td>
+                                <td><input type="text" id="before_action10"></td>
+                                <td><input type="text" id="after_action10"></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="container">
                         <div class="row d-flex flex-row-reverse">
-                            <button id="btn_add_row" class="btn btn-success">Add More</button>
+							<button id="btn_calculate_lighting" class="btn btn-success">Calculate</button>&nbsp;&nbsp;
                         </div>
+
                     </div>
                 </div>
                 <div class="table-responsive table-seperator">
@@ -1005,18 +1070,18 @@
                         <tbody>
                             <tr>
                                 <td>Before Taking Action</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly id="lighting_co2_before"></td>
+                                <td><input type="text" readonly id="lighting_co2_before_180"></td>
                             </tr>
                             <tr>
                                 <td>After Taking Action</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly id="lighting_co2_after"></td>
+                                <td><input type="text" readonly id="lighting_co2_after_180"></td>
                             </tr>
                             <tr>
                                 <td>Total CO2 emissions savings</td>
-                                <td><input type="text" readonly></td>
-                                <td><input type="text" readonly></td>
+                                <td><input type="text" readonly id="lighting_co2_saved"></td>
+                                <td><input type="text" readonly id="lighting_co2_saved_180"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1810,7 +1875,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Classroom lighting</td>
+                            <td>School lighting</td>
                             <td id="sumLightBefore">0</td>
                             <td id="sumLightAfter">0</td>
                             <td id="sumLightEmissionSavings">0</td>
@@ -2020,10 +2085,9 @@
                                 src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>-->
 
     <!-- Linda -->
-    <script type="text/javascript" src="C:\Users\Linda\Desktop\NWF\NWF-Carbon-Calculator\Scripts\custom.js"></script>
-    <script type="text/javascript"
-        src="C:\Users\Linda\Desktop\NWF\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
-
+    <script type="text/javascript" src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/custom.js"></script>
+    <script type="text/javascript" src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/methodology-notes.js"></script>
+    <script type="text/javascript" src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/School_lighting.js"></script>
 </body>
 
 </html>
