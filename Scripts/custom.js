@@ -665,6 +665,7 @@ calculate = function () {
 
 //3) cost savings x constant value
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
+  document.getElementById("sumTrashCostSavings").innerHTML = answer7*0.0004;
 
 }
 
@@ -681,8 +682,11 @@ const PAPERINPUTS = 10;
 
 $('#btn_calculate_paper').click(function () {
   calculatev2();
+  reCalculateSummary();
 })
 
+var paperCarbonBefore = 0;
+var paperCarbonAfter = 0;
 calculatev2 = function () {
 
 
@@ -725,6 +729,7 @@ calculatev2 = function () {
 
     //personal side note: that is actually really substainial.
 
+
     //cost/REEM for NEW VALUES
     // 0 = 10.99
     // 30 = 11.49
@@ -739,14 +744,24 @@ calculatev2 = function () {
     panswer2 = parseInt(paperinput2) * 44;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
+    paperCost = panswer2*10.99;
+    document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
+
   } else if (paperoption2 == "30") {
     panswer2 = parseInt(paperinput2) * 37;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
+    paperCost = panswer2*11.49;
+    document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
+
   } else if (paperoption2 == "100") {
     panswer2 = parseInt(paperinput2) * 19;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
+    paperCost = panswer2*13.09;
+    document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
+
+
   }
   panswersum1 = panswer1;
   document.getElementById('paper_resultsum1').innerHTML = panswer1;
@@ -758,12 +773,22 @@ calculatev2 = function () {
 
   panswersum3 = panswer1 * 36;
   document.getElementById('paper_resultsum2').innerHTML = panswersum3;
+  if()
+
+  //somewhere here for carbon before for summary
+  paperCarbonBefore = panswersum3;
+  document.getElementById("sumPaperBefore").innerHTML = panswersum3;
 
   panswersum4 = panswer2 * 36;
   document.getElementById('paper_resultsum4').innerHTML = panswersum4;
+  //somewhere here for carbon after for summary
+  paperCarbonAfter = panswersum4;
+  document.getElementById("sumPaperAfter").innerHTML = panswersum4;
 
   panswerDIFF2 = panswersum3 - panswersum4;
   document.getElementById('paper_resultsum6').innerHTML = panswerDIFF2;
+  //somewhere here for cost savings x some constant value?
+  document.getElementById("sumPaperEmissionSavings").innerHTML = panswerDIFF2;
 
   console.log(panswer1);
   console.log(panswer2);
@@ -942,7 +967,7 @@ function drawChart() {
     ['Appliances', 1170, 460],
     ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
     ['Trash', trashCarbonBefore, trashCarbonAfter],
-    ['Paper', 700, 460],
+    ['Paper', paperCarbonBefore, paperCarbonAfter],
     ['Plastics', 660, 320],
     ['Cups', 1030, 540]
   ]);
