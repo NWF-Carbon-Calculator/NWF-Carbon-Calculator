@@ -653,6 +653,7 @@ calculate = function () {
 
   var answer5 = answer2 * 36;
   document.getElementById('trash_results3').innerHTML = answer5;
+  beforeTrashCost = answer5*0.0004; //this is cost per pounds this is also used for cost savings portion for summary
 
   trashCarbonBefore = answer5; //this is used for the chart
   //1) before action carbon x36 week
@@ -667,13 +668,14 @@ calculate = function () {
   //2) after action carbon x36 week
   trashCarbonAfter = answer6;
   document.getElementById("sumTrashAfter").innerHTML = answer6;
+  afterTrashCost = answer6*0.0004; //this is cost per pounds and also used for cost savings portion for summary
 
   var answer7 = answer5 - answer6;
   document.getElementById('trash_results7').innerHTML = answer7;
 
   //3) cost savings x constant value
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
-  document.getElementById("sumTrashCostSavings").innerHTML = answer7*0.0004;
+  document.getElementById("sumTrashCostSavings").innerHTML = beforeTrashCost-afterTrashCost;
 
 }
 
