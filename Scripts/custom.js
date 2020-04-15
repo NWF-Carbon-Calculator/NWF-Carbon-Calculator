@@ -86,6 +86,13 @@ $('#btn_methodology').click(function () {
   $('#container_methodology').show();
 })
 
+// Updates the number of students when the value changes in the input
+$('#NUMBER_OF_STUDENTS').change(function () {
+  numberOfStudents = $('#NUMBER_OF_STUDENTS').val();
+  $('#numberOfStudents').text($('#NUMBER_OF_STUDENTS').val());
+  reCalculateSummary();
+})
+
 // *****Electricity Content Calculations*****
 // Calculate and display Electricity Emission Factor (EEF)
 $('#btn_calculate_EEF').click(function () {
@@ -135,12 +142,13 @@ $('#btn_add_row').click(function () {
 
 let lineNo = 2;
 $("#appliance_btn_add_row").click(function () {
-    markup = "<tr><td><input type='text' id='appliance_type" + lineNo + "'</td>" +
+  markup = "<tr><td><input type='text' id='appliance_type" + lineNo + "'</td>" +
     "<td><input type='text' id='appliance_wattage" + lineNo + "'</td>" +
     "<td><input type='text' id='appliance_count" + lineNo + "'</td>" +
     "<td><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
     "<td><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
 
+<<<<<<< HEAD
     result_markup = "<tr><td><span id='appliance" + lineNo + "'></span></td>" +
     "<td><span id='appliance_before_per_day" + lineNo + "'></span></td>" +
     "<td><span id='appliance_after_per_day" + lineNo + "'></span></td>" +
@@ -153,6 +161,12 @@ $("#appliance_btn_add_row").click(function () {
 
     tableBody = $("#table_appliance tbody");
     tableBody.append(markup);
+=======
+  tableBody = $("#table_appliance tbody");
+  tableBody.append(markup);
+  lineNo++;
+});
+>>>>>>> 6b95768917a3471e61c5f325064ac5fee71e62ce
 
     tableBody2 = $("#table_appliance_results tbody");
     tableBody2.append(result_markup);
@@ -557,6 +571,7 @@ $('#btn_calculate_transportation').click(function () {
   var gallonsBurnedBeforeAction = 0;
   var gallonsBurnedAfterAction = 0;
   var weeklyCarbonEmitted = 0;
+  var costSavings = 0;
   var distanceTraveled = $('#transportation_input1').val();
   var daysDriven = $('#transportation_input3').val();
   var mpg = $('#transportation_input5').val();
@@ -614,10 +629,16 @@ $('#btn_calculate_transportation').click(function () {
   totalSavings = totalSavings.toFixed(2);
   $('#transportation_results16').val(totalSavings);
 
-  // Chainging summary content
+  // Calculating savings in dollars
+  var gasAloneSavings = parseFloat($('#transportation_results1').val()) - parseFloat($('#transportation_results2').val());
+  var gasCarpoolSavings = parseFloat($('#transportation_results5').val()) - parseFloat($('#transportation_results6').val());
+  costSavings = calculateTransportationSavings(gasAloneSavings, gasCarpoolSavings);
+
+  // Changing summary content
   $('#sumTranBefore').text(transportationCarbonBefore);
   $('#sumTranAfter').text(transportationCarbonAfter);
   $('#sumTranEmissionSavings').text(totalSavings);
+  $('#sumTranCostSavings').text(costSavings);
   reCalculateSummary();
 })
 
@@ -655,7 +676,7 @@ const TRASHINPUTS = 4;
 // Trash (paul's part)
 $('#btn_calculate_trash').click(function () {
   calculate();
-reCalculateSummary();
+  reCalculateSummary();
 })
 
 
@@ -684,6 +705,7 @@ calculate = function () {
 
   var answer5 = answer2 * 36;
   document.getElementById('trash_results3').innerHTML = answer5;
+  beforeTrashCost = answer5*0.0004; //this is cost per pounds this is also used for cost savings portion for summary
 
   trashCarbonBefore = answer5; //this is used for the chart
   //1) before action carbon x36 week
@@ -695,15 +717,17 @@ calculate = function () {
   var answer6 = answer3 * 36;
 
   document.getElementById('trash_results5').innerHTML = answer6;
-   //2) after action carbon x36 week
+  //2) after action carbon x36 week
   trashCarbonAfter = answer6;
   document.getElementById("sumTrashAfter").innerHTML = answer6;
+  afterTrashCost = answer6*0.0004; //this is cost per pounds and also used for cost savings portion for summary
 
   var answer7 = answer5 - answer6;
   document.getElementById('trash_results7').innerHTML = answer7;
 
-//3) cost savings x constant value
+  //3) cost savings x constant value
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
+  document.getElementById("sumTrashCostSavings").innerHTML = beforeTrashCost-afterTrashCost;
 
 }
 
@@ -720,8 +744,11 @@ const PAPERINPUTS = 10;
 
 $('#btn_calculate_paper').click(function () {
   calculatev2();
+  reCalculateSummary();
 })
 
+var paperCarbonBefore = 0;
+var paperCarbonAfter = 0;
 calculatev2 = function () {
 
 
@@ -738,55 +765,79 @@ calculatev2 = function () {
   //two results option for above
 
 
+  var beforeTotalCost = 0;
   //if states for the following options
   if (paperoption1 == "0") {
     panswer1 = parseInt(paperinput1) * 44;
+    beforeTotalCost = 10.99 * paperinput1;
     presult1 = panswer1;
     document.getElementById('paper_results1').innerHTML = panswer1;
   } else if (paperoption1 == "30") {
     panswer1 = parseInt(paperinput1) * 37;
+    beforeTotalCost = 11.49 * paperinput1;
     presult1 = panswer1;
     document.getElementById('paper_results1').innerHTML = panswer1;
 
   } else if (paperoption1 == "100") {
     panswer1 = parseInt(paperinput1) * 19;
+    beforeTotalCost = 13.09 * paperinput1;
     presult1 = panswer1;
     document.getElementById('paper_results1').innerHTML = panswer1;
-
-
+    
+    
     //top side for yn1 bottom side for yn2
-
+    
     //OLD VALUES if 0% was selected times 15, else if 30% then times 13
     //else if 100% times 8
-
+    
     //NEW VALUES if 0% was selected times 44, else if 30% then times 37
     //else if 100% times 19
-
+    
     //personal side note: that is actually really substainial.
-
+    
+    
     //cost/REEM for NEW VALUES
     // 0 = 10.99
     // 30 = 11.49
     // 100 = 13.09
-
+    
     //cost/REEM for OLD VALUES
     // 0 = 4.00
     // 30 = 5.20
     // 100 = 5.80
-
-  } if (paperoption2 == "0") {
+    
+  } 
+  
+  var afterTotalCost = 0;
+  if (paperoption2 == "0") {
     panswer2 = parseInt(paperinput2) * 44;
+    afterTotalCost = 10.99 * paperinput2;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
+    paperCost = panswer2*10.99;
+    document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
+    
   } else if (paperoption2 == "30") {
     panswer2 = parseInt(paperinput2) * 37;
+    afterTotalCost = 11.49 * paperinput2;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
+    paperCost = panswer2*11.49;
+    document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
+    
   } else if (paperoption2 == "100") {
     panswer2 = parseInt(paperinput2) * 19;
+    afterTotalCost = 13.09 * paperinput2;
     presult2 = panswer2;
     document.getElementById('paper_results2').innerHTML = panswer2;
+    paperCost = panswer2*13.09;
+    document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
   }
+  
+var totalCost = beforeTotalCost - afterTotalCost;
+$('#sumPaperCostSavings').text(totalCost);
+
+
   panswersum1 = panswer1;
   document.getElementById('paper_resultsum1').innerHTML = panswer1;
   panswersum2 = panswer2;
@@ -797,12 +848,22 @@ calculatev2 = function () {
 
   panswersum3 = panswer1 * 36;
   document.getElementById('paper_resultsum2').innerHTML = panswersum3;
+  
+
+  //somewhere here for carbon before for summary
+  paperCarbonBefore = panswersum3;
+  document.getElementById("sumPaperBefore").innerHTML = panswersum3;
 
   panswersum4 = panswer2 * 36;
   document.getElementById('paper_resultsum4').innerHTML = panswersum4;
+  //somewhere here for carbon after for summary
+  paperCarbonAfter = panswersum4;
+  document.getElementById("sumPaperAfter").innerHTML = panswersum4;
 
   panswerDIFF2 = panswersum3 - panswersum4;
   document.getElementById('paper_resultsum6').innerHTML = panswerDIFF2;
+  //somewhere here for cost savings x some constant value?
+  document.getElementById("sumPaperEmissionSavings").innerHTML = panswerDIFF2;
 
   console.log(panswer1);
   console.log(panswer2);
@@ -817,28 +878,32 @@ $('#btn_reset_paper').click(function () {
 })
 
 
-// *****Plastic Bottle Content Calculations*****
+// *****Solid Waste-Plastic Bottles Content Calculations*****
 const BOTTLESINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_bottles').click(function () {
   calculate1();
+  reCalculateSummary();
 })
+
+var bottleCarbonBefore = 0;
+var bottleCarbonAfter = 0;
 
 calculate1 = function () {
   var bottleinput1 = document.getElementById('bottles_input1').value;
   var bottleinput2 = document.getElementById('bottles_input2').value;
 
   var answer = (parseInt(bottleinput1) * 0.04);
-  document.getElementById('bottles_results1').innerHTML = answer;
+  document.getElementById('bottles_results1').value = answer;
 
   var answer2 = (parseInt(bottleinput2) * 0.04);
-  document.getElementById('bottles_results2').innerHTML = answer2;
+  document.getElementById('bottles_results2').value = answer2;
 
   var answer3 = (answer * 2.17);
-  document.getElementById('bottles_results3').innerHTML = answer3;
+  document.getElementById('bottles_results3').value = answer3;
 
   var answer4 = (answer2 * 2.17);
-  document.getElementById('bottles_results4').innerHTML = answer4;
+  document.getElementById('bottles_results4').value = answer4;
 
   var bottleinput3 = document.getElementById('bottles_input').value;
   var bottleinput4 = document.getElementById('bottles_input0').value;
@@ -846,52 +911,57 @@ calculate1 = function () {
   //before taking action
   if (bottleinput3 == "") {
     answer5 = "";
-    document.getElementById('bottles_results5').innerHTML = answer5;
+    document.getElementById('bottles_results5').value = answer5.toFixed(2);
   } else if (bottleinput3 == "1.15") {
     answer5 = answer * 1.15;
     result = answer5;
-    document.getElementById('bottles_results5').innerHTML = answer5;
+    document.getElementById('bottles_results5').value = answer5.toFixed(2);
   } else if (bottleinput3 == "0") {
     answer5 = answer * 0;
     result = answer5;
-    document.getElementById('bottles_results5').innerHTML = answer5;
+    document.getElementById('bottles_results5').value = answer5.toFixed(2);
   }
 
   //after taking action
   if (bottleinput4 == "") {
     answer6 = "";
     result = answer5;
-    document.getElementById('bottles_results6').innerHTML = answer6;
+    document.getElementById('bottles_results6').value = answer6.toFixed(2);
   } else if (bottleinput4 == "1.15") {
     answer6 = answer2 * 1.15;
     result = answer6;
-    document.getElementById('bottles_results6').innerHTML = answer6;
+    document.getElementById('bottles_results6').value = answer6.toFixed(2);
   } else if (bottleinput4 == "0") {
     answer6 = answer2 * 0;
     result = answer6;
-    document.getElementById('bottles_results6').innerHTML = answer6;
+    document.getElementById('bottles_results6').value = answer6.toFixed(2);
   }
 
   console.log(answer5);
   console.log(answer6);
 
   var answer7 = (answer3 - answer5);
-  document.getElementById('bottles_results7').innerHTML = answer7;
+  document.getElementById('bottles_results7').value = answer7.toFixed(2);
 
   var answer8 = (answer7 * 36);
-  document.getElementById('bottles_results8').innerHTML = answer8;
+  document.getElementById('bottles_results8').value = answer8.toFixed(2);
+  bottleCarbonBefore = answer8;
+  document.getElementById("sumPlasticBefore").innerHTML = answer8;
 
   var answer9 = (answer4 - answer6);
-  document.getElementById('bottles_results9').innerHTML = answer9;
+  document.getElementById('bottles_results9').value = answer9.toFixed(2);
 
   var answer10 = (answer9 * 36);
-  document.getElementById('bottles_results10').innerHTML = answer10;
+  document.getElementById('bottles_results10').value = answer10.toFixed(2);
+  bottleCarbonAfter = answer10;
+  document.getElementById("sumPlasticAfter").innerHTML = answer10;
 
   var answer11 = (answer7 - answer9);
-  document.getElementById('bottles_results11').innerHTML = answer11;
+  document.getElementById('bottles_results11').value = answer11.toFixed(2);
 
   var answer12 = (answer11 * 36);
-  document.getElementById('bottles_results12').innerHTML = answer12;
+  document.getElementById('bottles_results12').value = answer12.toFixed(2);
+  document.getElementById("sumPlasticEmissionSavings").innerHTML = answer12;
 
 }
 
@@ -902,12 +972,16 @@ $('#btn_reset_bottles').click(function () {
   }
 })
 
-// *****Beverage Cups Content Calculations*****
+// *****Solid Waste-Beverage Cups Content Calculations*****
 const CUPSINPUTS = 4;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_cups').click(function () {
   calculate2();
+  reCalculateSummary();
 })
+
+var cupCarbonBefore = 0;
+var cupCarbonAfter = 0;
 
 calculate2 = function () {
 
@@ -919,45 +993,50 @@ calculate2 = function () {
   //before taking action
   if (cupinput1 == "0") {
     canswer = parseInt(cupinput3) * 0.25;
-    document.getElementById('cup_results1').innerHTML = canswer;
+    document.getElementById('cup_results1').value = canswer;
   } else if (cupinput1 == "1") {
     canswer = parseInt(cupinput3) * 0;
-    document.getElementById('cup_results1').innerHTML = canswer;
+    document.getElementById('cup_results1').value = canswer;
   } else if (cupinput1 == "0.25") {
     canswer = parseInt(cupinput3) * 0.25;
-    document.getElementById('cup_results1').innerHTML = canswer;
+    document.getElementById('cup_results1').value = canswer;
   }
 
   //after taking action
   if (cupinput2 == "0") {
     canswer1 = parseInt(cupinput4) * 0.25;
-    document.getElementById('cup_results3').innerHTML = canswer1;
+    document.getElementById('cup_results3').value = canswer1;
   } else if (cupinput2 == "1") {
     canswer1 = parseInt(cupinput4) * 0;
-    document.getElementById('cup_results3').innerHTML = canswer1;
+    document.getElementById('cup_results3').value = canswer1;
   } else if (cupinput2 == "0.25") {
     canswer1 = parseInt(cupinput4) * 0.25;
-    document.getElementById('cup_results3').innerHTML = canswer1;
+    document.getElementById('cup_results3').value = canswer1;
   }
 
   var canswer2 = (canswer * 36);
-  document.getElementById('cup_results2').innerHTML = canswer2;
+  document.getElementById('cup_results2').value = canswer2;
+  cupCarbonBefore = canswer2;
+  document.getElementById("sumBeverageBefore").innerHTML = canswer2;
 
   var canswer3 = (canswer1 * 36);
-  document.getElementById('cup_results4').innerHTML = canswer3;
+  document.getElementById('cup_results4').value = canswer3;
+  cupCarbonAfter = canswer3;
+  document.getElementById("sumBeverageAfter").innerHTML = canswer3;
 
   console.log(canswer);
   console.log(canswer1);
 
   var canswer4 = (canswer - canswer1);
-  document.getElementById('cup_results5').innerHTML = canswer4;
+  document.getElementById('cup_results5').value = canswer4;
 
   var canswer5 = (canswer2 - canswer3);
-  document.getElementById('cup_results6').innerHTML = canswer5;
+  document.getElementById('cup_results6').value = canswer5;
+  document.getElementById("sumBeverageEmissionSavings").innerHTML = canswer5;
 
 }
 
-// Clear input values for bottles contents
+// Clear input values for cups contents
 $('#btn_reset_cups').click(function () {
   for (let i = 1; i <= CUPSINPUTS; i++) {
     $('#cups_input' + i).val("");
@@ -980,13 +1059,13 @@ function drawChart() {
     ['Appliances', before_appliance, after_vampire],
     ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
     ['Trash', trashCarbonBefore, trashCarbonAfter],
-    ['Paper', 700, 460],
+    ['Paper', paperCarbonBefore, paperCarbonAfter],
     ['Plastics', 660, 320],
     ['Cups', 1030, 540]
   ]);
 
   var options = {
-    title: "Carbon Emission Results: Before and After Taking Action",
+    // title: "Carbon Emission Results: Before and After Taking Action",
     titlePosition: "none",
     animation: {
       duration: 3000,
@@ -1005,8 +1084,6 @@ function drawChart() {
 }
 
 function reCalculateSummary() {
-
-  $('#numberOfStudents').text(numberOfStudents);
 
   // Emissions before taking action sum
   var totalBeforeAction = 0;
@@ -1047,14 +1124,13 @@ function reCalculateSummary() {
   // Electricity savings sum
   var electricitySavings = 0;
   electricitySavings += parseFloat($('#sumLightElectricitySavings').text());
-  console.log(electricitySavings);
   electricitySavings += parseFloat($('#sumVampireElectricitySavings').text());
   electricitySavings += parseFloat($('#sumOtherElectricitySavings').text());
-  electricitySavings += parseFloat($('#sumTranElectricitySavings').text());
-  electricitySavings += parseFloat($('#sumTrashElectricitySavings').text());
-  electricitySavings += parseFloat($('#sumPaperElectricitySavings').text());
-  electricitySavings += parseFloat($('#sumPlasticElectricitySavings').text());
-  electricitySavings += parseFloat($('#sumBeverageElectricitySavings').text());
+  // electricitySavings += parseFloat($('#sumTranElectricitySavings').text());
+  // electricitySavings += parseFloat($('#sumTrashElectricitySavings').text());
+  // electricitySavings += parseFloat($('#sumPaperElectricitySavings').text());
+  // electricitySavings += parseFloat($('#sumPlasticElectricitySavings').text());
+  // electricitySavings += parseFloat($('#sumBeverageElectricitySavings').text());
   $('#sumElectricitySavings').text(electricitySavings);
 
   // Cost savings sum
@@ -1078,6 +1154,16 @@ function reCalculateSummary() {
 
   var studentEmissions = totalEmissionSavings / numberOfStudents;
   $('#sumStudentEmissionSavings').text(studentEmissions.toFixed(2));
+
+  // Equivalency calculation
+  var milesEquivalent = totalEmissionSavings / GALLONCO2 * AVERAGEMPG;
+  $('#carEquiv').text(milesEquivalent.toFixed(2));
+
+  var numberOfCars = totalEmissionSavings / YEARLYCARCO2;
+  $('#passEquiv').text(numberOfCars.toFixed(2));
+
+  var treeSeedlings = totalEmissionSavings / TREECO2;
+  $('#treeEquiv').text(treeSeedlings.toFixed(2));
 }
 
 //************School Lighting********
@@ -1137,6 +1223,7 @@ var after_action10 = $('#after_action10').val();
 // Calculate Lighting CO2 Before taking action
 $('#btn_calculate_lighting').click(function () {
 
+<<<<<<< HEAD
 	//calculate CO2 before action (per row)
 	var lighting_emmissions_row_1_before = (EEF*(number_switches1*watts_bulb1*before_action1/1000));
 	var lighting_emmissions_row_2_before = (EEF*(number_switches1*watts_bulb1*before_action2/1000));
@@ -1178,4 +1265,47 @@ $('#btn_calculate_lighting').click(function () {
 	document.getElementById('lighting_co2_after_180').innerHTML = lighting_emmissions_after*180;
 	document.getElementById('lighting_co2_saved').innerHTML = lighting_emmissions_before - lighting_emmissions_after;
 	document.getElementById('lighting_co2_saved_180').innerHTML = (lighting_emmissions_before - lighting_emmissions_after)*(180);
+=======
+  //calculate CO2 before action (per row)
+  var lighting_emmissions_row_1_before = (EEF * (number_switches1 * watts_bulb1 * before_action1 / 1000));
+  var lighting_emmissions_row_2_before = (EEF * (number_switches1 * watts_bulb1 * before_action2 / 1000));
+  var lighting_emmissions_row_3_before = (EEF * (number_switches1 * watts_bulb1 * before_action3 / 1000));
+  var lighting_emmissions_row_4_before = (EEF * (number_switches1 * watts_bulb1 * before_action4 / 1000));
+  var lighting_emmissions_row_5_before = (EEF * (number_switches1 * watts_bulb1 * before_action5 / 1000));
+  var lighting_emmissions_row_6_before = (EEF * (number_switches1 * watts_bulb1 * before_action6 / 1000));
+  var lighting_emmissions_row_7_before = (EEF * (number_switches1 * watts_bulb1 * before_action7 / 1000));
+  var lighting_emmissions_row_8_before = (EEF * (number_switches1 * watts_bulb1 * before_action8 / 1000));
+  var lighting_emmissions_row_9_before = (EEF * (number_switches1 * watts_bulb1 * before_action9 / 1000));
+  var lighting_emmissions_row_10_before = (EEF * (number_switches1 * watts_bulb1 * before_action10 / 1000));
+  //sum of rows
+  var lighting_emmissions_before = lighting_emmissions_row_1_before + lighting_emmissions_row_2_before +
+    lighting_emmissions_row_3_before + lighting_emmissions_row_4_before + lighting_emmissions_row_5_before +
+    lighting_emmissions_row_6_before + lighting_emmissions_row_7_before + lighting_emmissions_row_8_before +
+    lighting_emmissions_row_9_before + lighting_emmissions_row_10_before;
+
+  //calculate CO2 after action
+  var lighting_emmissions_row_1_after = (EEF * (number_switches1 * watts_bulb1 * after_action1 / 1000));
+  var lighting_emmissions_row_2_after = (EEF * (number_switches1 * watts_bulb1 * after_action2 / 1000));
+  var lighting_emmissions_row_3_after = (EEF * (number_switches1 * watts_bulb1 * after_action3 / 1000));
+  var lighting_emmissions_row_4_after = (EEF * (number_switches1 * watts_bulb1 * after_action4 / 1000));
+  var lighting_emmissions_row_5_after = (EEF * (number_switches1 * watts_bulb1 * after_action5 / 1000));
+  var lighting_emmissions_row_6_after = (EEF * (number_switches1 * watts_bulb1 * after_action6 / 1000));
+  var lighting_emmissions_row_7_after = (EEF * (number_switches1 * watts_bulb1 * after_action7 / 1000));
+  var lighting_emmissions_row_8_after = (EEF * (number_switches1 * watts_bulb1 * after_action8 / 1000));
+  var lighting_emmissions_row_9_after = (EEF * (number_switches1 * watts_bulb1 * after_action9 / 1000));
+  var lighting_emmissions_row_10_after = (EEF * (number_switches1 * watts_bulb1 * after_action10 / 1000));
+  //sum of rows
+  var lighting_emmissions_after = lighting_emmissions_row_1_after + lighting_emmissions_row_2_after +
+    lighting_emmissions_row_3_after + lighting_emmissions_row_4_after + lighting_emmissions_row_5_after +
+    lighting_emmissions_row_6_after + lighting_emmissions_row_7_after + lighting_emmissions_row_8_after +
+    lighting_emmissions_row_9_after + lighting_emmissions_row_10_after;
+
+  //calculate co2 before and after and per 180 day school years and the difference between the two
+  document.getElementById('lighting_co2_before').innerHTML = lighting_emmissions_before;
+  document.getElementById('lighting_co2_before_180').innerHTML = lighting_emmissions_before * 180;
+  document.getElementById('lighting_co2_after').innerHTML = lighting_emmissions_after;
+  document.getElementById('lighting_co2_after_180').innerHTML = lighting_emmissions_after * 180;
+  document.getElementById('lighting_co2_saved').innerHTML = lighting_emmissions_before - lighting_emmissions_after;
+  document.getElementById('lighting_co2_saved_180').innerHTML = (lighting_emmissions_before - lighting_emmissions_after) * (180);
+>>>>>>> 6b95768917a3471e61c5f325064ac5fee71e62ce
 })//End calculations for school lighting
