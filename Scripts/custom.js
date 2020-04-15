@@ -764,6 +764,7 @@ calculate1 = function () {
 
   var answer = (parseInt(bottleinput1) * 0.04);
   document.getElementById('bottles_results1').innerHTML = answer;
+  document.getElementById('bottles_results1').value = answer;
 
   var answer2 = (parseInt(bottleinput2) * 0.04);
   document.getElementById('bottles_results2').innerHTML = answer2;
@@ -981,7 +982,6 @@ function reCalculateSummary() {
   // Electricity savings sum
   var electricitySavings = 0;
   electricitySavings += parseFloat($('#sumLightElectricitySavings').text());
-  console.log(electricitySavings);
   electricitySavings += parseFloat($('#sumVampireElectricitySavings').text());
   electricitySavings += parseFloat($('#sumOtherElectricitySavings').text());
   electricitySavings += parseFloat($('#sumTranElectricitySavings').text());
