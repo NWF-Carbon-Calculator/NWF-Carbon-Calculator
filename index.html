@@ -103,6 +103,7 @@
             </div>
         </div>
     </div>
+
     <!-- Used to place div content when a button is pressed -->
     <div id="startDiv"></div>
 
@@ -129,9 +130,18 @@
                 <li>compliment the Consumption and Waste, Climate Change, Energy, Sustainable Food and Transportation
                     Pathway.</li>
             </ol>
+            <form>
+                <div class="form-group row">
+                    <label for="NUMBER_OF_STUDENTS" class="col-sm-6 col-form-label">Please enter the number of
+                        students participating</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="NUMBER_OF_STUDENTS">
+                    </div>
+                    <span id="testing"></span>
+                </div>
+            </form>
         </div>
-        <div class="row calculation-area">
-        </div>
+        <div class="row calculation-area"></div>
     </div>
 
     <!-- Electricity Content -->
@@ -390,8 +400,8 @@
                     <p>The "Methodology Notes" worksheet contains a table with the average
                         wattages for many typical pieces of classroom equipment.</p>
                     <p><em>As a result of carbon emissions saved, your school is also saving energy,
-                        reducing carbon impacts and saving the school district money. Be sure to note
-                        this data as you address the Energy Pathway.</em></p>
+                            reducing carbon impacts and saving the school district money. Be sure to note
+                            this data as you address the Energy Pathway.</em></p>
                 </div>
             </div>
         </div>
@@ -700,9 +710,11 @@
                                 <th class="vampire_result"></th>
                                 <th class="vampire_result" colspan="2">Total kWh consumed<br>per day</th>
                                 <th class="vampire_result" colspan="2">Total kWh<br> per 180-day school year</th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per "night" (lbs)
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per "night"
+                                    (lbs)
                                 </th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per 180-day school
+                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions<br> per 180-day
+                                    school
                                     year (lbs)</th>
                             </tr>
                         </thead>
@@ -886,41 +898,41 @@
                         </tbody>
                     </table>
                 </div>
-            <div class="table-responsive table-seperator">
-                <table id="vampire_result_table">
-                    <p><b>Summary of Results</b></p>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
-                            <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Before Taking Action</td>
-                            <td><input type="text" id="before_result_day" readonly></td>
-                            <td><input type="text" id="before_result_year" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>After Taking Action</td>
-                            <td><input type="text" id="after_result_day" readonly></td>
-                            <td><input type="text" id="after_result_year" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>Total CO<sub>2</sub> emissions savings</td>
-                            <td><input type="text" id="total_result_day" readonly></td>
-                            <td><input type="text" id="total_result_year" readonly></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive table-seperator">
+                    <table id="vampire_result_table">
+                        <p><b>Summary of Results</b></p>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
+                                <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Before Taking Action</td>
+                                <td><input type="text" id="before_result_day" readonly></td>
+                                <td><input type="text" id="before_result_year" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>After Taking Action</td>
+                                <td><input type="text" id="after_result_day" readonly></td>
+                                <td><input type="text" id="after_result_year" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Total CO<sub>2</sub> emissions savings</td>
+                                <td><input type="text" id="total_result_day" readonly></td>
+                                <td><input type="text" id="total_result_year" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                            reducing carbon impacts and saving the school district money. Be sure to note
+                            this data as you address the Energy Pathway.</em></p>
+                </div>
             </div>
-            <div class="table-responsive table-seperator">
-            <p><em>As a result of carbon emissions saved, your school is also saving energy,
-                reducing carbon impacts and saving the school district money. Be sure to note
-                this data as you address the Energy Pathway.</em></p>
-            </div>
-        </div>
         </div>
     </div>
     </div>
@@ -983,63 +995,63 @@
                                 <td><input type="text" id="before_action1"></td>
                                 <td><input type="text" id="after_action1"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">2</td>
                                 <td><input type="text" id="number_switches2"></td>
                                 <td><input type="text" id="watts_bulb2"></td>
                                 <td><input type="text" id="before_action2"></td>
                                 <td><input type="text" id="after_action2"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">3</td>
                                 <td><input type="text" id="number_switches3"></td>
                                 <td><input type="text" id="watts_bulb3"></td>
                                 <td><input type="text" id="before_action3"></td>
                                 <td><input type="text" id="after_action3"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">4</td>
                                 <td><input type="text" id="number_switches4"></td>
                                 <td><input type="text" id="watts_bulb4"></td>
                                 <td><input type="text" id="before_action4"></td>
                                 <td><input type="text" id="after_action4"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">5</td>
                                 <td><input type="text" id="number_switches5"></td>
                                 <td><input type="text" id="watts_bulb5"></td>
                                 <td><input type="text" id="before_action5"></td>
                                 <td><input type="text" id="after_action5"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">6</td>
                                 <td><input type="text" id="number_switches6"></td>
                                 <td><input type="text" id="watts_bulb6"></td>
                                 <td><input type="text" id="before_action6"></td>
                                 <td><input type="text" id="after_action6"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">7</td>
                                 <td><input type="text" id="number_switches7"></td>
                                 <td><input type="text" id="watts_bulb7"></td>
                                 <td><input type="text" id="before_action7"></td>
                                 <td><input type="text" id="after_action7"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">8</td>
                                 <td><input type="text" id="number_switches8"></td>
                                 <td><input type="text" id="watts_bulb8"></td>
                                 <td><input type="text" id="before_action8"></td>
                                 <td><input type="text" id="after_action8"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">9</td>
                                 <td><input type="text" id="number_switches9"></td>
                                 <td><input type="text" id="watts_bulb9"></td>
                                 <td><input type="text" id="before_action9"></td>
                                 <td><input type="text" id="after_action9"></td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td scope="row">10</td>
                                 <td><input type="text" id="number_switches10"></td>
                                 <td><input type="text" id="watts_bulb10"></td>
@@ -1050,7 +1062,7 @@
                     </table>
                     <div class="container">
                         <div class="row d-flex flex-row-reverse">
-							<button id="btn_calculate_lighting" class="btn btn-success">Calculate</button>&nbsp;&nbsp;
+                            <button id="btn_calculate_lighting" class="btn btn-success">Calculate</button>&nbsp;&nbsp;
                         </div>
 
                     </div>
@@ -1841,15 +1853,17 @@
                 <table class="table w-auto">
                     <tbody>
                         <tr>
-                            <td scope="row">The CO<sub>2</sub> emitted by driving a 4 passenger car <span
-                                    id="carEquiv"></span> miles.</td>
+                            <td scope="row">The CO<sub>2</sub> emitted by driving a 4 passenger car <strong><span
+                                        id="carEquiv"></span></strong> miles.</td>
                         </tr>
                         <tr>
-                            <td scope="row">The CO<sub>2</sub> emitted by driving <span id="passEquiv"></span> passenger
-                                vehicles.</td>
+                            <td scope="row">The CO<sub>2</sub> emitted by driving <strong><span
+                                        id="passEquiv"></span></strong> passenger
+                                vehicles per year.</td>
                         </tr>
                         <tr>
-                            <td scope="row">The CO<sub>2</sub> sequestered by <span id="treeEquiv"></span> tree
+                            <td scope="row">The CO<sub>2</sub> sequestered by <strong><span
+                                        id="treeEquiv"></span></strong> tree
                                 seedlings grown for 10 years.</td>
                         </tr>
                     </tbody>
@@ -2054,6 +2068,30 @@
                 </tbody>
             </table>
         </div>
+        <div class="row calculation-area">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Average Fuel Efficency</td>
+                        <td id="AVERAGE_MPG">47.2</td>
+                    </tr>
+
+                    <tr>
+                        <td>According to the U.S. Energy Information Administration, the combustion of one gallon of
+                            gasoline generates</td>
+                        <td id="GAS_CO2_EQUIVALENT">19.64</td>
+                    </tr>
+                    <tr>
+                        <td>Average annual CO<sub>2</sub> emissions of a typical passenger vehicle</td>
+                        <td id="CO2_PER_CAR">2204.62</td>
+                    </tr>
+                    <tr>
+                        <td>According to the OneTreePlanted, growing one tree seedling for 10 years sequesters</td>
+                        <td id="TREE_CO2">48</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -2086,8 +2124,10 @@
 
     <!-- Linda -->
     <script type="text/javascript" src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/custom.js"></script>
-    <script type="text/javascript" src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/methodology-notes.js"></script>
-    <script type="text/javascript" src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/School_lighting.js"></script>
+    <script type="text/javascript"
+        src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/methodology-notes.js"></script>
+    <script type="text/javascript"
+        src="/Users/lindaly/Desktop/NWF/NWF-Carbon-Calculator/Scripts/School_lighting.js"></script>
 </body>
 
 </html>

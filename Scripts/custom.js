@@ -86,6 +86,13 @@ $('#btn_methodology').click(function () {
   $('#container_methodology').show();
 })
 
+$('#NUMBER_OF_STUDENTS').change(function() {
+  $('#testing').text($('#NUMBER_OF_STUDENTS').val());
+  console.log($('#NUMBER_OF_STUDENTS').text());
+  numberOfStudents = $('#NUMBER_OF_STUDENTS').val();
+  reCalculateSummary();
+})
+
 // *****Electricity Content Calculations*****
 // Calculate and display Electricity Emission Factor (EEF)
 $('#btn_calculate_EEF').click(function () {
@@ -1012,6 +1019,16 @@ function reCalculateSummary() {
 
   var studentEmissions = totalEmissionSavings / numberOfStudents;
   $('#sumStudentEmissionSavings').text(studentEmissions.toFixed(2));
+
+  // Equivalency calculation
+  var milesEquivalent = totalEmissionSavings / GALLONCO2 * AVERAGEMPG;
+  $('#carEquiv').text(milesEquivalent.toFixed(2));
+
+  var numberOfCars = totalEmissionSavings / YEARLYCARCO2;
+  $('#passEquiv').text(numberOfCars.toFixed(2));
+
+  var treeSeedlings = totalEmissionSavings / TREECO2;
+  $('#treeEquiv').text(treeSeedlings.toFixed(2));
 }
 
 //************School Lighting********

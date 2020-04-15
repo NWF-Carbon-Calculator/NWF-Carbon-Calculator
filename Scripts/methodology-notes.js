@@ -1,5 +1,10 @@
 //Place to setup the variables and functions needed for calulation of carbon output
-var numberOfStudents = 32;
+const GALLONCO2 = parseFloat($('#GAS_CO2_EQUIVALENT').text());
+const AVERAGEMPG = parseFloat($('#AVERAGE_MPG').text());
+const YEARLYCARCO2 = parseFloat($('#CO2_PER_CAR').text());
+const TREECO2 = parseFloat($('#TREE_CO2').text());
+
+var numberOfStudents = 1;
 // *****ELECTRICITY*****
 
 // *****CLASSROOM LIGHTING*****
@@ -7,7 +12,6 @@ var numberOfStudents = 32;
 
 // *****TRANSPORTATION*****
 // One gallon of gas generates f(x) lbs of CO2
-const GALLONCO2 = 19.64;
 
 function gallonsBurned (roundtripDistance, daysDriven, mpg) {
     var carbonImpact = 0;
