@@ -88,9 +88,8 @@ $('#btn_methodology').click(function () {
 
 // Updates the number of students when the value changes in the input
 $('#NUMBER_OF_STUDENTS').change(function () {
-  $('#testing').text($('#NUMBER_OF_STUDENTS').val());
-  console.log($('#NUMBER_OF_STUDENTS').text());
   numberOfStudents = $('#NUMBER_OF_STUDENTS').val();
+  $('#numberOfStudents').text($('#NUMBER_OF_STUDENTS').val());
   reCalculateSummary();
 })
 
