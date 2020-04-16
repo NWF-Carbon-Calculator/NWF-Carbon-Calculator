@@ -663,7 +663,7 @@ $('#transportation_input13').val(1);
 $('#transportation_input14').val(1);
 
 // *****Trash Content Calculations*****
-const TRASHINPUTS = 4;
+const TRASHINPUTS = 11;
 
 // Trash (paul's part)
 $('#btn_calculate_trash').click(function () {
@@ -680,23 +680,23 @@ calculate = function () {
   var trashinput1 = document.getElementById('trash_input1').value;
   var trashinput2 = document.getElementById('trash_input2').value;
   var answer = parseInt(trashinput2) - parseInt(trashinput1);
-  document.getElementById('trash_results1').innerHTML = answer;
+  document.getElementById('trash_results1').value = answer;
 
   var trashinput3 = document.getElementById('trash_input3').value;
   var trashinput4 = document.getElementById('trash_input4').value;
   var answer2 = (parseInt(trashinput3) * answer) * 0.36; //old value which is 1.27 new one should be 0.36
-  document.getElementById('trash_results2').innerHTML = answer2;
+  document.getElementById('trash_results2').value = answer2;
 
 
 
   var answer3 = (parseInt(trashinput4) * answer) * 0.36;
-  document.getElementById('trash_results4').innerHTML = answer3;
+  document.getElementById('trash_results4').value = answer3;
 
   var answer4 = answer2 - answer3;
-  document.getElementById('trash_results6').innerHTML = answer4;
+  document.getElementById('trash_results6').value = answer4;
 
   var answer5 = answer2 * 36;
-  document.getElementById('trash_results3').innerHTML = answer5;
+  document.getElementById('trash_results3').value = answer5;
   beforeTrashCost = answer5*0.0004; //this is cost per pounds this is also used for cost savings portion for summary
 
   trashCarbonBefore = answer5; //this is used for the chart
@@ -708,19 +708,18 @@ calculate = function () {
   //will implement later if required as of currently, it is good.
   var answer6 = answer3 * 36;
 
-  document.getElementById('trash_results5').innerHTML = answer6;
+  document.getElementById('trash_results5').value = answer6;
   //2) after action carbon x36 week
   trashCarbonAfter = answer6;
   document.getElementById("sumTrashAfter").innerHTML = answer6;
   afterTrashCost = answer6*0.0004; //this is cost per pounds and also used for cost savings portion for summary
 
   var answer7 = answer5 - answer6;
-  document.getElementById('trash_results7').innerHTML = answer7;
+  document.getElementById('trash_results7').value = answer7;
 
   //3) cost savings x constant value
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
   document.getElementById("sumTrashCostSavings").innerHTML = beforeTrashCost-afterTrashCost;
-
 }
 
 
@@ -728,11 +727,13 @@ calculate = function () {
 $('#btn_reset_trash').click(function () {
   for (let i = 1; i <= TRASHINPUTS; i++) {
     $('#trash_input' + i).val("");
+    $('#trash_results' + i).val("");
+
   }
 })
 
 // *****Paper Content Calculations*****
-const PAPERINPUTS = 10;
+const PAPERINPUTS = 12;
 
 $('#btn_calculate_paper').click(function () {
   calculatev2();
@@ -763,18 +764,18 @@ calculatev2 = function () {
     panswer1 = parseInt(paperinput1) * 44;
     beforeTotalCost = 10.99 * paperinput1;
     presult1 = panswer1;
-    document.getElementById('paper_results1').innerHTML = panswer1;
+    document.getElementById('paper_results1').value = panswer1;
   } else if (paperoption1 == "30") {
     panswer1 = parseInt(paperinput1) * 37;
     beforeTotalCost = 11.49 * paperinput1;
     presult1 = panswer1;
-    document.getElementById('paper_results1').innerHTML = panswer1;
+    document.getElementById('paper_results1').value = panswer1;
 
   } else if (paperoption1 == "100") {
     panswer1 = parseInt(paperinput1) * 19;
     beforeTotalCost = 13.09 * paperinput1;
     presult1 = panswer1;
-    document.getElementById('paper_results1').innerHTML = panswer1;
+    document.getElementById('paper_results1').value = panswer1;
 
 
     //top side for yn1 bottom side for yn2
@@ -805,7 +806,7 @@ calculatev2 = function () {
     panswer2 = parseInt(paperinput2) * 44;
     afterTotalCost = 10.99 * paperinput2;
     presult2 = panswer2;
-    document.getElementById('paper_results2').innerHTML = panswer2;
+    document.getElementById('paper_results2').value = panswer2;
     paperCost = panswer2*10.99;
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
 
@@ -813,7 +814,7 @@ calculatev2 = function () {
     panswer2 = parseInt(paperinput2) * 37;
     afterTotalCost = 11.49 * paperinput2;
     presult2 = panswer2;
-    document.getElementById('paper_results2').innerHTML = panswer2;
+    document.getElementById('paper_results2').value = panswer2;
     paperCost = panswer2*11.49;
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
 
@@ -821,7 +822,7 @@ calculatev2 = function () {
     panswer2 = parseInt(paperinput2) * 19;
     afterTotalCost = 13.09 * paperinput2;
     presult2 = panswer2;
-    document.getElementById('paper_results2').innerHTML = panswer2;
+    document.getElementById('paper_results2').value = panswer2;
     paperCost = panswer2*13.09;
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
   }
@@ -831,15 +832,15 @@ $('#sumPaperCostSavings').text(totalCost);
 
 
   panswersum1 = panswer1;
-  document.getElementById('paper_resultsum1').innerHTML = panswer1;
+  document.getElementById('paper_summary1').value = panswer1;
   panswersum2 = panswer2;
-  document.getElementById('paper_resultsum3').innerHTML = panswer2;
+  document.getElementById('paper_summary3').value = panswer2;
 
   panswerDIFF = panswer1 - panswer2;
-  document.getElementById('paper_resultsum5').innerHTML = panswerDIFF;
+  document.getElementById('paper_summary5').value = panswerDIFF;
 
   panswersum3 = panswer1 * 36;
-  document.getElementById('paper_resultsum2').innerHTML = panswersum3;
+  document.getElementById('paper_summary2').value = panswersum3;
 
 
   //somewhere here for carbon before for summary
@@ -847,13 +848,13 @@ $('#sumPaperCostSavings').text(totalCost);
   document.getElementById("sumPaperBefore").innerHTML = panswersum3;
 
   panswersum4 = panswer2 * 36;
-  document.getElementById('paper_resultsum4').innerHTML = panswersum4;
+  document.getElementById('paper_summary4').value = panswersum4;
   //somewhere here for carbon after for summary
   paperCarbonAfter = panswersum4;
   document.getElementById("sumPaperAfter").innerHTML = panswersum4;
 
   panswerDIFF2 = panswersum3 - panswersum4;
-  document.getElementById('paper_resultsum6').innerHTML = panswerDIFF2;
+  document.getElementById('paper_summary6').value = panswerDIFF2;
   //somewhere here for cost savings x some constant value?
   document.getElementById("sumPaperEmissionSavings").innerHTML = panswerDIFF2;
 
@@ -863,9 +864,13 @@ $('#sumPaperCostSavings').text(totalCost);
 
 }
 // Clear input values for paper contents
+//have added additional parameters to reset the selected values as of 4/15/20 7pm 
 $('#btn_reset_paper').click(function () {
   for (let i = 1; i <= PAPERINPUTS; i++) {
-    $('#paper_input' + i).val("");
+    $('#paper_input' + i).val(""); //paper inputs
+    $('#yn' + i).val(""); //percentage drop down option
+    $('#paper_results' + i).val(""); //first two results
+    $('#paper_summary' + i).val(""); //summary results
   }
 })
 
