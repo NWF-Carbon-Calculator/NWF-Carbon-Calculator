@@ -685,18 +685,18 @@ calculate = function () {
   var trashinput3 = document.getElementById('trash_input3').value;
   var trashinput4 = document.getElementById('trash_input4').value;
   var answer2 = (parseInt(trashinput3) * answer) * 0.36; //old value which is 1.27 new one should be 0.36
-  document.getElementById('trash_results2').value = answer2;
+  document.getElementById('trash_summary1').value = answer2; //changed from trash_results2 to trashsummary to be more consistent
 
 
 
   var answer3 = (parseInt(trashinput4) * answer) * 0.36;
-  document.getElementById('trash_results4').value = answer3;
+  document.getElementById('trash_summary3').value = answer3;
 
   var answer4 = answer2 - answer3;
-  document.getElementById('trash_results6').value = answer4;
+  document.getElementById('trash_summary5').value = answer4;
 
   var answer5 = answer2 * 36;
-  document.getElementById('trash_results3').value = answer5;
+  document.getElementById('trash_summary2').value = answer5;
   beforeTrashCost = answer5*0.0004; //this is cost per pounds this is also used for cost savings portion for summary
 
   trashCarbonBefore = answer5; //this is used for the chart
@@ -708,14 +708,14 @@ calculate = function () {
   //will implement later if required as of currently, it is good.
   var answer6 = answer3 * 36;
 
-  document.getElementById('trash_results5').value = answer6;
+  document.getElementById('trash_summary4').value = answer6;
   //2) after action carbon x36 week
   trashCarbonAfter = answer6;
   document.getElementById("sumTrashAfter").innerHTML = answer6;
   afterTrashCost = answer6*0.0004; //this is cost per pounds and also used for cost savings portion for summary
 
   var answer7 = answer5 - answer6;
-  document.getElementById('trash_results7').value = answer7;
+  document.getElementById('trash_summary6').value = answer7;
 
   //3) cost savings x constant value
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
@@ -728,6 +728,7 @@ $('#btn_reset_trash').click(function () {
   for (let i = 1; i <= TRASHINPUTS; i++) {
     $('#trash_input' + i).val("");
     $('#trash_results' + i).val("");
+    $('#trash_summary' + i).val("");
 
   }
 })
