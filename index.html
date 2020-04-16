@@ -90,12 +90,6 @@
                     Waste-Paper</button>
                 <button type="button" id="btn_bottlesCups" class="btn btn-outline-success" data-toggle="button">Solid Waste
                     Plastic Bottles & Beverage Cups</button>
-                <button type="button" id="btn_bottles" class="btn btn-outline-success" data-toggle="button">Solid
-                    Waste-Plastic
-                    Bottles</button>
-                <button type="button" id="btn_cups" class="btn btn-outline-success" data-toggle="button">Solid
-                    Waste-Beverage
-                    Cups</button>
                 <button type="button" id="btn_summary" class="btn btn-outline-success"
                     data-toggle="button">Summary</button>
                 <button type="button" id="btn_methodology" class="btn btn-outline-success"
@@ -1662,233 +1656,6 @@
         </div>
     </div>
 
-    <!-- Solid Waste-Plastic Bottles -->
-    <div class="container content-container" id="container_bottles">
-        <div class="row content-header">
-            <h4>Solid Waste-Plastic Bottles</h4>
-        </div>
-        <div class="row content-instructions">
-            <div class="col">
-                <p> 50 billion water bottles are sold in the US every year. 1,500 water bottles are thrown away every
-                    second of every day. Take note that is only water bottles and does not include soda bottles. One
-                    strategy to reduce single plastic use bottles and beverage cups is to bring your own refillable bottle
-                    to school and if you do buy a plastic water bottle or beverage cup, reuse and recycle it.</p>
-                    <p><strong>Data entered below should be the summation of data collected from all rooms assessed.</strong> Input the data
-                      below collected from the worksheet titled, <i>Carbon Calculator, School Solid Waste-Trash, Paper, Plastics and Cups.</i></p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row calculation-area">
-                <div class="table-responsive table-seperator">
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><center>Before Taking Action</center></th>
-                                <th scope="col"><center>After Taking Action</center></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-sm-4" scope="row">1. Approximately how many plastic water bottles are used each week?</td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input1">
-                                </td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-sm-4" scope="row">2. On average, are plastic water bottles recycled or thrown away? </td>
-                                <td class="col-sm-4"> <select id="bottles_input" name="bottles_input">
-                                        <option value=""></option>
-                                        <option value="1.15">Recycle</option>
-                                        <option value="0">Throw Away</option>
-                                    </select>
-                                </td>
-                                <td class="col-sm-4"><select id="bottles_input0" name="bottles_input0">
-                                        <option value=""></option>
-                                        <option value="1.15">Recycle</option>
-                                        <option value="0">Throw Away</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><button type="button" id="btn_reset_bottles" class="btn btn-success">Reset</button>
-                                </td>
-                                <td><button type="button" id="btn_calculate_bottles"
-                                        class="btn btn-success">Calculate</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive table-seperator">
-                    <p>
-                        <h6><b>Classroom Results</b></h6>
-                    </p>
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col">School Impact</th>
-                                <th scope="col"><center>Before Taking Action</center></th>
-                                <th scope="col"><center>After Taking Action</center></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">Based on the response provided in question 1, the number of
-                                  plastic water bottles used each week equates to: </td>
-                                <td><input type="text" id="bottles_results1" readonly></input>lbs. of plastic/week</td>
-                                <td><input type="text" id="bottles_results2" readonly></input>lbs. of plastic/week</td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Based on the response provided in question 2, the number of plastic water
-                                  bottles used each week equates to: </td>
-                                <td><input type="text" id="bottles_results3" readonly></input>lbs. of CO<sub>2</sub>/week</td>
-                                <td><input type="text" id="bottles_results4" readonly></input>lbs. of CO<sub>2</sub>/week</td>
-                            </tr>
-                            <tr>
-                                <td scope="row">When our school recycles water bottles it save: </td>
-                                <td><input type="text" id="bottles_results5" readonly></input>lbs. of CO<sub>2</sub>/week</td>
-                                <td><input type="text" id="bottles_results6" readonly></input>lbs. of CO<sub>2</sub>/week</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive table-seperator">
-                    <p>
-                        <h6><b>Summary of Results</b></h6>
-                    </p>
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><center>CO<sub>2</sub> emissions per week (lbs)</center></th>
-                                <th scope="col"><center>CO<sub>2</sub> emissions per 36-week school year (lbs)</center></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">Before taking action</td>
-                                <td><input type="text" id="bottles_results7" readonly></input></td>
-                                <td><input type="text" id="bottles_results8" readonly></input></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">After taking action</td>
-                                <td><input type="text" id="bottles_results9" readonly></input></td>
-                                <td><input type="text" id="bottles_results10" readonly></input></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" id="bottles_results11" readonly></input></td>
-                                <td><input type="text" id="bottles_results12" readonly></input></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates of
-                    consumption and increasing rates of recycling. Be sure to note this data as you address the
-                    Consumption and Waste pathway.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Solid Waste-Beverage Cups -->
-    <div class="container content-container" id="container_cups">
-        <div class="row content-header">
-            <h4>Solid Waste-Beverage Cups</h4>
-        </div>
-        <div class="row content-instructions">
-            <div class="col">
-                <p><strong>Data entered below should be the summation of data collected from all rooms assessed.</strong> Input the data
-                    below collected from the worksheet titled, <i>Carbon Calculator, School Solid Waste-Trash, Paper, Plastics and Cups.</i></p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row calculation-area">
-                <div class="table-responsive table-seperator">
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><center>Before Taking Action</center></th>
-                                <th scope="col"><center>After Taking Action</center></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-sm-4" scope="row">1. On average, do most coffee/tea drinkers at the school use a reusable
-                                  insulated container for their hot beverage? (dropdown Yes/No)</td>
-                                <td class="col-sm-4"> <select id="cups_input1" name="cups_input1">
-                                        <option value="0"></option>
-                                        <option value="1">Yes</option>
-                                        <option value="0.25">No</option>
-                                    </select>
-                                </td>
-                                <td class="col-sm-4"><select id="cups_input2" name="cups_input2">
-                                        <option value="0"></option>
-                                        <option value="1">Yes</option>
-                                        <option value="0.25">No</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-sm-4" scope="row">2. Approximately how many disposable cups are
-                                    used in a week?</td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input3">
-                                </td>
-                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="cups_input4">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><button type="button" id="btn_reset_cups" class="btn btn-success">Reset</button>
-                                </td>
-                                <td><button type="button" id="btn_calculate_cups"
-                                        class="btn btn-success">Calculate</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive table-seperator">
-                    <p>
-                        <h6><b>Summary of Results</b></h6>
-                    </p>
-                    <table class="table w-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><center>CO<sub>2</sub> emissions per week (lbs)</center></th>
-                                <th scope="col"><center>CO<sub>2</sub> emissions per 36-week school year (lbs)</center></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">Before taking action</td>
-                                <td><input type="text" id="cup_results1" readonly></input></td>
-                                <td><input type="text" id="cup_results2" readonly></input></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">After taking action</td>
-                                <td><input type="text" id="cup_results3" readonly></input></td>
-                                <td><input type="text" id="cup_results4" readonly></input></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" id="cup_results5" readonly></input></td>
-                                <td><input type="text" id="cup_results6" readonly></input></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="font-italic">As the result of carbon emissions saved, you are also reducing rates
-                    of consumption and
-                    increasing rates of recycling. Be sure to note this data as you address the Consumption
-                    and
-                    Waste pathway.</p>
-            </div>
-        </div>
-    </div>
-
     <!-- Summary Content -->
     <div class="container content-container" id="container_summary">
         <div class="row content-header">
@@ -2017,14 +1784,14 @@
                             <td id="sumPlasticElectricitySavings">N/A</td>
                             <td id="sumPlasticCostSavings">0</td>
                         </tr>
-                        <tr>
+                        <!--<tr>
                             <td>Beverage Cups</td>
                             <td id="sumBeverageBefore">0</td>
                             <td id="sumBeverageAfter">0</td>
                             <td id="sumBeverageEmissionSavings">0</td>
                             <td id="sumBeverageElectricitySavings">N/A</td>
                             <td id="sumBeverageCostSavings">0</td>
-                        </tr>
+                        </tr>-->
                         <tr>
                             <td>Total</td>
                             <td id="sumTotalBefore"></td>

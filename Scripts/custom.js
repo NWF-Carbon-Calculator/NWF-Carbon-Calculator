@@ -55,28 +55,12 @@ $('#btn_paper').click(function () {
   $('#container_paper').insertAfter('#startDiv');
   $('#container_paper').show();
 })
-
 $('#btn_bottlesCups').click(function () {
   $(".button-wrapper").find(".btn").removeClass('active');
   $(this.id).addClass('active');
   $('.content-container').hide();
   $('#container_bottlesCups').insertAfter('#startDiv');
   $('#container_bottlesCups').show();
-})
-
-$('#btn_bottles').click(function () {
-  $(".button-wrapper").find(".btn").removeClass('active');
-  $(this.id).addClass('active');
-  $('.content-container').hide();
-  $('#container_bottles').insertAfter('#startDiv');
-  $('#container_bottles').show();
-})
-$('#btn_cups').click(function () {
-  $(".button-wrapper").find(".btn").removeClass('active');
-  $(this.id).addClass('active');
-  $('.content-container').hide();
-  $('#container_cups').insertAfter('#startDiv');
-  $('#container_cups').show();
 })
 $('#btn_summary').click(function () {
   $(".button-wrapper").find(".btn").removeClass('active');
@@ -948,264 +932,79 @@ calculate1 = function () {
     document.getElementById('bottles_results6').value = answer6.toFixed(2);
   }
 
-  console.log(answer5);
-  console.log(answer6);
-
   //question #3 cups
   //before taking action
   if (bottleinput5 == "0") {
     canswer = parseInt(bottleinput7) * 0.25;
-
   } else if (bottleinput5 == "1") {
     canswer = parseInt(bottleinput7) * 0;
-
   } else if (bottleinput5 == "0.25") {
     canswer = parseInt(bottleinput7) * 0.25;
-
   }
 
   //question #3 cups
   //after taking action
-  if (cupinput2 == "0") {
-    canswer1 = parseInt(cupinput4) * 0.25;
-    document.getElementById('cup_results3').value = canswer1;
-  } else if (cupinput2 == "1") {
-    canswer1 = parseInt(cupinput4) * 0;
-    document.getElementById('cup_results3').value = canswer1;
-  } else if (cupinput2 == "0.25") {
-    canswer1 = parseInt(cupinput4) * 0.25;
-    document.getElementById('cup_results3').value = canswer1;
+  if (bottleinput6 == "0") {
+    canswer1 = parseInt(bottleinput8) * 0.25;
+  } else if (bottleinput6 == "1") {
+    canswer1 = parseInt(bottleinput8) * 0;
+  } else if (bottleinput6 == "0.25") {
+    canswer1 = parseInt(bottleinput8) * 0.25;
   }
 
   var canswer2 = (canswer * 36);
-  document.getElementById('cup_results2').value = canswer2;
-  cupCarbonBefore = canswer2;
-  document.getElementById("sumBeverageBefore").innerHTML = canswer2;
-
   var canswer3 = (canswer1 * 36);
-  document.getElementById('cup_results4').value = canswer3;
-  cupCarbonAfter = canswer3;
-  document.getElementById("sumBeverageAfter").innerHTML = canswer3;
-
-  console.log(canswer);
-  console.log(canswer1);
-
   var canswer4 = (canswer - canswer1);
-  document.getElementById('cup_results5').value = canswer4;
-
   var canswer5 = (canswer2 - canswer3);
-  document.getElementById('cup_results6').value = canswer5;
-  document.getElementById("sumBeverageEmissionSavings").innerHTML = canswer5;
 
   //before taking action
   //CO2 emissions per week
   var answer7 = (answer3 - answer5);
-  document.getElementById('bottles_results7').value = answer7.toFixed(2);
+  var answer7_1 = (answer7 + canswer);
+  document.getElementById('bottles_results7').value = answer7_1.toFixed(2);
 
   //before taking action
   //CO2 emissions per 36-week school year
   var answer8 = (answer7 * 36);
-  document.getElementById('bottles_results8').value = answer8.toFixed(2);
-  bottleCarbonBefore = answer8;
-  document.getElementById("sumPlasticBefore").innerHTML = answer8;
+  var answer8_1 = (answer8 + canswer2);
+  document.getElementById('bottles_results8').value = answer8_1.toFixed(2);
+  bottleCarbonBefore = answer8_1;
+  document.getElementById("sumPlasticBefore").innerHTML = answer8_1;
 
   //after taking action
   //CO2 emissions per week
   var answer9 = (answer4 - answer6);
-  document.getElementById('bottles_results9').value = answer9.toFixed(2);
+  var answer9_1 = (answer9 + canswer1);
+  document.getElementById('bottles_results9').value = answer9_1.toFixed(2);
 
   //after taking action
   //CO2 emissions per 36-week school year
   var answer10 = (answer9 * 36);
-  document.getElementById('bottles_results10').value = answer10.toFixed(2);
-  bottleCarbonAfter = answer10;
-  document.getElementById("sumPlasticAfter").innerHTML = answer10;
+  var answer10_1 = (answer10 + canswer3);
+  document.getElementById('bottles_results10').value = answer10_1.toFixed(2);
+  bottleCarbonAfter = answer10_1;
+  document.getElementById("sumPlasticAfter").innerHTML = answer10_1;
 
   //Total CO2 emissions savings
   //CO2 emissions per week
   var answer11 = (answer7 - answer9);
-  document.getElementById('bottles_results11').value = answer11.toFixed(2);
+  var answer11_1 = (answer11 + canswer4);
+  document.getElementById('bottles_results11').value = answer11_1.toFixed(2);
 
   //Total CO2 emissions savings
   //CO2 emissions per 36-week school year
   var answer12 = (answer11 * 36);
-  document.getElementById('bottles_results12').value = answer12.toFixed(2);
-  document.getElementById("sumPlasticEmissionSavings").innerHTML = answer12;
-
+  var answer12_1 = (answer12 + canswer5);
+  document.getElementById('bottles_results12').value = answer12_1.toFixed(2);
+  document.getElementById("sumPlasticEmissionSavings").innerHTML = answer12_1;
 }
 
 // Clear input values for bottles contents
 $('#btn_reset_bottlesCups').click(function () {
   for (let i = 1; i <= BOTTLESCUPSINPUTS; i++) {
-    $('#bottlesCups_input' + i).val("");
   }
 })
 
-
-// *****Solid Waste-Plastic Bottles Content Calculations*****
-const BOTTLESINPUTS = 4;
-// Calculate carbon impact from user inputs
-$('#btn_calculate_bottles').click(function () {
-  calculate1();
-  reCalculateSummary();
-})
-
-// var bottleCarbonBefore = 0;
-// var bottleCarbonAfter = 0;
-
-// calculate1 = function () {
-//   var bottleinput1 = document.getElementById('bottles_input1').value;
-//   var bottleinput2 = document.getElementById('bottles_input2').value;
-
-//   var answer = (parseInt(bottleinput1) * 0.04);
-//   document.getElementById('bottles_results1').value = answer;
-
-//   var answer2 = (parseInt(bottleinput2) * 0.04);
-//   document.getElementById('bottles_results2').value = answer2;
-
-//   var answer3 = (answer * 2.17);
-//   document.getElementById('bottles_results3').value = answer3;
-
-//   var answer4 = (answer2 * 2.17);
-//   document.getElementById('bottles_results4').value = answer4;
-
-//   var bottleinput3 = document.getElementById('bottles_input').value;
-//   var bottleinput4 = document.getElementById('bottles_input0').value;
-
-//   //before taking action
-//   if (bottleinput3 == "") {
-//     answer5 = "";
-//     document.getElementById('bottles_results5').value = answer5.toFixed(2);
-//   } else if (bottleinput3 == "1.15") {
-//     answer5 = answer * 1.15;
-//     result = answer5;
-//     document.getElementById('bottles_results5').value = answer5.toFixed(2);
-//   } else if (bottleinput3 == "0") {
-//     answer5 = answer * 0;
-//     result = answer5;
-//     document.getElementById('bottles_results5').value = answer5.toFixed(2);
-//   }
-
-//   //after taking action
-//   if (bottleinput4 == "") {
-//     answer6 = "";
-//     result = answer5;
-//     document.getElementById('bottles_results6').value = answer6.toFixed(2);
-//   } else if (bottleinput4 == "1.15") {
-//     answer6 = answer2 * 1.15;
-//     result = answer6;
-//     document.getElementById('bottles_results6').value = answer6.toFixed(2);
-//   } else if (bottleinput4 == "0") {
-//     answer6 = answer2 * 0;
-//     result = answer6;
-//     document.getElementById('bottles_results6').value = answer6.toFixed(2);
-//   }
-
-//   console.log(answer5);
-//   console.log(answer6);
-
-//   var answer7 = (answer3 - answer5);
-//   document.getElementById('bottles_results7').value = answer7.toFixed(2);
-
-//   var answer8 = (answer7 * 36);
-//   document.getElementById('bottles_results8').value = answer8.toFixed(2);
-//   bottleCarbonBefore = answer8;
-//   document.getElementById("sumPlasticBefore").innerHTML = answer8;
-
-//   var answer9 = (answer4 - answer6);
-//   document.getElementById('bottles_results9').value = answer9.toFixed(2);
-
-//   var answer10 = (answer9 * 36);
-//   document.getElementById('bottles_results10').value = answer10.toFixed(2);
-//   bottleCarbonAfter = answer10;
-//   document.getElementById("sumPlasticAfter").innerHTML = answer10;
-
-//   var answer11 = (answer7 - answer9);
-//   document.getElementById('bottles_results11').value = answer11.toFixed(2);
-
-//   var answer12 = (answer11 * 36);
-//   document.getElementById('bottles_results12').value = answer12.toFixed(2);
-//   document.getElementById("sumPlasticEmissionSavings").innerHTML = answer12;
-
-// }
-
-// Clear input values for bottles contents
-$('#btn_reset_bottles').click(function () {
-  for (let i = 1; i <= BOTTLESINPUTS; i++) {
-    $('#bottles_input' + i).val("");
-  }
-})
-
-// *****Solid Waste-Beverage Cups Content Calculations*****
-const CUPSINPUTS = 4;
-// Calculate carbon impact from user inputs
-$('#btn_calculate_cups').click(function () {
-  calculate2();
-  reCalculateSummary();
-})
-
-var cupCarbonBefore = 0;
-var cupCarbonAfter = 0;
-
-calculate2 = function () {
-
-  var cupinput1 = document.getElementById('cups_input1').value;
-  var cupinput2 = document.getElementById('cups_input2').value;
-  var cupinput3 = document.getElementById('cups_input3').value;
-  var cupinput4 = document.getElementById('cups_input4').value;
-
-  //before taking action
-  if (cupinput1 == "0") {
-    canswer = parseInt(cupinput3) * 0.25;
-    document.getElementById('cup_results1').value = canswer;
-  } else if (cupinput1 == "1") {
-    canswer = parseInt(cupinput3) * 0;
-    document.getElementById('cup_results1').value = canswer;
-  } else if (cupinput1 == "0.25") {
-    canswer = parseInt(cupinput3) * 0.25;
-    document.getElementById('cup_results1').value = canswer;
-  }
-
-  //after taking action
-  if (cupinput2 == "0") {
-    canswer1 = parseInt(cupinput4) * 0.25;
-    document.getElementById('cup_results3').value = canswer1;
-  } else if (cupinput2 == "1") {
-    canswer1 = parseInt(cupinput4) * 0;
-    document.getElementById('cup_results3').value = canswer1;
-  } else if (cupinput2 == "0.25") {
-    canswer1 = parseInt(cupinput4) * 0.25;
-    document.getElementById('cup_results3').value = canswer1;
-  }
-
-  var canswer2 = (canswer * 36);
-  document.getElementById('cup_results2').value = canswer2;
-  cupCarbonBefore = canswer2;
-  document.getElementById("sumBeverageBefore").innerHTML = canswer2;
-
-  var canswer3 = (canswer1 * 36);
-  document.getElementById('cup_results4').value = canswer3;
-  cupCarbonAfter = canswer3;
-  document.getElementById("sumBeverageAfter").innerHTML = canswer3;
-
-  console.log(canswer);
-  console.log(canswer1);
-
-  var canswer4 = (canswer - canswer1);
-  document.getElementById('cup_results5').value = canswer4;
-
-  var canswer5 = (canswer2 - canswer3);
-  document.getElementById('cup_results6').value = canswer5;
-  document.getElementById("sumBeverageEmissionSavings").innerHTML = canswer5;
-
-}
-
-// Clear input values for cups contents
-$('#btn_reset_cups').click(function () {
-  for (let i = 1; i <= CUPSINPUTS; i++) {
-    $('#cups_input' + i).val("");
-  }
-})
 
 // *****Summary Content Calculations*****
 //Google Charts Testing Core
@@ -1225,8 +1024,8 @@ function drawChart() {
     ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
     ['Trash', trashCarbonBefore, trashCarbonAfter],
     ['Paper', paperCarbonBefore, paperCarbonAfter],
-    ['Plastics', 660, 320],
-    ['Cups', 1030, 540]
+    ['Plastics', bottleCarbonBefore, bottleCarbonAfter],
+    //['Cups', 1030, 540]
   ]);
 
   var options = {
@@ -1259,7 +1058,7 @@ function reCalculateSummary() {
   totalBeforeAction += parseFloat($('#sumTrashBefore').text());
   totalBeforeAction += parseFloat($('#sumPaperBefore').text());
   totalBeforeAction += parseFloat($('#sumPlasticBefore').text());
-  totalBeforeAction += parseFloat($('#sumBeverageBefore').text());
+  //totalBeforeAction += parseFloat($('#sumBeverageBefore').text());
   $('#sumTotalBefore').text(totalBeforeAction);
 
   // Emissions after taking action sum
@@ -1271,7 +1070,7 @@ function reCalculateSummary() {
   totalAfterAction += parseFloat($('#sumTrashAfter').text());
   totalAfterAction += parseFloat($('#sumPaperAfter').text());
   totalAfterAction += parseFloat($('#sumPlasticAfter').text());
-  totalAfterAction += parseFloat($('#sumBeverageAfter').text());
+  //totalAfterAction += parseFloat($('#sumBeverageAfter').text());
   $('#sumTotalAfter').text(totalAfterAction);
 
   // Emissions savings sum
@@ -1283,7 +1082,7 @@ function reCalculateSummary() {
   totalEmissionSavings += parseFloat($('#sumTrashEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPaperEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPlasticEmissionSavings').text());
-  totalEmissionSavings += parseFloat($('#sumBeverageEmissionSavings').text());
+  //totalEmissionSavings += parseFloat($('#sumBeverageEmissionSavings').text());
   $('#sumEmissionSavings').text(totalEmissionSavings);
 
   // Electricity savings sum
@@ -1307,7 +1106,7 @@ function reCalculateSummary() {
   costSavings += parseFloat($('#sumTrashCostSavings').text());
   costSavings += parseFloat($('#sumPaperCostSavings').text());
   costSavings += parseFloat($('#sumPlasticCostSavings').text());
-  costSavings += parseFloat($('#sumBeverageCostSavings').text());
+  //costSavings += parseFloat($('#sumBeverageCostSavings').text());
   $('#sumCostSavings').text(costSavings);
 
   // Per student calculation
