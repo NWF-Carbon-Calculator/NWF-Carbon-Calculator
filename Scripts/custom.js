@@ -869,7 +869,7 @@ $('#btn_reset_paper').click(function () {
 })
 
 // *****Solid Waste Plastic Bottles & Beverage Cups Content Calculations*****
-const BOTTLESCUPSINPUTS = 8;
+const BOTTLESCUPSINPUTS = 12;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_bottlesCups').click(function () {
   calculate1();
@@ -880,6 +880,7 @@ var bottleCarbonBefore = 0;
 var bottleCarbonAfter = 0;
 
 calculate1 = function () {
+
   var bottleinput1 = document.getElementById('bottles_input1').value;
   var bottleinput2 = document.getElementById('bottles_input2').value;
   var bottleinput3 = document.getElementById('bottles_input').value;
@@ -908,11 +909,9 @@ calculate1 = function () {
     document.getElementById('bottles_results5').value = answer5.toFixed(2);
   } else if (bottleinput3 == "1.15") {
     answer5 = answer * 1.15;
-    result = answer5;
     document.getElementById('bottles_results5').value = answer5.toFixed(2);
   } else if (bottleinput3 == "0") {
     answer5 = answer * 0;
-    result = answer5;
     document.getElementById('bottles_results5').value = answer5.toFixed(2);
   }
 
@@ -920,15 +919,12 @@ calculate1 = function () {
   //after taking action
   if (bottleinput4 == "") {
     answer6 = "";
-    result = answer5;
     document.getElementById('bottles_results6').value = answer6.toFixed(2);
   } else if (bottleinput4 == "1.15") {
     answer6 = answer2 * 1.15;
-    result = answer6;
     document.getElementById('bottles_results6').value = answer6.toFixed(2);
   } else if (bottleinput4 == "0") {
     answer6 = answer2 * 0;
-    result = answer6;
     document.getElementById('bottles_results6').value = answer6.toFixed(2);
   }
 
@@ -999,9 +995,12 @@ calculate1 = function () {
   document.getElementById("sumPlasticEmissionSavings").innerHTML = answer12_1;
 }
 
+//**************FIX RESET BUTTON***************
 // Clear input values for bottles contents
 $('#btn_reset_bottlesCups').click(function () {
   for (let i = 1; i <= BOTTLESCUPSINPUTS; i++) {
+    $('#bottles_input' + i).val("");
+    $('#bottles_results' + i).val("");
   }
 })
 
