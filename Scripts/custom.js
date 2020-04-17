@@ -33,6 +33,9 @@ $('#btn_record-data').click(function () {
   $('.content-container').hide();
   $('#container_record-data').insertAfter('#startDiv');
   $('#container_record-data').show();
+  //display EEF and plan name in box upon navigation to School Lighting tab
+  document.getElementById("show_eef").value = calcEEF().toFixed(2);
+  document.getElementById("whichPlan").innerHTML = whichPlan();
 })
 $('#btn_transportation').click(function () {
   $(".button-wrapper").find(".btn").removeClass('active');
@@ -86,26 +89,24 @@ $('#NUMBER_OF_STUDENTS').change(function () {
   reCalculateSummary();
 })
 
-// *****Electricity Content Calculations*****
-// Calculate and display Electricity Emission Factor (EEF)
-$('#btn_calculate_EEF').click(function () {
 
-  //get the value of the factors to be used in calculations
+// *****Electricity Content Calculations*****
+
+//calculate EEF
+function calcEEF (){
+	//get the value of the factors to be used in calculations
   var coal_factor = document.getElementById("coal_factor").innerHTML;
   var coal_percent = parseFloat(document.getElementById("coal_percent").innerHTML) / 100;
   var oil_factor = document.getElementById("oil_factor").innerHTML;
   var oil_percent = parseFloat(document.getElementById("oil_percent").innerHTML) / 100;
   var nat_gas_factor = document.getElementById("nat_gas_factor").innerHTML;
   var nat_gas_percent = parseFloat(document.getElementById("nat_gas_percent").innerHTML) / 100;
+  var EEF;
 
   //Is radio button for national average checked
   if (document.getElementById('national_average').checked) {
     //Calculate the national average EEF
     var EEF = coal_factor * coal_percent + oil_factor * oil_percent + nat_gas_factor * nat_gas_percent;
-
-    //set text of EEF to national average
-    document.getElementById("national_average_factor").innerHTML = EEF;
-    document.getElementById("national_average_factor").value = EEF.toFixed(2);
 
     //Is radio button for custom average checked
   } else if (document.getElementById('custom_average').checked) {
@@ -116,12 +117,188 @@ $('#btn_calculate_EEF').click(function () {
     var nat_gas_percent = document.getElementById("custom_nat_gas_percent").value / 100;
 
     //Calculate the custom EEF
-    var custom_EEF = coal_factor * coal_percent + oil_factor * oil_percent + nat_gas_factor * nat_gas_percent;
+    var EEF = coal_factor * coal_percent + oil_factor * oil_percent + nat_gas_factor * nat_gas_percent;
+
+  }
+  return EEF;
+	
+}
+// Calculate and display Electricity Emission Factor (EEF)
+
+$('#btn_calculate_EEF').click(function () {
+	
+  if (document.getElementById('national_average').checked) {
+
+    //set text of EEF to national average
+    document.getElementById("national_average_factor").value = calcEEF().toFixed(2);
+
+  } else if (document.getElementById('custom_average').checked) {
 
     //set text of EEF to custom value
-    document.getElementById("custom_factor").value = custom_EEF.toFixed(2);
+    document.getElementById("custom_factor").value = calcEEF().toFixed(2);
   }
+
 })
+
+//determine if user selected national average or state average radio box in electricity tab
+function whichPlan() {
+	
+	var planName;
+  if (document.getElementById('national_average').checked) {
+
+    planName ="National Average";
+
+  } else if (document.getElementById('custom_average').checked) {
+	
+	planName = "State-Based Average"; 
+	
+  }
+  return planName;
+
+}
+
+
+
+//************School Lighting********
+
+
+// Calculate Lighting CO2 Before taking action
+$('#btn_calculate_lighting').click(function () {
+	
+	//variables for lighting
+var number_switches1 = document.getElementById("number_switches1").value;
+var watts_bulb1 = document.getElementById("watts_bulb1").value;
+var before_action1 = document.getElementById("before_action1").value;
+var after_action1 = document.getElementById("after_action1").value;
+
+var number_switches2 = document.getElementById("number_switches2").value;
+var watts_bulb2 = document.getElementById("watts_bulb2").value;
+var before_action2 = document.getElementById("before_action2").value;
+var after_action2 = document.getElementById("after_action2").value;
+
+var number_switches3 = document.getElementById("number_switches3").value;
+var watts_bulb3 = document.getElementById("watts_bulb3").value;
+var before_action3 = document.getElementById("before_action3").value;
+var after_action3 = document.getElementById("after_action3").value;
+
+var number_switches4 = document.getElementById("number_switches4").value;
+var watts_bulb4 = document.getElementById("watts_bulb4").value;
+var before_action4 = document.getElementById("before_action4").value;
+var after_action4 = document.getElementById("after_action4").value;
+
+var number_switches5 = document.getElementById("number_switches5").value;
+var watts_bulb5 = document.getElementById("watts_bulb5").value;
+var before_action5 = document.getElementById("before_action5").value;
+var after_action5 = document.getElementById("after_action5").value;
+
+var number_switches6 = document.getElementById("number_switches6").value;
+var watts_bulb6 = document.getElementById("watts_bulb6").value;
+var before_action6 = document.getElementById("before_action6").value;
+var after_action6 = document.getElementById("after_action6").value;
+
+var number_switches7 = document.getElementById("number_switches7").value;
+var watts_bulb7 = document.getElementById("watts_bulb7").value;
+var before_action7 = document.getElementById("before_action7").value;
+var after_action7 = document.getElementById("after_action7").value;
+
+var number_switches8 = document.getElementById("number_switches8").value;
+var watts_bulb8 = document.getElementById("watts_bulb8").value;
+var before_action8 = document.getElementById("before_action8").value;
+var after_action8 = document.getElementById("after_action8").value;
+
+var number_switches9 = document.getElementById("number_switches9").value;
+var watts_bulb9 = document.getElementById("watts_bulb9").value;
+var before_action9 = document.getElementById("before_action9").value;
+var after_action9 = document.getElementById("after_action9").value;
+
+var number_switches10 = document.getElementById("number_switches10").value;
+var watts_bulb10 = document.getElementById("watts_bulb10").value;
+var before_action10 = document.getElementById("before_action10").value;
+var after_action10 = document.getElementById("after_action10").value;
+    
+	//calculate CO2 before action (per row)
+	var EEF = calcEEF();
+ 	console.log(EEF);
+
+    var lighting_emmissions_row_1_before = (EEF * (number_switches1 * watts_bulb1 * before_action1 / 1000));
+    var lighting_emmissions_row_2_before = (EEF * (number_switches1 * watts_bulb1 * before_action2 / 1000));
+    var lighting_emmissions_row_3_before = (EEF * (number_switches1 * watts_bulb1 * before_action3 / 1000));
+    var lighting_emmissions_row_4_before = (EEF * (number_switches1 * watts_bulb1 * before_action4 / 1000));
+    var lighting_emmissions_row_5_before = (EEF * (number_switches1 * watts_bulb1 * before_action5 / 1000));
+    var lighting_emmissions_row_6_before = (EEF * (number_switches1 * watts_bulb1 * before_action6 / 1000));
+    var lighting_emmissions_row_7_before = (EEF * (number_switches1 * watts_bulb1 * before_action7 / 1000));
+    var lighting_emmissions_row_8_before = (EEF * (number_switches1 * watts_bulb1 * before_action8 / 1000));
+    var lighting_emmissions_row_9_before = (EEF * (number_switches1 * watts_bulb1 * before_action9 / 1000));
+    var lighting_emmissions_row_10_before = (EEF * (number_switches1 * watts_bulb1 * before_action10 / 1000));
+		
+
+    //sum of rows
+    var lighting_emmissions_before = lighting_emmissions_row_1_before + lighting_emmissions_row_2_before +
+      lighting_emmissions_row_3_before + lighting_emmissions_row_4_before + lighting_emmissions_row_5_before +
+      lighting_emmissions_row_6_before + lighting_emmissions_row_7_before + lighting_emmissions_row_8_before +
+      lighting_emmissions_row_9_before + lighting_emmissions_row_10_before;
+
+    //calculate CO2 after action
+    var lighting_emmissions_row_1_after = (EEF * (number_switches1 * watts_bulb1 * after_action1 / 1000));
+    var lighting_emmissions_row_2_after = (EEF * (number_switches1 * watts_bulb1 * after_action2 / 1000));
+    var lighting_emmissions_row_3_after = (EEF * (number_switches1 * watts_bulb1 * after_action3 / 1000));
+    var lighting_emmissions_row_4_after = (EEF * (number_switches1 * watts_bulb1 * after_action4 / 1000));
+    var lighting_emmissions_row_5_after = (EEF * (number_switches1 * watts_bulb1 * after_action5 / 1000));
+    var lighting_emmissions_row_6_after = (EEF * (number_switches1 * watts_bulb1 * after_action6 / 1000));
+    var lighting_emmissions_row_7_after = (EEF * (number_switches1 * watts_bulb1 * after_action7 / 1000));
+    var lighting_emmissions_row_8_after = (EEF * (number_switches1 * watts_bulb1 * after_action8 / 1000));
+    var lighting_emmissions_row_9_after = (EEF * (number_switches1 * watts_bulb1 * after_action9 / 1000));
+    var lighting_emmissions_row_10_after = (EEF * (number_switches1 * watts_bulb1 * after_action10 / 1000));
+    //sum of rows
+    var lighting_emmissions_after = lighting_emmissions_row_1_after + lighting_emmissions_row_2_after +
+      lighting_emmissions_row_3_after + lighting_emmissions_row_4_after + lighting_emmissions_row_5_after +
+      lighting_emmissions_row_6_after + lighting_emmissions_row_7_after + lighting_emmissions_row_8_after +
+      lighting_emmissions_row_9_after + lighting_emmissions_row_10_after;
+
+    //calculate co2 before and after and per 180 day school years and the difference between the two
+    document.getElementById('lighting_co2_before').value = lighting_emmissions_before.toFixed(2);
+    document.getElementById('lighting_co2_before_180').value = (lighting_emmissions_before * 180).toFixed(2);
+    document.getElementById('lighting_co2_after').value = lighting_emmissions_after.toFixed(2);
+    document.getElementById('lighting_co2_after_180').value = (lighting_emmissions_after * 180).toFixed(2);
+    document.getElementById('lighting_co2_saved').value = (lighting_emmissions_before - lighting_emmissions_after).toFixed(2);
+    document.getElementById('lighting_co2_saved_180').value = ((lighting_emmissions_before - lighting_emmissions_after) * (180)).toFixed(2);
+
+})//End calculations for school lighting
+//Lighting data for summary
+    var lighting_emmissions_row_1_before = (EEF * (number_switches1 * watts_bulb1 * before_action1 / 1000));
+    var lighting_emmissions_row_2_before = (EEF * (number_switches1 * watts_bulb1 * before_action2 / 1000));
+    var lighting_emmissions_row_3_before = (EEF * (number_switches1 * watts_bulb1 * before_action3 / 1000));
+    var lighting_emmissions_row_4_before = (EEF * (number_switches1 * watts_bulb1 * before_action4 / 1000));
+    var lighting_emmissions_row_5_before = (EEF * (number_switches1 * watts_bulb1 * before_action5 / 1000));
+    var lighting_emmissions_row_6_before = (EEF * (number_switches1 * watts_bulb1 * before_action6 / 1000));
+    var lighting_emmissions_row_7_before = (EEF * (number_switches1 * watts_bulb1 * before_action7 / 1000));
+    var lighting_emmissions_row_8_before = (EEF * (number_switches1 * watts_bulb1 * before_action8 / 1000));
+    var lighting_emmissions_row_9_before = (EEF * (number_switches1 * watts_bulb1 * before_action9 / 1000));
+    var lighting_emmissions_row_10_before = (EEF * (number_switches1 * watts_bulb1 * before_action10 / 1000));
+		
+
+    //sum of rows
+    var lighting_emmissions_before = lighting_emmissions_row_1_before + lighting_emmissions_row_2_before +
+      lighting_emmissions_row_3_before + lighting_emmissions_row_4_before + lighting_emmissions_row_5_before +
+      lighting_emmissions_row_6_before + lighting_emmissions_row_7_before + lighting_emmissions_row_8_before +
+      lighting_emmissions_row_9_before + lighting_emmissions_row_10_before;
+
+    //calculate CO2 after action
+    var lighting_emmissions_row_1_after = (EEF * (number_switches1 * watts_bulb1 * after_action1 / 1000));
+    var lighting_emmissions_row_2_after = (EEF * (number_switches1 * watts_bulb1 * after_action2 / 1000));
+    var lighting_emmissions_row_3_after = (EEF * (number_switches1 * watts_bulb1 * after_action3 / 1000));
+    var lighting_emmissions_row_4_after = (EEF * (number_switches1 * watts_bulb1 * after_action4 / 1000));
+    var lighting_emmissions_row_5_after = (EEF * (number_switches1 * watts_bulb1 * after_action5 / 1000));
+    var lighting_emmissions_row_6_after = (EEF * (number_switches1 * watts_bulb1 * after_action6 / 1000));
+    var lighting_emmissions_row_7_after = (EEF * (number_switches1 * watts_bulb1 * after_action7 / 1000));
+    var lighting_emmissions_row_8_after = (EEF * (number_switches1 * watts_bulb1 * after_action8 / 1000));
+    var lighting_emmissions_row_9_after = (EEF * (number_switches1 * watts_bulb1 * after_action9 / 1000));
+    var lighting_emmissions_row_10_after = (EEF * (number_switches1 * watts_bulb1 * after_action10 / 1000));
+    //sum of rows
+    var lighting_emmissions_after = lighting_emmissions_row_1_after + lighting_emmissions_row_2_after +
+      lighting_emmissions_row_3_after + lighting_emmissions_row_4_after + lighting_emmissions_row_5_after +
+      lighting_emmissions_row_6_after + lighting_emmissions_row_7_after + lighting_emmissions_row_8_after +
+      lighting_emmissions_row_9_after + lighting_emmissions_row_10_after;
 
 //*************OTHER APPLIANCES*****************
 var numberOfRows = 1;
@@ -1209,102 +1386,3 @@ function reCalculateSummary() {
   $('#treeEquiv').text(treeSeedlings.toFixed(2));
 }
 
-//************School Lighting********
-//Author: James.
-//Desc: Do all the calculations for the School Lighting page
-//variables for lighting
-var number_switches1 = $('#number_switches1').val();
-var watts_bulb1 = $('#watts_bulb1').val();
-var before_action1 = $('#before_action1').val();
-var after_action1 = $('#after_action1').val();
-
-var number_switches2 = $('#number_switches2').val();
-var watts_bulb2 = $('#watts_bulb2').val();
-var before_action2 = $('#before_action2').val();
-var after_action2 = $('#after_action2').val();
-
-var number_switches3 = $('#number_switches3').val();
-var watts_bulb3 = $('#watts_bulb3').val();
-var before_action3 = $('#before_action3').val();
-var after_action3 = $('#after_action3').val();
-
-var number_switches4 = $('#number_switches4').val();
-var watts_bulb4 = $('#watts_bulb4').val();
-var before_action4 = $('#before_action4').val();
-var after_action4 = $('#after_action4').val();
-
-var number_switches5 = $('#number_switches5').val();
-var watts_bulb5 = $('#watts_bulb5').val();
-var before_action5 = $('#before_action5').val();
-var after_action5 = $('#after_action5').val();
-
-var number_switches6 = $('#number_switches6').val();
-var watts_bulb6 = $('#watts_bulb6').val();
-var before_action6 = $('#before_action6').val();
-var after_action6 = $('#after_action6').val();
-
-var number_switches7 = $('#number_switches7').val();
-var watts_bulb7 = $('#watts_bulb7').val();
-var before_action7 = $('#before_action7').val();
-var after_action7 = $('#after_action7').val();
-
-var number_switches8 = $('#number_switches8').val();
-var watts_bulb8 = $('#watts_bulb8').val();
-var before_action8 = $('#before_action8').val();
-var after_action8 = $('#after_action8').val();
-
-var number_switches9 = $('#number_switches9').val();
-var watts_bulb9 = $('#watts_bulb9').val();
-var before_action9 = $('#before_action9').val();
-var after_action9 = $('#after_action9').val();
-
-var number_switches10 = $('#number_switches10').val();
-var watts_bulb10 = $('#watts_bulb10').val();
-var before_action10 = $('#before_action10').val();
-var after_action10 = $('#after_action10').val();
-
-// Calculate Lighting CO2 Before taking action
-$('#btn_calculate_lighting').click(function () {
-    //calculate CO2 before action (per row)
-    var lighting_emmissions_row_1_before = (EEF * (number_switches1 * watts_bulb1 * before_action1 / 1000));
-    var lighting_emmissions_row_2_before = (EEF * (number_switches1 * watts_bulb1 * before_action2 / 1000));
-    var lighting_emmissions_row_3_before = (EEF * (number_switches1 * watts_bulb1 * before_action3 / 1000));
-    var lighting_emmissions_row_4_before = (EEF * (number_switches1 * watts_bulb1 * before_action4 / 1000));
-    var lighting_emmissions_row_5_before = (EEF * (number_switches1 * watts_bulb1 * before_action5 / 1000));
-    var lighting_emmissions_row_6_before = (EEF * (number_switches1 * watts_bulb1 * before_action6 / 1000));
-    var lighting_emmissions_row_7_before = (EEF * (number_switches1 * watts_bulb1 * before_action7 / 1000));
-    var lighting_emmissions_row_8_before = (EEF * (number_switches1 * watts_bulb1 * before_action8 / 1000));
-    var lighting_emmissions_row_9_before = (EEF * (number_switches1 * watts_bulb1 * before_action9 / 1000));
-    var lighting_emmissions_row_10_before = (EEF * (number_switches1 * watts_bulb1 * before_action10 / 1000));
-    //sum of rows
-    var lighting_emmissions_before = lighting_emmissions_row_1_before + lighting_emmissions_row_2_before +
-      lighting_emmissions_row_3_before + lighting_emmissions_row_4_before + lighting_emmissions_row_5_before +
-      lighting_emmissions_row_6_before + lighting_emmissions_row_7_before + lighting_emmissions_row_8_before +
-      lighting_emmissions_row_9_before + lighting_emmissions_row_10_before;
-
-    //calculate CO2 after action
-    var lighting_emmissions_row_1_after = (EEF * (number_switches1 * watts_bulb1 * after_action1 / 1000));
-    var lighting_emmissions_row_2_after = (EEF * (number_switches1 * watts_bulb1 * after_action2 / 1000));
-    var lighting_emmissions_row_3_after = (EEF * (number_switches1 * watts_bulb1 * after_action3 / 1000));
-    var lighting_emmissions_row_4_after = (EEF * (number_switches1 * watts_bulb1 * after_action4 / 1000));
-    var lighting_emmissions_row_5_after = (EEF * (number_switches1 * watts_bulb1 * after_action5 / 1000));
-    var lighting_emmissions_row_6_after = (EEF * (number_switches1 * watts_bulb1 * after_action6 / 1000));
-    var lighting_emmissions_row_7_after = (EEF * (number_switches1 * watts_bulb1 * after_action7 / 1000));
-    var lighting_emmissions_row_8_after = (EEF * (number_switches1 * watts_bulb1 * after_action8 / 1000));
-    var lighting_emmissions_row_9_after = (EEF * (number_switches1 * watts_bulb1 * after_action9 / 1000));
-    var lighting_emmissions_row_10_after = (EEF * (number_switches1 * watts_bulb1 * after_action10 / 1000));
-    //sum of rows
-    var lighting_emmissions_after = lighting_emmissions_row_1_after + lighting_emmissions_row_2_after +
-      lighting_emmissions_row_3_after + lighting_emmissions_row_4_after + lighting_emmissions_row_5_after +
-      lighting_emmissions_row_6_after + lighting_emmissions_row_7_after + lighting_emmissions_row_8_after +
-      lighting_emmissions_row_9_after + lighting_emmissions_row_10_after;
-
-    //calculate co2 before and after and per 180 day school years and the difference between the two
-    document.getElementById('lighting_co2_before').innerHTML = lighting_emmissions_before;
-    document.getElementById('lighting_co2_before_180').innerHTML = lighting_emmissions_before * 180;
-    document.getElementById('lighting_co2_after').innerHTML = lighting_emmissions_after;
-    document.getElementById('lighting_co2_after_180').innerHTML = lighting_emmissions_after * 180;
-    document.getElementById('lighting_co2_saved').innerHTML = lighting_emmissions_before - lighting_emmissions_after;
-    document.getElementById('lighting_co2_saved_180').innerHTML = (lighting_emmissions_before - lighting_emmissions_after) * (180);
-
-})//End calculations for school lighting
