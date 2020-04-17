@@ -901,43 +901,50 @@ calculate = function () {
 
   var trashinput3 = document.getElementById('trash_input3').value;
   var trashinput4 = document.getElementById('trash_input4').value;
+
   var answer2 = (parseInt(trashinput3) * answer) * 0.36; //old value which is 1.27 new one should be 0.36
+
+
+
   document.getElementById('trash_summary1').value = answer2; //changed from trash_results2 to trashsummary to be more consistent
 
 
 
+
   var answer3 = (parseInt(trashinput4) * answer) * 0.36;
-  document.getElementById('trash_summary3').value = answer3;
+  document.getElementById('trash_summary3').value = answer3.toFixed(2);
 
   var answer4 = answer2 - answer3;
-  document.getElementById('trash_summary5').value = answer4;
+  document.getElementById('trash_summary5').value = answer4.toFixed(2);
 
   var answer5 = answer2 * 36;
-  document.getElementById('trash_summary2').value = answer5;
+  document.getElementById('trash_summary2').value = answer5.toFixed(2);
   beforeTrashCost = answer5 * 0.0004; //this is cost per pounds this is also used for cost savings portion for summary
 
   trashCarbonBefore = answer5; //this is used for the chart
   //1) before action carbon x36 week
-  document.getElementById("sumTrashBefore").innerHTML = answer5;
+  document.getElementById("sumTrashBefore").innerHTML = answer5.toFixed(2);
 
 
   //first test for rounding decimals to 2 starts here 4.08pm
   //will implement later if required as of currently, it is good.
   var answer6 = answer3 * 36;
 
-  document.getElementById('trash_summary4').value = answer6;
+  document.getElementById('trash_summary4').value = answer6.toFixed(2);
   //2) after action carbon x36 week
   trashCarbonAfter = answer6;
-  document.getElementById("sumTrashAfter").innerHTML = answer6;
+  document.getElementById("sumTrashAfter").innerHTML = answer6.toFixed(2);
   afterTrashCost = answer6 * 0.0004; //this is cost per pounds and also used for cost savings portion for summary
 
   var answer7 = answer5 - answer6;
-  document.getElementById('trash_summary6').value = answer7;
+  document.getElementById('trash_summary6').value = answer7.toFixed(2);
 
   //3) cost savings x constant value
-  document.getElementById("sumTrashEmissionSavings").innerHTML = answer7;
+  document.getElementById("sumTrashEmissionSavings").innerHTML = answer7.toFixed(2);
   document.getElementById("sumTrashCostSavings").innerHTML = beforeTrashCost - afterTrashCost;
 }
+
+// 4/17/20 3:15pm have added .toFixed(2) to the results in order to round the decimals.
 
 
 // Clear input values for trash contents
@@ -1045,7 +1052,7 @@ calculatev2 = function () {
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
   }
 
-  var totalCost = beforeTotalCost - afterTotalCost;
+  var totalCost = beforeTotalCost - afterTotalCost.toFixed(2);
   $('#sumPaperCostSavings').text(totalCost);
 
 
@@ -1053,6 +1060,7 @@ calculatev2 = function () {
   document.getElementById('paper_summary1').value = panswer1;
   panswersum2 = panswer2;
   document.getElementById('paper_summary3').value = panswer2;
+
 
   panswerDIFF = panswer1 - panswer2;
   document.getElementById('paper_summary5').value = panswerDIFF;
