@@ -1,9 +1,15 @@
 //Place to setup the variables and functions needed for calulation of carbon output
-const GALLONCO2 = parseFloat($('#GAS_CO2_EQUIVALENT').text());
-const AVERAGEMPG = parseFloat($('#AVERAGE_MPG').text());
-const YEARLYCARCO2 = parseFloat($('#CO2_PER_CAR').text());
-const TREECO2 = parseFloat($('#TREE_CO2').text());
-const GASCOST = parseFloat($('#GAS_COST').text());
+
+// According to the U.S. Energy Information Administration, the combustion of one gallon of gasoline generates
+const GALLONCO2 = 19.64;
+// Average Fuel Efficency (MPG)
+const AVERAGEMPG = 47.2;
+// Average annual CO2 emissions of a typical passenger vehicle
+const YEARLYCARCO2 = 2204.62;
+// According to the OneTreePlanted, growing one tree seedling for 10 years sequesters x lbs of CO2
+const TREECO2 = 48;
+// Average cost per gallon of gas
+const GASCOST = 2.26;
 
 var numberOfStudents = 1;
 // *****ELECTRICITY*****
@@ -79,3 +85,11 @@ function totalCO2PerSchoolYear(CO2PerNight){
     total = CO2PerNight * 180;
     return total.toFixed(2);
 }
+
+
+// ******************* Setting values in methodology section **********
+$('#GAS_CO2_EQUIVALENT').text(GALLONCO2);
+$('#AVERAGE_MPG').text(AVERAGEMPG);
+$('#CO2_PER_CAR').text(YEARLYCARCO2);
+$('#TREE_CO2').text(TREECO2);
+$('#GAS_COST').text(GASCOST);
