@@ -270,6 +270,10 @@ var after_action10 = document.getElementById("after_action10").value;
     document.getElementById('lighting_co2_saved').value = (calcLightingBefore() - calcLightingAfter()).toFixed(2);
     document.getElementById('lighting_co2_saved_180').value = ((calcLightingBefore() - calcLightingAfter()) * (180)).toFixed(2);
 
+
+    document.getElementById('sumLightBefore').innerHTML = lighting_emmissions_before;
+
+    reCalculateSummary();
 })//End calculations for school lighting
 
 //*************OTHER APPLIANCES*****************
