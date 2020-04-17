@@ -874,6 +874,10 @@ $('#btn_calculate_transportation').click(function () {
   costSavings = calculateTransportationSavings(gasAloneSavings, gasCarpoolSavings);
 
   // Changing summary content
+  $('#sumTranBefore').text(transportationCarbonBefore);
+  $('#sumTranAfter').text(transportationCarbonAfter);
+  $('#sumTranEmissionSavings').text(totalSavings);
+  $('#sumTranCostSavings').text(costSavings);
   reCalculateSummary();
 })
 
