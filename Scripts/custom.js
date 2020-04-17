@@ -141,15 +141,15 @@ $("#appliance_btn_add_row").click(function () {
     "<td><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
     "<td><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
 
-    result_markup = "<tr><td><span id='appliance" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_before_per_day" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_after_per_day" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_before_per_year" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_after_per_year" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_before_CO2_per_day" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_after_CO2_per_day" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_before_CO2_per_year" + lineNo + "'></span></td>" +
-    "<td><span id='appliance_after_CO2_per_year" + lineNo + "'></span></td></tr>";
+    result_markup = "<tr><td><input type='text' id='appliance" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_before_per_day" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_after_per_day" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_before_per_year" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_after_per_year" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_before_CO2_per_day" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_after_CO2_per_day" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_before_CO2_per_year" + lineNo + "' readonly></td>" +
+    "<td><input type='text' id='appliance_after_CO2_per_year" + lineNo + "' readonly></td></tr>";
 
     tableBody = $("#table_appliance tbody");
     tableBody.append(markup);
@@ -164,6 +164,8 @@ function calcAppliance() {
     var after_appliance_result_day = 0;
     var after_appliance_result_year = 0;
     var emissionsFactor = 1.2;
+    var appliance_before_kwh_perYear =0;
+    var appliance_after_kwh_perYear=0;
     var rowCount = $('#table_appliance >tbody >tr').length;
     appliance_total = [];
     console.log("row count " + rowCount);
@@ -188,49 +190,82 @@ function calcAppliance() {
         var totalCO2PerDayAfter = totalCO2Per16HrNight(totalPerDayAfter, emissionsFactor);
         var totalCO2PerYearAfter = totalCO2PerSchoolYear(totalCO2PerDayAfter);
 
-        $('#appliance' + i).text(device);
-        $('#appliance_before_per_day' + i).text(totalPerDayBefore);
-        $('#appliance_after_per_day' + i).text(totalPerDayAfter);
-        $('#appliance_before_per_year' + i).text(totalPerYearBefore);
-        $('#appliance_after_per_year' + i).text(totalPerYearAfter);
-        $('#appliance_before_CO2_per_day' + i).text(totalCO2PerDayBefore);
-        $('#appliance_after_CO2_per_day' + i).text(totalCO2PerDayAfter);
-        $('#appliance_before_CO2_per_year' + i).text(totalCO2PerYearBefore);
-        $('#appliance_after_CO2_per_year' + i).text(totalCO2PerYearAfter);
+        $('#appliance' + i).val(device);
+        $('#appliance_before_per_day' + i).val(totalPerDayBefore);
+        $('#appliance_after_per_day' + i).val(totalPerDayAfter);
+        $('#appliance_before_per_year' + i).val(totalPerYearBefore);
+        $('#appliance_after_per_year' + i).val(totalPerYearAfter);
+        $('#appliance_before_CO2_per_day' + i).val(totalCO2PerDayBefore);
+        $('#appliance_after_CO2_per_day' + i).val(totalCO2PerDayAfter);
+        $('#appliance_before_CO2_per_year' + i).val(totalCO2PerYearBefore);
+        $('#appliance_after_CO2_per_year' + i).val(totalCO2PerYearAfter);
 
-        before_appliance_result_day += parseInt(totalCO2PerDayBefore);
-        before_appliance_result_year += parseInt(totalCO2PerYearBefore);
+        appliance_before_kwh_perYear += parseFloat(totalPerYearBefore);
+        appliance_after_kwh_perYear += parseFloat(totalPerYearAfter);
 
-        after_appliance_result_day += parseInt(totalCO2PerDayAfter);
-        after_appliance_result_year += parseInt(totalCO2PerYearAfter);
+        before_appliance_result_day += parseFloat(totalCO2PerDayBefore);
+        before_appliance_result_year += parseFloat(totalCO2PerYearBefore);
+
+        after_appliance_result_day += parseFloat(totalCO2PerDayAfter);
+        after_appliance_result_year += parseFloat(totalCO2PerYearAfter);
 
         var total_appliance_result_day = before_appliance_result_day - after_appliance_result_day;
         var total_appliance_result_year = before_appliance_result_year - after_appliance_result_year;
   //set totals
-        $('#before_appliance_result_day').text(before_appliance_result_day);
-        $('#before_appliance_result_year').text(before_appliance_result_year);
+        $('#before_appliance_result_day').val(before_appliance_result_day);
+        $('#before_appliance_result_year').val(before_appliance_result_year);
 
-        $('#after_appliance_result_day').text(after_appliance_result_day);
-        $('#after_appliance_result_year').text(after_appliance_result_year);
+        $('#after_appliance_result_day').val(after_appliance_result_day);
+        $('#after_appliance_result_year').val(after_appliance_result_year);
 
-        $('#total_appliance_result_day').text(total_appliance_result_day);
-        $('#total_appliance_result_year').text(total_appliance_result_year);
+        $('#total_appliance_result_day').val(total_appliance_result_day);
+        $('#total_appliance_result_year').val(total_appliance_result_year);
     }
-    appliance_total.push(before_appliance_result_day, after_appliance_result_day);
+    appliance_total.push(before_appliance_result_year, after_appliance_result_year, total_appliance_result_year,
+    appliance_before_kwh_perYear, appliance_after_kwh_perYear);
     return appliance_total;
 }
+
 var before_appliance;
 var after_appliance;
+var before_appliance_cost = 0;
+var after_appliance_cost = 0;
+var total_appliance=0;
+var before_appliance_kwh =0;
+var after_appliance_kwh =0;
+var total_appliance_kwh =0;
+var appliance_cost_savings =0;
 
 $('#btn_calculate_appliance').click(function () {
     var appliance_total = calcAppliance();
     before_appliance = appliance_total[0];
     after_appliance = appliance_total[1];
+    total_appliance = appliance_total[2];
+    before_appliance_kwh = appliance_total[3];
+    after_appliance_kwh = appliance_total[4];
 
-    /*$('#sumOtherBefore').text(before_appliance_result_day);
-    $('#sumOtherAfter').text(after_appliance_result_day);
-    $('#sumOtherSavings').text(total_appliance_result_day);
-    reCalculateSummary(); */
+    total_appliance_kwh = before_appliance_kwh - after_appliance_kwh;
+    appliance_cost_savings = total_appliance_kwh * 10.43;
+    console.log(appliance_total);
+
+    $('#sumOtherBefore').text(before_appliance.toFixed(2));
+    $('#sumOtherAfter').text(after_appliance.toFixed(2));
+    $('#sumOtherEmissionSavings').text(total_appliance.toFixed(2));
+    $('#sumOtherElectricitySavings').text(total_appliance_kwh.toFixed(2));
+    $('#sumOtherCostSavings').text(appliance_cost_savings.toFixed(2));
+
+    reCalculateSummary();
+})
+
+$('#appliance_btn_reset').click(function () {
+    var rowCount = $('#table_appliance >tbody >tr').length;
+    for (let i = 1; i <= rowCount; i++) {
+        $('#appliance_type' + i).val("");
+        $('#appliance_wattage' + i).val("");
+        $('#appliance_count' + i).val("");
+        $('#appliance_before_option' + i).val("");
+        $('#appliance_after_option' + i).val("");
+  }
 })
 
 $('#appliance_type1').val("Computer");
@@ -254,8 +289,9 @@ $('#vampire_count_9').val(1);
 $('#vampire_count_10').val(7);
 $('#vampire_count_11').val(2);
 
+const VAMPIREINPUTS = 11;
+
 function calcVampire() {
-    const VAMPIREINPUTS = 11;
     var total = 0;
     var emissionsFactor = 1.2;
     var before_result_day = 0;
@@ -264,6 +300,10 @@ function calcVampire() {
     var after_result_year = 0;
     var total_result_day = 0;
     var total_result_year = 0;
+    var vampire_before_kwh_perYear = 0;
+    var vampire_after_kwh_perYear = 0;
+    var b_action;
+    var a_action;
     vampire_outputs = [];
 
       for (i = 1; i <= VAMPIREINPUTS; i++) {
@@ -271,6 +311,8 @@ function calcVampire() {
         var numberOfDevice = $('#vampire_count_' + i).val();
         var before_action = $('#vampire_before_' + i + ' option:selected').text();
         var after_action = $('#vampire_after_' + i + ' option:selected').text();
+
+        console.log(device);
 
         if (device === "Desktop Computer") {
           if (before_action === "Off") {
@@ -482,47 +524,80 @@ function calcVampire() {
         after_totalCO2PerNight = totalCO2Per16HrNight(after_totalOvernight, emissionsFactor);
         after_totalCO2PerYear = totalCO2PerSchoolYear(after_totalCO2PerNight);
         //set calculations
-        $('#vampire_before_kWhPerDay_' + i).text(before_totalOvernight);
-        $('#vampire_after_kWhPerDay_' + i).text(after_totalOvernight);
+        $('#vampire_before_kWhPerDay_' + i).val(before_totalOvernight);
+        $('#vampire_after_kWhPerDay_' + i).val(after_totalOvernight);
 
-        $('#vampire_before_kWhPerSchoolYr_' + i).text(before_totalkWhPerYear);
-        $('#vampire_after_kWhPerSchoolYr_' + i).text(after_totalkWhPerYear);
+        $('#vampire_before_kWhPerSchoolYr_' + i).val(before_totalkWhPerYear);
+        $('#vampire_after_kWhPerSchoolYr_' + i).val(after_totalkWhPerYear);
 
-        $('#vampire_before_CO2PerDay_' + i).text(before_totalCO2PerNight);
-        $('#vampire_after_CO2PerDay_' + i).text(after_totalCO2PerNight);
+        $('#vampire_before_CO2PerDay_' + i).val(before_totalCO2PerNight);
+        $('#vampire_after_CO2PerDay_' + i).val(after_totalCO2PerNight);
 
-        $('#vampire_before_CO2PerSchoolYr_' + i).text(before_totalCO2PerYear);
-        $('#vampire_after_CO2PerSchoolYr_' + i).text(after_totalCO2PerYear);
+        $('#vampire_before_CO2PerSchoolYr_' + i).val(before_totalCO2PerYear);
+        $('#vampire_after_CO2PerSchoolYr_' + i).val(after_totalCO2PerYear);
         //add up totals
-        before_result_day += parseInt(before_totalCO2PerNight);
-        before_result_year += parseInt(before_totalCO2PerYear);
+        vampire_before_kwh_perYear += parseFloat(before_totalkWhPerYear);
+        vampire_after_kwh_perYear += parseFloat(after_totalkWhPerYear);
 
-        after_result_day += parseInt(after_totalCO2PerNight);
-        after_result_year += parseInt(after_totalCO2PerYear);
+        before_result_day += parseFloat(before_totalCO2PerNight);
+        before_result_year += parseFloat(before_totalCO2PerYear);
+
+        after_result_day += parseFloat(after_totalCO2PerNight);
+        after_result_year += parseFloat(after_totalCO2PerYear);
 
         total_result_day = before_result_day - after_result_day;
         total_result_year = before_result_year - after_result_year;
         //set totals
-        $('#before_result_day').text(before_result_day);
-        $('#before_result_year').text(before_result_year);
+        $('#before_result_day').val(before_result_day.toFixed(2));
+        $('#before_result_year').val(before_result_year.toFixed(2));
 
-        $('#after_result_day').text(after_result_day);
-        $('#after_result_year').text(after_result_year);
+        $('#after_result_day').val(after_result_day.toFixed(2));
+        $('#after_result_year').val(after_result_year.toFixed(2));
 
-        $('#total_result_day').text(total_result_day);
-        $('#total_result_year').text(total_result_year);
+        $('#total_result_day').val(total_result_day.toFixed(2));
+        $('#total_result_year').val(total_result_year.toFixed(2));
     }
-    vampire_outputs.push(before_result_day, after_result_day);
+    vampire_outputs.push(before_result_year, after_result_year, total_result_year,
+        vampire_before_kwh_perYear, vampire_after_kwh_perYear);
+
     return vampire_outputs;
 }
+
 var before_vampire;
 var after_vampire;
+var before_vampire_cost = 0;
+var after_vampire_cost = 0;
+var vampire_savings =0;
+var before_vampire_kwh = 0;
+var after_vampire_kwh = 0;
+var total_vampire_kwh =0;
 
 $('#btn_calculate_vampire').click(function () {
     var total = calcVampire();
     console.log("total " + total);
     before_vampire = total[0];
     after_vampire = total[1];
+    total_vampire = total[2];
+    before_vampire_kwh = total[3];
+    after_vampire_kwh = total[4];
+
+    total_vampire_kwh = before_vampire_kwh - after_vampire_kwh;
+    vampire_savings = total_vampire_kwh * 10.43;
+
+    $('#sumVampireBefore').text(before_vampire.toFixed(2));
+    $('#sumVampireAfter').text(after_vampire.toFixed(2));
+    $('#sumVampireEmissionSavings').text(total_vampire.toFixed(2));
+    $('#sumVampireElectricitySavings').text(total_vampire_kwh.toFixed(2));
+    $('#sumVampireCostSavings').text(vampire_savings.toFixed(2));
+
+    console.log(vampire_savings);
+    reCalculateSummary();
+})
+
+$('#btn_reset_vampire').click(function () {
+  for (let i = 1; i <= VAMPIREINPUTS; i++) {
+    $('#vampire_count_' + i).val("");
+  }
 })
 
 // *****Classroom Lighting Content Calculations*****
@@ -620,10 +695,6 @@ $('#btn_calculate_transportation').click(function () {
   costSavings = calculateTransportationSavings(gasAloneSavings, gasCarpoolSavings);
 
   // Changing summary content
-  $('#sumTranBefore').text(transportationCarbonBefore);
-  $('#sumTranAfter').text(transportationCarbonAfter);
-  $('#sumTranEmissionSavings').text(totalSavings);
-  $('#sumTranCostSavings').text(costSavings);
   reCalculateSummary();
 })
 

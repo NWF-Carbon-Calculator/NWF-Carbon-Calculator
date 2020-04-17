@@ -62,20 +62,20 @@ var total;
 
 function totalkWhConsumedOvernight(numberOfDevice, action) {
     total = numberOfDevice * HOURSAWAYFROMSCHOOL / WATTSPERKW * action;
-    return total.toFixed(4);
+    return total.toFixed(2);
 }
 
 function totalkWhPerSchoolYear(kWhConsumedOvernight) {
     total = kWhConsumedOvernight / days;
-    return total.toFixed(4);
+    return total.toFixed(2);
 }
 
 function totalCO2Per16HrNight(kWhConsumedOvernight, emissionsFactor) {
     total = kWhConsumedOvernight * emissionsFactor;
-    return total.toFixed(4);
+    return total.toFixed(2);
 }
 
 function totalCO2PerSchoolYear(CO2PerNight){
     total = CO2PerNight * 180;
-    return total.toFixed(4);
+    return total.toFixed(2);
 }
