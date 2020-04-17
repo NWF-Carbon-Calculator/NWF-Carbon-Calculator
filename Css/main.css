@@ -31,13 +31,18 @@
         font-weight: 1000;
 }
 
+.btn {
+    margin-top: 6px;
+}
+
 .btn-control {
     margin-bottom: 20px;
 }
 
-.button_divider {
+/* possibly not needed class */
+/* .button_divider {
     margin-bottom: 6px;
-}
+} */
 
 .calculation-area {
     background-color: rgba(45, 87, 67, 0.096);
