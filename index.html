@@ -68,14 +68,13 @@
 
     <!-- Header Button Content -->
     <div class="container btn-control">
-        <div class="row">
+        <div class="row button_divider">
             <div class="col text-center button-wrapper">
                 <button type="button" id="btn_welcome" class="btn btn-outline-success active"
                     data-toggle="button">Welcome</button>
                 <button type="button" id="btn_electricity" class="btn btn-outline-success"
                     data-toggle="button">Electricity Info</button>
-                <button type="button" id="btn_record-data" class="btn btn-outline-success"
-                    data-toggle="button">School
+                <button type="button" id="btn_record-data" class="btn btn-outline-success" data-toggle="button">School
                     Lighting</button>
                 <button type="button" id="btn_vampire" class="btn btn-outline-success" data-toggle="button">Energy
                     Vampires</button>
@@ -83,17 +82,23 @@
                     Appliances</button>
                 <button type="button" id="btn_transportation" class="btn btn-outline-success"
                     data-toggle="button">Transportation
-                    Data</button>
+                </button>
+            </div>
+        </div>
+        <div class="row button_divider">
+            <div class="col text-center button-wrapper">
                 <button type="button" id="btn_trash" class="btn btn-outline-success" data-toggle="button">Solid
                     Waste-Trash</button>
                 <button type="button" id="btn_paper" class="btn btn-outline-success" data-toggle="button">Solid
                     Waste-Paper</button>
-                <button type="button" id="btn_bottlesCups" class="btn btn-outline-success" data-toggle="button">Solid Waste
+                <button type="button" id="btn_bottlesCups" class="btn btn-outline-success" data-toggle="button">Solid
+                    Waste
                     Plastic Bottles & Beverage Cups</button>
                 <button type="button" id="btn_summary" class="btn btn-outline-success"
                     data-toggle="button">Summary</button>
                 <button type="button" id="btn_methodology" class="btn btn-outline-success"
                     data-toggle="button">Methodology</button>
+
             </div>
         </div>
     </div>
@@ -374,9 +379,9 @@
                     </table>
                 </div>
                 <div class="table-responsive table-seperator">
-                <p><em>As a result of carbon emissions saved, your school is also saving energy,
-                    reducing carbon impacts and saving the school district money. Be sure to note
-                    this data as you address the Energy Pathway.</em></p>
+                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                            reducing carbon impacts and saving the school district money. Be sure to note
+                            this data as you address the Energy Pathway.</em></p>
                 </div>
             </div>
         </div>
@@ -826,42 +831,42 @@
                         </tbody>
                     </table>
                 </div>
-            <div class="table-responsive table-seperator">
-                <table id="vampire_result_table" class="table w-auto">
-                    <p><b>Summary of Results</b></p>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
-                            <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Before Taking Action</th>
-                            <td><input type="text" id="before_result_day" readonly></td>
-                            <td><input type="text" id="before_result_year" readonly></td>
-                        </tr>
-                        <tr>
-                            <th>After Taking Action</th>
-                            <td><input type="text" id="after_result_day" readonly></td>
-                            <td><input type="text" id="after_result_year" readonly></td>
-                        </tr>
-                        <tr>
-                            <th>Total CO<sub>2</sub> emissions savings</th>
-                            <td><input type="text" id="total_result_day" readonly></td>
-                            <td><input type="text" id="total_result_year" readonly></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table-responsive table-seperator">
-            <p><em>As a result of carbon emissions saved, your school is also saving energy,
-                reducing carbon impacts and saving the school district money. Be sure to note
-                this data as you address the Energy Pathway.</em></p>
+                <div class="table-responsive table-seperator">
+                    <table id="vampire_result_table" class="table w-auto">
+                        <p><b>Summary of Results</b></p>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>CO<sub>2</sub> Emissions<br> per 16-hour "night" (lbs)</th>
+                                <th colspan="2">CO<sub>2</sub> emissions <br>per 180-day school year (lbs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Before Taking Action</th>
+                                <td><input type="text" id="before_result_day" readonly></td>
+                                <td><input type="text" id="before_result_year" readonly></td>
+                            </tr>
+                            <tr>
+                                <th>After Taking Action</th>
+                                <td><input type="text" id="after_result_day" readonly></td>
+                                <td><input type="text" id="after_result_year" readonly></td>
+                            </tr>
+                            <tr>
+                                <th>Total CO<sub>2</sub> emissions savings</th>
+                                <td><input type="text" id="total_result_day" readonly></td>
+                                <td><input type="text" id="total_result_year" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                            reducing carbon impacts and saving the school district money. Be sure to note
+                            this data as you address the Energy Pathway.</em></p>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Lighting Content -->
@@ -893,7 +898,8 @@
                 </div>
                 <div>
                     <p>Based on this electricity fuel mix, your electricity emissions factor is <span
-                            id="electricity_factor"><em><strong ><input type="text" id="show_eef" readonly>lbs CO<sub>2</sub>/kWh<strong></em></span></p>
+                            id="electricity_factor"><em><strong><input type="text" id="show_eef" readonly>lbs
+                                    CO<sub>2</sub>/kWh<strong></em></span></p>
                 </div>
                 <div>
                     <p>Input the data below collected from your worksheet, <em>Carbon Calculator: School Lighting,
@@ -1490,49 +1496,60 @@
             <div class="col">
                 <p> 50 billion water bottles are sold in the US every year. 1,500 water bottles are thrown away every
                     second of every day. Take note that is only water bottles and does not include soda bottles. One
-                    strategy to reduce single plastic use bottles and beverage cups is to bring your own refillable bottle
-                    to school and if you do buy a plastic water bottle or beverage cup,<strong> reuse and recycle</strong> it.</p>
-                    <p><strong>Data entered below should be the summation of data collected from all rooms assessed.</strong> Input the data
-                      below collected from the worksheet titled, <i>Carbon Calculator, School Solid Waste-Trash, Paper, Plastics and Cups.</i></p>
+                    strategy to reduce single plastic use bottles and beverage cups is to bring your own refillable
+                    bottle
+                    to school and if you do buy a plastic water bottle or beverage cup,<strong> reuse and
+                        recycle</strong> it.</p>
+                <p><strong>Data entered below should be the summation of data collected from all rooms
+                        assessed.</strong> Input the data
+                    below collected from the worksheet titled, <i>Carbon Calculator, School Solid Waste-Trash, Paper,
+                        Plastics and Cups.</i></p>
             </div>
         </div>
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
                     <table class="table w-auto">
-                      <thead>
-                          <tr>
-                              <th scope="col"></th>
-                              <th scope="col"><center>Before Taking Action</center></th>
-                              <th scope="col"><center>After Taking Action</center></th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td class="col-sm-4" scope="row">1. Approximately how many plastic water bottles are used each week?</td>
-                              <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input1">
-                              </td>
-                              <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input2">
-                              </td>
-                          </tr>
-                          <tr>
-                              <td class="col-sm-4" scope="row">2. On average, are plastic water bottles recycled or thrown away? </td>
-                              <td class="col-sm-4"> <select id="bottles_input7" name="bottles_input7">
-                                      <option value=""></option>
-                                      <option value="1.15">Recycle</option>
-                                      <option value="0">Throw Away</option>
-                                  </select>
-                              </td>
-                              <td class="col-sm-4"><select id="bottles_input8" name="bottles_input8">
-                                      <option value=""></option>
-                                      <option value="1.15">Recycle</option>
-                                      <option value="0">Throw Away</option>
-                                  </select>
-                              </td>
-                          </tr>
+                        <thead>
                             <tr>
-                                <td class="col-sm-4" scope="row">3. On average, do most coffee/tea drinkers at the school use a reusable
-                                  insulated container for their hot beverage? (dropdown Yes/No)</td>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <center>Before Taking Action</center>
+                                </th>
+                                <th scope="col">
+                                    <center>After Taking Action</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-4" scope="row">1. Approximately how many plastic water bottles are
+                                    used each week?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input1">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="bottles_input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">2. On average, are plastic water bottles recycled or
+                                    thrown away? </td>
+                                <td class="col-sm-4"> <select id="bottles_input7" name="bottles_input7">
+                                        <option value=""></option>
+                                        <option value="1.15">Recycle</option>
+                                        <option value="0">Throw Away</option>
+                                    </select>
+                                </td>
+                                <td class="col-sm-4"><select id="bottles_input8" name="bottles_input8">
+                                        <option value=""></option>
+                                        <option value="1.15">Recycle</option>
+                                        <option value="0">Throw Away</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4" scope="row">3. On average, do most coffee/tea drinkers at the
+                                    school use a reusable
+                                    insulated container for their hot beverage? (dropdown Yes/No)</td>
                                 <td class="col-sm-4"> <select id="bottles_input3" name="bottles_input3">
                                         <option value="0"></option>
                                         <option value="1">Yes</option>
@@ -1556,7 +1573,8 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button type="button" id="btn_reset_bottlesCups" class="btn btn-success">Reset</button>
+                                <td><button type="button" id="btn_reset_bottlesCups"
+                                        class="btn btn-success">Reset</button>
                                 </td>
                                 <td><button type="button" id="btn_calculate_bottlesCups"
                                         class="btn btn-success">Calculate</button></td>
@@ -1573,27 +1591,36 @@
                         <thead>
                             <tr>
                                 <th scope="col">School Impact</th>
-                                <th scope="col"><center>Before Taking Action</center></th>
-                                <th scope="col"><center>After Taking Action</center></th>
+                                <th scope="col">
+                                    <center>Before Taking Action</center>
+                                </th>
+                                <th scope="col">
+                                    <center>After Taking Action</center>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td scope="row">Based on the response provided in question 1, the number of
-                                  plastic water bottles used each week equates to: </td>
+                                    plastic water bottles used each week equates to: </td>
                                 <td><input type="text" id="bottles_results1" readonly></input>lbs. of plastic/week</td>
                                 <td><input type="text" id="bottles_results2" readonly></input>lbs. of plastic/week</td>
                             </tr>
                             <tr>
-                                <td scope="row">Based on the response provided in question 2, the number of plastic water
-                                  bottles used each week equates to: </td>
-                                <td><input type="text" id="bottles_results3" readonly></input>lbs. of CO<sub>2</sub>/week</td>
-                                <td><input type="text" id="bottles_results4" readonly></input>lbs. of CO<sub>2</sub>/week</td>
+                                <td scope="row">Based on the response provided in question 2, the number of plastic
+                                    water
+                                    bottles used each week equates to: </td>
+                                <td><input type="text" id="bottles_results3" readonly></input>lbs. of
+                                    CO<sub>2</sub>/week</td>
+                                <td><input type="text" id="bottles_results4" readonly></input>lbs. of
+                                    CO<sub>2</sub>/week</td>
                             </tr>
                             <tr>
                                 <td scope="row">When our school recycles water bottles it save: </td>
-                                <td><input type="text" id="bottles_results5" readonly></input>lbs. of CO<sub>2</sub>/week</td>
-                                <td><input type="text" id="bottles_results6" readonly></input>lbs. of CO<sub>2</sub>/week</td>
+                                <td><input type="text" id="bottles_results5" readonly></input>lbs. of
+                                    CO<sub>2</sub>/week</td>
+                                <td><input type="text" id="bottles_results6" readonly></input>lbs. of
+                                    CO<sub>2</sub>/week</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1606,8 +1633,12 @@
                         <thead>
                             <tr>
                                 <th scope="col"></th>
-                                <th scope="col"><center>CO<sub>2</sub> emissions per week (lbs)</center></th>
-                                <th scope="col"><center>CO<sub>2</sub> emissions per 36-week school year (lbs)</center></th>
+                                <th scope="col">
+                                    <center>CO<sub>2</sub> emissions per week (lbs)</center>
+                                </th>
+                                <th scope="col">
+                                    <center>CO<sub>2</sub> emissions per 36-week school year (lbs)</center>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1642,7 +1673,9 @@
             <h4>Summary</h4>
         </div>
         <div class="row content-instructions">
-            <p>Number of students and staff at your school: <span id="numberOfStudents"></span></span></p>
+            <p>Number of students and staff at your school: <strong><span id="numberOfStudents">1</span></strong> <em>(#
+                    of students
+                    and staff in school entered summary page)</em></p>
             <p>Below is a summary of the school's carbon footprint. Take into account this summary doesn't reflect the
                 school's entire footprint. </p>
             <p>The "Before Taking Action" column represents an estimate of the annual "normal" CO<sub>2</sub> emissions,
@@ -1853,7 +1886,8 @@
                     </tr>
                     <tr>
                         <td scope="row">DATA SOURCE:</td>
-                        <td><a href="https://www.epa.gov/warm/versions-waste-reduction-model-warm">https://www.epa.gov/warm/versions-waste-reduction-model-warm</td>
+                        <td><a href="https://www.epa.gov/warm/versions-waste-reduction-model-warm">https://www.epa.gov/warm/versions-waste-reduction-model-warm
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -1938,7 +1972,7 @@
                     </tr>
                     <tr>
                         <td>Average cost per gallon of gas (NEEDS CURRENT INFO)</td>
-                        <td id="GAS_COST">3.53</td>
+                        <td id="GAS_COST">2.26</td>
                     </tr>
                 </tbody>
             </table>
