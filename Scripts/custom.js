@@ -869,7 +869,8 @@ $('#btn_reset_paper').click(function () {
 })
 
 // *****Solid Waste Plastic Bottles & Beverage Cups Content Calculations*****
-const BOTTLESCUPSINPUTS = 12;
+const BOTTLESCUPSINPUTS = 8;
+const BOTTLESCUPSRESULTS = 12;
 // Calculate carbon impact from user inputs
 $('#btn_calculate_bottlesCups').click(function () {
   calculate1();
@@ -883,23 +884,23 @@ calculate1 = function () {
 
   var bottleinput1 = document.getElementById('bottles_input1').value;
   var bottleinput2 = document.getElementById('bottles_input2').value;
-  var bottleinput3 = document.getElementById('bottles_input').value;
-  var bottleinput4 = document.getElementById('bottles_input0').value;
+  var bottleinput3 = document.getElementById('bottles_input7').value;
+  var bottleinput4 = document.getElementById('bottles_input8').value;
   var bottleinput5 = document.getElementById('bottles_input3').value;
   var bottleinput6 = document.getElementById('bottles_input4').value;
   var bottleinput7 = document.getElementById('bottles_input5').value;
   var bottleinput8 = document.getElementById('bottles_input6').value;
 
-  var answer = (parseInt(bottleinput1) * 0.04);
+  var answer = (parseInt(bottleinput1) * BOTTLEWEIGHS);
   document.getElementById('bottles_results1').value = answer;
 
-  var answer2 = (parseInt(bottleinput2) * 0.04);
+  var answer2 = (parseInt(bottleinput2) * BOTTLEWEIGHS);
   document.getElementById('bottles_results2').value = answer2;
 
-  var answer3 = (answer * 2.17);
+  var answer3 = (answer * PETREDUCED);
   document.getElementById('bottles_results3').value = answer3;
 
-  var answer4 = (answer2 * 2.17);
+  var answer4 = (answer2 * PETREDUCED);
   document.getElementById('bottles_results4').value = answer4;
 
   //question #2 bottles
@@ -908,7 +909,7 @@ calculate1 = function () {
     answer5 = "";
     document.getElementById('bottles_results5').value = answer5.toFixed(2);
   } else if (bottleinput3 == "1.15") {
-    answer5 = answer * 1.15;
+    answer5 = answer * PETRECYCLED;
     document.getElementById('bottles_results5').value = answer5.toFixed(2);
   } else if (bottleinput3 == "0") {
     answer5 = answer * 0;
@@ -921,7 +922,7 @@ calculate1 = function () {
     answer6 = "";
     document.getElementById('bottles_results6').value = answer6.toFixed(2);
   } else if (bottleinput4 == "1.15") {
-    answer6 = answer2 * 1.15;
+    answer6 = answer2 * PETRECYCLED;
     document.getElementById('bottles_results6').value = answer6.toFixed(2);
   } else if (bottleinput4 == "0") {
     answer6 = answer2 * 0;
@@ -931,22 +932,27 @@ calculate1 = function () {
   //question #3 cups
   //before taking action
   if (bottleinput5 == "0") {
-    canswer = parseInt(bottleinput7) * 0.25;
+    canswer = parseInt(bottleinput7) * COPERCUP;
   } else if (bottleinput5 == "1") {
     canswer = parseInt(bottleinput7) * 0;
   } else if (bottleinput5 == "0.25") {
-    canswer = parseInt(bottleinput7) * 0.25;
+    canswer = parseInt(bottleinput7) * COPERCUP;
   }
 
   //question #3 cups
   //after taking action
   if (bottleinput6 == "0") {
-    canswer1 = parseInt(bottleinput8) * 0.25;
+    canswer1 = parseInt(bottleinput8) * COPERCUP;
   } else if (bottleinput6 == "1") {
     canswer1 = parseInt(bottleinput8) * 0;
   } else if (bottleinput6 == "0.25") {
-    canswer1 = parseInt(bottleinput8) * 0.25;
+    canswer1 = parseInt(bottleinput8) * COPERCUP;
   }
+
+  bottleSavings = ((bottleinput1 - bottleinput2) * 36 * AVGCOSTBOTTLE);
+  bottleSavings1 = ((bottleinput7 - bottleinput8) * 36 * AVGCOSTBEVCUP);
+  bottleSavings2 = (bottleSavings + bottleSavings1);
+  document.getElementById("sumPlasticCostSavings").innerHTML = bottleSavings2;
 
   var canswer2 = (canswer * 36);
   var canswer3 = (canswer1 * 36);
@@ -995,13 +1001,16 @@ calculate1 = function () {
   document.getElementById("sumPlasticEmissionSavings").innerHTML = answer12_1;
 }
 
-//**************FIX RESET BUTTON***************
-// Clear input values for bottles contents
+// Clear input values for Solid Waste Plastic Bottles & Beverage Cups
 $('#btn_reset_bottlesCups').click(function () {
   for (let i = 1; i <= BOTTLESCUPSINPUTS; i++) {
     $('#bottles_input' + i).val("");
+  }
+  for (let i = 1; i <= BOTTLESCUPSRESULTS; i++) {
     $('#bottles_results' + i).val("");
   }
+  bottleCarbonBefore = 0;
+  bottleCarbonAfter = 0;
 })
 
 

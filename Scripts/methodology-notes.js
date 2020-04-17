@@ -35,6 +35,14 @@ function calculateTransportationSavings (gasAloneSavings, gasCarpoolSavings) {
     return savings.toFixed(2);
 }
 
+// *****BOTTLES & CUPS*****
+const BOTTLEWEIGHS = 0.04;
+const PETREDUCED = 2.17;
+const PETRECYCLED = 1.15;
+const AVGCOSTBOTTLE = 1.50;
+const AVGCOSTBEVCUP = 0.078;
+const COPERCUP = 0.25;
+
 //***********OTHER APPLIANCES************
 function totalkWHPerDay(wattage, count, action) {
   total = wattage * count * action;
