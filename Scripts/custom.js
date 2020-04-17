@@ -265,6 +265,7 @@ var after_action10 = document.getElementById("after_action10").value;
 
 })//End calculations for school lighting
 //Lighting data for summary
+	var EEF = calcEEF();
     var lighting_emmissions_row_1_before = (EEF * (number_switches1 * watts_bulb1 * before_action1 / 1000));
     var lighting_emmissions_row_2_before = (EEF * (number_switches1 * watts_bulb1 * before_action2 / 1000));
     var lighting_emmissions_row_3_before = (EEF * (number_switches1 * watts_bulb1 * before_action3 / 1000));
