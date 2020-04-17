@@ -271,7 +271,14 @@ var after_action10 = document.getElementById("after_action10").value;
     document.getElementById('lighting_co2_saved_180').value = ((calcLightingBefore() - calcLightingAfter()) * (180)).toFixed(2);
 
 
-    document.getElementById('sumLightBefore').innerHTML = lighting_emmissions_before;
+  
+	//Calculations for summary table
+    document.getElementById('sumLightBefore').innerHTML = (calcLightingBefore() * 180).toFixed(2);
+	document.getElementById('sumLightAfter').innerHTML = (calcLightingAfter() * 180).toFixed(2);
+	document.getElementById('sumLightEmissionSavings').innerHTML = ((calcLightingBefore() - calcLightingAfter()) * (180)).toFixed(2);
+	document.getElementById('sumLightElectricitySavings').innerHTML = ((calcLightingBefore() - calcLightingAfter()) * (180) * (EEF)).toFixed(2);
+	document.getElementById('sumLightCostSavings').innerHTML = ((calcLightingBefore() - calcLightingAfter()) * (180) * (EEF) * (ELECTRICITYCOST)).toFixed(2);
+
 
     reCalculateSummary();
 })//End calculations for school lighting
