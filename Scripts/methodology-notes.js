@@ -10,6 +10,8 @@ const YEARLYCARCO2 = 2204.62;
 const TREECO2 = 48;
 // Average cost per gallon of gas
 const GASCOST = 2.26;
+//Electricity cost per KWH
+const ELECTRICITYCOST = 10.43 
 
 var numberOfStudents = 1;
 // *****ELECTRICITY*****
