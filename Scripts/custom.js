@@ -19,6 +19,8 @@ $('#btn_appliance').click(function () {
   $('.content-container').hide();
   $('#container_appliance').insertAfter('#startDiv');
   $('#container_appliance').show();
+  document.getElementById("show_eef").value = calcEEF().toFixed(2);
+  document.getElementById("whichPlan").innerHTML = whichPlan();
 })
 $('#btn_vampire').click(function () {
   $(".button-wrapper").find(".btn").removeClass('active');
@@ -26,6 +28,8 @@ $('#btn_vampire').click(function () {
   $('.content-container').hide();
   $('#container_vampire').insertAfter('#startDiv');
   $('#container_vampire').show();
+  document.getElementById("show_eef").value = calcEEF().toFixed(2);
+  document.getElementById("whichPlan").innerHTML = whichPlan();
 })
 $('#btn_record-data').click(function () {
   $(".button-wrapper").find(".btn").removeClass('active');
