@@ -162,13 +162,13 @@ function whichPlan() {
 //************School Lighting********
 
 	//calculate CO2 before action (per row)
-	
-	
+
+
 var lighting_emmissions_before;
 var lighting_emmissions_after;
 // Calculate Lighting CO2 Before taking action
 $('#btn_calculate_lighting').click(function () {
-	
+
 var EEF = calcEEF();
 var number_switches1 = document.getElementById("number_switches1").value;
 var watts_bulb1 = document.getElementById("watts_bulb1").value;
@@ -230,14 +230,14 @@ var after_action10 = document.getElementById("after_action10").value;
     var lighting_emmissions_row_8_before = (EEF * (number_switches8 * watts_bulb8 * before_action8 / 1000));
     var lighting_emmissions_row_9_before = (EEF * (number_switches9 * watts_bulb9 * before_action9 / 1000));
     var lighting_emmissions_row_10_before = (EEF * (number_switches10 * watts_bulb10 * before_action10 / 1000));
-		
+
 
     //sum of rows
     var lighting_emmissions_before = lighting_emmissions_row_1_before + lighting_emmissions_row_2_before +
       lighting_emmissions_row_3_before + lighting_emmissions_row_4_before + lighting_emmissions_row_5_before +
       lighting_emmissions_row_6_before + lighting_emmissions_row_7_before + lighting_emmissions_row_8_before +
       lighting_emmissions_row_9_before + lighting_emmissions_row_10_before;
-	  
+
 		return lighting_emmissions_before;
 	}
 	function calcLightingAfter() {
@@ -257,7 +257,7 @@ var after_action10 = document.getElementById("after_action10").value;
       lighting_emmissions_row_3_after + lighting_emmissions_row_4_after + lighting_emmissions_row_5_after +
       lighting_emmissions_row_6_after + lighting_emmissions_row_7_after + lighting_emmissions_row_8_after +
       lighting_emmissions_row_9_after + lighting_emmissions_row_10_after;
-		
+
 		return lighting_emmissions_after;
 	}
 	 lighting_emmissions_before = calcLightingBefore()*180;
@@ -271,7 +271,7 @@ var after_action10 = document.getElementById("after_action10").value;
     document.getElementById('lighting_co2_saved_180').value = ((calcLightingBefore() - calcLightingAfter()) * (180)).toFixed(2);
 
 
-  
+
 	//Calculations for summary table
     document.getElementById('sumLightBefore').innerHTML = (calcLightingBefore() * 180).toFixed(2);
 	document.getElementById('sumLightAfter').innerHTML = (calcLightingAfter() * 180).toFixed(2);
@@ -1135,16 +1135,16 @@ calculate1 = function () {
   var bottleinput8 = document.getElementById('bottles_input6').value;
 
   var answer = (parseInt(bottleinput1) * BOTTLEWEIGHS);
-  document.getElementById('bottles_results1').value = answer;
+  document.getElementById('bottles_results1').value = answer.toFixed(2);
 
   var answer2 = (parseInt(bottleinput2) * BOTTLEWEIGHS);
-  document.getElementById('bottles_results2').value = answer2;
+  document.getElementById('bottles_results2').value = answer2.toFixed(2);
 
   var answer3 = (answer * PETREDUCED);
-  document.getElementById('bottles_results3').value = answer3;
+  document.getElementById('bottles_results3').value = answer3.toFixed(2);
 
   var answer4 = (answer2 * PETREDUCED);
-  document.getElementById('bottles_results4').value = answer4;
+  document.getElementById('bottles_results4').value = answer4.toFixed(2);
 
   //question #2 bottles
   //before taking action
@@ -1380,4 +1380,3 @@ function reCalculateSummary() {
   var treeSeedlings = totalEmissionSavings / TREECO2;
   $('#treeEquiv').text(treeSeedlings.toFixed(2));
 }
-
