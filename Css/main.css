@@ -133,4 +133,7 @@ td.appliance_name{
     padding: 5px
 }
 
-
+table#bottles_summary_table {
+    width:70%;
+    margin: auto;
+}
