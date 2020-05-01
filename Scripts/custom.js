@@ -1415,6 +1415,7 @@ function reCalculateSummary() {
   totalEmissionSavings += parseFloat($('#sumTranEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumTrashEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPaperEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumFoodEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPlasticEmissionSavings').text());
   //totalEmissionSavings += parseFloat($('#sumBeverageEmissionSavings').text());
   $('#sumEmissionSavings').text(totalEmissionSavings);
