@@ -69,6 +69,13 @@ $('#btn_bottlesCups').click(function () {
   $('#container_bottlesCups').insertAfter('#startDiv');
   $('#container_bottlesCups').show();
 })
+$('#btn_food').click(function () {
+  $(".button-wrapper").find(".btn").removeClass('active');
+  $(this.id).addClass('active');
+  $('.content-container').hide();
+  $('#container_food').insertAfter('#startDiv');
+  $('#container_food').show();
+})
 $('#btn_summary').click(function () {
   $(".button-wrapper").find(".btn").removeClass('active');
   $(this.id).addClass('active');
@@ -1258,6 +1265,37 @@ $('#btn_reset_bottlesCups').click(function () {
   }
   bottleCarbonBefore = 0;
   bottleCarbonAfter = 0;
+})
+
+// *****Solid Waste Food Content Calculations*****
+const FOODINPUTS = 2;
+const FOODSRESULTS = 8;
+// Calculate carbon impact from user inputs
+$('#btn_calculate_FOOD').click(function () {
+  calculate1();
+  reCalculateSummary();
+})
+
+var foodCarbonBefore = 0;
+var foodCarbonAfter = 0;
+
+calculate3 = function () {
+  //food calculations
+}
+
+
+
+
+// Clear input values for Solid Waste Food
+$('#btn_reset_food').click(function () {
+  for (let i = 1; i <= FOODINPUTS; i++) {
+    $('#food_input' + i).val("");
+  }
+  for (let i = 1; i <= FOODRESULTS; i++) {
+    $('#food_results' + i).val("");
+  }
+  foodCarbonBefore = 0;
+  foodCarbonAfter = 0;
 })
 
 
