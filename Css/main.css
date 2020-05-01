@@ -137,3 +137,8 @@ table#bottles_summary_table {
     width:70%;
     margin: auto;
 }
+
+table#food_summary_table {
+    width:70%;
+    margin: auto;
+}

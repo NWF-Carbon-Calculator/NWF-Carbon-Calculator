@@ -94,6 +94,8 @@
                 <button type="button" id="btn_bottlesCups" class="btn btn-outline-success" data-toggle="button">Solid
                     Waste
                     Plastic Bottles & Beverage Cups</button>
+                    <button type="button" id="btn_food" class="btn btn-outline-success" data-toggle="button">Solid
+                    Waste-Food</button>
                 <button type="button" id="btn_summary" class="btn btn-outline-success"
                     data-toggle="button">Summary</button>
                 <button type="button" id="btn_methodology" class="btn btn-outline-success"
@@ -1657,6 +1659,127 @@
                                 <td scope="row">Total CO<sub>2</sub> emissions savings</td>
                                 <td><input type="text" id="bottles_results11" readonly></input></td>
                                 <td><input type="text" id="bottles_results12" readonly></input></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <p><em>As the result of carbon emissions saved, you are also reducing rates of
+                        consumption and increasing rates of recycling. Be sure to note this data as you address the
+                        Consumption and Waste pathway.</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solid Waste Food -->
+    <div class="container content-container" id="container_food">
+        <div class="row content-header">
+            <h4>Food Waste </h4>
+        </div>
+        <div class="row content-instructions">
+            <div class="col">
+                <p> Food loss and waste accounts for about 4.4 gigatonnes of greenhouse
+                  gas emissions (GHG) per year. To put this in perspective, if food loss
+                  and waste were its own country, it would be the world’s third-largest GHG
+                  emitter – surpassed only by China and the United States. One strategy to
+                  combat these emissions is to compost plant-based food waste.
+                <p> Use the worksheet titled, <i>Carbon Calculator: Food Waste </i> to gather all data, whether it is from one
+                  classroom, grade level, floor or entire school. Enter the sum of all the data below.
+            </div>
+        </div>
+        <div class="container">
+            <div class="row calculation-area">
+                <div class="table-responsive table-seperator">
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <center>Before Taking Action</center>
+                                </th>
+                                <th scope="col">
+                                    <center>After Taking Action</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-4" scope="row">1. On average, how many pounds of food are
+                                  wasted in one day?</td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="food_input1">
+                                </td>
+                                <td class="col-sm-4"><input type="text" class="col-sm-12" id="food_input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button type="button" id="btn_reset_food"
+                                        class="btn btn-success">Reset</button>
+                                </td>
+                                <td><button type="button" id="btn_calculate_food"
+                                        class="btn btn-success">Calculate</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-responsive table-seperator">
+                    <p>
+                        <h6><b>Classroom Results</b></h6>
+                    </p>
+                    <table class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">School Impact</th>
+                                <th scope="col">
+                                    <center>Before Taking Action</center>
+                                </th>
+                                <th scope="col">
+                                    <center>After Taking Action</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">The food waste per day is equivalent to this many pounds of CO2.</td>
+                                <td><input type="text" id="food_results1" readonly></input></td>
+                                <td><input type="text" id="food_results2" readonly></input></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive table-seperator">
+                    <p>
+                        <h6><b>Summary of Results</b></h6>
+                    </p>
+                    <table id="food_summary_table" class="table w-auto">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    CO<sub>2</sub> emissions <br> per week (lbs)
+                                </th>
+                                <th colspan="2">
+                                    CO<sub>2</sub> emissions <br> per 36-week school year (lbs)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Before taking action</td>
+                                <td><input type="text" id="food_results3" readonly></input></td>
+                                <td><input type="text" id="wasteFood_results4" readonly></input></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">After taking action</td>
+                                <td><input type="text" id="food_results5" readonly></input></td>
+                                <td><input type="text" id="food_results6" readonly></input></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total CO<sub>2</sub> emissions savings</td>
+                                <td><input type="text" id="food_results7" readonly></input></td>
+                                <td><input type="text" id="food_results8" readonly></input></td>
                             </tr>
                         </tbody>
                     </table>
