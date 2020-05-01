@@ -1301,9 +1301,9 @@ calculate3 = function () {
 
   document.getElementById("food_results5").value = foodanswer2; // after CO2 emissions SUMMARY
 
-  document.getElementById("food_results4").value = foodanswer1*36;
+  document.getElementById("food_results4").value = foodanswer1*36; // this is for the before section times 36 as for 36 weeks
 
-  document.getElementById("food_results6").value = foodanswer2*36;
+  document.getElementById("food_results6").value = foodanswer2*36; // this is for the after section times 36 as for 36 weeks
 
   document.getElementById("food_results7").value = foodanswer1+foodanswer2;
 
