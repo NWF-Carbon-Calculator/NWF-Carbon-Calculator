@@ -1270,7 +1270,7 @@ $('#btn_reset_bottlesCups').click(function () {
 })
 
 // *****Solid Waste Food Content Calculations*****
-const FOODINPUTS = 10; //this input is literally all the inputs for food 
+const FOODINPUTS = 10; //this input is literally all the inputs for food
 const FOODSRESULTS = 8; // not sure if this is actually used for the reset to be honest.
 // Calculate carbon impact from user inputs
 $('#btn_calculate_FOOD').click(function () {
@@ -1284,12 +1284,10 @@ var foodCarbonAfter = 0;
 calculate3 = function () {
   //food calculations
 
-  //this is creating the first two inputs as variables and two results as variables 
+  //this is creating the first two inputs as variables and two results as variables
   var foodinput1 = document.getElementById("food_input1").value; //before
-  
 
   var foodinput2 = document.getElementById("food_input2").value; //after
-
 
   foodanswer1 = parseInt(foodinput1)*1.9;
   foodanswer2 = parseInt(foodinput2)*1.9;
@@ -1302,7 +1300,7 @@ calculate3 = function () {
   document.getElementById("food_results5").value = foodanswer2.toFixed(2); // after CO2 emissions SUMMARY
 
   document.getElementById("food_results4").value = (foodanswer1*36).toFixed(2); // this is for the before section times 36 as for 36 weeks
-  foodCarbonBefore = (foodanswer1*36).toFixed(2); 
+  foodCarbonBefore = (foodanswer1*36).toFixed(2);
   console.log(foodCarbonBefore);
   document.getElementById("food_results6").value = (foodanswer2*36).toFixed(2); // this is for the after section times 36 as for 36 weeks
   foodCarbonAfter = (foodanswer2*36).toFixed(2);
@@ -1315,16 +1313,8 @@ calculate3 = function () {
 
   document.getElementById("sumFoodAfter").innerHTML = (foodanswer2*36).toFixed(2); // this is for the SUMMARY PAGE
 
-  document.getElementById("sumFoodEmissionSavings").innerHTML = ((foodanswer1*36)-(foodanswer2*36)).toFixed(2); //summary page 
-
-  
-
-
-
+  document.getElementById("sumFoodEmissionSavings").innerHTML = ((foodanswer1*36)-(foodanswer2*36)).toFixed(2); //summary page
 }
-
-
-
 
 // Clear input values for Solid Waste Food
 $('#btn_reset_food').click(function () {
@@ -1335,7 +1325,6 @@ $('#btn_reset_food').click(function () {
   foodCarbonBefore = 0;
   foodCarbonAfter = 0;
 })
-
 
 // *****Summary Content Calculations*****
 //Google Charts Testing Core
