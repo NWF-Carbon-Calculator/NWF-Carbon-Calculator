@@ -1273,7 +1273,7 @@ $('#btn_reset_bottlesCups').click(function () {
 const FOODINPUTS = 2;
 const FOODSRESULTS = 8;
 // Calculate carbon impact from user inputs
-$('#btn_calculate_food').click(function () {
+$('#btn_calculate_FOOD').click(function () {
   calculate3();
   reCalculateSummary();
 })
@@ -1286,17 +1286,29 @@ calculate3 = function () {
 
   //this is creating the first two inputs as variables and two results as variables 
   var foodinput1 = document.getElementById("food_input1").value; //before
-  foodanswer1 = foodinput1*1.9;
+  
 
   var foodinput2 = document.getElementById("food_input2").value; //after
-  foodanswer2 = foodinput2*1.9;
 
-  foodanswer1=foodresult1
-  foodanswer2=foodresult2
-  
-   document.getElementById("food_results1").value = foodresult1 //before classroom
-   document.getElementById("food_results2").value = foodresult2 //after classroom
-   
+
+  foodanswer1 = parseInt(foodinput1)*1.9;
+  foodanswer2 = parseInt(foodinput2)*1.9;
+
+  document.getElementById("food_results1").value = foodanswer1;
+  document.getElementById("food_results2").value = foodanswer2;
+
+  document.getElementById("food_results3").value = foodanswer1; // before CO2 emissions SUMMARY (a bit confused whether its pounds to CO2 or actual waste lbs)
+
+  document.getElementById("food_results5").value = foodanswer2; // after CO2 emissions SUMMARY
+
+  document.getElementById("food_results4").value = foodanswer1*36;
+
+  document.getElementById("food_results6").value = foodanswer2*36;
+
+  document.getElementById("food_results7").value = foodanswer1+foodanswer2;
+
+  document.getElementById("food_results8").value = (foodanswer1*36)+(foodanswer2*36);
+
 
 
 
