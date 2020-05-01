@@ -1270,8 +1270,8 @@ $('#btn_reset_bottlesCups').click(function () {
 })
 
 // *****Solid Waste Food Content Calculations*****
-const FOODINPUTS = 2;
-const FOODSRESULTS = 8;
+const FOODINPUTS = 10; //this input is literally all the inputs for food 
+const FOODSRESULTS = 8; // not sure if this is actually used for the reset to be honest.
 // Calculate carbon impact from user inputs
 $('#btn_calculate_FOOD').click(function () {
   calculate3();
@@ -1294,20 +1294,20 @@ calculate3 = function () {
   foodanswer1 = parseInt(foodinput1)*1.9;
   foodanswer2 = parseInt(foodinput2)*1.9;
 
-  document.getElementById("food_results1").value = foodanswer1;
-  document.getElementById("food_results2").value = foodanswer2;
+  document.getElementById("food_results1").value = foodanswer1.toFixed(2);
+  document.getElementById("food_results2").value = foodanswer2.toFixed(2);
 
-  document.getElementById("food_results3").value = foodanswer1; // before CO2 emissions SUMMARY (a bit confused whether its pounds to CO2 or actual waste lbs)
+  document.getElementById("food_results3").value = foodanswer1.toFixed(2); // before CO2 emissions SUMMARY (a bit confused whether its pounds to CO2 or actual waste lbs)
 
-  document.getElementById("food_results5").value = foodanswer2; // after CO2 emissions SUMMARY
+  document.getElementById("food_results5").value = foodanswer2.toFixed(2); // after CO2 emissions SUMMARY
 
-  document.getElementById("food_results4").value = foodanswer1*36; // this is for the before section times 36 as for 36 weeks
+  document.getElementById("food_results4").value = (foodanswer1*36).toFixed(2); // this is for the before section times 36 as for 36 weeks
 
-  document.getElementById("food_results6").value = foodanswer2*36; // this is for the after section times 36 as for 36 weeks
+  document.getElementById("food_results6").value = (foodanswer2*36).toFixed(2); // this is for the after section times 36 as for 36 weeks
 
-  document.getElementById("food_results7").value = foodanswer1+foodanswer2;
+  document.getElementById("food_results7").value = (foodanswer1+foodanswer2).toFixed(2);
 
-  document.getElementById("food_results8").value = (foodanswer1*36)+(foodanswer2*36);
+  document.getElementById("food_results8").value = ((foodanswer1*36)+(foodanswer2*36)).toFixed(2);
 
 
 
@@ -1321,8 +1321,6 @@ calculate3 = function () {
 $('#btn_reset_food').click(function () {
   for (let i = 1; i <= FOODINPUTS; i++) {
     $('#food_input' + i).val("");
-  }
-  for (let i = 1; i <= FOODRESULTS; i++) {
     $('#food_results' + i).val("");
   }
   foodCarbonBefore = 0;
