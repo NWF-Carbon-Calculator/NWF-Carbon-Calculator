@@ -1302,13 +1302,22 @@ calculate3 = function () {
   document.getElementById("food_results5").value = foodanswer2.toFixed(2); // after CO2 emissions SUMMARY
 
   document.getElementById("food_results4").value = (foodanswer1*36).toFixed(2); // this is for the before section times 36 as for 36 weeks
-
+  foodCarbonBefore = (foodanswer1*36).toFixed(2); 
+  console.log(foodCarbonBefore);
   document.getElementById("food_results6").value = (foodanswer2*36).toFixed(2); // this is for the after section times 36 as for 36 weeks
-
+  foodCarbonAfter = (foodanswer2*36).toFixed(2);
+  console.log(foodCarbonAfter);
   document.getElementById("food_results7").value = (foodanswer1+foodanswer2).toFixed(2);
 
-  document.getElementById("food_results8").value = ((foodanswer1*36)+(foodanswer2*36)).toFixed(2);
+  document.getElementById("food_results8").value = ((foodanswer1*36)-(foodanswer2*36)).toFixed(2); //this is the result for total CO2 emissions saved
 
+  document.getElementById("sumFoodBefore").innerHTML = (foodanswer1*36).toFixed(2); // this is for the SUMMARY PAGE
+
+  document.getElementById("sumFoodAfter").innerHTML = (foodanswer2*36).toFixed(2); // this is for the SUMMARY PAGE
+
+  document.getElementById("sumFoodEmissionSavings").innerHTML = ((foodanswer1*36)-(foodanswer2*36)).toFixed(2); //summary page 
+
+  
 
 
 
@@ -1345,6 +1354,7 @@ function drawChart() {
     ['Appliances', before_appliance, after_appliance],
     ['Transportation', transportationCarbonBefore, transportationCarbonAfter],
     ['Trash', trashCarbonBefore, trashCarbonAfter],
+    ['Food', foodCarbonBefore, foodCarbonAfter],
     ['Paper', paperCarbonBefore, paperCarbonAfter],
     ['Plastics', bottleCarbonBefore, bottleCarbonAfter],
     //['Cups', 1030, 540]
@@ -1379,6 +1389,7 @@ function reCalculateSummary() {
   totalBeforeAction += parseFloat($('#sumTranBefore').text());
   totalBeforeAction += parseFloat($('#sumTrashBefore').text());
   totalBeforeAction += parseFloat($('#sumPaperBefore').text());
+  totalBeforeAction += parseFloat($('#sumFoodBefore').text());
   totalBeforeAction += parseFloat($('#sumPlasticBefore').text());
   //totalBeforeAction += parseFloat($('#sumBeverageBefore').text());
   $('#sumTotalBefore').text(totalBeforeAction);
@@ -1391,6 +1402,7 @@ function reCalculateSummary() {
   totalAfterAction += parseFloat($('#sumTranAfter').text());
   totalAfterAction += parseFloat($('#sumTrashAfter').text());
   totalAfterAction += parseFloat($('#sumPaperAfter').text());
+  totalAfterAction += parseFloat($('#sumFoodAfter').text());
   totalAfterAction += parseFloat($('#sumPlasticAfter').text());
   //totalAfterAction += parseFloat($('#sumBeverageAfter').text());
   $('#sumTotalAfter').text(totalAfterAction);
