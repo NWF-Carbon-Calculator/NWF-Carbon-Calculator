@@ -1067,7 +1067,7 @@ calculatev2 = function () {
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
   }
 
-  var totalCost = beforeTotalCost - afterTotalCost.toFixed(2);
+  var totalCost = beforeTotalCost.toFixed(2) - afterTotalCost.toFixed(2);
   $('#sumPaperCostSavings').text(totalCost);
 
 
