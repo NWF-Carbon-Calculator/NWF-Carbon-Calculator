@@ -1122,6 +1122,8 @@ $('#btn_reset_paper').click(function () {
   }
 })
 
+
+
 // *****Solid Waste Plastic Bottles & Beverage Cups Content Calculations*****
 const BOTTLESCUPSINPUTS = 8;
 const BOTTLESCUPSRESULTS = 12;
@@ -1271,8 +1273,8 @@ $('#btn_reset_bottlesCups').click(function () {
 const FOODINPUTS = 2;
 const FOODSRESULTS = 8;
 // Calculate carbon impact from user inputs
-$('#btn_calculate_FOOD').click(function () {
-  calculate1();
+$('#btn_calculate_food').click(function () {
+  calculate3();
   reCalculateSummary();
 })
 
@@ -1281,6 +1283,23 @@ var foodCarbonAfter = 0;
 
 calculate3 = function () {
   //food calculations
+
+  //this is creating the first two inputs as variables and two results as variables 
+  var foodinput1 = document.getElementById("food_input1").value; //before
+  foodanswer1 = foodinput1*1.9;
+
+  var foodinput2 = document.getElementById("food_input2").value; //after
+  foodanswer2 = foodinput2*1.9;
+
+  foodanswer1=foodresult1
+  foodanswer2=foodresult2
+  
+   document.getElementById("food_results1").value = foodresult1 //before classroom
+   document.getElementById("food_results2").value = foodresult2 //after classroom
+   
+
+
+
 }
 
 
