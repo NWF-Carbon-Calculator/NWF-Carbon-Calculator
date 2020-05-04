@@ -120,6 +120,20 @@ table#vampire_result_table {
     width: 100px;
 }
 
+#transportation_table td input {
+    width: 100px;
+}
+
+table#transportation_table {
+    width:70%;
+    margin: auto;
+}
+
+table#transportation_results {
+    width:70%;
+    margin: auto;
+}
+
 #table_appliance td input {
     width: 75%;
 }
