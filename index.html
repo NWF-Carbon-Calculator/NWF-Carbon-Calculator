@@ -132,7 +132,7 @@
             <form>
                 <div class="form-group row">
                     <label for="NUMBER_OF_STUDENTS" class="col-sm-6 col-form-label">Please enter the number of
-                        students participating</label>
+                        students and staff participating</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" id="NUMBER_OF_STUDENTS">
                     </div>
@@ -1055,7 +1055,7 @@
                     riding a bike. One strategy to use is to promote and communicate alternatives forms of
                     transportation and safe routes to school.</p>
                 <p>Data entered below should be the summation the data collected from participating students and staff.
-                    Input the data below collected from your worksheet, Carbon Calculator: Transportation.
+                    Input the data below collected from your worksheet, <i>Carbon Calculator: Transportation</i>.
                 </p>
                 <p>Note: Riding the bus is a climate-friendlier action than driving alone or carpooling. At this time
                     there is no conclusive data for school bus contributions to CO<sub>2</sub> emissions and is the
@@ -1066,7 +1066,7 @@
         <div class="container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
-                    <table class="table w-auto">
+                    <table id="transportation_table" class="table w-auto">
                         <thead>
                             <tr>
                                 <th scope="col">Transportation Inputs</th>
@@ -1158,14 +1158,14 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">The average gallons of gasoline burned each week, driving alone to and
+                                <td scope="row">Average gallons of gasoline burned each week, driving alone to and
                                     from school
                                 </td>
                                 <td><input type="text" id="transportation_results1" readonly></input></td>
                                 <td><input type="text" id="transportation_results2" readonly></input></td>
                             </tr>
                             <tr>
-                                <td scope="row">The average the pounds of CO<sub>2</sub> emitted per week, when driving
+                                <td scope="row">Average pounds of CO<sub>2</sub> emitted per week, when driving
                                     alone
                                 </td>
                                 <td><input type="text" id="transportation_results3" readonly></input></span></td>
@@ -1177,7 +1177,7 @@
                                 <td><input type="text" id="transportation_results6" readonly></input></td>
                             </tr>
                             <tr>
-                                <td scope="row">The average pounds of CO<sub>2</sub> emitted per week, per person in the
+                                <td scope="row">Average pounds of CO<sub>2</sub> emitted per week, per person in the
                                     carpool
                                 </td>
                                 <td><input type="text" id="transportation_results7" readonly></input></td>
@@ -1194,36 +1194,41 @@
                     </table>
                 </div>
                 <div class="table-responsive table-seperator">
-                    <h5 class="centerHeading">Summary of Results</h5>
-                    <table class="table w-auto">
+                    <table id="transportation_results" class="table w-auto">
+                    <p><b>Summary of Results</b></p>
                         <thead>
                             <tr>
-                                <th scope="col"></th>
-                                <th scope="col">CO<sub>2</sub> Emissions per week (lbs)</th>
-                                <th scope="col">CO<sub>2</sub> Emissions per 36-week school year (lbs)</th>
+                                <th></th>
+                                <th>CO<sub>2</sub> Emissions <br> per week (lbs)</th>
+                                <th colspan="2">CO<sub>2</sub> Emissions <br> per 36-week school year (lbs)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">Before Taking Action</td>
-                                <td><input type="text" id="transportation_results11"></span></td>
-                                <td><input type="text" id="transportation_results12"></span></td>
+                                <th>Before Taking Action</th>
+                                <td><input type="text" id="transportation_results11" readonly></span></td>
+                                <td><input type="text" id="transportation_results12" readonly></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">After Taking Action</td>
-                                <td><input type="text" id="transportation_results13"></span></td>
-                                <td><input type="text" id="transportation_results14"></span></td>
+                                <th>After Taking Action</th>
+                                <td><input type="text" id="transportation_results13" readonly></span></td>
+                                <td><input type="text" id="transportation_results14" readonly></span></td>
                             </tr>
                             <tr>
-                                <td scope="row">Total CO<sub>2</sub> emissions savings</td>
-                                <td><input type="text" id="transportation_results15"></span></td>
-                                <td><input type="text" id="transportation_results16"></span></td>
+                                <th>Total CO<sub>2</sub> emissions savings</th>
+                                <td><input type="text" id="transportation_results15" readonly></span></td>
+                                <td><input type="text" id="transportation_results16" readonly></span></td>
                             </tr>
 
                         </tbody>
                     </table>
                 </div>
 
+                <div class="table-responsive table-seperator">
+                    <p><em>As a result of carbon emissions saved, your school is also saving energy,
+                            reducing carbon impacts and saving the school district money. Be sure to note
+                            this data as you address the Energy Pathway.</em></p>
+                </div>
             </div>
         </div>
     </div>
@@ -1977,7 +1982,7 @@
         <div class="row calculation-area">
             <table class="table">
                 <thead>
-                    <tr>ELECTRICITY CONVERSION FACTORS</tr>
+                    <tr><b>ELECTRICITY CONVERSION FACTORS</b></tr>
                     <tr>
                         <th>SOURCE</th>
                         <th>lbs. CO2/kWh</th>
@@ -2056,7 +2061,7 @@
         <div class="row calculation-area">
             <table class="table">
                 <thead>
-                    <tr>SCHOOL TRASH</tr>
+                    <tr><strong>SCHOOL TRASH</strong></tr>
                     <tr>
                         <th>SOURCE</th>
                         <th>AMOUNT</th>
@@ -2083,7 +2088,7 @@
         <div class="row calculation-area">
             <table class="table">
                 <thead>
-                    <tr>SCHOOL PAPER</tr>
+                    <tr><strong>SCHOOL PAPER</strong></tr>
                     <td> <b>POUNDS OF CO2 EQUIVALENT PER REAM OF PAPER, BY RECYCLED CONTENT </b> </td>
                     <tr>
                         <th>RECYCLE CONTENT</th>
