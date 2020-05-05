@@ -306,11 +306,11 @@ $('#btn_add_row').click(function () {
 
 let lineNo = 2;
 $("#appliance_btn_add_row").click(function () {
-  markup = "<tr><td><input type='text' id='appliance_type" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_wattage" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_count" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
+  markup = "<tr><td align=center><input type='text' id='appliance_type" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_wattage" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_count" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
 
   result_markup = "<tr><td><input type='text' id='appliance" + lineNo + "' readonly></td>" +
     "<td><input type='text' id='appliance_before_per_day" + lineNo + "' readonly></td>" +

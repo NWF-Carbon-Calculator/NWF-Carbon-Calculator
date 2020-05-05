@@ -9,7 +9,7 @@
     <link href="/Css/main.css" rel="stylesheet">
 
     <!-- Henry -->
-    <link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">
+    <!--<link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">-->
 
 
     <!-- Google charts AJAX API -->
@@ -260,8 +260,6 @@
                     Calculator:
                     School Lighting, Energy Vampires, and Other Appliances to enter data into the next three tabs.
                     <strong>Data entered below should be the summation of all rooms assessed.</strong>
-                    Input the data below collected from your worksheet, <em>Carbon Calculator: School Lighting,
-                        Energy Vampires, and Other Appliances.</em>
                 </p>
                 <div>
                     <p>You have selected to use the <span id="other_electricity_plan"><em><strong id="whichPlan">Standard Plan</strong></em></span>
@@ -273,11 +271,14 @@
                                     CO<sub>2</sub>/kWh</strong></em></span></p>
                 </div>
                 <div>
-                    <p>Collect and record data below</p>
+                    <p>
+                    Input the data below, found in the worksheet titled, Carbon Calculator:
+                    <em>School Lighting, Energy Vampires, and Other Appliances.</em>
+                </p>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="appliance_container">
             <div class="row calculation-area">
                 <div class="table-responsive table-seperator">
                     <table id="table_appliance" class="table w-auto">
@@ -298,11 +299,11 @@
                                 <th>After Taking Action</th>
                             </tr>
                             <tr>
-                                <td><input type="text" id="appliance_type1"></td>
-                                <td><input type="text" id="appliance_wattage1"></td>
-                                <td><input type="text" id="appliance_count1"></td>
-                                <td><input type="text" id="appliance_before_option1"></td>
-                                <td><input type="text" id="appliance_after_option1"></td>
+                                <td align=center><input type="text" id="appliance_type1"></td>
+                                <td align=center><input type="text" id="appliance_wattage1"></td>
+                                <td align=center><input type="text" id="appliance_count1"></td>
+                                <td align=center><input type="text" id="appliance_before_option1"></td>
+                                <td align=center><input type="text" id="appliance_after_option1"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -315,6 +316,7 @@
                 </div>
                 <div class="table-responsive table-seperator">
                     <table id="table_appliance_results" class="table w-auto">
+                        <p><b>Summary of Results by Appliance/Device</b></p>
                         <thead>
                             <tr>
                                 <th></th>
@@ -351,7 +353,7 @@
                     </table>
                 </div>
                 <div class="table-responsive table-seperator">
-                    <p><b>Summary of Results</b></p>
+                    <p><b>Summary of Results-All Appliances/Devices</b></p>
                     <table id="appliance_summary_table" class="table w-auto">
                         <thead>
                             <tr>
@@ -411,8 +413,6 @@
                     Calculator:
                     School Lighting, Energy Vampires, and Other Appliances to enter data into the next three tabs.
                     <strong>Data entered below should be the summation of all rooms assessed.</strong>
-                    Input the data below collected from your worksheet, <em>Carbon Calculator: School Lighting,
-                        Energy Vampires, and Other Appliances.</em>
                 </p>
                 <div>
                     <p>You have selected to use the <span id="vampire_electricity_plan"><em><strong id="whichPlan">Standard Plan
@@ -424,7 +424,10 @@
                                     CO<sub>2</sub>/kWh</strong></em></span></p>
                 </div>
                 <div>
-                    <p>Collect and record data below</p>
+                    <p>
+                    Input the data below, found in the worksheet titled, Carbon Calculator:
+                    <em>School Lighting, Energy Vampires, and Other Appliances.</em>
+                </p>
                 </div>
             </div>
         </div>
@@ -688,12 +691,11 @@
                     <table id="vampire_re" class="table w-auto">
                         <thead>
                             <tr>
-                                <th class="vampire_result"></th>
-                                <th class="vampire_result" colspan="2">Total kWh consumed per day</th>
-                                <th class="vampire_result" colspan="2">Total kWh per 180-day school year</th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per "night" (lbs)
-                                </th>
-                                <th class="vampire_result" colspan="2">Total CO<sub>2</sub> emissions per 180-day school
+                                <th></th>
+                                <th colspan="2">Total kWh consumed per day</th>
+                                <th colspan="2">Total kWh per 180-day school year</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions per "night" (lbs)</th>
+                                <th colspan="2">Total CO<sub>2</sub> emissions per 180-day school
                                     year (lbs)</th>
                             </tr>
                         </thead>
@@ -2169,10 +2171,10 @@
 
     <!-- Local Host Testing -->
     <!-- Henry -->
-    <script type="text/javascript"
+    <!--<script type="text/javascript"
                                 src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\custom.js"></script>
                             <script type="text/javascript"
-                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script>
+                                src="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Scripts\methodology-notes.js"></script> -->
 
 
 </body>
