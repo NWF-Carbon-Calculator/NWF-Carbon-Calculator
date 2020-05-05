@@ -383,14 +383,14 @@ function calcAppliance() {
     var total_appliance_result_day = before_appliance_result_day - after_appliance_result_day;
     var total_appliance_result_year = before_appliance_result_year - after_appliance_result_year;
     //set totals
-    $('#before_appliance_result_day').val(before_appliance_result_day);
-    $('#before_appliance_result_year').val(before_appliance_result_year);
+    $('#before_appliance_result_day').val(before_appliance_result_day.toFixed(2));
+    $('#before_appliance_result_year').val(before_appliance_result_year.toFixed(2));
 
-    $('#after_appliance_result_day').val(after_appliance_result_day);
-    $('#after_appliance_result_year').val(after_appliance_result_year);
+    $('#after_appliance_result_day').val(after_appliance_result_day.toFixed(2));
+    $('#after_appliance_result_year').val(after_appliance_result_year.toFixed(2));
 
-    $('#total_appliance_result_day').val(total_appliance_result_day);
-    $('#total_appliance_result_year').val(total_appliance_result_year);
+    $('#total_appliance_result_day').val(total_appliance_result_day.toFixed(2));
+    $('#total_appliance_result_year').val(total_appliance_result_year.toFixed(2));
   }
   appliance_total.push(before_appliance_result_year, after_appliance_result_year, total_appliance_result_year,
     appliance_before_kwh_perYear, appliance_after_kwh_perYear);
