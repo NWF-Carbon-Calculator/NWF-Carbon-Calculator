@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="/Css/main.css" rel="stylesheet">
+    <link href="./Css/main.css" rel="stylesheet">
 
     <!-- Henry -->
     <!--<link href="C:\Users\quiro\OneDrive\Documents\CIS 4290\NWF-Carbon-Calculator\Css\main.css" rel="stylesheet">-->
@@ -187,7 +187,7 @@
                             <th>State-Based Average</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="centerHeading">
                         <tr>
                             <td scope="row">Coal</td>
                             <td id="coal_percent">37.4%</td>
@@ -223,8 +223,8 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td scope="row">Electricity Emissions Factor</td>
+                        <tr >
+                            <td scope="row">Electricity Emissions Factor:</td>
                             <td><input type="text" id="national_average_factor" readonly>lbs CO<sub>2</sub>/kWh</td>
                             <td><input type="text" id="custom_factor" readonly>lbs CO<sub>2</sub>/kWh</td>
                         </tr>
@@ -873,7 +873,7 @@
         </div>
     </div>
 
-    <!-- Lighting Content -->
+   <!-- School Lighting Content -->
     <div class="container content-container" id="container_record-data">
         <div class="row content-header">
             <h4>School Lighting</h4>
@@ -906,7 +906,7 @@
                                     CO<sub>2</sub>/kWh</strong></em></span></p>
                 </div>
                 <div>
-                    <p>Input the data below collected from your worksheet, <em>Carbon Calculator: School Lighting,
+                    <p><em>Input the data below, found in the worksheet titled, Carbon Calculator: School Lighting,
                             Energy Vampires, and Other Appliances</em></p>
                 </div>
             </div>
@@ -924,7 +924,7 @@
                                 <th scope="col">After taking action (# of hours switch is on, per day)</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="centerHeading">
                             <tr>
                                 <td scope="row">1</td>
                                 <td><input type="text" id="number_switches1"></td>
@@ -1012,23 +1012,23 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><strong>CO2 Emissions per day (lbs)</strong></td>
+                                <td class="paddingRight35"><strong>CO2 Emissions per day (lbs)</strong></td>
                                 <td><strong>Co2 Emissions per 180-day school year (lbs)</strong></td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Before Taking Action</td>
-                                <td><input type="text" readonly id="lighting_co2_before"></td>
+                                <td class="paddingRight25" >Before Taking Action</td>
+                                <td ><input type="text" readonly id="lighting_co2_before"></td>
                                 <td><input type="text" readonly id="lighting_co2_before_180"></td>
                             </tr>
                             <tr>
-                                <td>After Taking Action</td>
-                                <td><input type="text" readonly id="lighting_co2_after"></td>
+                                <td class="paddingRight25">After Taking Action</td>
+                                <td ><input type="text" readonly id="lighting_co2_after"></td>
                                 <td><input type="text" readonly id="lighting_co2_after_180"></td>
                             </tr>
                             <tr>
-                                <td>Total CO2 emissions savings</td>
+                                <td class="paddingRight25">Total CO2 emissions savings</td>
                                 <td><input type="text" readonly id="lighting_co2_saved"></td>
                                 <td><input type="text" readonly id="lighting_co2_saved_180"></td>
                             </tr>
@@ -1268,7 +1268,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-sm-4" scope="row">1. How much does the trash can weigh when completely full?</td>
+                                <td class="col-sm-4" scope="row">1. How much does the trash can weigh when completely empty?</td>
                                 <td class="col-sm-4"><input type="text" class="col-sm-12" id="trash_input1">
                                 </td>
                             </tr>
@@ -2166,8 +2166,8 @@
         crossorigin="anonymous"></script>
 
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="/Scripts/methodology-notes.js"></script>
-    <script type="text/javascript" src="/Scripts/custom.js"></script>
+    <script type="text/javascript" src="./Scripts/methodology-notes.js"></script>
+    <script type="text/javascript" src="./Scripts/custom.js"></script>
 
     <!-- Local Host Testing -->
     <!-- Henry -->
