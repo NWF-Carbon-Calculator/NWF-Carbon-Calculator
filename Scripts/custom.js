@@ -962,8 +962,10 @@ calculate = function () {
   document.getElementById('trash_summary6').value = answer7.toFixed(2);
 
   //3) cost savings x constant value
+  var trashCostSavings = 0;
+  trashCostSavings = beforeTrashCost - afterTrashCost;
   document.getElementById("sumTrashEmissionSavings").innerHTML = answer7.toFixed(2);
-  document.getElementById("sumTrashCostSavings").innerHTML = beforeTrashCost - afterTrashCost;
+  document.getElementById("sumTrashCostSavings").innerHTML = trashCostSavings.toFixed(2);
 }
 
 // 4/17/20 3:15pm have added .toFixed(2) to the results in order to round the decimals.
@@ -1074,8 +1076,8 @@ calculatev2 = function () {
     document.getElementById("sumPaperCostSavings").innerHTML = paperCost;
   }
 
-  var totalCost = beforeTotalCost.toFixed(2) - afterTotalCost.toFixed(2);
-  $('#sumPaperCostSavings').text(totalCost);
+  var totalCost = beforeTotalCost - afterTotalCost;
+  $('#sumPaperCostSavings').text(totalCost.toFixed(2));
 
 
   panswersum1 = panswer1;
@@ -1208,7 +1210,7 @@ calculate1 = function () {
   bottleSavings = ((bottleinput1 - bottleinput2) * 36 * AVGCOSTBOTTLE);
   bottleSavings1 = ((bottleinput7 - bottleinput8) * 36 * AVGCOSTBEVCUP);
   bottleSavings2 = (bottleSavings + bottleSavings1);
-  document.getElementById("sumPlasticCostSavings").innerHTML = bottleSavings2;
+  document.getElementById("sumPlasticCostSavings").innerHTML = bottleSavings2.toFixed(2);
 
   var canswer2 = (canswer * 36);
   var canswer3 = (canswer1 * 36);
@@ -1241,7 +1243,7 @@ calculate1 = function () {
   var answer10_1 = (answer10 + canswer3);
   document.getElementById('bottles_results10').value = answer10_1.toFixed(2);
   bottleCarbonAfter = answer10_1;
-  document.getElementById("sumPlasticAfter").innerHTML = answer10_1;
+  document.getElementById("sumPlasticAfter").innerHTML = answer10_1.toFixed(2);
 
   //Total CO2 emissions savings
   //CO2 emissions per week
@@ -1381,7 +1383,7 @@ function reCalculateSummary() {
   totalBeforeAction += parseFloat($('#sumFoodBefore').text());
   totalBeforeAction += parseFloat($('#sumPlasticBefore').text());
   //totalBeforeAction += parseFloat($('#sumBeverageBefore').text());
-  $('#sumTotalBefore').text(totalBeforeAction);
+  $('#sumTotalBefore').text(totalBeforeAction.toFixed(2));
 
   // Emissions after taking action sum
   var totalAfterAction = 0;
@@ -1394,7 +1396,7 @@ function reCalculateSummary() {
   totalAfterAction += parseFloat($('#sumFoodAfter').text());
   totalAfterAction += parseFloat($('#sumPlasticAfter').text());
   //totalAfterAction += parseFloat($('#sumBeverageAfter').text());
-  $('#sumTotalAfter').text(totalAfterAction);
+  $('#sumTotalAfter').text(totalAfterAction.toFixed(2));
 
   // Emissions savings sum
   var totalEmissionSavings = 0;
@@ -1407,7 +1409,7 @@ function reCalculateSummary() {
   totalEmissionSavings += parseFloat($('#sumFoodEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPlasticEmissionSavings').text());
   //totalEmissionSavings += parseFloat($('#sumBeverageEmissionSavings').text());
-  $('#sumEmissionSavings').text(totalEmissionSavings);
+  $('#sumEmissionSavings').text(totalEmissionSavings.toFixed(2));
 
   // Electricity savings sum
   var electricitySavings = 0;
@@ -1419,7 +1421,7 @@ function reCalculateSummary() {
   // electricitySavings += parseFloat($('#sumPaperElectricitySavings').text());
   // electricitySavings += parseFloat($('#sumPlasticElectricitySavings').text());
   // electricitySavings += parseFloat($('#sumBeverageElectricitySavings').text());
-  $('#sumElectricitySavings').text(electricitySavings);
+  $('#sumElectricitySavings').text(electricitySavings.toFixed(2));
 
   // Cost savings sum
   var costSavings = 0;
@@ -1431,14 +1433,14 @@ function reCalculateSummary() {
   costSavings += parseFloat($('#sumPaperCostSavings').text());
   costSavings += parseFloat($('#sumPlasticCostSavings').text());
   //costSavings += parseFloat($('#sumBeverageCostSavings').text());
-  $('#sumCostSavings').text(costSavings);
+  $('#sumCostSavings').text(costSavings.toFixed(2));
 
   // Per student calculation
   var studentBefore = totalBeforeAction / numberOfStudents;
   $('#sumStudentTotalBefore').text(studentBefore.toFixed(2));
 
   var studentAfter = totalAfterAction / numberOfStudents;
-  $('#sumStudentTotalAfter').text(studentAfter.toFixed(2));
+  $('#sumStudentTotalAfter').text(studentAfter.toFixed(2));c
 
   var studentEmissions = totalEmissionSavings / numberOfStudents;
   $('#sumStudentEmissionSavings').text(studentEmissions.toFixed(2));
