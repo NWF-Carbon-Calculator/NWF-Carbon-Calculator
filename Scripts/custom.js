@@ -306,11 +306,11 @@ $('#btn_add_row').click(function () {
 
 let lineNo = 2;
 $("#appliance_btn_add_row").click(function () {
-  markup = "<tr><td><input type='text' id='appliance_type" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_wattage" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_count" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
-    "<td><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
+  markup = "<tr><td align=center><input type='text' id='appliance_type" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_wattage" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_count" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_before_option" + lineNo + "'</td>" +
+    "<td align=center><input type='text' id='appliance_after_option" + lineNo + "'</td></tr>";
 
   result_markup = "<tr><td><input type='text' id='appliance" + lineNo + "' readonly></td>" +
     "<td><input type='text' id='appliance_before_per_day" + lineNo + "' readonly></td>" +
@@ -383,14 +383,14 @@ function calcAppliance() {
     var total_appliance_result_day = before_appliance_result_day - after_appliance_result_day;
     var total_appliance_result_year = before_appliance_result_year - after_appliance_result_year;
     //set totals
-    $('#before_appliance_result_day').val(before_appliance_result_day);
-    $('#before_appliance_result_year').val(before_appliance_result_year);
+    $('#before_appliance_result_day').val(before_appliance_result_day.toFixed(2));
+    $('#before_appliance_result_year').val(before_appliance_result_year.toFixed(2));
 
-    $('#after_appliance_result_day').val(after_appliance_result_day);
-    $('#after_appliance_result_year').val(after_appliance_result_year);
+    $('#after_appliance_result_day').val(after_appliance_result_day.toFixed(2));
+    $('#after_appliance_result_year').val(after_appliance_result_year.toFixed(2));
 
-    $('#total_appliance_result_day').val(total_appliance_result_day);
-    $('#total_appliance_result_year').val(total_appliance_result_year);
+    $('#total_appliance_result_day').val(total_appliance_result_day.toFixed(2));
+    $('#total_appliance_result_year').val(total_appliance_result_year.toFixed(2));
   }
   appliance_total.push(before_appliance_result_year, after_appliance_result_year, total_appliance_result_year,
     appliance_before_kwh_perYear, appliance_after_kwh_perYear);
@@ -1404,6 +1404,7 @@ function reCalculateSummary() {
   totalEmissionSavings += parseFloat($('#sumTranEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumTrashEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPaperEmissionSavings').text());
+  totalEmissionSavings += parseFloat($('#sumFoodEmissionSavings').text());
   totalEmissionSavings += parseFloat($('#sumPlasticEmissionSavings').text());
   //totalEmissionSavings += parseFloat($('#sumBeverageEmissionSavings').text());
   $('#sumEmissionSavings').text(totalEmissionSavings);

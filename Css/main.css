@@ -10,6 +10,13 @@
     display: block;
 }
 
+.paddingRight35 {
+ padding-right: 35px;
+}
+.paddingRight25 {
+ padding-right: 25px;
+}
+
 .breadcrumb {
     margin: 0px 20px 40px 0px;
     /* float: right; */
@@ -116,8 +123,8 @@ table#vampire_result_table {
     margin: auto;
 }
 
-#vampire_re td input, #table_vampire td input {
-    width: 100px;
+#vampire_re td input, #table_vampire td input, #table_appliance_results td input {
+    width: 100%;
 }
 
 #transportation_table td input {
@@ -138,13 +145,8 @@ table#transportation_results {
     width: 75%;
 }
 
-#table_appliance_results td input {
-    width: 100%;
-}
-
-td.appliance_name{
-    width: 50px;
-    padding: 5px
+#appliance_container {
+    text-align: center;
 }
 
 table#bottles_summary_table {
@@ -152,7 +154,15 @@ table#bottles_summary_table {
     margin: auto;
 }
 
+#vampire_re tbody td:nth-child(2n+1), #vampire_re tbody th:nth-child(2n+1),
+#table_appliance_results tbody td:nth-child(2n+1),
+#table_appliance_results tbody th:nth-child(2n+1) {
+   border-right: 1px solid #dee2e6;
+}
 
+#vampire_re tbody td:last-child, #vampire_re tbody th:last-child,
+#table_appliance_results tbody td:last-child,
+#table_appliance_results tbody th:last-child {
 
-
-
+    border-right:none;
+}

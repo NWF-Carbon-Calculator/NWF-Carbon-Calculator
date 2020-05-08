@@ -11,7 +11,7 @@ const TREECO2 = 48;
 // Average cost per gallon of gas
 const GASCOST = 2.26;
 //Electricity cost per KWH
-const ELECTRICITYCOST = 10.43 
+const ELECTRICITYCOST = 10.43
 
 var numberOfStudents = 1;
 // *****ELECTRICITY*****
@@ -52,22 +52,22 @@ const AVGCOSTBEVCUP = 0.078;
 const COPERCUP = 0.25;
 
 //***********OTHER APPLIANCES************
-function totalkWHPerDay(wattage, count, action) {
-  total = wattage * count * action;
-  return total
-}
-
-function totalkwHPerYear(action){
-  total = action * 180;
-  return total;
-}
-
-// ****Energy Vampire*****
 const HOURSAWAYFROMSCHOOL = 16;
 const WATTSPERKW = 1000;
 const days = 180;
 var total;
 
+function totalkWHPerDay(wattage, count, action) {
+  total = wattage * count * action / WATTSPERKW;
+  return total.toFixed(2)
+}
+
+function totalkwHPerYear(action){
+  total = action * 180;
+  return total.toFixed(2)
+}
+
+// ****Energy Vampire*****
 function totalkWhConsumedOvernight(numberOfDevice, action) {
     total = numberOfDevice * HOURSAWAYFROMSCHOOL / WATTSPERKW * action;
     return total.toFixed(2);
