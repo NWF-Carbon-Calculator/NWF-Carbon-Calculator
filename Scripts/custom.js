@@ -832,7 +832,7 @@ $('#btn_calculate_transportation').click(function () {
   weeklyCarbonEmitted = weeklyCarbonDrivingCarpool(gallonsBurnedBeforeAction, peopleInCarpool);
   $('#transportation_results7').val(weeklyCarbonEmitted);
   transportationCarbonBefore += parseFloat(weeklyCarbonEmitted);
-  $('#transportation_results11').val(transportationCarbonBefore);
+  $('#transportation_results11').val(transportationCarbonBefore.toFixed(2));
 
   distanceTraveled = $('#transportation_input2').val();
   daysCarpool = $('#transportation_input8').val();
@@ -850,10 +850,10 @@ $('#btn_calculate_transportation').click(function () {
 
   var totalSavings = 0;
   totalSavings = transportationCarbonBefore - transportationCarbonAfter;
-  $('#transportation_results15').val(totalSavings);
+  $('#transportation_results15').val(totalSavings.toFixed(2));
 
   transportationCarbonBefore *= 36;
-  $('#transportation_results12').val(transportationCarbonBefore);
+  $('#transportation_results12').val(transportationCarbonBefore.toFixed(2));
   transportationCarbonAfter *= 36;
   $('#transportation_results14').val(transportationCarbonAfter);
   totalSavings = transportationCarbonBefore - transportationCarbonAfter;
