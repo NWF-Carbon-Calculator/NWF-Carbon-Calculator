@@ -19,6 +19,7 @@ $('#btn_appliance').click(function () {
   $('.content-container').hide();
   $('#container_appliance').insertAfter('#startDiv');
   $('#container_appliance').show();
+  var EEF = calcEEF();
   document.getElementById("show_eef").value = calcEEF().toFixed(2);
   document.getElementById("whichPlan").innerHTML = whichPlan();
 })
@@ -28,6 +29,7 @@ $('#btn_vampire').click(function () {
   $('.content-container').hide();
   $('#container_vampire').insertAfter('#startDiv');
   $('#container_vampire').show();
+  var EEF = calcEEF();
   document.getElementById("show_eef").value = calcEEF().toFixed(2);
   document.getElementById("whichPlan").innerHTML = whichPlan();
 })
