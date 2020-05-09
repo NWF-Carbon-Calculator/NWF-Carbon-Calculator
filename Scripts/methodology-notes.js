@@ -73,11 +73,6 @@ function totalkWhConsumedOvernight(numberOfDevice, action) {
     return total;
 }
 
-function totalkWhPerSchoolYear(kWhConsumedOvernight) {
-    total = kWhConsumedOvernight / days;
-    return total;
-}
-
 function totalCO2Per16HrNight(kWhConsumedOvernight, emissionsFactor) {
     total = kWhConsumedOvernight * emissionsFactor;
     return total;

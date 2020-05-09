@@ -539,7 +539,7 @@ function calcVampire() {
       if (after_action === "Off") {
         a_action = 0.5;
       } else if (after_action === "Active") {
-        a_action = 120;
+        a_action = 15;
       } else {
         a_action = 0;
       }
@@ -658,7 +658,7 @@ function calcVampire() {
       if (before_action === "Off") {
         b_action = 4;
       } else if (before_action === "Active") {
-        b_action = 175;
+        b_action = 600;
       } else {
         b_action = 0;
       }
@@ -666,7 +666,7 @@ function calcVampire() {
       if (after_action === "Off") {
         a_action = 4;
       } else if (after_action === "Active") {
-        a_action = 175;
+        a_action = 600;
       } else {
         a_action = 0;
       }
@@ -692,12 +692,12 @@ function calcVampire() {
 
     // calculations before
     before_totalOvernight = totalkWhConsumedOvernight(numberOfDevice, b_action);
-    before_totalkWhPerYear = totalkWhPerSchoolYear(before_totalOvernight);
+    before_totalkWhPerYear = totalkwHPerYear(before_totalOvernight);
     before_totalCO2PerNight = totalCO2Per16HrNight(before_totalOvernight, emissionsFactor);
     before_totalCO2PerYear = totalCO2PerSchoolYear(before_totalCO2PerNight);
 
     after_totalOvernight = totalkWhConsumedOvernight(numberOfDevice, a_action);
-    after_totalkWhPerYear = totalkWhPerSchoolYear(after_totalOvernight);
+    after_totalkWhPerYear = totalkwHPerYear(after_totalOvernight);
     after_totalCO2PerNight = totalCO2Per16HrNight(after_totalOvernight, emissionsFactor);
     after_totalCO2PerYear = totalCO2PerSchoolYear(after_totalCO2PerNight);
     //set calculations
