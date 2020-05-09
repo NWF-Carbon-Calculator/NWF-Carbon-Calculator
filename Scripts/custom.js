@@ -332,11 +332,13 @@ $("#appliance_btn_add_row").click(function () {
 });
 
 function calcAppliance() {
+  var EEF = document.getElementById("show_eef").value = calcEEF().toFixed(2);
+  //document.getElementById("whichPlan").innerHTML = whichPlan();
   var before_appliance_result_day = 0;
   var before_appliance_result_year = 0;
   var after_appliance_result_day = 0;
   var after_appliance_result_year = 0;
-  var emissionsFactor = 1.2;
+  var emissionsFactor = EEF;
   var appliance_before_kwh_perYear = 0;
   var appliance_after_kwh_perYear = 0;
   var rowCount = $('#table_appliance >tbody >tr').length;
@@ -357,6 +359,7 @@ function calcAppliance() {
     var totalPerYearBefore = totalkwHPerYear(totalPerDayBefore);
     var totalCO2PerDayBefore = totalCO2Per16HrNight(totalPerDayBefore, emissionsFactor);
     var totalCO2PerYearBefore = totalCO2PerSchoolYear(totalCO2PerDayBefore);
+    console.log(totalCO2PerYearBefore);
 
     var totalPerDayAfter = totalkWHPerDay(wattage, count, after_hours);
     var totalPerYearAfter = totalkwHPerYear(totalPerDayAfter);
@@ -364,14 +367,14 @@ function calcAppliance() {
     var totalCO2PerYearAfter = totalCO2PerSchoolYear(totalCO2PerDayAfter);
 
     $('#appliance' + i).val(device);
-    $('#appliance_before_per_day' + i).val(totalPerDayBefore);
-    $('#appliance_after_per_day' + i).val(totalPerDayAfter);
-    $('#appliance_before_per_year' + i).val(totalPerYearBefore);
-    $('#appliance_after_per_year' + i).val(totalPerYearAfter);
-    $('#appliance_before_CO2_per_day' + i).val(totalCO2PerDayBefore);
-    $('#appliance_after_CO2_per_day' + i).val(totalCO2PerDayAfter);
-    $('#appliance_before_CO2_per_year' + i).val(totalCO2PerYearBefore);
-    $('#appliance_after_CO2_per_year' + i).val(totalCO2PerYearAfter);
+    $('#appliance_before_per_day' + i).val(totalPerDayBefore.toFixed(2));
+    $('#appliance_after_per_day' + i).val(totalPerDayAfter.toFixed(2));
+    $('#appliance_before_per_year' + i).val(totalPerYearBefore.toFixed(2));
+    $('#appliance_after_per_year' + i).val(totalPerYearAfter.toFixed(2));
+    $('#appliance_before_CO2_per_day' + i).val(totalCO2PerDayBefore.toFixed(2));
+    $('#appliance_after_CO2_per_day' + i).val(totalCO2PerDayAfter.toFixed(2));
+    $('#appliance_before_CO2_per_year' + i).val(totalCO2PerYearBefore.toFixed(2));
+    $('#appliance_after_CO2_per_year' + i).val(totalCO2PerYearAfter.toFixed(2));
 
     appliance_before_kwh_perYear += parseFloat(totalPerYearBefore);
     appliance_after_kwh_perYear += parseFloat(totalPerYearAfter);
@@ -466,7 +469,8 @@ const VAMPIREINPUTS = 11;
 
 function calcVampire() {
   var total = 0;
-  var emissionsFactor = 1.2;
+  var EEF = document.getElementById("show_eef").value = calcEEF().toFixed(2);
+  var emissionsFactor = EEF;
   var before_result_day = 0;
   var before_result_year = 0;
   var after_result_day = 0;
@@ -697,17 +701,17 @@ function calcVampire() {
     after_totalCO2PerNight = totalCO2Per16HrNight(after_totalOvernight, emissionsFactor);
     after_totalCO2PerYear = totalCO2PerSchoolYear(after_totalCO2PerNight);
     //set calculations
-    $('#vampire_before_kWhPerDay_' + i).val(before_totalOvernight);
-    $('#vampire_after_kWhPerDay_' + i).val(after_totalOvernight);
+    $('#vampire_before_kWhPerDay_' + i).val(before_totalOvernight.toFixed(2));
+    $('#vampire_after_kWhPerDay_' + i).val(after_totalOvernight.toFixed(2));
 
-    $('#vampire_before_kWhPerSchoolYr_' + i).val(before_totalkWhPerYear);
-    $('#vampire_after_kWhPerSchoolYr_' + i).val(after_totalkWhPerYear);
+    $('#vampire_before_kWhPerSchoolYr_' + i).val(before_totalkWhPerYear.toFixed(2));
+    $('#vampire_after_kWhPerSchoolYr_' + i).val(after_totalkWhPerYear.toFixed(2));
 
-    $('#vampire_before_CO2PerDay_' + i).val(before_totalCO2PerNight);
-    $('#vampire_after_CO2PerDay_' + i).val(after_totalCO2PerNight);
+    $('#vampire_before_CO2PerDay_' + i).val(before_totalCO2PerNight.toFixed(2));
+    $('#vampire_after_CO2PerDay_' + i).val(after_totalCO2PerNight.toFixed(2));
 
-    $('#vampire_before_CO2PerSchoolYr_' + i).val(before_totalCO2PerYear);
-    $('#vampire_after_CO2PerSchoolYr_' + i).val(after_totalCO2PerYear);
+    $('#vampire_before_CO2PerSchoolYr_' + i).val(before_totalCO2PerYear.toFixed(2));
+    $('#vampire_after_CO2PerSchoolYr_' + i).val(after_totalCO2PerYear.toFixed(2));
     //add up totals
     vampire_before_kwh_perYear += parseFloat(before_totalkWhPerYear);
     vampire_after_kwh_perYear += parseFloat(after_totalkWhPerYear);
