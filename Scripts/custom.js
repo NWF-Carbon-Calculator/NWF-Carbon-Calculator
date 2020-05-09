@@ -1442,9 +1442,12 @@ function reCalculateSummary() {
   $('#sumStudentTotalBefore').text(studentBefore.toFixed(2));
 
   var studentAfter = totalAfterAction / numberOfStudents;
-  $('#sumStudentTotalAfter').text(studentAfter.toFixed(2));c
+  $('#sumStudentTotalAfter').text(studentAfter.toFixed(2));
 
   var studentEmissions = totalEmissionSavings / numberOfStudents;
+  console.log("stud emm" + studentEmissions);
+  console.log("totalem" + totalEmissionSavings);
+  console.log("num of stud" + numberOfStudents);
   $('#sumStudentEmissionSavings').text(studentEmissions.toFixed(2));
 
   // Equivalency calculation
