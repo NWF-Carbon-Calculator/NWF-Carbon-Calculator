@@ -299,6 +299,13 @@ var after_action10 = document.getElementById("after_action10").value;
 //*************OTHER APPLIANCES*****************
 var numberOfRows = 1;
 
+// Set #s for calculations/debug
+// $('#appliance_type1').val("Computer");
+// $('#appliance_wattage1').val(120);
+// $('#appliance_count1').val(1);
+// $('#appliance_before_option1').val(2);
+// $('#appliance_after_option1').val(2);
+
 // Add new row to lighting table
 $('#btn_add_row').click(function () {
   numberOfRows++;
@@ -444,26 +451,22 @@ $('#appliance_btn_reset').click(function () {
   }
 })
 
-$('#appliance_type1').val("Computer");
-$('#appliance_wattage1').val(120);
-$('#appliance_count1').val(1);
-$('#appliance_before_option1').val(2);
-$('#appliance_after_option1').val(2);
+
 
 
 //***********ENERGY VAMPIRE**************
-//device count - set #s for calculations
-$('#vampire_count_1').val(1);
-$('#vampire_count_2').val(1);
-$('#vampire_count_3').val(3);
-$('#vampire_count_4').val(1);
-$('#vampire_count_5').val(2);
-$('#vampire_count_6').val(4);
-$('#vampire_count_7').val(6);
-$('#vampire_count_8').val(4);
-$('#vampire_count_9').val(1);
-$('#vampire_count_10').val(7);
-$('#vampire_count_11').val(2);
+//device count - set #s for calculations/debug
+// $('#vampire_count_1').val(1);
+// $('#vampire_count_2').val(1);
+// $('#vampire_count_3').val(3);
+// $('#vampire_count_4').val(1);
+// $('#vampire_count_5').val(2);
+// $('#vampire_count_6').val(4);
+// $('#vampire_count_7').val(6);
+// $('#vampire_count_8').val(4);
+// $('#vampire_count_9').val(1);
+// $('#vampire_count_10').val(7);
+// $('#vampire_count_11').val(2);
 
 const VAMPIREINPUTS = 11;
 
@@ -892,20 +895,20 @@ $('#btn_reset_transportation').click(function () {
 })
 
 // Automatically add values to debug calculations
-$('#transportation_input1').val(20);
-$('#transportation_input2').val(18);
-$('#transportation_input3').val(4);
-$('#transportation_input4').val(3);
-$('#transportation_input5').val(18);
-$('#transportation_input6').val(33);
-$('#transportation_input7').val(4);
-$('#transportation_input8').val(5);
-$('#transportation_input9').val(23);
-$('#transportation_input10').val(34);
-$('#transportation_input11').val(2);
-$('#transportation_input12').val(4);
-$('#transportation_input13').val(1);
-$('#transportation_input14').val(1);
+// $('#transportation_input1').val(20);
+// $('#transportation_input2').val(18);
+// $('#transportation_input3').val(4);
+// $('#transportation_input4').val(3);
+// $('#transportation_input5').val(18);
+// $('#transportation_input6').val(33);
+// $('#transportation_input7').val(4);
+// $('#transportation_input8').val(5);
+// $('#transportation_input9').val(23);
+// $('#transportation_input10').val(34);
+// $('#transportation_input11').val(2);
+// $('#transportation_input12').val(4);
+// $('#transportation_input13').val(1);
+// $('#transportation_input14').val(1);
 
 // *****Trash Content Calculations*****
 const TRASHINPUTS = 11;
