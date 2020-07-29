@@ -96,6 +96,10 @@
     text-align: center;
 }
 
+.td_center {
+    text-align: center;
+}
+
 /* input {
     max-width: 300px;
 } */
@@ -166,3 +170,4 @@ table#bottles_summary_table {
 
     border-right:none;
 }
+
